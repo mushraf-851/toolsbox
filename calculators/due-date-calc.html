@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Pregnancy Due Date Calculator — Find Your Baby's Due Date | ToolsBox</title>
+<meta name="description" content="Free pregnancy due date calculator. Enter your last menstrual period or conception date to find your estimated due date, current week of pregnancy, and trimester. Instant results.">
+<meta name="keywords" content="due date calculator, pregnancy due date, when is my baby due, pregnancy calculator, weeks pregnant calculator, EDD calculator, last menstrual period calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/due-date-calc.html">
+
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Pregnancy Due Date Calculator | ToolsBox">
+<meta property="og:description" content="Find your estimated due date, pregnancy week, and trimester instantly. Free online pregnancy calculator.">
+<meta property="og:url"         content="https://yourdomain.com/calculators/due-date-calc.html">
+<meta property="og:site_name"   content="ToolsBox">
+<meta name="twitter:card"       content="summary">
+<meta name="twitter:title"      content="Due Date Calculator | ToolsBox">
+<meta name="twitter:description" content="Calculate your pregnancy due date instantly. Free, no sign-up required.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Pregnancy Due Date Calculator",
+  "url":"https://yourdomain.com/calculators/due-date-calc.html",
+  "description":"Free pregnancy due date calculator. Find estimated due date, current pregnancy week, trimester, and key milestone dates.",
+  "applicationCategory":"HealthApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How is the pregnancy due date calculated?",
+      "acceptedAnswer":{"@type":"Answer","text":"The standard method (Naegele's Rule) adds 280 days (40 weeks) to the first day of your last menstrual period (LMP). This is the most widely used method by doctors and midwives worldwide."}
+    },
+    {
+      "@type":"Question",
+      "name":"How many weeks is a full-term pregnancy?",
+      "acceptedAnswer":{"@type":"Answer","text":"A full-term pregnancy is 40 weeks (280 days) from the last menstrual period. Babies born between 39–40 weeks are considered full term. Early term is 37–38 weeks, late term is 41 weeks, and post-term is 42 weeks or more."}
+    },
+    {
+      "@type":"Question",
+      "name":"What are the three trimesters of pregnancy?",
+      "acceptedAnswer":{"@type":"Answer","text":"First trimester: Weeks 1–12. Second trimester: Weeks 13–27. Third trimester: Weeks 28–40. Each trimester brings different developmental milestones and physical changes."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can I calculate due date from conception date?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Add 266 days (38 weeks) to your conception date to estimate your due date. This calculator supports both LMP and conception date methods."}
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Cormorant:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:      #070609;
+  --bg2:     #0c0b0e;
+  --surf:    #111014;
+  --surf2:   #181620;
+  --surf3:   #1f1d28;
+  --bdr:     rgba(255,255,255,0.06);
+  --bdr2:    rgba(255,255,255,0.11);
+
+  /* Soft rose/pink — pregnancy/maternal theme */
+  --acc:     #f472b6;
+  --acc2:    #ec4899;
+  --acc-dim: rgba(244,114,182,0.09);
+  --acc-bdr: rgba(244,114,182,0.22);
+
+  --lav:     #a78bfa;
+  --lav-dim: rgba(167,139,250,0.08);
+
+  --mint:    #34d399;
+  --mint-dim:rgba(52,211,153,0.08);
+
+  /* Trimester colours */
+  --t1: #f472b6;
+  --t2: #a78bfa;
+  --t3: #34d399;
+
+  --txt:     #f0ecea;
+  --txt2:    #89868a;
+  --txt3:    #47444a;
+
+  --f:       'DM Sans', sans-serif;
+  --fs:      'Cormorant', serif;
+  --nav:     58px;
+  --mw:      680px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%,rgba(244,114,182,0.07),transparent),
+    linear-gradient(rgba(255,255,255,0.011) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.011) 1px,transparent 1px);
+  background-size:100%,52px 52px,52px 52px;
+  pointer-events:none;z-index:0
+}
+
+/* ── Nav ── */
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(7,6,9,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:16px;font-weight:700;color:#070609}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-0.3px}
+.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+
+/* ── Main ── */
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+
+/* Header */
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(30px,6.5vw,50px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:460px;margin:0 auto}
+
+/* ── Card ── */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:30px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(244,114,182,0.35),transparent)}
+
+/* Method tabs */
+.tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:4px;gap:4px;margin-bottom:24px}
+.tab{flex:1;padding:9px 8px;border-radius:9px;font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;line-height:1.3}
+.tab:hover{color:var(--txt)}
+.tab.on{background:var(--surf3);color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,0.4)}
+
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.field:last-of-type{margin-bottom:0}
+label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+
+input[type=date],select{
+  width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;
+  color:var(--txt);font-family:var(--f);font-size:15px;font-weight:500;
+  padding:12px 16px;outline:none;
+  transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;color-scheme:dark
+}
+input[type=date]:focus,select:focus{border-color:rgba(244,114,182,0.45);box-shadow:0 0 0 3px rgba(244,114,182,0.07)}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2347444a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer
+}
+
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Cycle length note */
+.cycle-note{font-size:11px;color:var(--txt3);margin-top:4px;line-height:1.5}
+
+.err{display:none;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.22);color:#f87171;font-size:13px;padding:10px 14px;border-radius:8px;margin-top:12px}
+.err.show{display:block}
+
+/* Buttons */
+.brow{display:flex;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:600;cursor:pointer;border:none;transition:transform .12s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.bp{background:var(--acc);color:#fff;flex:1}
+.bp:hover{background:#f9a8d4;box-shadow:0 6px 24px rgba(244,114,182,0.28)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr);padding:13px 18px}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+
+/* ── Results ── */
+.res{opacity:0;transform:translateY(10px);transition:opacity .38s,transform .38s;pointer-events:none;margin-top:26px}
+.res.show{opacity:1;transform:translateY(0);pointer-events:auto}
+
+/* Due date hero */
+.hero{border-radius:18px;padding:28px 22px 24px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(244,114,182,0.1),rgba(244,114,182,0.03));border:1px solid rgba(244,114,182,0.22)}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(244,114,182,0.55),transparent)}
+.hero-emoji{font-size:32px;display:block;margin-bottom:8px}
+.hero-date{font-family:var(--fs);font-size:clamp(32px,7vw,48px);font-weight:700;line-height:1.1;color:var(--acc);display:block;letter-spacing:-0.5px}
+.hero-label{font-size:13px;font-weight:500;color:var(--txt2);margin-top:5px;display:block}
+.hero-sub{font-size:13px;color:var(--txt);opacity:.8;margin-top:8px}
+
+/* Week badge */
+.week-badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:13px;font-weight:700;padding:6px 16px;border-radius:100px;margin-top:10px}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.stat{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:15px 10px;text-align:center;transition:border-color .18s}
+.stat:hover{border-color:rgba(244,114,182,0.18)}
+.sv{display:block;font-family:var(--fs);font-size:22px;font-weight:700;line-height:1.1;margin-bottom:3px}
+.sk{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+
+/* Trimester card */
+.trimester-card{border-radius:14px;padding:18px 20px;margin-bottom:12px;border:1px solid transparent;position:relative;overflow:hidden}
+.trimester-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.tri-t1{background:rgba(244,114,182,0.08);border-color:rgba(244,114,182,0.2)}
+.tri-t1::after{background:linear-gradient(90deg,transparent,rgba(244,114,182,0.4),transparent)}
+.tri-t2{background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.2)}
+.tri-t2::after{background:linear-gradient(90deg,transparent,rgba(167,139,250,0.4),transparent)}
+.tri-t3{background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.2)}
+.tri-t3::after{background:linear-gradient(90deg,transparent,transparent,rgba(52,211,153,0.4),transparent)}
+.tri-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tri-title{font-size:15px;font-weight:700;color:var(--txt)}
+.tri-pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.05em}
+.tri-t1 .tri-pill{background:rgba(244,114,182,0.15);color:var(--t1)}
+.tri-t2 .tri-pill{background:rgba(167,139,250,0.15);color:var(--lav)}
+.tri-t3 .tri-pill{background:rgba(52,211,153,0.15);color:var(--mint)}
+.tri-desc{font-size:13px;color:var(--txt2);line-height:1.6;margin-bottom:10px}
+.tri-progress{height:6px;background:var(--surf3);border-radius:100px;overflow:hidden}
+.tri-fill{height:100%;border-radius:100px;transition:width .6s cubic-bezier(.34,1.56,.64,1)}
+.tri-t1 .tri-fill{background:var(--t1)}
+.tri-t2 .tri-fill{background:var(--lav)}
+.tri-t3 .tri-fill{background:var(--mint)}
+.tri-footer{display:flex;justify-content:space-between;margin-top:5px;font-size:11px;color:var(--txt3)}
+
+/* 40-week progress bar */
+.preg-progress{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-bottom:12px}
+.pp-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;display:flex;justify-content:space-between}
+.pp-track{height:10px;background:var(--surf3);border-radius:100px;overflow:hidden;position:relative}
+.pp-fill{height:100%;border-radius:100px;transition:width .6s cubic-bezier(.34,1.56,.64,1);background:linear-gradient(90deg,var(--t1),var(--lav),var(--mint))}
+.pp-markers{display:flex;justify-content:space-between;margin-top:6px}
+.pp-mark{font-size:10px;color:var(--txt3)}
+
+/* Milestone timeline */
+.milestones{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-bottom:12px}
+.ms-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.ms-item{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid var(--bdr)}
+.ms-item:last-child{border-bottom:none;padding-bottom:0}
+.ms-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.ms-dot.past{background:var(--acc)}
+.ms-dot.current{background:var(--lav);box-shadow:0 0 0 3px rgba(167,139,250,0.25)}
+.ms-dot.future{background:var(--surf3);border:1px solid var(--bdr2)}
+.ms-info{flex:1}
+.ms-title{font-size:13px;font-weight:600;color:var(--txt);line-height:1.3}
+.ms-date{font-size:11px;color:var(--txt3);margin-top:2px}
+.ms-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;flex-shrink:0;margin-top:2px}
+.ms-badge.past{background:rgba(244,114,182,0.12);color:var(--acc)}
+.ms-badge.current{background:rgba(167,139,250,0.12);color:var(--lav)}
+.ms-badge.future{background:var(--surf3);color:var(--txt3)}
+
+/* Key dates grid */
+.dates-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.date-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:14px}
+.dc-icon{font-size:18px;margin-bottom:6px;display:block}
+.dc-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt3);margin-bottom:4px}
+.dc-val{font-size:14px;font-weight:700;color:var(--txt);line-height:1.3}
+.dc-sub{font-size:11px;color:var(--txt3);margin-top:2px}
+
+/* Disclaimer */
+.disclaimer{font-size:11px;color:var(--txt3);line-height:1.6;padding:10px 14px;background:var(--surf2);border-radius:8px;border:1px solid var(--bdr);margin-bottom:10px}
+
+/* Copy */
+.cpbtn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:12px;font-weight:600;padding:8px 14px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+
+/* ── Info ── */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+
+/* ── FAQ ── */
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:260px;padding-top:10px}
+
+/* ── Related ── */
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(244,114,182,0.22);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:700;display:block}
+.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+
+/* ── Footer ── */
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  main{padding:24px 14px 60px}
+  .card{padding:22px 16px}
+  .r2{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .dates-grid{grid-template-columns:1fr 1fr}
+  .ig{grid-template-columns:1fr}
+  .fi3{grid-template-columns:1fr 1fr;gap:20px}
+  .fb-brand{grid-column:1/-1}
+  .brow{flex-direction:column}
+  .bs{width:100%}
+}
+@media(max-width:400px){
+  .r2{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .dates-grid{grid-template-columns:1fr}
+  .rg{grid-template-columns:1fr 1fr}
+  .fi3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="logo-box">T</div>
+      <span class="logo-txt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html"            class="nl">🏠 Home</a>
+      <a href="index.html"               class="nl on" aria-current="page">🧮 Calculators</a>
+      <a href="../text-tools/index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation">
+  <a href="../index.html"            class="nl">🏠 Home</a>
+  <a href="index.html"               class="nl on">🧮 Calculators</a>
+  <a href="../text-tools/index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span aria-hidden="true"> › </span>
+    <a href="index.html">Calculators</a>
+    <span aria-hidden="true"> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Due Date Calculator</span>
+  </nav>
+
+  <header class="ph">
+    <div class="badge">🤰 Pregnancy Calculator</div>
+    <h1>Pregnancy <em>Due Date</em><br>Calculator</h1>
+    <p class="sub">Find your estimated due date, current pregnancy week, trimester, and key milestone dates — instantly.</p>
+  </header>
+
+  <!-- Tool Card -->
+  <div class="card">
+
+    <!-- Method tabs -->
+    <div class="tabs" role="tablist" aria-label="Calculation method">
+      <button class="tab on" id="tab-lmp"       onclick="setMethod('lmp')"       role="tab" aria-selected="true">Last Period (LMP)</button>
+      <button class="tab"    id="tab-conception" onclick="setMethod('conception')" role="tab" aria-selected="false">Conception Date</button>
+      <button class="tab"    id="tab-ultrasound" onclick="setMethod('ultrasound')" role="tab" aria-selected="false">Ultrasound Date</button>
+    </div>
+
+    <!-- LMP Method -->
+    <div id="pane-lmp">
+      <div class="field">
+        <label for="lmp-date">First day of last menstrual period (LMP)</label>
+        <input type="date" id="lmp-date" aria-label="Last menstrual period date" aria-required="true">
+      </div>
+      <div class="r2">
+        <div class="field" style="margin-bottom:0">
+          <label for="cycle-len">Cycle length</label>
+          <select id="cycle-len" aria-label="Menstrual cycle length">
+            <option value="21">21 days</option>
+            <option value="22">22 days</option>
+            <option value="23">23 days</option>
+            <option value="24">24 days</option>
+            <option value="25">25 days</option>
+            <option value="26">26 days</option>
+            <option value="27">27 days</option>
+            <option value="28" selected>28 days (average)</option>
+            <option value="29">29 days</option>
+            <option value="30">30 days</option>
+            <option value="31">31 days</option>
+            <option value="32">32 days</option>
+            <option value="33">33 days</option>
+            <option value="34">34 days</option>
+            <option value="35">35 days</option>
+          </select>
+          <span class="cycle-note">Average cycle is 28 days. Adjust if yours differs.</span>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label for="lmp-method-info">Calculation method</label>
+          <select id="lmp-method-info" disabled aria-label="Naegele's Rule (standard)">
+            <option>Naegele's Rule (standard)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conception Method -->
+    <div id="pane-conception" style="display:none">
+      <div class="field">
+        <label for="conception-date">Conception / ovulation date</label>
+        <input type="date" id="conception-date" aria-label="Conception date" aria-required="true">
+      </div>
+      <p style="font-size:12px;color:var(--txt3);margin-top:-6px">Add 266 days (38 weeks) from conception to find the due date.</p>
+    </div>
+
+    <!-- Ultrasound Method -->
+    <div id="pane-ultrasound" style="display:none">
+      <div class="field">
+        <label for="us-date">Ultrasound date</label>
+        <input type="date" id="us-date" aria-label="Ultrasound scan date" aria-required="true">
+      </div>
+      <div class="r2">
+        <div class="field" style="margin-bottom:0">
+          <label for="us-weeks">Weeks pregnant at scan</label>
+          <select id="us-weeks" aria-label="Weeks pregnant at ultrasound">
+            <option value="4">4 weeks</option>
+            <option value="5">5 weeks</option>
+            <option value="6">6 weeks</option>
+            <option value="7">7 weeks</option>
+            <option value="8">8 weeks</option>
+            <option value="9">9 weeks</option>
+            <option value="10">10 weeks</option>
+            <option value="11">11 weeks</option>
+            <option value="12" selected>12 weeks</option>
+            <option value="13">13 weeks</option>
+            <option value="14">14 weeks</option>
+            <option value="16">16 weeks</option>
+            <option value="18">18 weeks</option>
+            <option value="20">20 weeks</option>
+            <option value="22">22 weeks</option>
+            <option value="24">24 weeks</option>
+            <option value="28">28 weeks</option>
+            <option value="32">32 weeks</option>
+            <option value="36">36 weeks</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label for="us-days">Plus days</label>
+          <select id="us-days" aria-label="Additional days at ultrasound">
+            <option value="0">0 days</option>
+            <option value="1">1 day</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+            <option value="5">5 days</option>
+            <option value="6">6 days</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+
+    <div class="brow">
+      <button class="btn bp" onclick="calc()" aria-label="Calculate due date">Calculate Due Date →</button>
+      <button class="btn bs" onclick="rst()"  aria-label="Reset">Reset</button>
+    </div>
+
+    <!-- ── Results ── -->
+    <div class="res" id="res" aria-live="polite">
+
+      <!-- Hero due date -->
+      <div class="hero">
+        <span class="hero-emoji" aria-hidden="true">👶</span>
+        <span class="hero-date" id="r-due-date">--</span>
+        <span class="hero-label">Estimated due date</span>
+        <div class="hero-sub" id="r-hero-sub"></div>
+        <div class="week-badge" id="r-week-badge">Week -- of 40</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <span class="sv" id="r-weeks-preg" style="color:var(--acc)">--</span>
+          <span class="sk">Weeks pregnant</span>
+        </div>
+        <div class="stat">
+          <span class="sv" id="r-days-left" style="color:var(--lav)">--</span>
+          <span class="sk">Days remaining</span>
+        </div>
+        <div class="stat">
+          <span class="sv" id="r-trimester-num" style="color:var(--mint)">--</span>
+          <span class="sk">Trimester</span>
+        </div>
+      </div>
+
+      <!-- Current trimester card -->
+      <div class="trimester-card" id="trimester-card">
+        <div class="tri-header">
+          <div class="tri-title" id="tri-title">--</div>
+          <span class="tri-pill" id="tri-pill">--</span>
+        </div>
+        <div class="tri-desc" id="tri-desc"></div>
+        <div class="tri-progress">
+          <div class="tri-fill" id="tri-fill" style="width:0%"></div>
+        </div>
+        <div class="tri-footer">
+          <span id="tri-start"></span>
+          <span id="tri-pct"></span>
+          <span id="tri-end"></span>
+        </div>
+      </div>
+
+      <!-- 40-week overall progress -->
+      <div class="preg-progress">
+        <div class="pp-label">
+          <span>Pregnancy progress</span>
+          <span id="pp-pct">0%</span>
+        </div>
+        <div class="pp-track">
+          <div class="pp-fill" id="pp-fill" style="width:0%"></div>
+        </div>
+        <div class="pp-markers">
+          <span class="pp-mark">Week 1</span>
+          <span class="pp-mark">Week 12</span>
+          <span class="pp-mark">Week 27</span>
+          <span class="pp-mark">Week 40</span>
+        </div>
+      </div>
+
+      <!-- Milestone timeline -->
+      <div class="milestones">
+        <div class="ms-label">Key pregnancy milestones</div>
+        <div id="milestone-list"></div>
+      </div>
+
+      <!-- Key dates -->
+      <div class="dates-grid">
+        <div class="date-card">
+          <span class="dc-icon" aria-hidden="true">🗓️</span>
+          <div class="dc-title">Conception est.</div>
+          <div class="dc-val" id="dc-conception">--</div>
+          <div class="dc-sub">~2 weeks after LMP</div>
+        </div>
+        <div class="date-card">
+          <span class="dc-icon" aria-hidden="true">🩺</span>
+          <div class="dc-title">First scan (recommended)</div>
+          <div class="dc-val" id="dc-scan1">--</div>
+          <div class="dc-sub">Weeks 10–13</div>
+        </div>
+        <div class="date-card">
+          <span class="dc-icon" aria-hidden="true">💉</span>
+          <div class="dc-title">Anomaly scan</div>
+          <div class="dc-val" id="dc-scan2">--</div>
+          <div class="dc-sub">Weeks 18–21</div>
+        </div>
+        <div class="date-card">
+          <span class="dc-icon" aria-hidden="true">🏥</span>
+          <div class="dc-title">Full term window</div>
+          <div class="dc-val" id="dc-fullterm">--</div>
+          <div class="dc-sub">Weeks 39–40</div>
+        </div>
+      </div>
+
+      <p class="disclaimer" role="note">⚠️ This is an estimate only. Actual due dates vary — only 4–5% of babies arrive on their exact due date. Always confirm with your doctor or midwife. This tool is not a substitute for medical advice.</p>
+
+      <button class="cpbtn" id="cpbtn" onclick="cp()" aria-label="Copy results">📋 Copy Results</button>
+
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">How is the pregnancy due date calculated?</h2>
+    <p>The standard method is <strong style="color:var(--txt)">Naegele's Rule</strong>, which adds 280 days (40 weeks) to the first day of your last menstrual period (LMP). This assumes a 28-day cycle — if yours is different, the calculator adjusts accordingly.</p>
+    <p>If you know your conception or ovulation date, the calculator adds 266 days (38 weeks). For ultrasound-based dating, it works backward from your scan date and gestational age to find the equivalent LMP and due date.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">📅 LMP method</div><p>Most widely used. Add 280 days to the first day of your last period. Adjusted for cycle lengths other than 28 days.</p></div>
+      <div class="ic"><div class="ic-t">🧬 Conception date</div><p>If you tracked ovulation, add 266 days (38 weeks) from conception for your estimated due date.</p></div>
+      <div class="ic"><div class="ic-t">🔬 Ultrasound dating</div><p>Enter your scan date and gestational age. The calculator back-calculates the LMP equivalent and derives the due date.</p></div>
+      <div class="ic"><div class="ic-t">📊 Accuracy</div><p>Due dates are estimates. Only 4–5% of babies are born on their due date. Most are born within 2 weeks either side.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How is pregnancy due date calculated?</div>
+      <div class="fa">The standard Naegele's Rule adds 280 days (40 weeks) to the first day of your last menstrual period. This assumes a 28-day cycle. If your cycle is longer or shorter, the due date is adjusted by the difference in days.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How many weeks is a full-term pregnancy?</div>
+      <div class="fa">A full-term pregnancy is 40 weeks (280 days) from the LMP. Early term is 37–38 weeks, full term is 39–40 weeks, late term is 41 weeks, and post-term is 42+ weeks.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What are the three trimesters?</div>
+      <div class="fa">First trimester is weeks 1–12 (organ formation). Second trimester is weeks 13–27 (rapid growth, movement felt). Third trimester is weeks 28–40 (final development and birth preparation).</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">When should I have my first ultrasound scan?</div>
+      <div class="fa">The dating scan is typically recommended between weeks 10–13 to confirm gestational age and due date. An anomaly scan (morphology scan) is usually performed between weeks 18–21 to check fetal development.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What if my cycle is not 28 days?</div>
+      <div class="fa">Select your actual cycle length from the dropdown. The calculator adjusts the due date — for cycles longer than 28 days, ovulation occurs later and the due date is pushed forward. For shorter cycles, it moves earlier.</div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl" id="rel-h">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="age-calculator.html">
+        <span class="ri" aria-hidden="true">🎂</span>
+        <span class="rn">Age Calculator</span>
+        <span class="rd">Exact age in days</span>
+      </a>
+      <a class="rc" href="date-diff.html">
+        <span class="ri" aria-hidden="true">📅</span>
+        <span class="rn">Date Difference</span>
+        <span class="rd">Days between dates</span>
+      </a>
+      <a class="rc" href="bmi-calculator.html">
+        <span class="ri" aria-hidden="true">⚖️</span>
+        <span class="rn">BMI Calculator</span>
+        <span class="rd">Body mass index</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox">
+        <div class="logo-box">T</div>
+        <span class="logo-txt">Tools<em>Box</em></span>
+      </a>
+      <p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div>
+      <div class="fct">🧮 Calculators</div>
+      <ul class="fl">
+        <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">⚖️ BMI Calculator</a></li>
+        <li><a href="emi-calculator.html">🏦 EMI Calculator</a></li>
+        <li><a href="percentage-calc.html">💯 % Calculator</a></li>
+        <li><a href="compound-interest.html">📈 Compound Interest</a></li>
+        <li><a href="sip-calculator.html">💹 SIP Calculator</a></li>
+        <li><a href="gst-calculator.html">🧾 GST Calculator</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">✍️ Text Tools</div>
+      <ul class="fl">
+        <li><a href="../text-tools/word-counter.html">📝 Word Counter</a></li>
+        <li><a href="../text-tools/character-counter.html">🔢 Char Counter</a></li>
+        <li><a href="../text-tools/case-converter.html">🔠 Case Converter</a></li>
+        <li><a href="../text-tools/password-generator.html">🔐 Password Gen</a></li>
+        <li><a href="../text-tools/lorem-ipsum.html">📄 Lorem Ipsum</a></li>
+        <li><a href="../text-tools/hashtag-generator.html">#️⃣ Hashtag Gen</a></li>
+        <li><a href="../text-tools/reading-time.html">⏰ Reading Time</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">📌 Quick Links</div>
+      <ul class="fl">
+        <li><a href="../index.html">🏠 All Tools</a></li>
+        <li><a href="index.html">🧮 All Calculators</a></li>
+        <li><a href="../text-tools/index.html">✍️ All Text Tools</a></li>
+        <li><a href="calorie-calc.html">🔥 Calorie Calc</a></li>
+        <li><a href="due-date-calc.html">🤰 Due Date</a></li>
+        <li><a href="discount-calc.html">🏷️ Discount Calc</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span>
+    <span class="fc">Made with ❤️ for everyone</span>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+'use strict';
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var method = 'lmp';
+
+var MONTHS_LONG  = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var DAYS_SHORT   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var DAYS_LONG    = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+/* ── Method tabs ── */
+function setMethod(m) {
+  method = m;
+  ['lmp','conception','ultrasound'].forEach(function(id) {
+    document.getElementById('pane-'+id).style.display    = id === m ? '' : 'none';
+    document.getElementById('tab-'+id).classList.toggle('on', id === m);
+    document.getElementById('tab-'+id).setAttribute('aria-selected', id === m);
+  });
+  document.getElementById('res').classList.remove('show');
+  hideErr();
+}
+
+/* ── Date helpers ── */
+function addDays(date, days) {
+  var d = new Date(date);
+  d.setDate(d.getDate() + days);
+  return d;
+}
+
+function fmtLong(d) {
+  return DAYS_SHORT[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS_LONG[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function fmtShort(d) {
+  return d.getDate() + ' ' + MONTHS_SHORT[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function fmt8601(d) {
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+function today0() {
+  var t = new Date(); t.setHours(0,0,0,0); return t;
+}
+
+/* ── Get LMP from chosen method ── */
+function getLMP() {
+  if (method === 'lmp') {
+    var v = document.getElementById('lmp-date').value;
+    if (!v) return null;
+    var lmp = new Date(v + 'T00:00:00');
+    var cycleAdj = parseInt(document.getElementById('cycle-len').value, 10) - 28;
+    lmp = addDays(lmp, -cycleAdj); /* adjust for non-28-day cycles */
+    return lmp;
+  } else if (method === 'conception') {
+    var v2 = document.getElementById('conception-date').value;
+    if (!v2) return null;
+    var conc = new Date(v2 + 'T00:00:00');
+    return addDays(conc, -14); /* LMP ≈ conception − 14 days */
+  } else {
+    var v3  = document.getElementById('us-date').value;
+    var wks = parseInt(document.getElementById('us-weeks').value, 10);
+    var dys = parseInt(document.getElementById('us-days').value, 10);
+    if (!v3) return null;
+    var usDate  = new Date(v3 + 'T00:00:00');
+    var gestDays = wks * 7 + dys;
+    return addDays(usDate, -gestDays);
+  }
+}
+
+/* ── Milestones definition ── */
+function getMilestones(lmp, dueDate) {
+  return [
+    { week:4,  title:'Pregnancy confirmed',        icon:'✅' },
+    { week:6,  title:'Heartbeat detectable',        icon:'💓' },
+    { week:8,  title:'Baby is size of a raspberry', icon:'🫐' },
+    { week:12, title:'First trimester ends',         icon:'🌸' },
+    { week:13, title:'Second trimester begins',      icon:'🌼' },
+    { week:16, title:'Baby may start moving',        icon:'🤸' },
+    { week:20, title:'Anatomy scan (morphology)',    icon:'🔬' },
+    { week:24, title:'Viability milestone',          icon:'⭐' },
+    { week:28, title:'Third trimester begins',       icon:'🌟' },
+    { week:32, title:'Baby in head-down position',   icon:'👶' },
+    { week:36, title:'Early term — lungs maturing',  icon:'🫁' },
+    { week:37, title:'Early term birth possible',    icon:'🏥' },
+    { week:39, title:'Full term',                    icon:'🎉' },
+    { week:40, title:'Estimated due date',           icon:'🎊' }
+  ].map(function(m) {
+    m.date = addDays(lmp, m.week * 7);
+    return m;
+  });
+}
+
+/* ── Calculate ── */
+function calc() {
+  var lmp = getLMP();
+  if (!lmp) { showErr('Please enter a valid date.'); return; }
+
+  var today  = today0();
+  var dueDate = addDays(lmp, 280);
+
+  if (lmp > today) { showErr('Date cannot be in the future.'); return; }
+  if (dueDate < addDays(today, -280)) { showErr('Date seems too far in the past. Please check.'); return; }
+  hideErr();
+
+  var MS        = 86400000;
+  var daysPreg  = Math.floor((today - lmp) / MS);
+  var daysLeft  = Math.max(0, Math.floor((dueDate - today) / MS));
+  var weeksPreg = Math.floor(daysPreg / 7);
+  var daysMod   = daysPreg % 7;
+  var totalPreg = 280;
+  var progPct   = Math.min(Math.round((daysPreg / totalPreg) * 100), 100);
+
+  /* Trimester */
+  var tri, triClass, triTitle, triDesc, triStart, triEnd, triPct;
+  if (weeksPreg < 13) {
+    tri=1; triClass='tri-t1';
+    triTitle='First Trimester';
+    triDesc='Major organs and body systems are forming. Morning sickness and fatigue are common. The baby grows from a cluster of cells to a recognisable human form.';
+    triStart='Week 1'; triEnd='Week 12';
+    triPct = Math.round((weeksPreg/12)*100);
+  } else if (weeksPreg < 28) {
+    tri=2; triClass='tri-t2';
+    triTitle='Second Trimester';
+    triDesc='The most comfortable trimester for many. Baby grows rapidly, movements become felt, and the bump becomes visible. Anatomy scan happens during this period.';
+    triStart='Week 13'; triEnd='Week 27';
+    triPct = Math.round(((weeksPreg-12)/15)*100);
+  } else {
+    tri=3; triClass='tri-t3';
+    triTitle='Third Trimester';
+    triDesc='Final preparation for birth. Baby gains weight rapidly, lungs mature, and position shifts head-down. Braxton Hicks contractions may begin.';
+    triStart='Week 28'; triEnd='Week 40';
+    triPct = Math.round(((weeksPreg-27)/13)*100);
+  }
+
+  /* ── Update DOM ── */
+  document.getElementById('r-due-date').textContent    = fmtLong(dueDate);
+  document.getElementById('r-hero-sub').textContent    = fmtShort(addDays(lmp,0)) + ' LMP  ·  ' + (daysLeft > 0 ? daysLeft+' days to go' : 'Due date reached!');
+  document.getElementById('r-week-badge').textContent  = 'Week ' + weeksPreg + ' + ' + daysMod + ' days of 40';
+  document.getElementById('r-weeks-preg').textContent  = weeksPreg + 'w ' + daysMod + 'd';
+  document.getElementById('r-days-left').textContent   = daysLeft;
+  document.getElementById('r-trimester-num').textContent = tri + (tri===1?'st':tri===2?'nd':'rd');
+
+  /* Trimester card */
+  var tc = document.getElementById('trimester-card');
+  tc.className = 'trimester-card ' + triClass;
+  document.getElementById('tri-title').textContent = triTitle;
+  document.getElementById('tri-pill').textContent  = 'Currently here';
+  document.getElementById('tri-desc').textContent  = triDesc;
+  document.getElementById('tri-fill').style.width  = Math.min(triPct,100) + '%';
+  document.getElementById('tri-start').textContent = triStart;
+  document.getElementById('tri-end').textContent   = triEnd;
+  document.getElementById('tri-pct').textContent   = Math.min(triPct,100) + '% complete';
+
+  /* Progress */
+  document.getElementById('pp-fill').style.width = progPct + '%';
+  document.getElementById('pp-pct').textContent  = progPct + '%';
+
+  /* Milestones */
+  var milestones  = getMilestones(lmp, dueDate);
+  var msList = document.getElementById('milestone-list');
+  msList.innerHTML = '';
+  milestones.forEach(function(m) {
+    var isPast    = m.date < today;
+    var isCurrent = Math.abs(m.week - weeksPreg) <= 1 && Math.abs(m.week - weeksPreg) >= 0;
+    var dotCls    = isPast ? 'past' : isCurrent ? 'current' : 'future';
+    var badgeCls  = isPast ? 'past' : isCurrent ? 'current' : 'future';
+    var badgeTxt  = isPast ? 'Passed' : isCurrent ? 'Now' : 'Upcoming';
+    var div = document.createElement('div');
+    div.className = 'ms-item';
+    div.innerHTML =
+      '<div class="ms-dot '+dotCls+'"></div>' +
+      '<div class="ms-info">' +
+        '<div class="ms-title">'+m.icon+' Week '+m.week+' — '+m.title+'</div>' +
+        '<div class="ms-date">'+fmtShort(m.date)+'</div>' +
+      '</div>' +
+      '<span class="ms-badge '+badgeCls+'">'+badgeTxt+'</span>';
+    msList.appendChild(div);
+  });
+
+  /* Key dates */
+  var conception = addDays(lmp, 14);
+  var scan1      = addDays(lmp, 11*7); /* week 11 */
+  var scan2      = addDays(lmp, 19*7); /* week 19 */
+  var fullTerm   = addDays(lmp, 39*7); /* week 39 */
+  document.getElementById('dc-conception').textContent = fmtShort(conception);
+  document.getElementById('dc-scan1').textContent      = fmtShort(scan1) + ' – ' + fmtShort(addDays(lmp,13*7));
+  document.getElementById('dc-scan2').textContent      = fmtShort(scan2) + ' – ' + fmtShort(addDays(lmp,21*7));
+  document.getElementById('dc-fullterm').textContent   = fmtShort(fullTerm) + ' – ' + fmtShort(dueDate);
+
+  /* Show */
+  var r = document.getElementById('res');
+  r.classList.add('show');
+  setTimeout(function(){ r.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+}
+
+/* ── Reset ── */
+function rst() {
+  document.getElementById('lmp-date').value       = '';
+  document.getElementById('conception-date').value = '';
+  document.getElementById('us-date').value         = '';
+  document.getElementById('cycle-len').value       = '28';
+  document.getElementById('us-weeks').value        = '12';
+  document.getElementById('us-days').value         = '0';
+  document.getElementById('res').classList.remove('show');
+  hideErr();
+}
+
+/* ── Error ── */
+function showErr(m){ var e=document.getElementById('err'); e.textContent=m; e.classList.add('show'); }
+function hideErr(){ document.getElementById('err').classList.remove('show'); }
+
+/* ── Copy — works on file://, HTTP and HTTPS ── */
+function cp() {
+  var due   = document.getElementById('r-due-date').textContent;
+  var week  = document.getElementById('r-week-badge').textContent;
+  var left  = document.getElementById('r-days-left').textContent;
+  var tri   = document.getElementById('r-trimester-num').textContent;
+  var text  =
+    'Pregnancy Due Date Results\n' +
+    '──────────────────────────\n' +
+    'Estimated due date: ' + due + '\n' +
+    'Currently: ' + week  + '\n' +
+    'Days remaining: ' + left + '\n' +
+    'Trimester: ' + tri;
+
+  function onSuccess() {
+    var b = document.getElementById('cpbtn');
+    b.textContent = '✓ Copied!';
+    b.style.color = 'var(--acc)';
+    b.style.borderColor = 'var(--acc-bdr)';
+    setTimeout(function(){ b.textContent='📋 Copy Results'; b.style.color=''; b.style.borderColor=''; }, 2500);
+  }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); onSuccess(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onSuccess).catch(fallback);
+  } else { fallback(); }
+}
+
+/* ── Mobile menu ── */
+(function(){
+  var h=document.getElementById('ham'), m=document.getElementById('mob');
+  if(!h||!m) return;
+  h.addEventListener('click',function(){
+    var o=m.classList.toggle('open');
+    h.setAttribute('aria-expanded',o);
+    var s=h.querySelectorAll('span');
+    if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}
+    else{s.forEach(function(x){x.style.transform='';x.style.opacity='';});}
+  });
+  document.addEventListener('click',function(e){
+    if(!h.contains(e.target)&&!m.contains(e.target)){
+      m.classList.remove('open');h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';});
+    }
+  });
+})();
+
+/* ── FAQ ── */
+function faq(el){
+  var item=el.parentElement, was=item.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open');});
+  document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});
+  if(!was){item.classList.add('open');el.setAttribute('aria-expanded','true');}
+}
+
+/* ── Enter key ── */
+document.addEventListener('keydown',function(e){ if(e.key==='Enter') calc(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Tip Calculator — Calculate Tip & Split Bill Instantly | ToolsBox</title>
+<meta name="description" content="Free tip calculator. Calculate tip amount, total bill and per-person split for any table size. Choose tip percentage or enter custom amount. Instant, no signup needed.">
+<meta name="keywords" content="tip calculator, tip calculator split bill, restaurant tip calculator, how much to tip, bill split calculator, gratuity calculator, tip percentage calculator, dining tip calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/tip-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tip Calculator — Split Bill & Calculate Gratuity | ToolsBox">
+<meta property="og:description" content="Calculate tip amount, total bill and per-person split. Choose tip % or custom. Free, instant, no signup.">
+<meta property="og:url" content="https://yourdomain.com/calculators/tip-calculator.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tip Calculator | ToolsBox">
+<meta name="twitter:description" content="Free tip calculator. Calculate tip and split bills for any table size instantly.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tip Calculator","url":"https://yourdomain.com/calculators/tip-calculator.html","description":"Free tip calculator. Calculate tip amount, total bill and split per person for any table size. Supports custom tip percentage.","applicationCategory":"UtilityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much should I tip at a restaurant?","acceptedAnswer":{"@type":"Answer","text":"Standard restaurant tipping etiquette: 15% for adequate service, 18% for good service, 20% for great service, and 25%+ for exceptional service. In the US, 18-20% is the standard expectation."}},{"@type":"Question","name":"How do I calculate a 20% tip?","acceptedAnswer":{"@type":"Answer","text":"To calculate a 20% tip, multiply the bill by 0.20. For example, on a $50 bill: $50 × 0.20 = $10 tip. Total = $60. Or use this calculator — enter the bill, select 20%, and get the result instantly."}},{"@type":"Question","name":"How do you split a bill evenly?","acceptedAnswer":{"@type":"Answer","text":"Add up the total bill including tip, then divide by the number of people. For example, $100 bill + $20 tip = $120 total. Split between 4 people = $30 each. This calculator handles the split automatically."}},{"@type":"Question","name":"Should I tip on the pre-tax or post-tax amount?","acceptedAnswer":{"@type":"Answer","text":"Tipping on the pre-tax amount is technically correct, but tipping on the post-tax total has become common in the US. The difference is usually small. This calculator lets you enter either amount."}},{"@type":"Question","name":"What is a good tip for delivery?","acceptedAnswer":{"@type":"Answer","text":"For food delivery, $3-5 minimum or 15-20% of the order total, whichever is higher. For grocery or large orders, 10-15% is typical. Always tip more for difficult conditions like bad weather."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09080d;--bg2:#0c0b10;--surf:#131019;--surf2:#1a1724;--surf3:#22202e;
+  --bdr:rgba(255,255,255,0.06);--bdr2:rgba(255,255,255,0.12);
+  --acc:#f43f5e;--acc2:#e11d48;--acc3:#fb7185;
+  --acc-dim:rgba(244,63,94,0.09);--acc-bdr:rgba(244,63,94,0.30);--acc-glow:rgba(244,63,94,0.20);
+  --gold:#f59e0b;--gold-dim:rgba(245,158,11,0.09);--gold-bdr:rgba(245,158,11,0.26);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.09);--grn-bdr:rgba(34,197,94,0.26);
+  --sky:#38bdf8;--sky-dim:rgba(56,189,248,0.09);--sky-bdr:rgba(56,189,248,0.24);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.09);--violet-bdr:rgba(167,139,250,0.26);
+  --txt:#f5f0f8;--txt2:#9490a0;--txt3:#524e60;
+  --f:'Nunito',sans-serif;--fs:'Unbounded',sans-serif;
+  --nav:58px;--mw:680px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:
+  radial-gradient(ellipse 60% 40% at 80% 0%,rgba(244,63,94,.07),transparent),
+  radial-gradient(ellipse 50% 35% at 10% 95%,rgba(167,139,250,.05),transparent),
+  linear-gradient(rgba(255,255,255,.007) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.007) 1px,transparent 1px);
+  background-size:100%,100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+
+/* ── NAV ── */
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(9,8,13,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:12px;font-weight:900;color:#09080d;letter-spacing:-.5px}
+.logo-txt{font-size:16px;font-weight:700;color:var(--txt);letter-spacing:-.5px;font-family:var(--fs)}
+.logo-txt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+
+/* ── LAYOUT ── */
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+
+/* ── PAGE HEADER ── */
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:18px;font-family:var(--fs)}
+h1{font-family:var(--fs);font-size:clamp(26px,6vw,46px);font-weight:900;line-height:1.05;color:var(--txt);margin-bottom:12px;letter-spacing:-.8px}
+h1 em{font-style:normal;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:440px;margin:0 auto;font-weight:600}
+
+/* ── CARD ── */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:24px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden;margin-bottom:14px}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(244,63,94,.45),transparent)}
+
+/* ── SECTION LABEL ── */
+.sec-lbl{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;display:flex;align-items:center;gap:8px;font-family:var(--fs)}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+
+/* ── CURRENCY SELECTOR ── */
+.curr-row{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.curr-lbl{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);font-family:var(--fs)}
+.curr-pills{display:flex;gap:5px;flex-wrap:wrap}
+.cpill{padding:5px 13px;border-radius:100px;font-size:12px;font-weight:800;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;font-family:var(--fs)}
+.cpill:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.cpill.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+
+/* ── BILL INPUT ── */
+.bill-wrap{position:relative;margin-bottom:6px}
+.bill-sym{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:900;color:var(--txt3);pointer-events:none;font-family:var(--fs);z-index:1}
+.bill-inp{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:16px;color:var(--txt);font-family:var(--fs);font-size:clamp(28px,7vw,42px);font-weight:900;padding:20px 20px 20px 52px;outline:none;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield;letter-spacing:-.8px}
+.bill-inp::-webkit-inner-spin-button,.bill-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+.bill-inp:focus{border-color:var(--acc-bdr);box-shadow:0 0 0 3px var(--acc-glow)}
+.bill-inp::placeholder{color:var(--txt3)}
+.bill-hint{font-size:11px;color:var(--txt3);margin-bottom:20px;padding-left:4px;font-weight:600}
+
+/* ── TIP PERCENTAGE PILLS ── */
+.tip-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-bottom:14px}
+.tpill{padding:10px 6px;border-radius:12px;font-family:var(--fs);font-size:13px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px}
+.tpill:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.tpill.on{background:var(--acc);border-color:var(--acc);color:#09080d;box-shadow:0 4px 16px var(--acc-glow)}
+.tpill-pct{font-size:15px;font-weight:900;line-height:1}
+.tpill-lbl{font-size:9px;font-weight:700;letter-spacing:.04em;opacity:.75;font-family:var(--f)}
+
+/* ── CUSTOM TIP ── */
+.custom-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.custom-lbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);white-space:nowrap;font-family:var(--fs)}
+.custom-inp{background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;color:var(--txt);font-family:var(--fs);font-size:18px;font-weight:900;padding:9px 14px;width:90px;text-align:center;outline:none;transition:border-color .2s;-moz-appearance:textfield}
+.custom-inp::-webkit-inner-spin-button,.custom-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+.custom-inp:focus{border-color:var(--acc-bdr)}
+.custom-pct{font-size:15px;font-weight:900;color:var(--txt2);font-family:var(--fs)}
+
+/* ── PEOPLE SLIDER ── */
+.slider-field{margin-bottom:20px}
+.slider-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.slider-lbl{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);font-family:var(--fs)}
+.slider-val-wrap{display:flex;align-items:center;gap:8px}
+.people-stepper{display:flex;align-items:center;gap:0}
+.step-btn{width:32px;height:32px;border-radius:50%;background:var(--surf2);border:1px solid var(--bdr);color:var(--txt);font-size:18px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;line-height:1}
+.step-btn:hover{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+.step-btn:active{transform:scale(.9)}
+.people-count{font-family:var(--fs);font-size:22px;font-weight:900;color:var(--acc);min-width:48px;text-align:center}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;margin-top:4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--acc);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--acc-bdr);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--acc);cursor:pointer;border:3px solid var(--bg)}
+.range-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--txt3);margin-top:5px;font-family:var(--fs)}
+
+/* ── ROUND TOGGLE ── */
+.round-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.round-lbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);font-family:var(--fs);flex:1}
+.round-pills{display:flex;gap:5px}
+.rpill-s{padding:5px 12px;border-radius:100px;font-size:11px;font-weight:800;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;font-family:var(--fs)}
+.rpill-s:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.rpill-s.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+
+/* ── RESULT HERO ── */
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.rcard{border-radius:18px;padding:20px 16px;text-align:center;position:relative;overflow:hidden}
+.rcard::after{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.rc-tip{background:linear-gradient(135deg,rgba(244,63,94,.12),rgba(244,63,94,.03));border:1px solid var(--acc-bdr)}
+.rc-tip::after{background:linear-gradient(90deg,transparent,rgba(244,63,94,.55),transparent)}
+.rc-total{background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.02));border:1px solid var(--gold-bdr)}
+.rc-total::after{background:linear-gradient(90deg,transparent,rgba(245,158,11,.5),transparent)}
+.rc-tag{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:block;font-family:var(--fs)}
+.rc-tip .rc-tag{color:var(--acc)}
+.rc-total .rc-tag{color:var(--gold)}
+.rc-val{font-family:var(--fs);font-size:clamp(30px,8vw,48px);font-weight:900;line-height:1;display:block;letter-spacing:-1.5px}
+.rc-tip .rc-val{color:var(--acc)}
+.rc-total .rc-val{color:var(--gold)}
+.rc-sub{font-size:11px;color:var(--txt3);margin-top:6px;display:block;font-weight:600}
+
+/* ── PER-PERSON CARD ── */
+.per-person{background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(34,197,94,.02));border:1px solid var(--grn-bdr);border-radius:16px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;position:relative;overflow:hidden}
+.per-person::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(34,197,94,.5),transparent)}
+.pp-left{display:flex;flex-direction:column;gap:3px}
+.pp-tag{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--grn);font-family:var(--fs)}
+.pp-val{font-family:var(--fs);font-size:clamp(32px,9vw,52px);font-weight:900;line-height:1;color:var(--grn);letter-spacing:-1.5px}
+.pp-sub{font-size:11px;color:var(--txt3);font-weight:600}
+.pp-right{text-align:right;display:flex;flex-direction:column;gap:6px}
+.pp-stat{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.pp-stat-val{font-family:var(--fs);font-size:16px;font-weight:700;color:var(--txt)}
+.pp-stat-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt3);font-family:var(--fs)}
+
+/* ── BREAKDOWN GRID ── */
+.breakdown{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.bk-title{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;font-family:var(--fs)}
+.bk-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bdr);font-size:13px}
+.bk-row:last-child{border-bottom:none;padding-bottom:0}
+.bk-lbl{color:var(--txt2);font-weight:600}
+.bk-val{font-weight:800;color:var(--txt);font-family:var(--fs);font-size:14px}
+
+/* ── SERVICE QUALITY BADGE ── */
+.quality-badge{display:inline-flex;align-items:center;gap:6px;border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:12px;font-weight:700;width:100%}
+.qb-icon{font-size:18px;flex-shrink:0}
+.qb-text{display:flex;flex-direction:column;gap:1px}
+.qb-title{font-weight:800;font-size:12px;font-family:var(--fs)}
+.qb-sub{font-size:11px;opacity:.8;font-weight:600}
+
+/* ── BUTTONS ── */
+.brow{display:flex;gap:9px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:13px;font-family:var(--fs);font-size:13px;font-weight:800;cursor:pointer;border:none;outline:none;transition:transform .12s,box-shadow .15s,background .15s;letter-spacing:-.2px}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.97)}
+.bp{background:var(--acc);color:#09080d;flex:1}
+.bp:hover{background:var(--acc3);box-shadow:0 6px 24px var(--acc-glow)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+
+/* ── COPY BTN ── */
+.cpbtn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--fs);font-size:11px;font-weight:800;padding:7px 14px;border-radius:9px;cursor:pointer;transition:all .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+
+/* ── ERR ── */
+.err{display:none;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.24);color:#f87171;font-size:13px;padding:10px 14px;border-radius:9px;margin-bottom:12px;font-weight:600}
+.err.show{display:block}
+
+/* ── INFO / FAQ ── */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:clamp(20px,4vw,26px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px;font-weight:600}
+.tip-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;background:var(--surf2);border-radius:12px;overflow:hidden}
+.tip-table thead{background:var(--surf3)}
+.tip-table th{padding:10px 14px;text-align:left;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);font-family:var(--fs)}
+.tip-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--txt2);font-weight:600}
+.tip-table td:first-child{color:var(--acc);font-weight:800;font-family:var(--fs)}
+.tip-table tr:last-child td{border-bottom:none}
+.tip-table tr:hover td{background:rgba(255,255,255,.018)}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:800;color:var(--txt);margin-bottom:5px;font-family:var(--fs)}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0;font-weight:600}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;font-weight:600}
+.fi.open .fa{max-height:220px;padding-top:10px}
+
+/* ── RELATED ── */
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;font-family:var(--fs)}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc-link{background:var(--surf);border:1px solid var(--bdr);border-radius:13px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc-link:hover{border-color:var(--acc-bdr);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:800;display:block;font-family:var(--fs)}
+.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block;font-weight:600}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--grn);color:#09080d;font-family:var(--fs);font-size:12px;font-weight:800;padding:.55rem 1.4rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px;font-weight:600}
+.fct{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;font-family:var(--fs)}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s;font-weight:600}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3);font-weight:600}
+
+/* ── ANIMATIONS ── */
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .nav-links{display:none}.ham{display:flex}
+  main{padding:24px 14px 60px}.card{padding:20px 14px}
+  .tip-grid{grid-template-columns:repeat(3,1fr)}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .ig{grid-template-columns:1fr}
+  .fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}
+  .brow{flex-direction:column}.bp{flex:none;width:100%}
+}
+@media(max-width:400px){
+  .tip-grid{grid-template-columns:repeat(3,1fr)}
+  .result-grid{grid-template-columns:1fr}
+  .rg{grid-template-columns:1fr 1fr}
+  .fi3{grid-template-columns:1fr}
+  .pp-right{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="logo-box">T</div>
+      <span class="logo-txt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="index.html" class="nl on" aria-current="page">🧮 Calculators</a>
+      <a href="../text-tools/index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="index.html" class="nl on">🧮 Calculators</a>
+  <a href="../text-tools/index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main>
+  <!-- BREADCRUMB -->
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span aria-hidden="true"> › </span>
+    <a href="index.html">Calculators</a><span aria-hidden="true"> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Tip Calculator</span>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="ph">
+    <div class="badge">🍽️ Tip Calculator</div>
+    <h1>Tip <em>Calculator</em></h1>
+    <p class="sub">Calculate tip, total bill and split between any number of people — instantly.</p>
+  </header>
+
+  <!-- MAIN CALCULATOR CARD -->
+  <section class="card" aria-label="Tip Calculator">
+
+    <!-- CURRENCY -->
+    <div class="curr-row">
+      <span class="curr-lbl">Currency</span>
+      <div class="curr-pills" id="curr-pills" role="group" aria-label="Currency selection">
+        <button class="cpill on" data-sym="$" data-name="USD" onclick="TC.setCurr(this)">$ USD</button>
+        <button class="cpill" data-sym="₹" data-name="INR" onclick="TC.setCurr(this)">₹ INR</button>
+        <button class="cpill" data-sym="€" data-name="EUR" onclick="TC.setCurr(this)">€ EUR</button>
+        <button class="cpill" data-sym="£" data-name="GBP" onclick="TC.setCurr(this)">£ GBP</button>
+      </div>
+    </div>
+
+    <!-- BILL AMOUNT -->
+    <div class="sec-lbl">Bill Amount</div>
+    <div class="bill-wrap">
+      <span class="bill-sym" id="bill-sym">$</span>
+      <input type="number" id="bill-inp" class="bill-inp" placeholder="0.00" min="0" step="0.01" inputmode="decimal" aria-label="Bill amount" oninput="TC.calculate()">
+    </div>
+    <p class="bill-hint">Enter your total bill before tip</p>
+
+    <!-- TIP % PILLS -->
+    <div class="sec-lbl">Tip Percentage</div>
+    <div class="tip-grid" role="group" aria-label="Tip percentage selection" id="tip-pills">
+      <button class="tpill" data-pct="10" onclick="TC.setTip(this)"><span class="tpill-pct">10%</span><span class="tpill-lbl">Basic</span></button>
+      <button class="tpill" data-pct="15" onclick="TC.setTip(this)"><span class="tpill-pct">15%</span><span class="tpill-lbl">Good</span></button>
+      <button class="tpill on" data-pct="18" onclick="TC.setTip(this)"><span class="tpill-pct">18%</span><span class="tpill-lbl">Standard</span></button>
+      <button class="tpill" data-pct="20" onclick="TC.setTip(this)"><span class="tpill-pct">20%</span><span class="tpill-lbl">Great</span></button>
+      <button class="tpill" data-pct="25" onclick="TC.setTip(this)"><span class="tpill-pct">25%</span><span class="tpill-lbl">Excellent</span></button>
+      <button class="tpill" data-pct="30" onclick="TC.setTip(this)"><span class="tpill-pct">30%</span><span class="tpill-lbl">Wow</span></button>
+    </div>
+
+    <!-- CUSTOM TIP -->
+    <div class="custom-row">
+      <span class="custom-lbl">Custom %</span>
+      <input type="number" id="custom-tip" class="custom-inp" placeholder="0" min="0" max="100" step="0.1" inputmode="decimal" aria-label="Custom tip percentage" oninput="TC.setCustomTip(this.value)">
+      <span class="custom-pct">%</span>
+    </div>
+
+    <!-- PEOPLE SLIDER -->
+    <div class="sec-lbl">Number of People</div>
+    <div class="slider-field">
+      <div class="slider-top">
+        <span class="slider-lbl">Split between</span>
+        <div class="slider-val-wrap">
+          <div class="people-stepper">
+            <button class="step-btn" onclick="TC.stepPeople(-1)" aria-label="Decrease people">−</button>
+            <span class="people-count" id="people-count">1</span>
+            <button class="step-btn" onclick="TC.stepPeople(1)" aria-label="Increase people">+</button>
+          </div>
+        </div>
+      </div>
+      <input type="range" id="people-slider" min="1" max="20" value="1" oninput="TC.syncPeople(this.value)" aria-label="Number of people">
+      <div class="range-labels"><span>1</span><span>20</span></div>
+    </div>
+
+    <!-- ROUNDING -->
+    <div class="round-row">
+      <span class="round-lbl">Round per-person to</span>
+      <div class="round-pills" role="group" aria-label="Rounding option">
+        <button class="rpill-s on" data-round="none" onclick="TC.setRound(this)">Exact</button>
+        <button class="rpill-s" data-round="dollar" onclick="TC.setRound(this)">$ Whole</button>
+        <button class="rpill-s" data-round="50c" onclick="TC.setRound(this)">50¢</button>
+      </div>
+    </div>
+
+    <!-- ERR -->
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+
+    <!-- RESULT GRID -->
+    <div class="result-grid" aria-live="polite">
+      <div class="rcard rc-tip">
+        <span class="rc-tag">💝 Tip Amount</span>
+        <span class="rc-val" id="r-tip">$0.00</span>
+        <span class="rc-sub" id="r-tip-sub">@ 18%</span>
+      </div>
+      <div class="rcard rc-total">
+        <span class="rc-tag">🧾 Total Bill</span>
+        <span class="rc-val" id="r-total">$0.00</span>
+        <span class="rc-sub" id="r-total-sub">Bill + tip</span>
+      </div>
+    </div>
+
+    <!-- PER PERSON -->
+    <div class="per-person" id="per-person" aria-label="Per person amount">
+      <div class="pp-left">
+        <span class="pp-tag">👤 Each Person Pays</span>
+        <span class="pp-val" id="r-per">$0.00</span>
+        <span class="pp-sub" id="r-per-sub">Split between 1 person</span>
+      </div>
+      <div class="pp-right" id="pp-right">
+        <div class="pp-stat">
+          <span class="pp-stat-val" id="pp-bill-each">$0.00</span>
+          <span class="pp-stat-lbl">Bill each</span>
+        </div>
+        <div class="pp-stat">
+          <span class="pp-stat-val" id="pp-tip-each">$0.00</span>
+          <span class="pp-stat-lbl">Tip each</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE QUALITY -->
+    <div class="quality-badge" id="quality-badge" style="background:var(--surf2);border:1px solid var(--bdr)">
+      <span class="qb-icon" id="qb-icon">💬</span>
+      <div class="qb-text">
+        <span class="qb-title" id="qb-title">Enter a bill amount to see your tip rating</span>
+        <span class="qb-sub" id="qb-sub">Choose a tip percentage above</span>
+      </div>
+    </div>
+
+    <!-- BREAKDOWN -->
+    <div class="breakdown">
+      <div class="bk-title">Full Breakdown</div>
+      <div class="bk-row"><span class="bk-lbl">Bill (pre-tip)</span><span class="bk-val" id="bk-bill">$0.00</span></div>
+      <div class="bk-row"><span class="bk-lbl">Tip percentage</span><span class="bk-val" id="bk-pct">18%</span></div>
+      <div class="bk-row"><span class="bk-lbl">Tip amount</span><span class="bk-val" id="bk-tip">$0.00</span></div>
+      <div class="bk-row"><span class="bk-lbl">Total (bill + tip)</span><span class="bk-val" id="bk-total">$0.00</span></div>
+      <div class="bk-row"><span class="bk-lbl">People splitting</span><span class="bk-val" id="bk-people">1</span></div>
+      <div class="bk-row"><span class="bk-lbl">Each person pays</span><span class="bk-val" id="bk-each">$0.00</span></div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div style="display:flex;gap:9px;margin-top:4px;flex-wrap:wrap">
+      <button class="cpbtn" onclick="TC.copyResult()">📋 Copy Summary</button>
+      <button class="cpbtn" onclick="TC.resetCalc()">↺ Reset</button>
+    </div>
+
+  </section>
+
+  <!-- INFO -->
+  <section class="info" aria-labelledby="info-h">
+    <h2 id="info-h">Tipping guide — how much to tip</h2>
+    <p>Tipping customs vary by country and service type. In the US, tipping at restaurants is standard and expected. In India and parts of Europe, tipping is appreciated but less mandatory. Use this calculator to find the exact amount for any tip percentage.</p>
+
+    <table class="tip-table" aria-label="Tipping guide reference">
+      <thead><tr><th>Tip %</th><th>Service quality</th><th>Common scenario</th></tr></thead>
+      <tbody>
+        <tr><td>10%</td><td>Below average</td><td>Basic service, minor issues</td></tr>
+        <tr><td>15%</td><td>Good / average</td><td>Satisfactory restaurant service</td></tr>
+        <tr><td>18%</td><td>Very good</td><td>Standard US restaurant expectation</td></tr>
+        <tr><td>20%</td><td>Great</td><td>Attentive, friendly service</td></tr>
+        <tr><td>25%</td><td>Excellent</td><td>Outstanding, memorable service</td></tr>
+        <tr><td>30%+</td><td>Exceptional</td><td>Going above and beyond</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🍽️ Restaurants</div><p>15–20% is standard in the US. Tip on the pre-tax amount or the full total — the difference is small. Always tip the server, not just the kitchen.</p></div>
+      <div class="ic"><div class="ic-t">🚗 Ride &amp; delivery</div><p>15–20% for ride-share, $3–5 minimum for food delivery or 15–20% of the order. Always tip more for long distances or bad weather.</p></div>
+      <div class="ic"><div class="ic-t">✂️ Personal services</div><p>15–20% for hairdressers, spas, and personal care. Some salons build gratuity in — check before tipping to avoid doubling.</p></div>
+      <div class="ic"><div class="ic-t">👥 Group bills</div><p>Many restaurants add 18% gratuity for groups of 6+. Check the bill first. Use the split feature to confirm each person's fair share.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="TC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How much should I tip at a restaurant?</div><div class="fa">The US standard is 18–20% for good service. 15% for adequate service. 25%+ for exceptional. For a $50 bill at 20%: tip = $10, total = $60. Use this calculator for any amount instantly.</div></div>
+    <div class="fi"><div class="fq" onclick="TC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I calculate a 20% tip quickly?</div><div class="fa">Move the decimal one place left to get 10%, then double it for 20%. For $45: 10% = $4.50, 20% = $9.00. Or just enter your bill here and select 20% — done in one second.</div></div>
+    <div class="fi"><div class="fq" onclick="TC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do you split a bill evenly?</div><div class="fa">Add tip to get the total, then divide by the number of people. This calculator does it automatically — enter the bill, choose the tip %, set the number of people, and each person's share is shown instantly.</div></div>
+    <div class="fi"><div class="fq" onclick="TC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Should I tip on the pre-tax or post-tax amount?</div><div class="fa">Technically, tip on the pre-tax subtotal. In practice, most people tip on the post-tax total since the difference is small. Either approach is acceptable — enter whichever amount is on your receipt.</div></div>
+    <div class="fi"><div class="fq" onclick="TC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What currencies does this calculator support?</div><div class="fa">USD ($), INR (₹), EUR (€), and GBP (£). The tip calculation is the same regardless of currency — just switch the symbol at the top. All amounts display in your chosen currency format.</div></div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl" id="rel-h">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc-link" href="gst-calculator.html"><span class="ri">🧾</span><span class="rn">GST Calculator</span><span class="rd">Tax calculation</span></a>
+      <a class="rc-link" href="percentage-calc.html"><span class="ri">💯</span><span class="rn">% Calculator</span><span class="rd">Percentage math</span></a>
+      <a class="rc-link" href="sip-calculator.html"><span class="ri">💹</span><span class="rn">SIP Calculator</span><span class="rd">Investment returns</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="tip-calculator.html">🍽️ Tip Calculator</a></li>
+      <li><a href="gst-calculator.html">🧾 GST Calculator</a></li>
+      <li><a href="sip-calculator.html">💹 SIP Calculator</a></li>
+      <li><a href="emi-calculator.html">🏦 EMI Calculator</a></li>
+      <li><a href="time-calculator.html">⏱ Time Calculator</a></li>
+      <li><a href="percentage-calc.html">💯 % Calculator</a></li>
+      <li><a href="compound-interest.html">📈 Compound Interest</a></li>
+    </ul></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl">
+      <li><a href="../text-tools/word-counter.html">📝 Word Counter</a></li>
+      <li><a href="../text-tools/character-counter.html">🔢 Char Counter</a></li>
+      <li><a href="../text-tools/case-converter.html">🔠 Case Converter</a></li>
+      <li><a href="../text-tools/password-generator.html">🔐 Password Gen</a></li>
+      <li><a href="../text-tools/find-replace.html">🔍 Find &amp; Replace</a></li>
+      <li><a href="../text-tools/reading-time.html">⏰ Reading Time</a></li>
+    </ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl">
+      <li><a href="../index.html">🏠 All Tools</a></li>
+      <li><a href="index.html">🧮 All Calculators</a></li>
+      <li><a href="../text-tools/index.html">✍️ All Text Tools</a></li>
+      <li><a href="discount-calc.html">🏷️ Discount Calc</a></li>
+      <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ================================================================
+   TC — Tip Calculator namespace
+   All state encapsulated — zero window global conflicts
+   ================================================================ */
+var TC = (function () {
+
+  /* ── private state ── */
+  var _sym     = '$';
+  var _tipPct  = 18;
+  var _people  = 1;
+  var _round   = 'none'; /* 'none' | 'dollar' | '50c' */
+
+  /* ── helpers ── */
+  function r2(n) { return Math.round(n * 100) / 100; }
+
+  function fmt(n) {
+    return _sym + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function applyRound(n) {
+    if (_round === 'dollar') return Math.ceil(n);
+    if (_round === '50c')    return Math.ceil(n * 2) / 2;
+    return r2(n);
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+
+  function qualityInfo(pct) {
+    if (pct <= 0)  return { icon:'💬', title:'Enter a tip to see your service rating', sub:'Choose a percentage above', bg:'var(--surf2)', border:'var(--bdr)', color:'var(--txt3)' };
+    if (pct < 10)  return { icon:'😐', title:'Below standard tip', sub:'Consider 15%+ for good service', bg:'rgba(248,113,113,.06)', border:'rgba(248,113,113,.2)', color:'#f87171' };
+    if (pct < 15)  return { icon:'🙂', title:'Basic tip (10%)', sub:'Typical for counter service', bg:'rgba(245,158,11,.06)', border:'rgba(245,158,11,.2)', color:'var(--gold)' };
+    if (pct < 18)  return { icon:'😊', title:'Good tip (15%)', sub:'Standard for adequate service', bg:'rgba(245,158,11,.08)', border:'rgba(245,158,11,.24)', color:'var(--gold)' };
+    if (pct < 20)  return { icon:'😄', title:'Great tip (18%)', sub:'Standard US restaurant expectation', bg:'rgba(34,197,94,.06)', border:'rgba(34,197,94,.22)', color:'var(--grn)' };
+    if (pct < 25)  return { icon:'🤩', title:'Excellent tip (20%)', sub:'Your server will remember you!', bg:'rgba(34,197,94,.09)', border:'rgba(34,197,94,.26)', color:'var(--grn)' };
+    if (pct < 30)  return { icon:'🌟', title:'Outstanding tip (25%)', sub:'Exceptional generosity — wow!', bg:'rgba(244,63,94,.08)', border:'rgba(244,63,94,.26)', color:'var(--acc)' };
+    return               { icon:'🏆', title:'Legendary tip (' + pct + '%)', sub:'You are an absolute legend!', bg:'rgba(244,63,94,.1)',  border:'rgba(244,63,94,.3)',  color:'var(--acc)' };
+  }
+
+  /* ── core calculate ── */
+  function _calculate() {
+    var raw = parseFloat(document.getElementById('bill-inp').value);
+    var bill     = isNaN(raw) || raw < 0 ? 0 : r2(raw);
+    var tipAmt   = r2(bill * _tipPct / 100);
+    var total    = r2(bill + tipAmt);
+    var perRaw   = _people > 0 ? total / _people : total;
+    var perPerson= applyRound(perRaw);
+    var billEach = r2(bill / _people);
+    var tipEach  = r2(tipAmt / _people);
+
+    /* hero results */
+    document.getElementById('r-tip').textContent      = fmt(tipAmt);
+    document.getElementById('r-tip-sub').textContent  = '@ ' + _tipPct + '%';
+    document.getElementById('r-total').textContent    = fmt(total);
+    document.getElementById('r-total-sub').textContent= 'Bill + tip';
+    document.getElementById('r-per').textContent      = fmt(perPerson);
+    document.getElementById('r-per-sub').textContent  = 'Split between ' + _people + (_people === 1 ? ' person' : ' people');
+    document.getElementById('pp-bill-each').textContent = fmt(billEach);
+    document.getElementById('pp-tip-each').textContent  = fmt(tipEach);
+
+    /* breakdown */
+    document.getElementById('bk-bill').textContent   = fmt(bill);
+    document.getElementById('bk-pct').textContent    = _tipPct + '%';
+    document.getElementById('bk-tip').textContent    = fmt(tipAmt);
+    document.getElementById('bk-total').textContent  = fmt(total);
+    document.getElementById('bk-people').textContent = _people;
+    document.getElementById('bk-each').textContent   = fmt(perPerson);
+
+    /* service quality badge */
+    var qi  = qualityInfo(bill > 0 ? _tipPct : 0);
+    var qb  = document.getElementById('quality-badge');
+    qb.style.background = qi.bg;
+    qb.style.border     = '1px solid ' + qi.border;
+    qb.style.color      = qi.color;
+    document.getElementById('qb-icon').textContent    = qi.icon;
+    document.getElementById('qb-title').textContent   = qi.title;
+    document.getElementById('qb-sub').textContent     = qi.sub;
+
+    return { bill: bill, tipAmt: tipAmt, total: total, perPerson: perPerson, tipEach: tipEach, billEach: billEach };
+  }
+
+  /* ── public API ── */
+  return {
+
+    setCurr: function (el) {
+      _sym = el.dataset.sym;
+      document.querySelectorAll('.cpill').forEach(function (p) { p.classList.remove('on'); });
+      el.classList.add('on');
+      document.getElementById('bill-sym').textContent = _sym;
+      _calculate();
+    },
+
+    setTip: function (el) {
+      _tipPct = parseFloat(el.dataset.pct);
+      document.querySelectorAll('.tpill').forEach(function (p) { p.classList.remove('on'); });
+      el.classList.add('on');
+      document.getElementById('custom-tip').value = '';
+      _calculate();
+    },
+
+    setCustomTip: function (v) {
+      var n = parseFloat(v);
+      if (isNaN(n) || n < 0) return;
+      if (n > 200) n = 200;
+      _tipPct = n;
+      document.querySelectorAll('.tpill').forEach(function (p) { p.classList.remove('on'); });
+      _calculate();
+    },
+
+    syncPeople: function (v) {
+      _people = parseInt(v, 10);
+      document.getElementById('people-count').textContent = _people;
+      document.getElementById('people-slider').value = _people;
+      _calculate();
+    },
+
+    stepPeople: function (dir) {
+      var n = Math.max(1, Math.min(20, _people + dir));
+      _people = n;
+      document.getElementById('people-count').textContent = n;
+      document.getElementById('people-slider').value = n;
+      _calculate();
+    },
+
+    setRound: function (el) {
+      _round = el.dataset.round;
+      document.querySelectorAll('.rpill-s').forEach(function (p) { p.classList.remove('on'); });
+      el.classList.add('on');
+      _calculate();
+    },
+
+    calculate: function () {
+      _calculate();
+    },
+
+    resetCalc: function () {
+      document.getElementById('bill-inp').value   = '';
+      document.getElementById('custom-tip').value = '';
+      _tipPct  = 18;
+      _people  = 1;
+      _round   = 'none';
+      _sym     = '$';
+      document.querySelectorAll('.tpill').forEach(function (p) {
+        p.classList.toggle('on', p.dataset.pct === '18');
+      });
+      document.querySelectorAll('.cpill').forEach(function (p) {
+        p.classList.toggle('on', p.dataset.sym === '$');
+      });
+      document.querySelectorAll('.rpill-s').forEach(function (p) {
+        p.classList.toggle('on', p.dataset.round === 'none');
+      });
+      document.getElementById('people-count').textContent = 1;
+      document.getElementById('people-slider').value = 1;
+      document.getElementById('bill-sym').textContent = '$';
+      _calculate();
+      document.getElementById('err').classList.remove('show');
+    },
+
+    copyResult: function () {
+      var raw = parseFloat(document.getElementById('bill-inp').value);
+      if (isNaN(raw) || raw <= 0) { showToast('Enter a bill amount first'); return; }
+      var d = _calculate();
+      var text =
+        'Tip Calculator Summary\n─────────────────────────\n' +
+        'Bill:          ' + fmt(d.bill) + '\n' +
+        'Tip (' + _tipPct + '%):   ' + fmt(d.tipAmt) + '\n' +
+        'Total:         ' + fmt(d.total) + '\n' +
+        'People:        ' + _people + '\n' +
+        'Each pays:     ' + fmt(d.perPerson) + '\n' +
+        '  — bill each: ' + fmt(d.billEach) + '\n' +
+        '  — tip each:  ' + fmt(d.tipEach);
+      function onOK() { showToast('✓ Copied to clipboard'); }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand('copy'); onOK(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(onOK).catch(fallback);
+      } else { fallback(); }
+    },
+
+    faqToggle: function (el) {
+      var item = el.parentElement, was = item.classList.contains('open');
+      document.querySelectorAll('.fi').forEach(function (i) { i.classList.remove('open'); });
+      document.querySelectorAll('.fq').forEach(function (q) { q.setAttribute('aria-expanded', 'false'); });
+      if (!was) { item.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+    }
+  };
+
+}()); /* end TC IIFE */
+
+/* ── keyboard ── */
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter' && document.activeElement.id === 'bill-inp') TC.calculate();
+});
+
+/* ── FAQ keyboard ── */
+document.querySelectorAll('.fq').forEach(function (el) {
+  el.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); TC.faqToggle(el); }
+  });
+});
+
+/* ── hamburger ── */
+(function () {
+  var h = document.getElementById('ham'), m = document.getElementById('mob');
+  if (!h || !m) return;
+  h.addEventListener('click', function () {
+    var open = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', String(open));
+    var s = h.querySelectorAll('span');
+    if (open) {
+      s[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+      s[1].style.opacity   = '0';
+      s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+    } else {
+      s.forEach(function (x) { x.style.transform = ''; x.style.opacity = ''; });
+    }
+  });
+  document.addEventListener('click', function (e) {
+    if (!h.contains(e.target) && !m.contains(e.target)) {
+      m.classList.remove('open');
+      h.setAttribute('aria-expanded', 'false');
+      h.querySelectorAll('span').forEach(function (x) { x.style.transform = ''; x.style.opacity = ''; });
+    }
+  });
+}());
+
+/* ── init ── */
+TC.calculate();
+</script>
+</body>
+</html>

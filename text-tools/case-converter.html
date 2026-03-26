@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Case Converter — Convert Text to Uppercase, Lowercase, Title Case Online | ToolsBox</title>
+<meta name="description" content="Free online case converter. Instantly convert text to uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case and more. No sign-up required.">
+<meta name="keywords" content="case converter, uppercase converter, lowercase converter, title case converter, sentence case, camelCase converter, snake_case, PascalCase, text case changer">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/text-tools/case-converter.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Case Converter — Uppercase, Lowercase, Title Case | ToolsBox">
+<meta property="og:description" content="Convert text to any case format instantly. UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.">
+<meta property="og:url" content="https://yourdomain.com/text-tools/case-converter.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Case Converter | ToolsBox">
+<meta name="twitter:description" content="Free online case converter. 10+ text case formats instantly.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Case Converter","url":"https://yourdomain.com/text-tools/case-converter.html","description":"Free online case converter. Convert text to uppercase, lowercase, title case, camelCase, snake_case and more.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is title case?","acceptedAnswer":{"@type":"Answer","text":"Title case capitalizes the first letter of each major word. Small words like 'a', 'an', 'the', 'and', 'but', 'or' are kept lowercase unless they start the sentence."}},{"@type":"Question","name":"What is camelCase?","acceptedAnswer":{"@type":"Answer","text":"camelCase starts with a lowercase letter and capitalizes the first letter of each subsequent word with no spaces. Example: 'hello world' becomes 'helloWorld'."}},{"@type":"Question","name":"What is snake_case?","acceptedAnswer":{"@type":"Answer","text":"snake_case replaces spaces with underscores and uses all lowercase letters. It is commonly used in programming, especially in Python and database column names. Example: 'Hello World' becomes 'hello_world'."}},{"@type":"Question","name":"What is PascalCase?","acceptedAnswer":{"@type":"Answer","text":"PascalCase capitalizes the first letter of every word with no spaces. Example: 'hello world' becomes 'HelloWorld'. It is commonly used for class names in programming."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080c;--bg2:#0c0d12;--surf:#111318;--surf2:#171920;--surf3:#1e2028;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#38bdf8;--acc2:#0ea5e9;--acc-dim:rgba(56,189,248,0.09);--acc-bdr:rgba(56,189,248,0.22);
+  --grn:#4ade80;--grn-dim:rgba(74,222,128,0.09);--grn-bdr:rgba(74,222,128,0.22);
+  --gold:#fbbf24;--red:#f87171;--purple:#c084fc;--pink:#f472b6;--orange:#fb923c;
+  --txt:#edeae4;--txt2:#888480;--txt3:#46433e;
+  --f:'DM Sans',sans-serif;--fs:'DM Serif Display',serif;
+  --nav:58px;--mw:760px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 80% 45% at 50% -8%,rgba(56,189,248,0.06),transparent),linear-gradient(rgba(255,255,255,0.011) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.011) 1px,transparent 1px);background-size:100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+
+/* Nav */
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(7,8,12,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:15px;font-weight:700;color:#07080c}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-0.3px}
+.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+
+/* Main */
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(30px,6.5vw,52px);font-weight:400;line-height:1.08;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:480px;margin:0 auto}
+
+/* Card */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,0.3),transparent)}
+
+/* Textarea */
+.ta-wrap{position:relative;margin-bottom:12px}
+textarea{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;color:var(--txt);font-family:var(--f);font-size:15px;font-weight:400;line-height:1.65;padding:16px;outline:none;resize:vertical;min-height:140px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+textarea::placeholder{color:var(--txt3)}
+textarea:focus{border-color:rgba(56,189,248,0.4);box-shadow:0 0 0 3px rgba(56,189,248,0.07)}
+.ta-meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px;flex-wrap:wrap;gap:6px}
+.ta-count{font-size:12px;color:var(--txt3)}
+.ta-count span{color:var(--txt2);font-weight:600}
+.clear-btn{background:transparent;border:none;color:var(--txt3);font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;padding:3px 8px;border-radius:6px;transition:all .15s}
+.clear-btn:hover{color:var(--red);background:rgba(248,113,113,0.08)}
+
+/* Case buttons grid */
+.cases-label{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px}
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:20px}
+.case-btn{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:12px;border:1px solid var(--bdr);background:var(--surf2);cursor:pointer;transition:all .18s;text-align:left;font-family:var(--f)}
+.case-btn:hover{border-color:var(--acc-bdr);background:var(--acc-dim);transform:translateY(-1px)}
+.case-btn.active{border-color:var(--acc);background:rgba(56,189,248,0.12);box-shadow:0 0 0 1px var(--acc-bdr)}
+.cb-name{font-size:13px;font-weight:700;color:var(--txt)}
+.cb-ex{font-size:11px;color:var(--txt3);font-family:monospace}
+.case-btn:hover .cb-name{color:var(--acc)}
+
+/* Output area */
+.output-wrap{position:relative;margin-bottom:12px}
+.output-label{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.output-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px;min-height:100px;font-family:var(--f);font-size:15px;color:var(--txt);line-height:1.65;word-break:break-word;white-space:pre-wrap;transition:border-color .2s}
+.output-box.updated{border-color:rgba(56,189,248,0.35)}
+.output-name-badge{font-size:12px;font-weight:700;color:var(--acc);background:var(--acc-dim);border:1px solid var(--acc-bdr);padding:2px 10px;border-radius:100px}
+
+/* Action buttons */
+.action-row{display:flex;gap:8px;flex-wrap:wrap}
+.act-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:10px;font-family:var(--f);font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .18s}
+.act-btn:hover{transform:translateY(-1px)}
+.ab-copy{background:var(--acc);color:#07080c}
+.ab-copy:hover{background:#7dd3fc;box-shadow:0 4px 16px rgba(56,189,248,0.25)}
+.ab-paste{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.ab-paste:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.ab-dl{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.ab-dl:hover{background:var(--grn-dim);color:var(--grn);border-color:var(--grn-bdr)}
+
+/* Info / FAQ / Related / Footer — shared styles */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:400;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:240px;padding-top:10px}
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(56,189,248,0.22);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:700;display:block}
+.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .nav-links{display:none}.ham{display:flex}
+  main{padding:24px 14px 60px}.card{padding:20px 14px}
+  .cases-grid{grid-template-columns:repeat(2,1fr)}
+  .ig{grid-template-columns:1fr}
+  .fi3{grid-template-columns:1fr 1fr;gap:20px}
+  .fb-brand{grid-column:1/-1}
+  .action-row{flex-direction:column}
+  .act-btn{width:100%;justify-content:center}
+}
+@media(max-width:380px){
+  .cases-grid{grid-template-columns:1fr 1fr}
+  .rg{grid-template-columns:1fr 1fr}
+  .fi3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="logo-box">T</div>
+      <span class="logo-txt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="../calculators/index.html" class="nl">🧮 Calculators</a>
+      <a href="index.html" class="nl on" aria-current="page">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="../calculators/index.html" class="nl">🧮 Calculators</a>
+  <a href="index.html" class="nl on">✍️ Text Tools</a>
+</div>
+
+<main>
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span aria-hidden="true"> › </span>
+    <a href="index.html">Text Tools</a>
+    <span aria-hidden="true"> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Case Converter</span>
+  </nav>
+
+  <header class="ph">
+    <div class="badge">🔠 Text Tool</div>
+    <h1>Case <em>Converter</em></h1>
+    <p class="sub">Instantly convert your text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, and 7 more formats — live as you type.</p>
+  </header>
+
+  <div class="card">
+    <!-- Input -->
+    <div class="ta-wrap">
+      <textarea id="input" placeholder="Type or paste your text here..." aria-label="Text input" oninput="update()"></textarea>
+      <div class="ta-meta">
+        <div class="ta-count"><span id="char-count">0</span> characters · <span id="word-count">0</span> words</div>
+        <button class="clear-btn" onclick="clearInput()" aria-label="Clear input">✕ Clear</button>
+      </div>
+    </div>
+
+    <!-- Case buttons -->
+    <div class="cases-label">Select a case format</div>
+    <div class="cases-grid" id="cases-grid">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Output -->
+    <div class="output-label">
+      <span>Output</span>
+      <span class="output-name-badge" id="active-name">UPPERCASE</span>
+    </div>
+    <div class="output-box" id="output-box" aria-live="polite" aria-label="Converted text output"></div>
+
+    <!-- Actions -->
+    <div class="action-row" style="margin-top:12px">
+      <button class="act-btn ab-copy" onclick="copyOutput()" id="copy-btn" aria-label="Copy converted text">📋 Copy text</button>
+      <button class="act-btn ab-paste" onclick="pasteInput()" aria-label="Paste from clipboard">📎 Paste</button>
+      <button class="act-btn ab-dl" onclick="downloadOutput()" aria-label="Download as .txt file">⬇️ Download .txt</button>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">What is a case converter?</h2>
+    <p>A case converter changes the capitalization pattern of text. Different cases are used in different contexts — UPPERCASE for headings and emphasis, camelCase and snake_case in programming, Title Case for book titles and headings, and Sentence case for normal writing.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">💻 Programming cases</div><p>camelCase, PascalCase, snake_case, SCREAMING_SNAKE, and kebab-case are all used in code. snake_case is common in Python and databases; camelCase in JavaScript; PascalCase for class names.</p></div>
+      <div class="ic"><div class="ic-t">📖 Writing cases</div><p>Title Case capitalizes major words and is used in book and article titles. Sentence case only capitalizes the first word, used in normal sentences and blog post titles.</p></div>
+      <div class="ic"><div class="ic-t">🔄 Alternating case</div><p>AlTeRnAtInG cAsE alternates uppercase and lowercase letters, commonly used for emphasis or humorous effect in informal writing and memes.</p></div>
+      <div class="ic"><div class="ic-t">⬛ All cases</div><p>This tool supports 10 case formats: UPPER, lower, Title, Sentence, Capitalized, camelCase, PascalCase, snake_case, kebab-case, and aLtErNaTiNg.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faqh">
+    <h2 id="faqh">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What is the difference between camelCase and PascalCase?</div><div class="fa">camelCase starts with a lowercase letter: helloWorld. PascalCase capitalizes every word including the first: HelloWorld. PascalCase is used for class names in most languages; camelCase for function and variable names in JavaScript.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">When should I use title case vs sentence case?</div><div class="fa">Use Title Case for proper titles — book names, movie titles, article headings. Use Sentence case for body text, captions, and most web content. AP, APA, MLA, and Chicago style guides each have slightly different title case rules.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What is snake_case used for?</div><div class="fa">snake_case uses lowercase words separated by underscores. It is the standard in Python for variable and function names, and widely used in database column names and file naming conventions.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What is kebab-case?</div><div class="fa">kebab-case uses lowercase words separated by hyphens, like words on a kebab skewer. It is the standard for CSS class names, HTML attribute values, and URL slugs.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="relh">
+    <div class="sl" id="relh">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="word-counter.html"><span class="ri">📝</span><span class="rn">Word Counter</span><span class="rd">Count words & chars</span></a>
+      <a class="rc" href="character-counter.html"><span class="ri">🔢</span><span class="rn">Char Counter</span><span class="rd">Detailed text stats</span></a>
+      <a class="rc" href="text-reverser.html"><span class="ri">🔄</span><span class="rn">Text Reverser</span><span class="rd">Reverse text</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online text and calculator tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl">
+      <li><a href="word-counter.html">📝 Word Counter</a></li>
+      <li><a href="character-counter.html">🔢 Char Counter</a></li>
+      <li><a href="case-converter.html">🔠 Case Converter</a></li>
+      <li><a href="lorem-ipsum.html">📄 Lorem Ipsum</a></li>
+      <li><a href="password-generator.html">🔐 Password Gen</a></li>
+      <li><a href="text-reverser.html">🔄 Text Reverser</a></li>
+      <li><a href="reading-time.html">⏰ Reading Time</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/age-calculator.html">🎂 Age Calculator</a></li>
+      <li><a href="../calculators/bmi-calculator.html">⚖️ BMI Calculator</a></li>
+      <li><a href="../calculators/emi-calculator.html">🏦 EMI Calculator</a></li>
+      <li><a href="../calculators/compound-interest.html">📈 Compound Interest</a></li>
+      <li><a href="../calculators/sip-calculator.html">💹 SIP Calculator</a></li>
+      <li><a href="../calculators/gst-calculator.html">🧾 GST Calculator</a></li>
+      <li><a href="../calculators/discount-calc.html">🏷️ Discount Calc</a></li>
+    </ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl">
+      <li><a href="../index.html">🏠 All Tools</a></li>
+      <li><a href="index.html">✍️ All Text Tools</a></li>
+      <li><a href="../calculators/index.html">🧮 All Calculators</a></li>
+      <li><a href="slug-generator.html">🔗 Slug Generator</a></li>
+      <li><a href="hashtag-generator.html">#️⃣ Hashtag Gen</a></li>
+      <li><a href="find-replace.html">🔍 Find & Replace</a></li>
+      <li><a href="lorem-ipsum.html">📄 Lorem Ipsum</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── Case definitions ── */
+var CASES = [
+  { id:'upper',    name:'UPPERCASE',       ex:'HELLO WORLD',      fn: function(t){ return t.toUpperCase(); } },
+  { id:'lower',    name:'lowercase',       ex:'hello world',      fn: function(t){ return t.toLowerCase(); } },
+  { id:'title',    name:'Title Case',      ex:'Hello World',      fn: titleCase },
+  { id:'sentence', name:'Sentence case',   ex:'Hello world.',     fn: sentenceCase },
+  { id:'cap',      name:'Capitalized',     ex:'Hello World Each', fn: function(t){ return t.replace(/\b\w/g,function(c){return c.toUpperCase();}); } },
+  { id:'camel',    name:'camelCase',       ex:'helloWorld',       fn: camelCase },
+  { id:'pascal',   name:'PascalCase',      ex:'HelloWorld',       fn: pascalCase },
+  { id:'snake',    name:'snake_case',      ex:'hello_world',      fn: function(t){ return t.toLowerCase().trim().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,''); } },
+  { id:'screaming',name:'SCREAMING_SNAKE', ex:'HELLO_WORLD',      fn: function(t){ return t.toUpperCase().trim().replace(/\s+/g,'_').replace(/[^A-Z0-9_]/g,''); } },
+  { id:'kebab',    name:'kebab-case',      ex:'hello-world',      fn: function(t){ return t.toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''); } },
+  { id:'dot',      name:'dot.case',        ex:'hello.world',      fn: function(t){ return t.toLowerCase().trim().replace(/\s+/g,'.').replace(/[^a-z0-9.]/g,''); } },
+  { id:'alt',      name:'aLtErNaTiNg',     ex:'hElLo WoRlD',      fn: altCase }
+];
+
+var activeCase = 'upper';
+
+/* ── Case functions ── */
+var SMALL_WORDS = new Set(['a','an','the','and','but','or','for','nor','on','at','to','by','in','of','up','as','is','it','if','so','do']);
+
+function titleCase(t) {
+  return t.toLowerCase().replace(/\b\w+/g, function(w, i, str) {
+    if (i === 0 || !SMALL_WORDS.has(w)) return w.charAt(0).toUpperCase() + w.slice(1);
+    return w;
+  });
+}
+
+function sentenceCase(t) {
+  return t.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, function(c){ return c.toUpperCase(); });
+}
+
+function camelCase(t) {
+  return t.trim().replace(/[^a-zA-Z0-9\s]/g,'').split(/\s+/).map(function(w, i){
+    if (i === 0) return w.toLowerCase();
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join('');
+}
+
+function pascalCase(t) {
+  return t.trim().replace(/[^a-zA-Z0-9\s]/g,'').split(/\s+/).map(function(w){
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join('');
+}
+
+function altCase(t) {
+  var i = 0;
+  return t.split('').map(function(c) {
+    if (!/[a-zA-Z]/.test(c)) return c;
+    return i++ % 2 === 0 ? c.toLowerCase() : c.toUpperCase();
+  }).join('');
+}
+
+/* ── Build case button grid ── */
+var COLORS = ['var(--acc)','var(--grn)','var(--gold)','var(--purple)','var(--pink)','var(--orange)'];
+function buildGrid() {
+  var grid = document.getElementById('cases-grid');
+  grid.innerHTML = '';
+  CASES.forEach(function(c, i) {
+    var btn = document.createElement('button');
+    btn.className = 'case-btn' + (c.id === activeCase ? ' active' : '');
+    btn.id = 'cbtn-' + c.id;
+    btn.setAttribute('aria-label', 'Convert to ' + c.name);
+    btn.setAttribute('aria-pressed', c.id === activeCase);
+    btn.innerHTML = '<span class="cb-name" style="color:'+(c.id===activeCase?'var(--acc)':'')+'">'+c.name+'</span><span class="cb-ex">'+c.ex+'</span>';
+    btn.addEventListener('click', function(){ setCase(c.id); });
+    grid.appendChild(btn);
+  });
+}
+
+function setCase(id) {
+  activeCase = id;
+  /* Update buttons */
+  CASES.forEach(function(c) {
+    var btn = document.getElementById('cbtn-' + c.id);
+    if (!btn) return;
+    btn.classList.toggle('active', c.id === id);
+    btn.setAttribute('aria-pressed', c.id === id);
+    btn.querySelector('.cb-name').style.color = c.id === id ? 'var(--acc)' : '';
+  });
+  /* Update badge */
+  var found = CASES.find(function(c){ return c.id === id; });
+  document.getElementById('active-name').textContent = found ? found.name : id;
+  /* Update output */
+  convertAndShow();
+}
+
+/* ── Input / output ── */
+function update() {
+  var t = document.getElementById('input').value;
+  var words = t.trim() === '' ? 0 : t.trim().split(/\s+/).length;
+  document.getElementById('char-count').textContent = t.length.toLocaleString();
+  document.getElementById('word-count').textContent = words.toLocaleString();
+  convertAndShow();
+}
+
+function convertAndShow() {
+  var t   = document.getElementById('input').value;
+  var box = document.getElementById('output-box');
+  if (!t.trim()) { box.textContent = ''; box.classList.remove('updated'); return; }
+  var found = CASES.find(function(c){ return c.id === activeCase; });
+  var result = found ? found.fn(t) : t;
+  box.textContent = result;
+  box.classList.remove('updated');
+  void box.offsetWidth; /* reflow for animation */
+  box.classList.add('updated');
+}
+
+function clearInput() {
+  document.getElementById('input').value = '';
+  document.getElementById('output-box').textContent = '';
+  document.getElementById('char-count').textContent = '0';
+  document.getElementById('word-count').textContent = '0';
+  document.getElementById('input').focus();
+}
+
+/* ── Clipboard — works on file://, HTTP, HTTPS ── */
+function copyOutput() {
+  var text = document.getElementById('output-box').textContent;
+  if (!text) return;
+  function ok() {
+    var b = document.getElementById('copy-btn');
+    var orig = b.innerHTML;
+    b.innerHTML = '✓ Copied!';
+    b.style.background = 'var(--grn)';
+    setTimeout(function(){ b.innerHTML = orig; b.style.background = ''; }, 2000);
+  }
+  function fb() {
+    var ta = document.createElement('textarea'); ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); ok(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok).catch(fb); }
+  else { fb(); }
+}
+
+async function pasteInput() {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      var t = await navigator.clipboard.readText();
+      document.getElementById('input').value += t;
+      update();
+    }
+  } catch(e) {
+    document.getElementById('input').focus();
+    alert('Press Ctrl+V (or Cmd+V) to paste');
+  }
+}
+
+function downloadOutput() {
+  var text = document.getElementById('output-box').textContent;
+  if (!text) return;
+  var found = CASES.find(function(c){ return c.id === activeCase; });
+  var name  = (found ? found.id : 'converted') + '-text.txt';
+  var blob  = new Blob([text], { type:'text/plain' });
+  var a     = document.createElement('a');
+  a.href    = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ── Mobile menu ── */
+(function(){
+  var h = document.getElementById('ham'), m = document.getElementById('mob');
+  if (!h || !m) return;
+  h.addEventListener('click', function(){
+    var o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o);
+    var s = h.querySelectorAll('span');
+    if (o){ s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; }
+    else  { s.forEach(function(x){ x.style.transform='';x.style.opacity=''; }); }
+  });
+  document.addEventListener('click', function(e){
+    if (!h.contains(e.target) && !m.contains(e.target)){
+      m.classList.remove('open'); h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(function(x){ x.style.transform='';x.style.opacity=''; });
+    }
+  });
+})();
+
+/* ── FAQ ── */
+function faq(el){
+  var item = el.parentElement, was = item.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(function(i){ i.classList.remove('open'); });
+  document.querySelectorAll('.fq').forEach(function(q){ q.setAttribute('aria-expanded','false'); });
+  if (!was){ item.classList.add('open'); el.setAttribute('aria-expanded','true'); }
+}
+
+/* ── Init ── */
+buildGrid();
+document.getElementById('input').value = 'The quick brown fox jumps over the lazy dog';
+update();
+</script>
+</body>
+</html>

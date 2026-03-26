@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Slug Generator — URL-Friendly Text Converter | ToolsBox</title>
+<meta name="description" content="Free online slug generator. Convert any title or text into a clean, SEO-friendly URL slug instantly. Supports custom separators, lowercase, and bulk generation. No signup.">
+<meta name="keywords" content="slug generator, url slug, seo friendly url, permalink generator, text to slug, url converter, clean url, blog post slug, wordpress slug">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/text-tools/text-to-slug.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Slug Generator — URL-Friendly Text Converter | ToolsBox">
+<meta property="og:description" content="Convert any title to a clean, SEO-friendly URL slug. Custom separator, bulk mode, copy with one click. Free, no login.">
+<meta property="og:url" content="https://yourdomain.com/text-tools/text-to-slug.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slug Generator | ToolsBox">
+<meta name="twitter:description" content="Free slug generator. Convert titles to clean URL slugs instantly — SEO-ready permalinks.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Slug Generator","url":"https://yourdomain.com/text-tools/text-to-slug.html","description":"Free online slug generator. Convert any title or text into a clean SEO-friendly URL slug with custom separators and bulk mode.","applicationCategory":"UtilityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a URL slug?","acceptedAnswer":{"@type":"Answer","text":"A URL slug is the part of a web address that identifies a page. For example, in 'example.com/blog/my-first-post', the slug is 'my-first-post'. Slugs are lowercase, hyphenated, and contain no special characters."}},{"@type":"Question","name":"How do I create an SEO-friendly slug?","acceptedAnswer":{"@type":"Answer","text":"Use lowercase letters, replace spaces with hyphens, remove special characters and accents, and keep it concise. This tool does all of that automatically — just type your title and copy the result."}},{"@type":"Question","name":"What separator should I use for slugs?","acceptedAnswer":{"@type":"Answer","text":"Hyphens (-) are the recommended separator for URL slugs. Google treats hyphens as word separators in URLs, which improves readability and SEO. Underscores are treated as connectors, not separators."}},{"@type":"Question","name":"Can I generate slugs for multiple titles at once?","acceptedAnswer":{"@type":"Answer","text":"Yes — enable Bulk Mode, paste one title per line, and the tool generates a slug for each line simultaneously."}},{"@type":"Question","name":"Does this tool remove stop words?","acceptedAnswer":{"@type":"Answer","text":"Enable the Remove Stop Words option to strip common words like 'a', 'the', 'and', 'of' from your slug, making it shorter and more keyword-focused."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06070a;--bg2:#090b0f;--surf:#0d1018;--surf2:#131620;--surf3:#1a1e2a;
+  --bdr:rgba(255,255,255,.06);--bdr2:rgba(255,255,255,.12);
+  --acc:#34d399;--acc-dim:rgba(52,211,153,.08);--acc-bdr:rgba(52,211,153,.3);--acc-glow:rgba(52,211,153,.18);
+  --rose:#f87171;--rose-dim:rgba(248,113,113,.08);--rose-bdr:rgba(248,113,113,.22);
+  --grn:#4ade80;--grn-dim:rgba(74,222,128,.08);--grn-bdr:rgba(74,222,128,.25);
+  --blue:#60a5fa;--blue-dim:rgba(96,165,250,.08);--blue-bdr:rgba(96,165,250,.22);
+  --txt:#eceaf4;--txt2:#8a8898;--txt3:#50505f;
+  --f:'DM Sans',sans-serif;--fs:'DM Serif Display',serif;
+  --nav:58px;--mw:720px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(ellipse 60% 40% at 20% 0%,rgba(52,211,153,.06),transparent),
+  radial-gradient(ellipse 40% 30% at 90% 85%,rgba(96,165,250,.04),transparent),
+  linear-gradient(rgba(255,255,255,.007) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.007) 1px,transparent 1px);
+  background-size:100%,100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,10,.94);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:14px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:14px;font-weight:700;color:#06070a}
+.logo-txt{font-size:17px;font-weight:800;color:var(--txt);letter-spacing:-.4px}
+.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(28px,6vw,46px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:12px;letter-spacing:-.3px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:480px;margin:0 auto}
+
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.45),transparent)}
+
+/* MODE TABS */
+.tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:4px;gap:4px;margin-bottom:22px}
+.tab{flex:1;padding:9px 8px;border-radius:9px;font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.tab:hover{color:var(--txt)}
+.tab.on{background:var(--surf3);color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+/* OPTIONS ROW */
+.opts-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;align-items:center}
+.opt{display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
+.opt input[type=checkbox]{width:16px;height:16px;accent-color:var(--acc);cursor:pointer;flex-shrink:0}
+.opt-lbl{font-size:13px;font-weight:500;color:var(--txt2)}
+.opt:hover .opt-lbl{color:var(--txt)}
+.sep-select{background:var(--surf2);border:1px solid var(--bdr);border-radius:8px;color:var(--txt);font-family:var(--f);font-size:13px;padding:6px 10px;outline:none;cursor:pointer;transition:border-color .2s}
+.sep-select:focus{border-color:var(--acc-bdr)}
+
+/* INPUT */
+.sec-lbl{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:8px}
+.inp-wrap{position:relative;margin-bottom:14px}
+input[type=text],textarea{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:13px;color:var(--txt);font-family:var(--f);font-size:15px;font-weight:500;padding:14px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
+input[type=text]:focus,textarea:focus{border-color:var(--acc-bdr);box-shadow:0 0 0 3px var(--acc-glow)}
+input[type=text]::placeholder,textarea::placeholder{color:var(--txt3)}
+textarea{resize:vertical;min-height:140px;font-size:13px;font-weight:400;line-height:1.6}
+
+/* SLUG OUTPUT */
+.slug-out-wrap{margin-bottom:18px}
+.slug-display{background:var(--surf2);border:1px solid var(--bdr);border-radius:13px;padding:14px 16px;font-family:monospace;font-size:15px;font-weight:600;color:var(--acc);word-break:break-all;min-height:52px;line-height:1.6;transition:border-color .2s}
+.slug-display.has-val{border-color:var(--acc-bdr)}
+.slug-display.empty{color:var(--txt3);font-family:var(--f);font-weight:400;font-size:14px}
+
+/* BULK OUTPUT */
+.bulk-out{background:var(--surf2);border:1px solid var(--bdr);border-radius:13px;padding:14px 16px;font-family:monospace;font-size:13px;color:var(--acc);min-height:140px;max-height:280px;overflow-y:auto;word-break:break-all;line-height:1.7;white-space:pre;transition:border-color .2s}
+.bulk-out.has-val{border-color:var(--acc-bdr)}
+.bulk-out::-webkit-scrollbar{width:4px}
+.bulk-out::-webkit-scrollbar-thumb{background:var(--surf3);border-radius:10px}
+.bulk-out.empty{color:var(--txt3);font-family:var(--f);font-weight:400;font-size:13px;white-space:normal}
+
+/* PREVIEW BOX */
+.preview-box{background:var(--surf3);border:1px solid var(--bdr);border-radius:10px;padding:12px 14px;margin-bottom:18px;font-size:12px;color:var(--txt3);word-break:break-all;line-height:1.7}
+.preview-box span{color:var(--txt2)}
+.preview-box strong{color:var(--acc)}
+
+/* STATS */
+.slug-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.ss{background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:9px 14px;font-size:12px;color:var(--txt3);display:flex;align-items:center;gap:6px}
+.ss strong{color:var(--txt);font-weight:700}
+
+/* BUTTONS */
+.arow{display:flex;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:700;cursor:pointer;border:none;outline:none;transition:transform .12s,box-shadow .15s,background .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.97)}
+.bp{background:var(--acc);color:#06070a;flex:1}
+.bp:hover{box-shadow:0 6px 24px var(--acc-glow)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr);padding:13px 18px}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* INFO / FAQ / REL / FOOTER — standard shared */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:22px;font-weight:400;color:var(--txt);margin-bottom:14px;letter-spacing:-.2px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.formula-box{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-family:monospace;font-size:13px;color:var(--txt);line-height:1.9}
+.formula-box span{color:var(--acc)}
+.use-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.uc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.uc-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:260px;padding-top:10px}
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:var(--acc-bdr);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:700;display:block}
+.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--grn);color:#06070a;font-family:var(--f);font-size:13px;font-weight:700;padding:.55rem 1.4rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .nav-links{display:none}.ham{display:flex}
+  main{padding:24px 14px 60px}.card{padding:18px 14px}
+  .use-grid{grid-template-columns:1fr}
+  .fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}
+  .arow{flex-wrap:wrap}.bp{flex:none;width:100%}
+  .rg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:400px){.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="logo-box">T</div>
+      <span class="logo-txt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="../calculators/index.html" class="nl">🧮 Calculators</a>
+      <a href="index.html" class="nl on" aria-current="page">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="../calculators/index.html" class="nl">🧮 Calculators</a>
+  <a href="index.html" class="nl on">✍️ Text Tools</a>
+</div>
+
+<main>
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span aria-hidden="true"> › </span>
+    <a href="index.html">Text Tools</a><span aria-hidden="true"> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Slug Generator</span>
+  </nav>
+
+  <header class="ph">
+    <div class="badge">🔗 URL Tool</div>
+    <h1>Slug <em>Generator</em></h1>
+    <p class="sub">Convert any title or text into a clean, SEO-friendly URL slug. Custom separator, stop-word removal, and bulk mode included.</p>
+  </header>
+
+  <div class="card">
+    <!-- MODE TABS -->
+    <div class="tabs" role="tablist">
+      <button class="tab on" id="tab-single" onclick="SG.setMode('single')" role="tab" aria-selected="true">✏️ Single</button>
+      <button class="tab" id="tab-bulk" onclick="SG.setMode('bulk')" role="tab" aria-selected="false">📋 Bulk (one title per line)</button>
+    </div>
+
+    <!-- OPTIONS -->
+    <div class="opts-row" role="group" aria-label="Slug options">
+      <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)">Separator:</span>
+      <select class="sep-select" id="sep" onchange="SG.live()" aria-label="Separator character">
+        <option value="-">Hyphen  —  my-title</option>
+        <option value="_">Underscore  —  my_title</option>
+        <option value=".">Dot  —  my.title</option>
+      </select>
+      <label class="opt"><input type="checkbox" id="opt-stop" onchange="SG.live()"><span class="opt-lbl">Remove stop words</span></label>
+      <label class="opt"><input type="checkbox" id="opt-num" onchange="SG.live()"><span class="opt-lbl">Strip numbers</span></label>
+    </div>
+
+    <!-- SINGLE MODE -->
+    <div id="pane-single">
+      <div class="sec-lbl">Your title or text</div>
+      <div class="inp-wrap">
+        <input type="text" id="single-inp" placeholder="e.g. How to Build a Next.js Blog in 2025" aria-label="Title input" oninput="SG.live()" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="preview-box" id="preview-box" aria-live="polite">
+        <span>yoursite.com/blog/<strong id="preview-slug">your-slug-appears-here</strong></span>
+      </div>
+
+      <div class="sec-lbl">Generated slug</div>
+      <div class="slug-out-wrap">
+        <div class="slug-display empty" id="slug-display" aria-live="polite">Start typing above to generate a slug…</div>
+      </div>
+
+      <div class="slug-stats" id="slug-stats" style="display:none">
+        <div class="ss">Length: <strong id="st-len">0</strong> chars</div>
+        <div class="ss">Words: <strong id="st-words">0</strong></div>
+        <div class="ss">SEO score: <strong id="st-seo" style="color:var(--acc)">--</strong></div>
+      </div>
+
+      <div class="arow">
+        <button class="btn bp" id="cp-single" onclick="SG.copySingle()" disabled>📋 Copy Slug</button>
+        <button class="btn bs" onclick="SG.clearSingle()">↺ Clear</button>
+      </div>
+    </div>
+
+    <!-- BULK MODE -->
+    <div id="pane-bulk" style="display:none">
+      <div class="sec-lbl">Titles — one per line</div>
+      <textarea id="bulk-inp" placeholder="How to Build a Next.js Blog&#10;10 Best SEO Tools in 2025&#10;Getting Started with React Hooks" oninput="SG.bulkLive()" spellcheck="false" aria-label="Bulk titles input"></textarea>
+
+      <div style="margin:14px 0 8px">
+        <div class="sec-lbl">Generated slugs</div>
+      </div>
+      <div class="bulk-out empty" id="bulk-out" aria-live="polite">Slugs appear here as you type…</div>
+
+      <div style="margin-top:14px" class="arow">
+        <button class="btn bp" id="cp-bulk" onclick="SG.copyBulk()" disabled>📋 Copy All Slugs</button>
+        <button class="btn bs" onclick="SG.clearBulk()">↺ Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">What makes a good URL slug?</h2>
+    <p>A URL slug is the human-readable part of a web address that identifies a specific page. Good slugs are short, descriptive, lowercase, and use hyphens between words. They directly impact both user experience and search engine rankings.</p>
+    <div class="formula-box">
+      <span>Input:</span>  "How to Build a Next.js Blog in 2025!"<br>
+      <span>Step 1:</span> Lowercase → "how to build a next.js blog in 2025!"<br>
+      <span>Step 2:</span> Remove special chars → "how to build a nextjs blog in 2025"<br>
+      <span>Step 3:</span> Replace spaces → "how-to-build-a-nextjs-blog-in-2025"
+    </div>
+    <div class="use-grid">
+      <div class="uc"><div class="uc-t">📝 Blog posts</div><p>Generate clean WordPress, Ghost or static site permalinks from your post titles instantly.</p></div>
+      <div class="uc"><div class="uc-t">🛍️ Products</div><p>Create consistent, lowercase product URL slugs for your e-commerce store or catalogue.</p></div>
+      <div class="uc"><div class="uc-t">📂 Categories</div><p>Turn category names like "React & Vue Tips" into URL-safe slugs like "react-vue-tips".</p></div>
+      <div class="uc"><div class="uc-t">📦 Bulk migration</div><p>Use bulk mode to generate dozens of slugs at once when migrating or restructuring a site.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="SG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is a URL slug?</div><div class="fa">A URL slug is the part of a web address that identifies a page. For example in "example.com/blog/my-first-post", the slug is "my-first-post". Slugs are lowercase, hyphenated, and contain no special characters.</div></div>
+    <div class="fi"><div class="fq" onclick="SG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I create an SEO-friendly slug?</div><div class="fa">Use lowercase letters, replace spaces with hyphens, remove special characters and accents, and keep it concise — ideally under 60 characters. This tool does all of that automatically.</div></div>
+    <div class="fi"><div class="fq" onclick="SG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What separator should I use?</div><div class="fa">Hyphens (-) are the recommended separator. Google treats hyphens as word separators in URLs, which improves readability and SEO. Underscores are treated as connectors, not separators, which can affect rankings.</div></div>
+    <div class="fi"><div class="fq" onclick="SG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Can I generate slugs for multiple titles at once?</div><div class="fa">Yes — switch to Bulk Mode, paste one title per line, and the tool generates a slug for each line simultaneously as you type.</div></div>
+    <div class="fi"><div class="fq" onclick="SG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Does this tool remove stop words?</div><div class="fa">Enable the "Remove stop words" option to strip common words like "a", "the", "and", "of", "in" from your slug, making it shorter and more keyword-focused.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl" id="rel-h">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="remove-duplicates.html"><span class="ri">🗑️</span><span class="rn">Remove Duplicates</span><span class="rd">Clean any list</span></a>
+      <a class="rc" href="case-converter.html"><span class="ri">🔠</span><span class="rn">Case Converter</span><span class="rd">Upper, lower, title</span></a>
+      <a class="rc" href="word-counter.html"><span class="ri">📝</span><span class="rn">Word Counter</span><span class="rd">Words & characters</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/percentage-calc.html">💯 % Calculator</a></li>
+      <li><a href="../calculators/time-calculator.html">⏱ Time Calculator</a></li>
+      <li><a href="../calculators/sip-calculator.html">💹 SIP Calculator</a></li>
+      <li><a href="../calculators/age-calculator.html">🎂 Age Calculator</a></li>
+      <li><a href="../calculators/bmi-calculator.html">⚖️ BMI Calculator</a></li>
+      <li><a href="../calculators/emi-calculator.html">🏦 EMI Calculator</a></li>
+    </ul></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl">
+      <li><a href="word-counter.html">📝 Word Counter</a></li>
+      <li><a href="character-counter.html">🔢 Char Counter</a></li>
+      <li><a href="case-converter.html">🔠 Case Converter</a></li>
+      <li><a href="password-generator.html">🔐 Password Gen</a></li>
+      <li><a href="remove-duplicates.html">🗑️ Remove Duplicates</a></li>
+      <li><a href="text-to-slug.html">🔗 Slug Generator</a></li>
+      <li><a href="text-reverser.html">🔃 Text Reverser</a></li>
+    </ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl">
+      <li><a href="../index.html">🏠 All Tools</a></li>
+      <li><a href="../calculators/index.html">🧮 All Calculators</a></li>
+      <li><a href="index.html">✍️ All Text Tools</a></li>
+      <li><a href="lorem-ipsum.html">📄 Lorem Ipsum</a></li>
+      <li><a href="hashtag-generator.html">#️⃣ Hashtag Gen</a></li>
+      <li><a href="reading-time.html">⏰ Reading Time</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var SG = (function(){
+  var STOP = ['a','an','the','and','or','but','in','on','at','to','for','of','with','by','from','up','about','into','through','as','is','are','was','were','be','been','being','have','has','had','do','does','did','will','would','could','should','may','might','can','its'];
+
+  function showToast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); },2200);
+  }
+
+  function toSlug(text){
+    var sep = document.getElementById('sep').value;
+    var stopOff = document.getElementById('opt-stop').checked;
+    var noNums  = document.getElementById('opt-num').checked;
+
+    var s = text.toLowerCase();
+    // Transliterate common accented chars
+    s = s.replace(/[àáâãäå]/g,'a').replace(/[èéêë]/g,'e').replace(/[ìíîï]/g,'i')
+         .replace(/[òóôõö]/g,'o').replace(/[ùúûü]/g,'u').replace(/[ñ]/g,'n')
+         .replace(/[ç]/g,'c').replace(/[ß]/g,'ss').replace(/[æ]/g,'ae').replace(/[ø]/g,'oe');
+    // Remove everything except alphanumeric and spaces
+    s = s.replace(/[^a-z0-9\s]/g,' ');
+    if(noNums) s = s.replace(/[0-9]/g,' ');
+    var words = s.trim().split(/\s+/).filter(function(w){ return w.length > 0; });
+    if(stopOff) words = words.filter(function(w){ return STOP.indexOf(w) === -1; });
+    s = words.join(sep);
+    // Collapse multiple separators
+    var re = new RegExp('\\' + sep + '+','g');
+    s = s.replace(re, sep).replace(new RegExp('^\\'+sep+'|\\'+sep+'$','g'),'');
+    return s;
+  }
+
+  function seoScore(slug){
+    var len = slug.length;
+    if(!slug) return { label:'—', color:'var(--txt3)' };
+    if(len > 80) return { label:'Too long', color:'var(--rose)' };
+    if(len > 60) return { label:'OK', color:'var(--amber)' };
+    if(len < 5)  return { label:'Too short', color:'var(--amber)' };
+    return { label:'Great ✓', color:'var(--grn)' };
+  }
+
+  function copyText(text, btn, label){
+    function onOK(){
+      btn.textContent='✓ Copied!';
+      setTimeout(function(){ btn.textContent=label; },2000);
+      showToast('Copied to clipboard!');
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(onOK).catch(fb);
+    } else fb();
+    function fb(){
+      var ta=document.createElement('textarea'); ta.value=text;
+      ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta);
+      ta.focus(); ta.select(); try{ document.execCommand('copy'); onOK(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  }
+
+  return {
+    setMode: function(m){
+      ['single','bulk'].forEach(function(id){
+        document.getElementById('tab-'+id).classList.toggle('on',id===m);
+        document.getElementById('tab-'+id).setAttribute('aria-selected',String(id===m));
+        document.getElementById('pane-'+id).style.display = id===m ? '' : 'none';
+      });
+    },
+
+    live: function(){
+      var inp = document.getElementById('single-inp').value;
+      var slug = inp.trim() ? toSlug(inp) : '';
+      var disp = document.getElementById('slug-display');
+      var prev = document.getElementById('preview-slug');
+      var stats = document.getElementById('slug-stats');
+
+      if(!slug){
+        disp.textContent = 'Start typing above to generate a slug…';
+        disp.className = 'slug-display empty';
+        prev.textContent = 'your-slug-appears-here';
+        stats.style.display = 'none';
+        document.getElementById('cp-single').disabled = true;
+        return;
+      }
+      disp.textContent = slug;
+      disp.className = 'slug-display has-val';
+      prev.textContent = slug;
+      stats.style.display = 'flex';
+      var words = slug.split(/[-_.]/);
+      document.getElementById('st-len').textContent   = slug.length;
+      document.getElementById('st-words').textContent = words.filter(function(w){ return w.length; }).length;
+      var sc = seoScore(slug);
+      var el = document.getElementById('st-seo');
+      el.textContent = sc.label;
+      el.style.color = sc.color;
+      document.getElementById('cp-single').disabled = false;
+    },
+
+    copySingle: function(){
+      var slug = document.getElementById('slug-display').textContent;
+      if(!slug || slug === 'Start typing above to generate a slug…') return;
+      copyText(slug, document.getElementById('cp-single'), '📋 Copy Slug');
+    },
+
+    clearSingle: function(){
+      document.getElementById('single-inp').value = '';
+      this.live();
+    },
+
+    bulkLive: function(){
+      var lines = document.getElementById('bulk-inp').value.split('\n');
+      var out   = document.getElementById('bulk-out');
+      var btn   = document.getElementById('cp-bulk');
+      var hasContent = document.getElementById('bulk-inp').value.trim() !== '';
+      if(!hasContent){ out.textContent='Slugs appear here as you type…'; out.className='bulk-out empty'; btn.disabled=true; return; }
+      var slugs = lines.map(function(l){
+        return l.trim() ? toSlug(l) : '';
+      });
+      out.textContent = slugs.join('\n');
+      out.className = 'bulk-out has-val';
+      btn.disabled = false;
+    },
+
+    copyBulk: function(){
+      var val = document.getElementById('bulk-out').textContent;
+      if(!val || val === 'Slugs appear here as you type…') return;
+      copyText(val, document.getElementById('cp-bulk'), '📋 Copy All Slugs');
+    },
+
+    clearBulk: function(){
+      document.getElementById('bulk-inp').value = '';
+      this.bulkLive();
+    },
+
+    faqToggle: function(el){
+      var item=el.parentElement, was=item.classList.contains('open');
+      document.querySelectorAll('.fi').forEach(function(i){ i.classList.remove('open'); });
+      document.querySelectorAll('.fq').forEach(function(q){ q.setAttribute('aria-expanded','false'); });
+      if(!was){ item.classList.add('open'); el.setAttribute('aria-expanded','true'); }
+    }
+  };
+}());
+
+document.querySelectorAll('.fq').forEach(function(el){
+  el.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); SG.faqToggle(el); }
+  });
+});
+
+(function(){
+  var h=document.getElementById('ham'), m=document.getElementById('mob');
+  if(!h||!m) return;
+  h.addEventListener('click',function(){
+    var open=m.classList.toggle('open');
+    h.setAttribute('aria-expanded',String(open));
+    var s=h.querySelectorAll('span');
+    if(open){ s[0].style.transform='rotate(45deg) translate(4px,4px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; }
+    else{ s.forEach(function(x){ x.style.transform=''; x.style.opacity=''; }); }
+  });
+  document.addEventListener('click',function(e){
+    if(!h.contains(e.target)&&!m.contains(e.target)){
+      m.classList.remove('open'); h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(function(x){ x.style.transform=''; x.style.opacity=''; });
+    }
+  });
+}());
+</script>
+</body>
+</html>

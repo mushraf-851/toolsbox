@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Discount Calculator — Find Sale Price & Amount Saved Instantly | ToolsBox</title>
+<meta name="description" content="Free discount calculator. Enter original price and discount percentage to instantly find sale price, amount saved, and final price. Also calculate what percentage discount you got.">
+<meta name="keywords" content="discount calculator, sale price calculator, percentage off calculator, how much is 20 percent off, price after discount, amount saved calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/discount-calc.html">
+
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Discount Calculator — Sale Price & Savings | ToolsBox">
+<meta property="og:description" content="Find sale price, amount saved, and discount percentage instantly. Free online discount calculator.">
+<meta property="og:url"         content="https://yourdomain.com/calculators/discount-calc.html">
+<meta property="og:site_name"   content="ToolsBox">
+<meta name="twitter:card"       content="summary">
+<meta name="twitter:title"      content="Discount Calculator | ToolsBox">
+<meta name="twitter:description" content="Calculate sale price and savings instantly. Free, no sign-up.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Discount Calculator",
+  "url":"https://yourdomain.com/calculators/discount-calc.html",
+  "description":"Free discount calculator. Find sale price, amount saved, and discount percentage for any original price.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I calculate the price after a discount?",
+      "acceptedAnswer":{"@type":"Answer","text":"Sale Price = Original Price × (1 − Discount% ÷ 100). For example, a ₹2,000 item at 25% off: ₹2,000 × (1 − 0.25) = ₹1,500."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do I calculate discount percentage?",
+      "acceptedAnswer":{"@type":"Answer","text":"Discount% = ((Original Price − Sale Price) ÷ Original Price) × 100. For example, if an item went from ₹2,000 to ₹1,500: ((2000 − 1500) ÷ 2000) × 100 = 25%."}
+    },
+    {
+      "@type":"Question",
+      "name":"How much do I save with a discount?",
+      "acceptedAnswer":{"@type":"Answer","text":"Amount Saved = Original Price × (Discount% ÷ 100). Enter the original price and discount percentage in the calculator above to see exactly how much you save."}
+    },
+    {
+      "@type":"Question",
+      "name":"How to calculate double discount?",
+      "acceptedAnswer":{"@type":"Answer","text":"For a double discount (e.g. 20% then 10% off), the combined discount is not simply added. Use: Final = Original × (1 − D1/100) × (1 − D2/100). A 20% + 10% discount gives 28% off total, not 30%."}
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:      #080909;
+  --bg2:     #0d0e0f;
+  --surf:    #111213;
+  --surf2:   #171819;
+  --surf3:   #1e1f21;
+  --bdr:     rgba(255,255,255,0.06);
+  --bdr2:    rgba(255,255,255,0.11);
+
+  /* Hot pink/red — sale/discount theme */
+  --acc:     #ff4d6d;
+  --acc2:    #e03355;
+  --acc-dim: rgba(255,77,109,0.10);
+  --acc-bdr: rgba(255,77,109,0.24);
+
+  --grn:     #22c55e;
+  --grn-dim: rgba(34,197,94,0.10);
+  --grn-bdr: rgba(34,197,94,0.22);
+
+  --txt:     #f0ece7;
+  --txt2:    #888480;
+  --txt3:    #46433f;
+
+  --f:       'Nunito', sans-serif;
+  --fs:      'Playfair Display', serif;
+  --nav:     58px;
+  --mw:      660px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%,rgba(255,77,109,0.06),transparent),
+    linear-gradient(rgba(255,255,255,0.011) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.011) 1px,transparent 1px);
+  background-size:100%,52px 52px,52px 52px;
+  pointer-events:none;z-index:0
+}
+
+/* ── Nav ── */
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(8,9,9,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:16px;font-weight:700;color:#080909}
+.logo-txt{font-size:17px;font-weight:800;color:var(--txt);letter-spacing:-0.4px}
+.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+
+/* ── Main ── */
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+
+/* Header */
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(30px,6.5vw,50px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:460px;margin:0 auto}
+
+/* ── Card ── */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:30px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,77,109,0.35),transparent)}
+
+/* Mode tabs */
+.tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:4px;gap:4px;margin-bottom:24px}
+.tab{flex:1;padding:9px 8px;border-radius:9px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;line-height:1.3}
+.tab:hover{color:var(--txt)}
+.tab.on{background:var(--surf3);color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,0.4)}
+
+/* Currency row */
+.curr-row{display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.curr-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+.cpills{display:flex;gap:5px;flex-wrap:wrap}
+.cpill{padding:4px 11px;border-radius:100px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s}
+.cpill:hover{border-color:var(--acc-bdr);color:var(--acc)}
+.cpill.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+
+/* Quick discount pills */
+.quick-row{display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.quick-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);flex-shrink:0}
+.qpills{display:flex;gap:5px;flex-wrap:wrap}
+.qpill{padding:5px 12px;border-radius:100px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s}
+.qpill:hover{border-color:var(--acc-bdr);color:var(--acc);background:var(--acc-dim)}
+
+/* Grid */
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0}
+.field{display:flex;flex-direction:column;gap:7px}
+label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+
+input[type=number]{
+  width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;
+  color:var(--txt);font-family:var(--f);font-size:16px;font-weight:700;
+  padding:12px 16px;outline:none;
+  transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;-moz-appearance:textfield
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}
+input[type=number]:focus{border-color:rgba(255,77,109,0.45);box-shadow:0 0 0 3px rgba(255,77,109,0.07)}
+.input-u{position:relative}
+.input-u input{padding-left:36px}
+.u-pre{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:800;color:var(--txt3);pointer-events:none}
+.u-suf{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:14px;font-weight:700;color:var(--txt3);pointer-events:none}
+
+.err{display:none;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.22);color:#f87171;font-size:13px;padding:10px 14px;border-radius:8px;margin-top:12px}
+.err.show{display:block}
+
+/* Buttons */
+.brow{display:flex;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:800;cursor:pointer;border:none;transition:transform .12s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.bp{background:var(--acc);color:#fff;flex:1}
+.bp:hover{background:#ff6b86;box-shadow:0 6px 24px rgba(255,77,109,0.3)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr);padding:13px 18px}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+
+/* ── Results ── */
+.res{opacity:0;transform:translateY(10px);transition:opacity .38s,transform .38s;pointer-events:none;margin-top:26px}
+.res.show{opacity:1;transform:translateY(0);pointer-events:auto}
+
+/* Sale tag hero */
+.sale-hero{border-radius:18px;padding:26px 22px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,77,109,0.11),rgba(255,77,109,0.03));border:1px solid rgba(255,77,109,0.22)}
+.sale-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,77,109,0.5),transparent)}
+
+/* Sale tag SVG badge */
+.sale-tag{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px 5px 10px;border-radius:100px;margin-bottom:14px}
+.tag-dot{width:8px;height:8px;background:#fff;border-radius:50%;opacity:.8}
+
+.hero-price{font-family:var(--fs);font-size:clamp(52px,13vw,82px);font-weight:700;line-height:1;color:var(--acc);display:block;letter-spacing:-2px}
+.hero-label{font-size:14px;font-weight:600;color:var(--txt2);margin-top:5px;display:block}
+.hero-orig{font-size:14px;color:var(--txt3);margin-top:4px;text-decoration:line-through;display:block}
+
+/* Green savings box */
+.savings-box{background:var(--grn-dim);border:1px solid var(--grn-bdr);border-radius:14px;padding:18px 20px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sb-l{display:flex;align-items:center;gap:11px}
+.sb-icon{font-size:24px}
+.sb-title{font-size:14px;font-weight:700;color:var(--txt)}
+.sb-sub{font-size:12px;color:rgba(34,197,94,0.7);margin-top:2px}
+.sb-val{font-family:var(--fs);font-size:28px;font-weight:700;color:var(--grn);white-space:nowrap;text-align:right}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.stat{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:15px 10px;text-align:center;transition:border-color .18s}
+.stat:hover{border-color:rgba(255,77,109,0.18)}
+.sv{display:block;font-family:var(--fs);font-size:22px;font-weight:700;line-height:1.1;margin-bottom:3px}
+.sk{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+
+/* Animated savings bar */
+.bar-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-bottom:12px}
+.bar-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px}
+.bar-track{height:10px;background:var(--surf3);border-radius:100px;overflow:hidden;margin-bottom:8px;position:relative}
+.bar-you-pay{height:100%;background:linear-gradient(90deg,var(--surf3),#555);border-radius:100px;transition:width .55s cubic-bezier(.34,1.56,.64,1)}
+.bar-save{position:absolute;top:0;right:0;height:100%;background:var(--acc);border-radius:100px;transition:width .55s cubic-bezier(.34,1.56,.64,1)}
+.bar-legend{display:flex;justify-content:space-between}
+.bar-leg-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--txt2)}
+.bar-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.bar-leg-val{font-weight:700;color:var(--txt);margin-left:3px}
+
+/* Multi-item total */
+.multi-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-bottom:12px}
+.multi-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px}
+.multi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.multi-cell{text-align:center}
+.mc-val{display:block;font-family:var(--fs);font-size:18px;font-weight:700;color:var(--txt)}
+.mc-key{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt3);margin-top:3px}
+.mc-cell-2{color:var(--acc)!important}
+.mc-cell-4{color:var(--grn)!important}
+
+/* Quick compare table */
+.compare-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.compare-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);padding:12px 14px 8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--surf3)}
+th{padding:8px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+th:last-child,td:last-child{text-align:right}
+td{padding:9px 14px;border-bottom:1px solid var(--bdr);color:var(--txt2)}
+tr:last-child td{border-bottom:none}
+tr.active-row td{background:rgba(255,77,109,0.05);color:var(--txt)}
+tr.active-row td:first-child{color:var(--acc);font-weight:700}
+tr.active-row td:last-child{color:var(--grn);font-weight:700}
+tr:hover td{background:rgba(255,255,255,0.02)}
+
+/* Copy */
+.cpbtn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:12px;font-weight:700;padding:8px 14px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+
+/* ── Info ── */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.formula-box{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:14px;color:var(--txt);line-height:1.8}
+.formula-box span{color:var(--acc);font-weight:700}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+
+/* ── FAQ ── */
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:240px;padding-top:10px}
+
+/* ── Related ── */
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(255,77,109,0.22);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:700;display:block}
+.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+
+/* ── Footer ── */
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  main{padding:24px 14px 60px}
+  .card{padding:22px 16px}
+  .r2{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .multi-row{grid-template-columns:1fr 1fr}
+  .ig{grid-template-columns:1fr}
+  .fi3{grid-template-columns:1fr 1fr;gap:20px}
+  .fb-brand{grid-column:1/-1}
+  .brow{flex-direction:column}
+  .bs{width:100%}
+}
+@media(max-width:400px){
+  .r2{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .multi-row{grid-template-columns:1fr 1fr}
+  .rg{grid-template-columns:1fr 1fr}
+  .fi3{grid-template-columns:1fr}
+  .tabs{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="logo-box">T</div>
+      <span class="logo-txt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html"            class="nl">🏠 Home</a>
+      <a href="index.html"               class="nl on" aria-current="page">🧮 Calculators</a>
+      <a href="../text-tools/index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation">
+  <a href="../index.html"            class="nl">🏠 Home</a>
+  <a href="index.html"               class="nl on">🧮 Calculators</a>
+  <a href="../text-tools/index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span aria-hidden="true"> › </span>
+    <a href="index.html">Calculators</a>
+    <span aria-hidden="true"> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Discount Calculator</span>
+  </nav>
+
+  <header class="ph">
+    <div class="badge">🏷️ Shopping Calculator</div>
+    <h1>Discount <em>Calculator</em></h1>
+    <p class="sub">Find sale price, amount saved, and discount percentage instantly — for any price and any deal.</p>
+  </header>
+
+  <!-- Tool Card -->
+  <div class="card">
+
+    <!-- Mode tabs -->
+    <div class="tabs" role="tablist" aria-label="Calculator mode">
+      <button class="tab on" id="tab-pct"   onclick="setMode('pct')"    role="tab" aria-selected="true">% Off → Sale Price</button>
+      <button class="tab"    id="tab-rev"   onclick="setMode('rev')"    role="tab" aria-selected="false">Find % Discount</button>
+      <button class="tab"    id="tab-fixed" onclick="setMode('fixed')"  role="tab" aria-selected="false">Fixed Amount Off</button>
+      <button class="tab"    id="tab-multi" onclick="setMode('multi')"  role="tab" aria-selected="false">Multi-item Total</button>
+    </div>
+
+    <!-- Currency -->
+    <div class="curr-row">
+      <span class="curr-label">Currency</span>
+      <div class="cpills" id="cpills" role="group">
+        <button class="cpill on" data-sym="₹" onclick="setCurr(this)">₹ INR</button>
+        <button class="cpill"    data-sym="$" onclick="setCurr(this)">$ USD</button>
+        <button class="cpill"    data-sym="€" onclick="setCurr(this)">€ EUR</button>
+        <button class="cpill"    data-sym="£" onclick="setCurr(this)">£ GBP</button>
+      </div>
+    </div>
+
+    <!-- ── Mode: % Off ── -->
+    <div id="pane-pct">
+      <div class="quick-row">
+        <span class="quick-label">Quick %</span>
+        <div class="qpills" role="group" aria-label="Quick discount presets">
+          <button class="qpill" onclick="setDisc(5)">5%</button>
+          <button class="qpill" onclick="setDisc(10)">10%</button>
+          <button class="qpill" onclick="setDisc(15)">15%</button>
+          <button class="qpill" onclick="setDisc(20)">20%</button>
+          <button class="qpill" onclick="setDisc(25)">25%</button>
+          <button class="qpill" onclick="setDisc(30)">30%</button>
+          <button class="qpill" onclick="setDisc(50)">50%</button>
+          <button class="qpill" onclick="setDisc(70)">70%</button>
+        </div>
+      </div>
+      <div class="r2" style="margin-bottom:12px">
+        <div class="field">
+          <label for="orig-price">Original price</label>
+          <div class="input-u">
+            <span class="u-pre" id="sym1">₹</span>
+            <input type="number" id="orig-price" placeholder="2000" min="0" step="0.01" aria-label="Original price">
+          </div>
+        </div>
+        <div class="field">
+          <label for="disc-pct">Discount</label>
+          <div class="input-u" style="position:relative">
+            <input type="number" id="disc-pct" placeholder="20" min="0" max="100" step="0.1" style="padding-right:36px" aria-label="Discount percentage">
+            <span class="u-suf">%</span>
+          </div>
+        </div>
+      </div>
+      <div class="r2">
+        <div class="field">
+          <label for="qty">Quantity (optional)</label>
+          <input type="number" id="qty" placeholder="1" min="1" step="1" value="1" aria-label="Quantity">
+        </div>
+        <div class="field">
+          <label for="tax">Tax / GST (optional)</label>
+          <div class="input-u" style="position:relative">
+            <input type="number" id="tax" placeholder="18" min="0" max="100" step="0.1" style="padding-right:36px" aria-label="Tax percentage">
+            <span class="u-suf">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Mode: Find % ── -->
+    <div id="pane-rev" style="display:none">
+      <div class="r2">
+        <div class="field">
+          <label for="rev-orig">Original price</label>
+          <div class="input-u">
+            <span class="u-pre" id="sym2">₹</span>
+            <input type="number" id="rev-orig" placeholder="2000" min="0" step="0.01" aria-label="Original price">
+          </div>
+        </div>
+        <div class="field">
+          <label for="rev-sale">Sale price</label>
+          <div class="input-u">
+            <span class="u-pre" id="sym3">₹</span>
+            <input type="number" id="rev-sale" placeholder="1500" min="0" step="0.01" aria-label="Sale price">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Mode: Fixed Amount ── -->
+    <div id="pane-fixed" style="display:none">
+      <div class="r2">
+        <div class="field">
+          <label for="fix-orig">Original price</label>
+          <div class="input-u">
+            <span class="u-pre" id="sym4">₹</span>
+            <input type="number" id="fix-orig" placeholder="2000" min="0" step="0.01" aria-label="Original price">
+          </div>
+        </div>
+        <div class="field">
+          <label for="fix-amt">Discount amount</label>
+          <div class="input-u">
+            <span class="u-pre" id="sym5">₹</span>
+            <input type="number" id="fix-amt" placeholder="400" min="0" step="0.01" aria-label="Discount amount">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Mode: Multi-item ── -->
+    <div id="pane-multi" style="display:none">
+      <div class="r2" style="margin-bottom:12px">
+        <div class="field">
+          <label for="m-price">Price per item</label>
+          <div class="input-u">
+            <span class="u-pre" id="sym6">₹</span>
+            <input type="number" id="m-price" placeholder="500" min="0" step="0.01" aria-label="Price per item">
+          </div>
+        </div>
+        <div class="field">
+          <label for="m-qty">Number of items</label>
+          <input type="number" id="m-qty" placeholder="3" min="1" step="1" aria-label="Number of items">
+        </div>
+      </div>
+      <div class="r2">
+        <div class="field">
+          <label for="m-disc">Discount</label>
+          <div class="input-u" style="position:relative">
+            <input type="number" id="m-disc" placeholder="20" min="0" max="100" step="0.1" style="padding-right:36px" aria-label="Discount percentage">
+            <span class="u-suf">%</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="m-tax">Tax / GST</label>
+          <div class="input-u" style="position:relative">
+            <input type="number" id="m-tax" placeholder="18" min="0" max="100" step="0.1" style="padding-right:36px" aria-label="Tax percentage">
+            <span class="u-suf">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+
+    <div class="brow">
+      <button class="btn bp" onclick="calc()" aria-label="Calculate discount">Calculate →</button>
+      <button class="btn bs" onclick="rst()"  aria-label="Reset">Reset</button>
+    </div>
+
+    <!-- ── Results ── -->
+    <div class="res" id="res" aria-live="polite">
+
+      <!-- Sale hero -->
+      <div class="sale-hero">
+        <div>
+          <div class="sale-tag"><span class="tag-dot"></span><span id="r-tag-pct">-- OFF</span></div>
+        </div>
+        <span class="hero-price" id="r-sale-price">--</span>
+        <span class="hero-label" id="r-price-label">Sale price</span>
+        <span class="hero-orig"  id="r-orig-str"></span>
+      </div>
+
+      <!-- Green savings -->
+      <div class="savings-box">
+        <div class="sb-l">
+          <span class="sb-icon" aria-hidden="true">💰</span>
+          <div>
+            <div class="sb-title">You save</div>
+            <div class="sb-sub" id="sb-sub-text">On this purchase</div>
+          </div>
+        </div>
+        <span class="sb-val" id="r-saved">--</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <span class="sv" id="r-disc-pct-stat" style="color:var(--acc)">--%</span>
+          <span class="sk">Discount %</span>
+        </div>
+        <div class="stat">
+          <span class="sv" id="r-you-pay" style="color:var(--txt)">--</span>
+          <span class="sk">You pay</span>
+        </div>
+        <div class="stat">
+          <span class="sv" id="r-with-tax" style="color:var(--txt)">--</span>
+          <span class="sk">After tax</span>
+        </div>
+      </div>
+
+      <!-- Visual bar -->
+      <div class="bar-wrap">
+        <div class="bar-title">Price breakdown — you pay vs you save</div>
+        <div class="bar-track">
+          <div class="bar-you-pay" id="bar-pay"></div>
+          <div class="bar-save"    id="bar-sav"></div>
+        </div>
+        <div class="bar-legend">
+          <div class="bar-leg-item">
+            <div class="bar-dot" style="background:var(--surf3);border:1px solid var(--bdr2)"></div>
+            You pay <span class="bar-leg-val" id="leg-pay">--</span>
+          </div>
+          <div class="bar-leg-item">
+            <div class="bar-dot" style="background:var(--acc)"></div>
+            You save <span class="bar-leg-val" id="leg-save">--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Multi-item totals (only shown when qty > 1 or multi mode) -->
+      <div class="multi-wrap" id="multi-wrap" style="display:none">
+        <div class="multi-title">Multi-item breakdown</div>
+        <div class="multi-row">
+          <div class="multi-cell">
+            <span class="mc-val" id="mc-qty">--</span>
+            <span class="mc-key">Items</span>
+          </div>
+          <div class="multi-cell">
+            <span class="mc-val mc-cell-2" id="mc-unit">--</span>
+            <span class="mc-key">Per item</span>
+          </div>
+          <div class="multi-cell">
+            <span class="mc-val" id="mc-total">--</span>
+            <span class="mc-key">Total</span>
+          </div>
+          <div class="multi-cell">
+            <span class="mc-val mc-cell-4" id="mc-saved">--</span>
+            <span class="mc-key">Total saved</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discount comparison table -->
+      <div class="compare-wrap">
+        <div class="compare-title">Discount comparison</div>
+        <table aria-label="Discount comparison at common percentages">
+          <thead>
+            <tr>
+              <th>Discount</th>
+              <th>Sale price</th>
+              <th>You save</th>
+            </tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </div>
+
+      <button class="cpbtn" id="cpbtn" onclick="cp()" aria-label="Copy results">📋 Copy Results</button>
+
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">How does the discount calculator work?</h2>
+    <p>This calculator handles four types of discount problems — finding sale price from a percentage, finding what percentage was applied, calculating from a fixed amount off, and totalling multi-item purchases with bulk discounts.</p>
+
+    <div class="formula-box">
+      <span>Sale Price</span> = Original Price × (1 − Discount% ÷ 100)<br>
+      <span>Amount Saved</span> = Original Price × (Discount% ÷ 100)<br>
+      <span>Discount%</span> = ((Original − Sale) ÷ Original) × 100
+    </div>
+
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🏷️ % Off mode</div><p>Enter original price and discount %. Instantly shows sale price, savings, and after-tax total.</p></div>
+      <div class="ic"><div class="ic-t">🔍 Find % mode</div><p>Know the original and sale price? This calculates the exact discount percentage that was applied.</p></div>
+      <div class="ic"><div class="ic-t">💵 Fixed amount off</div><p>Voucher or flat discount? Enter the original price and the fixed discount amount to see the final price and percentage equivalent.</p></div>
+      <div class="ic"><div class="ic-t">🛒 Multi-item mode</div><p>Shopping for multiple items? Enter price, quantity, discount and tax to get the complete bill total and total savings.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How do I calculate price after discount?</div>
+      <div class="fa">Sale Price = Original Price × (1 − Discount ÷ 100). For example, ₹2,000 with 25% off: ₹2,000 × 0.75 = ₹1,500. Use the % Off mode above for instant calculation.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How do I find what percentage discount I got?</div>
+      <div class="fa">Discount% = ((Original Price − Sale Price) ÷ Original Price) × 100. For example, an item from ₹2,000 to ₹1,500: ((2000 − 1500) ÷ 2000) × 100 = 25%. Use the "Find % Discount" tab above.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How to calculate double discount (two discounts applied)?</div>
+      <div class="fa">For a double discount (e.g. 20% off then 10% off), you cannot simply add the percentages. Final = Original × (1 − 0.20) × (1 − 0.10) = Original × 0.72. So 20% + 10% gives 28% total discount, not 30%.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How is GST / tax calculated on a discounted price?</div>
+      <div class="fa">Tax is applied to the sale price after discount. If an item is ₹2,000 with 20% off (sale price ₹1,600) and 18% GST: tax = ₹1,600 × 0.18 = ₹288. Final price = ₹1,888. The calculator handles this automatically when you enter a tax rate.</div>
+    </div>
+    <div class="fi">
+      <div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What is the highest discount allowed?</div>
+      <div class="fa">Mathematically, a discount can be up to 100% (free item). In retail, most discounts are 10%–70%. This calculator accepts any value from 0% to 99.9%.</div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl" id="rel-h">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="percentage-calc.html">
+        <span class="ri" aria-hidden="true">💯</span>
+        <span class="rn">% Calculator</span>
+        <span class="rd">Percentage math</span>
+      </a>
+      <a class="rc" href="gst-calculator.html">
+        <span class="ri" aria-hidden="true">🧾</span>
+        <span class="rn">GST Calculator</span>
+        <span class="rd">Add / remove tax</span>
+      </a>
+      <a class="rc" href="compound-interest.html">
+        <span class="ri" aria-hidden="true">📈</span>
+        <span class="rn">Compound Interest</span>
+        <span class="rd">Investment growth</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox">
+        <div class="logo-box">T</div>
+        <span class="logo-txt">Tools<em>Box</em></span>
+      </a>
+      <p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div>
+      <div class="fct">🧮 Calculators</div>
+      <ul class="fl">
+        <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">⚖️ BMI Calculator</a></li>
+        <li><a href="emi-calculator.html">🏦 EMI Calculator</a></li>
+        <li><a href="percentage-calc.html">💯 % Calculator</a></li>
+        <li><a href="compound-interest.html">📈 Compound Interest</a></li>
+        <li><a href="sip-calculator.html">💹 SIP Calculator</a></li>
+        <li><a href="gst-calculator.html">🧾 GST Calculator</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">✍️ Text Tools</div>
+      <ul class="fl">
+        <li><a href="../text-tools/word-counter.html">📝 Word Counter</a></li>
+        <li><a href="../text-tools/character-counter.html">🔢 Char Counter</a></li>
+        <li><a href="../text-tools/case-converter.html">🔠 Case Converter</a></li>
+        <li><a href="../text-tools/password-generator.html">🔐 Password Gen</a></li>
+        <li><a href="../text-tools/lorem-ipsum.html">📄 Lorem Ipsum</a></li>
+        <li><a href="../text-tools/hashtag-generator.html">#️⃣ Hashtag Gen</a></li>
+        <li><a href="../text-tools/reading-time.html">⏰ Reading Time</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">📌 Quick Links</div>
+      <ul class="fl">
+        <li><a href="../index.html">🏠 All Tools</a></li>
+        <li><a href="index.html">🧮 All Calculators</a></li>
+        <li><a href="../text-tools/index.html">✍️ All Text Tools</a></li>
+        <li><a href="calorie-calc.html">🔥 Calorie Calc</a></li>
+        <li><a href="due-date-calc.html">🤰 Due Date</a></li>
+        <li><a href="discount-calc.html">🏷️ Discount Calc</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span>
+    <span class="fc">Made with ❤️ for everyone</span>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+'use strict';
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var currSym = '₹';
+var mode    = 'pct';
+
+/* ── Currency ── */
+function setCurr(el) {
+  currSym = el.dataset.sym;
+  document.querySelectorAll('.cpill').forEach(function(p){ p.classList.remove('on'); });
+  el.classList.add('on');
+  ['sym1','sym2','sym3','sym4','sym5','sym6'].forEach(function(id){
+    var el2 = document.getElementById(id); if(el2) el2.textContent = currSym;
+  });
+}
+
+/* ── Mode tabs ── */
+function setMode(m) {
+  mode = m;
+  ['pct','rev','fixed','multi'].forEach(function(id){
+    document.getElementById('pane-'+id).style.display = id === m ? '' : 'none';
+    document.getElementById('tab-'+id).classList.toggle('on', id === m);
+    document.getElementById('tab-'+id).setAttribute('aria-selected', id === m);
+  });
+  document.getElementById('res').classList.remove('show');
+  hideErr();
+}
+
+/* ── Quick discount ── */
+function setDisc(v) {
+  document.getElementById('disc-pct').value = v;
+}
+
+/* ── Format ── */
+function fmtMoney(n) {
+  n = Math.round(n * 100) / 100;
+  return currSym + n.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function r2(n){ return Math.round(n*100)/100; }
+
+/* ── Calculate ── */
+function calc() {
+  hideErr();
+  var origPrice, discPct, savedAmt, salePrice, taxAmt, afterTax, qty, taxPct;
+
+  if (mode === 'pct') {
+    origPrice = parseFloat(document.getElementById('orig-price').value);
+    discPct   = parseFloat(document.getElementById('disc-pct').value);
+    qty       = parseInt(document.getElementById('qty').value)  || 1;
+    taxPct    = parseFloat(document.getElementById('tax').value) || 0;
+
+    if (isNaN(origPrice)||origPrice<=0) { showErr('Please enter a valid original price.'); return; }
+    if (isNaN(discPct)||discPct<0||discPct>=100) { showErr('Please enter a discount between 0 and 99.9%.'); return; }
+
+    savedAmt  = origPrice * discPct / 100;
+    salePrice = origPrice - savedAmt;
+    taxAmt    = salePrice * taxPct / 100;
+    afterTax  = salePrice + taxAmt;
+
+  } else if (mode === 'rev') {
+    origPrice = parseFloat(document.getElementById('rev-orig').value);
+    var revSale = parseFloat(document.getElementById('rev-sale').value);
+
+    if (isNaN(origPrice)||origPrice<=0) { showErr('Please enter a valid original price.'); return; }
+    if (isNaN(revSale)||revSale<0)      { showErr('Please enter a valid sale price.'); return; }
+    if (revSale > origPrice)            { showErr('Sale price cannot be higher than original price.'); return; }
+
+    savedAmt  = origPrice - revSale;
+    salePrice = revSale;
+    discPct   = (savedAmt / origPrice) * 100;
+    taxPct    = 0; taxAmt = 0; afterTax = salePrice;
+    qty       = 1;
+
+  } else if (mode === 'fixed') {
+    origPrice = parseFloat(document.getElementById('fix-orig').value);
+    var fixAmt = parseFloat(document.getElementById('fix-amt').value);
+
+    if (isNaN(origPrice)||origPrice<=0) { showErr('Please enter a valid original price.'); return; }
+    if (isNaN(fixAmt)||fixAmt<0)        { showErr('Please enter a valid discount amount.'); return; }
+    if (fixAmt > origPrice)             { showErr('Discount amount cannot exceed original price.'); return; }
+
+    savedAmt  = fixAmt;
+    salePrice = origPrice - savedAmt;
+    discPct   = (savedAmt / origPrice) * 100;
+    taxPct    = 0; taxAmt = 0; afterTax = salePrice;
+    qty       = 1;
+
+  } else { /* multi */
+    var mPrice = parseFloat(document.getElementById('m-price').value);
+    var mQty   = parseInt(document.getElementById('m-qty').value) || 1;
+    var mDisc  = parseFloat(document.getElementById('m-disc').value) || 0;
+    var mTax   = parseFloat(document.getElementById('m-tax').value)  || 0;
+
+    if (isNaN(mPrice)||mPrice<=0) { showErr('Please enter a valid item price.'); return; }
+
+    origPrice = mPrice * mQty;
+    discPct   = mDisc;
+    savedAmt  = origPrice * discPct / 100;
+    salePrice = origPrice - savedAmt;
+    taxAmt    = salePrice * mTax / 100;
+    afterTax  = salePrice + taxAmt;
+    qty       = mQty;
+    taxPct    = mTax;
+  }
+
+  var savePct  = (savedAmt / origPrice) * 100;
+  var payPct   = 100 - savePct;
+
+  /* ── DOM updates ── */
+  document.getElementById('r-tag-pct').textContent    = r2(discPct) + '% OFF';
+  document.getElementById('r-sale-price').textContent = fmtMoney(salePrice);
+  document.getElementById('r-price-label').textContent= mode === 'rev' ? 'Sale price' : 'Sale price (after discount)';
+  document.getElementById('r-orig-str').textContent   = 'Original price: ' + fmtMoney(origPrice);
+  document.getElementById('r-saved').textContent      = fmtMoney(savedAmt);
+  document.getElementById('sb-sub-text').textContent  = r2(discPct) + '% off original price';
+  document.getElementById('r-disc-pct-stat').textContent = r2(discPct) + '%';
+  document.getElementById('r-you-pay').textContent    = fmtMoney(salePrice);
+  document.getElementById('r-with-tax').textContent   = taxPct > 0 ? fmtMoney(afterTax) : '—';
+
+  /* Bar */
+  document.getElementById('bar-pay').style.width = payPct + '%';
+  document.getElementById('bar-sav').style.width = savePct + '%';
+  document.getElementById('leg-pay').textContent  = r2(payPct)  + '%';
+  document.getElementById('leg-save').textContent = r2(savePct) + '%';
+
+  /* Multi-item */
+  var multiWrap = document.getElementById('multi-wrap');
+  if (qty > 1 || mode === 'multi') {
+    multiWrap.style.display = '';
+    document.getElementById('mc-qty').textContent   = qty;
+    document.getElementById('mc-unit').textContent  = fmtMoney(salePrice / qty);
+    document.getElementById('mc-total').textContent = fmtMoney(afterTax);
+    document.getElementById('mc-saved').textContent = fmtMoney(savedAmt);
+  } else {
+    multiWrap.style.display = 'none';
+  }
+
+  /* Comparison table */
+  var tbody  = document.getElementById('compare-body');
+  tbody.innerHTML = '';
+  var pcts = [5,10,15,20,25,30,40,50,60,70];
+  pcts.forEach(function(p) {
+    var s = origPrice * p / 100;
+    var sp = origPrice - s;
+    var tr = document.createElement('tr');
+    if (Math.abs(p - r2(discPct)) < 0.1) tr.className = 'active-row';
+    tr.innerHTML =
+      '<td>' + p + '% off</td>' +
+      '<td>' + fmtMoney(sp) + '</td>' +
+      '<td>' + fmtMoney(s)  + '</td>';
+    tbody.appendChild(tr);
+  });
+
+  /* Show */
+  var r = document.getElementById('res');
+  r.classList.add('show');
+  setTimeout(function(){ r.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+}
+
+/* ── Reset ── */
+function rst() {
+  ['orig-price','disc-pct','qty','tax','rev-orig','rev-sale','fix-orig','fix-amt','m-price','m-qty','m-disc','m-tax'].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.value='';
+  });
+  document.getElementById('qty').value   = '1';
+  document.getElementById('res').classList.remove('show');
+  hideErr();
+}
+
+/* ── Error ── */
+function showErr(m){ var e=document.getElementById('err'); e.textContent=m; e.classList.add('show'); }
+function hideErr(){ document.getElementById('err').classList.remove('show'); }
+
+/* ── Copy ── */
+function cp() {
+  var price  = document.getElementById('r-sale-price').textContent;
+  var saved  = document.getElementById('r-saved').textContent;
+  var disc   = document.getElementById('r-disc-pct-stat').textContent;
+  var orig   = document.getElementById('r-orig-str').textContent;
+  var tax    = document.getElementById('r-with-tax').textContent;
+  var text   =
+    'Discount Calculator Results\n' +
+    '────────────────────────────\n' +
+    orig + '\n' +
+    'Discount:    ' + disc + '\n' +
+    'Sale price:  ' + price + '\n' +
+    'You save:    ' + saved + '\n' +
+    'After tax:   ' + tax;
+
+  function onSuccess() {
+    var b = document.getElementById('cpbtn');
+    b.textContent = '✓ Copied!';
+    b.style.color = 'var(--grn)';
+    b.style.borderColor = 'var(--grn-bdr)';
+    setTimeout(function(){ b.textContent='📋 Copy Results'; b.style.color=''; b.style.borderColor=''; }, 2500);
+  }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); onSuccess(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onSuccess).catch(fallback);
+  } else { fallback(); }
+}
+
+/* ── Mobile menu ── */
+(function(){
+  var h=document.getElementById('ham'), m=document.getElementById('mob');
+  if(!h||!m) return;
+  h.addEventListener('click',function(){
+    var o=m.classList.toggle('open');
+    h.setAttribute('aria-expanded',o);
+    var s=h.querySelectorAll('span');
+    if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}
+    else{s.forEach(function(x){x.style.transform='';x.style.opacity='';});}
+  });
+  document.addEventListener('click',function(e){
+    if(!h.contains(e.target)&&!m.contains(e.target)){
+      m.classList.remove('open');h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';});
+    }
+  });
+})();
+
+/* ── FAQ ── */
+function faq(el){
+  var item=el.parentElement, was=item.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open');});
+  document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});
+  if(!was){item.classList.add('open');el.setAttribute('aria-expanded','true');}
+}
+
+/* ── Enter key ── */
+document.addEventListener('keydown',function(e){ if(e.key==='Enter') calc(); });
+</script>
+
+</body>
+</html>

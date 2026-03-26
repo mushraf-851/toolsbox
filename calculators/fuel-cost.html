@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Fuel Cost Calculator — Calculate Trip Fuel Cost &amp; Mileage | ToolsBox</title>
+<meta name="description" content="Free fuel cost calculator. Enter distance, fuel efficiency and fuel price to instantly calculate trip cost, fuel needed, cost per km/mile, and monthly fuel expenses. Supports petrol, diesel and CNG.">
+<meta name="keywords" content="fuel cost calculator, trip fuel cost, petrol cost calculator, mileage calculator, cost per km calculator, fuel expense calculator, road trip cost">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/fuel-cost.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fuel Cost Calculator | ToolsBox">
+<meta property="og:description" content="Calculate fuel cost for any trip instantly. Supports petrol, diesel, CNG. Get cost per km, monthly fuel bill and more.">
+<meta property="og:url" content="https://yourdomain.com/calculators/fuel-cost.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fuel Cost Calculator | ToolsBox">
+<meta name="twitter:description" content="Calculate trip fuel cost, mileage and monthly fuel expense. Free online calculator.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fuel Cost Calculator","url":"https://yourdomain.com/calculators/fuel-cost.html","description":"Free fuel cost calculator. Calculate trip fuel cost, fuel needed, cost per km, and monthly fuel expenses.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate fuel cost for a trip?","acceptedAnswer":{"@type":"Answer","text":"Fuel Cost = (Distance / Mileage) x Fuel Price. For example, a 300 km trip with 15 km/l mileage and petrol at Rs 102/l costs: (300/15) x 102 = Rs 2,040."}},{"@type":"Question","name":"How do I calculate mileage of my car?","acceptedAnswer":{"@type":"Answer","text":"Fill your tank completely, note the odometer, drive normally, refuel completely and note: Mileage = Distance driven / Fuel used (litres)."}},{"@type":"Question","name":"How to reduce fuel costs?","acceptedAnswer":{"@type":"Answer","text":"Drive at steady speeds (60-80 kmph), avoid aggressive acceleration, maintain tyre pressure, service the engine regularly, and plan routes to avoid traffic."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060708;--bg2:#0a0b0d;--surf:#0f1012;--surf2:#151618;--surf3:#1c1d20;--bdr:rgba(255,255,255,0.06);--bdr2:rgba(255,255,255,0.12);--acc:#f59e0b;--acc2:#d97706;--acc-dim:rgba(245,158,11,0.09);--acc-bdr:rgba(245,158,11,0.24);--red:#f87171;--red-dim:rgba(248,113,113,0.09);--grn:#34d399;--grn-dim:rgba(52,211,153,0.09);--grn-bdr:rgba(52,211,153,0.22);--blue:#60a5fa;--txt:#f0ece6;--txt2:#888480;--txt3:#46433f;--f:'Exo 2',sans-serif;--fs:'Playfair Display',serif;--nav:58px;--mw:680px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(245,158,11,0.06),transparent),linear-gradient(rgba(255,255,255,0.011) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.011) 1px,transparent 1px);background-size:100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:16px;font-weight:700;color:#060708}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-0.3px}
+.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(30px,6.5vw,50px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:460px;margin:0 auto}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:30px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,158,11,0.35),transparent)}
+.fuel-tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:4px;gap:4px;margin-bottom:22px}
+.ft{flex:1;padding:8px 6px;border-radius:9px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.ft:hover{color:var(--txt)}
+.ft.on{background:var(--surf3);color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,0.4)}
+.unit-row{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.unit-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+.upills{display:flex;gap:5px}
+.upill{padding:4px 12px;border-radius:100px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s}
+.upill:hover{border-color:var(--acc-bdr);color:var(--acc)}
+.upill.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+.sec{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;margin-top:18px}
+.sec:first-of-type{margin-top:0}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+input[type=number],select{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;color:var(--txt);font-family:var(--f);font-size:15px;font-weight:600;padding:12px 16px;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}
+input:focus,select:focus{border-color:rgba(245,158,11,0.45);box-shadow:0 0 0 3px rgba(245,158,11,0.07)}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2346433f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer}
+.input-u{position:relative}
+.input-u input{padding-left:36px}
+.u-pre{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:13px;font-weight:700;color:var(--txt3);pointer-events:none}
+.u-suf{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--txt3);pointer-events:none}
+.has-suf{padding-right:56px!important}
+.gauge-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.gauge-icon{font-size:28px;flex-shrink:0}
+.gauge-info{flex:1}
+.gauge-title{font-size:12px;font-weight:700;color:var(--txt2);margin-bottom:6px}
+.gauge-track{height:8px;background:var(--surf3);border-radius:100px;overflow:hidden}
+.gauge-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,#22c55e,#f59e0b,#ef4444);transition:width .4s ease}
+.gauge-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--txt3);margin-top:4px}
+.err{display:none;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.22);color:#f87171;font-size:13px;padding:10px 14px;border-radius:8px;margin-top:4px}
+.err.show{display:block}
+.brow{display:flex;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:700;cursor:pointer;border:none;transition:transform .12s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.bp{background:var(--acc);color:#060708;flex:1}
+.bp:hover{background:#fbbf24;box-shadow:0 6px 24px rgba(245,158,11,0.28)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr);padding:13px 18px}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.res{opacity:0;transform:translateY(10px);transition:opacity .38s,transform .38s;pointer-events:none;margin-top:26px}
+.res.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.hero{background:linear-gradient(135deg,rgba(245,158,11,0.11),rgba(245,158,11,0.03));border:1px solid rgba(245,158,11,0.22);border-radius:18px;padding:26px 22px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,158,11,0.5),transparent)}
+.hero-icon{font-size:28px;display:block;margin-bottom:8px}
+.hero-cost{font-family:var(--fs);font-size:clamp(52px,12vw,80px);font-weight:700;line-height:1;color:var(--acc);display:block;letter-spacing:-2px}
+.hero-label{font-size:14px;font-weight:500;color:var(--txt2);margin-top:5px;display:block}
+.hero-sub{font-size:12px;color:var(--txt3);margin-top:6px;line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.stat{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:14px 10px;text-align:center;transition:border-color .18s}
+.stat:hover{border-color:rgba(245,158,11,0.18)}
+.sv{display:block;font-family:var(--fs);font-size:18px;font-weight:700;line-height:1.1;margin-bottom:3px;word-break:break-word}
+.sk{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.expense-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.exp-card{border-radius:12px;padding:15px 12px;text-align:center;border:1px solid transparent}
+.exp-daily{background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.2)}
+.exp-weekly{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2)}
+.exp-monthly{background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.2)}
+.ec-icon{font-size:18px;display:block;margin-bottom:5px}
+.ec-val{font-family:var(--fs);font-size:22px;font-weight:700;display:block;line-height:1.1}
+.ec-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;display:block;margin-top:3px}
+.exp-daily .ec-val{color:var(--blue)}
+.exp-weekly .ec-val{color:var(--acc)}
+.exp-monthly .ec-val{color:var(--grn)}
+.exp-daily .ec-name{color:rgba(96,165,250,0.6)}
+.exp-weekly .ec-name{color:rgba(245,158,11,0.6)}
+.exp-monthly .ec-name{color:rgba(52,211,153,0.6)}
+.bar-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-bottom:12px}
+.bw-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-row:last-child{margin-bottom:0}
+.bar-name{font-size:12px;font-weight:600;color:var(--txt2);width:88px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;height:7px;background:var(--surf3);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;transition:width .55s cubic-bezier(.34,1.56,.64,1)}
+.bar-val{font-size:12px;font-weight:700;color:var(--txt);width:70px;flex-shrink:0}
+.eff-badge{border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;border:1px solid transparent}
+.eff-good{background:var(--grn-dim);border-color:var(--grn-bdr)}
+.eff-avg{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2)}
+.eff-poor{background:var(--red-dim);border-color:rgba(248,113,113,0.22)}
+.eff-l{display:flex;align-items:center;gap:10px}
+.eff-icon{font-size:22px}
+.eff-title{font-size:13px;font-weight:700;color:var(--txt)}
+.eff-sub{font-size:11px;margin-top:2px}
+.eff-val{font-family:var(--fs);font-size:20px;font-weight:700;white-space:nowrap}
+.eff-good .eff-sub,.eff-good .eff-val{color:var(--grn)}
+.eff-avg .eff-sub,.eff-avg .eff-val{color:var(--acc)}
+.eff-poor .eff-sub,.eff-poor .eff-val{color:var(--red)}
+.cmp-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.cmp-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);padding:12px 14px 8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--surf3)}
+th{padding:8px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+th:not(:first-child),td:not(:first-child){text-align:right}
+td{padding:9px 12px;border-bottom:1px solid var(--bdr);color:var(--txt2)}
+tr:last-child td{border-bottom:none}
+tr.active-row td{background:rgba(245,158,11,0.05)}
+tr.active-row td:first-child{color:var(--acc);font-weight:700}
+tr:hover td{background:rgba(255,255,255,0.02);color:var(--txt)}
+.tips-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-bottom:12px}
+.tips-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px}
+.tip-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;border-bottom:1px solid var(--bdr)}
+.tip-item:last-child{border-bottom:none;padding-bottom:0}
+.tip-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);flex-shrink:0;margin-top:5px}
+.tip-txt{font-size:12px;color:var(--txt2);line-height:1.55}
+.cpbtn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:12px;font-weight:700;padding:8px 14px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.formula-box{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:14px;color:var(--txt);line-height:1.8}
+.formula-box span{color:var(--acc);font-weight:700}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:240px;padding-top:10px}
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(245,158,11,0.22);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:700;display:block}
+.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:24px 14px 60px}.card{padding:22px 16px}.r2{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.brow{flex-direction:column}.bs{width:100%}}
+@media(max-width:400px){.r2{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">&#127968; Home</a>
+      <a href="index.html" class="nl on" aria-current="page">&#129518; Calculators</a>
+      <a href="../text-tools/index.html" class="nl">&#9999;&#65039; Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation">
+  <a href="../index.html" class="nl">&#127968; Home</a>
+  <a href="index.html" class="nl on">&#129518; Calculators</a>
+  <a href="../text-tools/index.html" class="nl">&#9999;&#65039; Text Tools</a>
+</div>
+<main>
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span aria-hidden="true"> › </span>
+    <a href="index.html">Calculators</a><span aria-hidden="true"> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Fuel Cost Calculator</span>
+  </nav>
+  <header class="ph">
+    <div class="badge">&#9981;&#65039; Vehicle Calculator</div>
+    <h1>Fuel Cost <em>Calculator</em></h1>
+    <p class="sub">Calculate trip fuel cost, fuel needed, cost per km, and monthly expenses — for petrol, diesel, CNG or electric vehicles.</p>
+  </header>
+  <div class="card">
+    <div class="fuel-tabs" role="tablist">
+      <button class="ft on" id="ft-petrol" onclick="setFuel('petrol')" role="tab" aria-selected="true">&#9981;&#65039; Petrol</button>
+      <button class="ft" id="ft-diesel" onclick="setFuel('diesel')" role="tab" aria-selected="false">&#128722;&#65039; Diesel</button>
+      <button class="ft" id="ft-cng" onclick="setFuel('cng')" role="tab" aria-selected="false">&#128168; CNG</button>
+      <button class="ft" id="ft-ev" onclick="setFuel('ev')" role="tab" aria-selected="false">&#9889; Electric</button>
+    </div>
+    <div class="unit-row">
+      <span class="unit-label">Units</span>
+      <div class="upills" role="group">
+        <button class="upill on" id="u-metric" onclick="setUnit('metric')" aria-pressed="true">Metric (km / L)</button>
+        <button class="upill" id="u-imperial" onclick="setUnit('imperial')" aria-pressed="false">Imperial (mi / gal)</button>
+      </div>
+    </div>
+    <div class="sec">Trip details</div>
+    <div class="r2">
+      <div class="field">
+        <label for="distance" id="dist-label">Distance (km)</label>
+        <div class="input-u" style="position:relative">
+          <input type="number" id="distance" placeholder="300" min="1" step="1" class="has-suf">
+          <span class="u-suf" id="dist-unit">km</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="trips-pm">Monthly trips (optional)</label>
+        <div class="input-u" style="position:relative">
+          <input type="number" id="trips-pm" placeholder="4" min="1" step="1" class="has-suf">
+          <span class="u-suf">trips</span>
+        </div>
+      </div>
+    </div>
+    <div class="sec">Vehicle details</div>
+    <div class="r2">
+      <div class="field">
+        <label for="efficiency" id="eff-label">Mileage (km/l)</label>
+        <div class="input-u" style="position:relative">
+          <input type="number" id="efficiency" placeholder="15" min="0.1" step="0.1" class="has-suf">
+          <span class="u-suf" id="eff-unit">km/l</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="vehicle-type">Vehicle preset</label>
+        <select id="vehicle-type" onchange="setVehiclePreset()">
+          <option value="">Select vehicle</option>
+          <option value="bike">&#128693;&#65039; Motorcycle (~50 km/l)</option>
+          <option value="hatchback">&#128663; Hatchback (~18 km/l)</option>
+          <option value="sedan">&#128665; Sedan (~15 km/l)</option>
+          <option value="suv">&#128656; SUV (~12 km/l)</option>
+          <option value="truck">&#128666; Truck (~8 km/l)</option>
+          <option value="auto">&#128650; Auto Rickshaw (~25 km/l)</option>
+        </select>
+      </div>
+    </div>
+    <div class="sec">Fuel price</div>
+    <div class="r2" style="margin-bottom:0">
+      <div class="field">
+        <label for="fuel-price">Price per litre</label>
+        <div class="input-u">
+          <span class="u-pre" id="sym-fp">&#8377;</span>
+          <input type="number" id="fuel-price" placeholder="102" min="1" step="0.1">
+        </div>
+      </div>
+      <div class="field">
+        <label for="currency">Currency</label>
+        <select id="currency" onchange="setCurrency()">
+          <option value="&#8377;">&#8377; INR — Indian Rupee</option>
+          <option value="$">$ USD — US Dollar</option>
+          <option value="&#8364;">&#8364; EUR — Euro</option>
+          <option value="&#163;">&#163; GBP — British Pound</option>
+          <option value="&#165;">&#165; JPY — Japanese Yen</option>
+        </select>
+      </div>
+    </div>
+    <div class="gauge-wrap" style="margin-top:14px">
+      <span class="gauge-icon" aria-hidden="true">&#9981;&#65039;</span>
+      <div class="gauge-info">
+        <div class="gauge-title">Price level — <span id="fuel-type-name">Petrol</span></div>
+        <div class="gauge-track"><div class="gauge-fill" id="gauge-fill" style="width:50%"></div></div>
+        <div class="gauge-labels"><span>Low</span><span>Average</span><span>High</span></div>
+      </div>
+    </div>
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+    <div class="brow">
+      <button class="btn bp" onclick="calc()">Calculate Fuel Cost &#8594;</button>
+      <button class="btn bs" onclick="rst()">Reset</button>
+    </div>
+    <div class="res" id="res" aria-live="polite">
+      <div class="hero">
+        <span class="hero-icon" aria-hidden="true">&#9981;&#65039;</span>
+        <span class="hero-cost" id="r-cost">--</span>
+        <span class="hero-label">Trip fuel cost</span>
+        <div class="hero-sub" id="r-sub"></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="sv" id="r-litres" style="color:var(--acc)">--</span><span class="sk" id="sk-litres">Litres needed</span></div>
+        <div class="stat"><span class="sv" id="r-pkm" style="color:var(--blue)">--</span><span class="sk" id="sk-pkm">Cost per km</span></div>
+        <div class="stat"><span class="sv" id="r-p100" style="color:var(--txt)">--</span><span class="sk" id="sk-p100">Per 100 km</span></div>
+        <div class="stat"><span class="sv" id="r-tank" style="color:var(--grn)">--</span><span class="sk">Full tank cost</span></div>
+      </div>
+      <div class="expense-grid">
+        <div class="exp-card exp-daily"><span class="ec-icon">&#128197;</span><span class="ec-val" id="r-daily">--</span><span class="ec-name">Per day</span></div>
+        <div class="exp-card exp-weekly"><span class="ec-icon">&#128467;&#65039;</span><span class="ec-val" id="r-weekly">--</span><span class="ec-name">Per week</span></div>
+        <div class="exp-card exp-monthly"><span class="ec-icon">&#128198;</span><span class="ec-val" id="r-monthly">--</span><span class="ec-name">Per month</span></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bw-title">Cost vs distance comparison</div>
+        <div class="bar-row"><span class="bar-name">100 km</span><div class="bar-track"><div class="bar-fill" id="bar-100" style="background:var(--blue);width:0%"></div></div><span class="bar-val" id="bv-100">--</span></div>
+        <div class="bar-row"><span class="bar-name">Your trip</span><div class="bar-track"><div class="bar-fill" id="bar-trip" style="background:var(--acc);width:60%"></div></div><span class="bar-val" id="bv-trip">--</span></div>
+        <div class="bar-row"><span class="bar-name">500 km</span><div class="bar-track"><div class="bar-fill" id="bar-500" style="background:var(--grn);width:0%"></div></div><span class="bar-val" id="bv-500">--</span></div>
+      </div>
+      <div class="eff-badge" id="eff-badge">
+        <div class="eff-l"><span class="eff-icon" id="eff-icon" aria-hidden="true">&#127807;</span><div><div class="eff-title" id="eff-title">Efficiency rating</div><div class="eff-sub" id="eff-sub">Based on mileage</div></div></div>
+        <span class="eff-val" id="eff-val">--</span>
+      </div>
+      <div class="cmp-wrap">
+        <div class="cmp-title">Mileage comparison table</div>
+        <table><thead><tr><th>Mileage</th><th>Fuel used</th><th>Trip cost</th><th>Monthly</th></tr></thead>
+        <tbody id="cmp-body"></tbody></table>
+      </div>
+      <div class="tips-wrap">
+        <div class="tips-title">&#128161; Fuel saving tips</div>
+        <div class="tip-item"><div class="tip-dot"></div><div class="tip-txt">Drive at 60–80 km/h — the most fuel-efficient speed range for most petrol cars.</div></div>
+        <div class="tip-item"><div class="tip-dot"></div><div class="tip-txt">Keep tyre pressure at recommended levels — under-inflation increases fuel use by up to 3%.</div></div>
+        <div class="tip-item"><div class="tip-dot"></div><div class="tip-txt">Avoid idling for more than 30 seconds — restarting uses less fuel than idling.</div></div>
+        <div class="tip-item"><div class="tip-dot"></div><div class="tip-txt">Accelerate smoothly and anticipate braking — aggressive driving cuts mileage by up to 30%.</div></div>
+        <div class="tip-item"><div class="tip-dot"></div><div class="tip-txt">Remove unnecessary weight — every 50 kg extra reduces mileage by about 2%.</div></div>
+      </div>
+      <button class="cpbtn" id="cpbtn" onclick="cp()">&#128203; Copy Results</button>
+    </div>
+  </div>
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">How is fuel cost calculated?</h2>
+    <p>The calculation divides your distance by mileage to find litres needed, then multiplies by fuel price.</p>
+    <div class="formula-box"><span>Fuel needed</span> = Distance &#247; Mileage (km/l)<br><span>Trip cost</span> = Fuel needed &#215; Price per litre<br><span>Cost per km</span> = Fuel price &#247; Mileage</div>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">&#128693;&#65039; Two-wheelers</div><p>Motorcycles get 40–60 km/l — very cost-efficient for city commuting.</p></div>
+      <div class="ic"><div class="ic-t">&#128663; Cars</div><p>Hatchbacks get 15–20 km/l, sedans 12–18 km/l, SUVs 8–14 km/l depending on engine.</p></div>
+      <div class="ic"><div class="ic-t">&#128739;&#65039; Highway vs city</div><p>Highway driving is 15–25% more efficient due to steady speeds and fewer stops.</p></div>
+      <div class="ic"><div class="ic-t">&#128168; CNG advantage</div><p>CNG costs roughly 40–60% less per km than petrol with a similar mileage vehicle.</p></div>
+    </div>
+  </section>
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How do I calculate fuel cost for a trip?</div><div class="fa">Fuel Cost = (Distance &#247; Mileage) &#215; Price per litre. For a 300 km trip, 15 km/l car, &#8377;102/l petrol: (300 &#247; 15) &#215; 102 = &#8377;2,040.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How do I find my car's mileage?</div><div class="fa">Fill your tank completely and note the odometer. Drive normally. Refuel completely: Mileage = km driven &#247; litres used at second refuel.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">How much does a 500 km road trip cost?</div><div class="fa">For 15 km/l at &#8377;102/l: (500 &#247; 15) &#215; 102 = &#8377;3,400. For a 45 km/l motorcycle: &#8377;1,133. Enter your figures above for exact results.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">What is the most fuel-efficient speed?</div><div class="fa">60–80 km/h is most efficient for most petrol vehicles. Above 100 km/h, aerodynamic drag rises sharply — every 10 km/h above 80 can cut mileage by 5–10%.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" tabindex="0" aria-expanded="false">Is CNG cheaper than petrol per km?</div><div class="fa">Yes — significantly. CNG at &#8377;85/kg giving 25 km/kg = &#8377;3.4/km. Petrol at &#8377;102/l with 15 kmpl = &#8377;6.8/km. CNG is about 50% cheaper per km.</div></div>
+  </section>
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl" id="rel-h">&#128279; Related tools</div>
+    <div class="rg">
+      <a class="rc" href="percentage-calc.html"><span class="ri">&#128175;</span><span class="rn">% Calculator</span><span class="rd">Percentage math</span></a>
+      <a class="rc" href="discount-calc.html"><span class="ri">&#127991;&#65039;</span><span class="rn">Discount Calc</span><span class="rd">Sale price finder</span></a>
+      <a class="rc" href="date-diff.html"><span class="ri">&#128197;</span><span class="rn">Date Difference</span><span class="rd">Days between dates</span></a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div><div class="fct">&#129518; Calculators</div><ul class="fl">
+      <li><a href="age-calculator.html">&#127874; Age Calculator</a></li>
+      <li><a href="bmi-calculator.html">&#9878;&#65039; BMI Calculator</a></li>
+      <li><a href="emi-calculator.html">&#127974; EMI Calculator</a></li>
+      <li><a href="percentage-calc.html">&#128175; % Calculator</a></li>
+      <li><a href="compound-interest.html">&#128200; Compound Interest</a></li>
+      <li><a href="sip-calculator.html">&#128185; SIP Calculator</a></li>
+      <li><a href="gst-calculator.html">&#129534; GST Calculator</a></li>
+    </ul></div>
+    <div><div class="fct">&#9999;&#65039; Text Tools</div><ul class="fl">
+      <li><a href="../text-tools/word-counter.html">&#128221; Word Counter</a></li>
+      <li><a href="../text-tools/character-counter.html">&#128290; Char Counter</a></li>
+      <li><a href="../text-tools/case-converter.html">&#128288; Case Converter</a></li>
+      <li><a href="../text-tools/password-generator.html">&#128272; Password Gen</a></li>
+      <li><a href="../text-tools/lorem-ipsum.html">&#128196; Lorem Ipsum</a></li>
+      <li><a href="../text-tools/hashtag-generator.html">#&#65039;&#8419; Hashtag Gen</a></li>
+      <li><a href="../text-tools/reading-time.html">&#9200;&#65039; Reading Time</a></li>
+    </ul></div>
+    <div><div class="fct">&#128204; Quick Links</div><ul class="fl">
+      <li><a href="../index.html">&#127968; All Tools</a></li>
+      <li><a href="index.html">&#129518; All Calculators</a></li>
+      <li><a href="../text-tools/index.html">&#9999;&#65039; All Text Tools</a></li>
+      <li><a href="calorie-calc.html">&#128293; Calorie Calc</a></li>
+      <li><a href="due-date-calc.html">&#129328; Due Date</a></li>
+      <li><a href="discount-calc.html">&#127991;&#65039; Discount Calc</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">&#169; <span id="yr"></span> ToolsBox &#8212; Free forever &#183; No sign-up &#183; 30+ tools</span>
+    <span class="fc">Made with &#10084;&#65039;</span>
+  </div>
+</footer>
+<script>
+'use strict';
+document.getElementById('yr').textContent=new Date().getFullYear();
+var fuelType='petrol',unitSys='metric',currSym='₹';
+var FUEL={petrol:{name:'Petrol',avg:102,low:90,high:120,tank:40},diesel:{name:'Diesel',avg:89,low:80,high:105,tank:50},cng:{name:'CNG',avg:82,low:70,high:95,tank:10},ev:{name:'Electric (₹/kWh)',avg:8,low:5,high:12,tank:50}};
+var VP={bike:50,hatchback:18,sedan:15,suv:12,truck:8,auto:25};
+function setFuel(f){fuelType=f;['petrol','diesel','cng','ev'].forEach(function(id){document.getElementById('ft-'+id).classList.toggle('on',id===f);document.getElementById('ft-'+id).setAttribute('aria-selected',id===f);});var d=FUEL[f];document.getElementById('fuel-type-name').textContent=d.name;document.getElementById('fuel-price').placeholder=d.avg;updateGauge();}
+function setUnit(u){unitSys=u;document.getElementById('u-metric').classList.toggle('on',u==='metric');document.getElementById('u-imperial').classList.toggle('on',u==='imperial');document.getElementById('u-metric').setAttribute('aria-pressed',u==='metric');document.getElementById('u-imperial').setAttribute('aria-pressed',u==='imperial');if(u==='metric'){document.getElementById('dist-label').textContent='Distance (km)';document.getElementById('dist-unit').textContent='km';document.getElementById('eff-label').textContent='Mileage (km/l)';document.getElementById('eff-unit').textContent='km/l';document.getElementById('sk-litres').textContent='Litres needed';document.getElementById('sk-pkm').textContent='Cost per km';document.getElementById('sk-p100').textContent='Per 100 km';}else{document.getElementById('dist-label').textContent='Distance (miles)';document.getElementById('dist-unit').textContent='mi';document.getElementById('eff-label').textContent='Mileage (mpg)';document.getElementById('eff-unit').textContent='mpg';document.getElementById('sk-litres').textContent='Gallons needed';document.getElementById('sk-pkm').textContent='Cost per mile';document.getElementById('sk-p100').textContent='Per 100 miles';}document.getElementById('res').classList.remove('show');}
+function setCurrency(){currSym=document.getElementById('currency').value;document.getElementById('sym-fp').textContent=currSym;}
+function setVehiclePreset(){var v=document.getElementById('vehicle-type').value;if(v&&VP[v]){var val=VP[v];if(unitSys==='imperial')val=Math.round(val*2.352);document.getElementById('efficiency').value=val;}}
+function updateGauge(){var price=parseFloat(document.getElementById('fuel-price').value)||FUEL[fuelType].avg;var d=FUEL[fuelType];var pct=Math.min(Math.max(((price-d.low)/(d.high-d.low))*100,5),95);document.getElementById('gauge-fill').style.width=pct+'%';}
+document.getElementById('fuel-price').addEventListener('input',updateGauge);
+function fmtM(n){n=Math.round(n*100)/100;if(currSym==='₹'){if(n>=1e5)return currSym+(n/1e5).toFixed(2)+'L';if(n>=1e3)return currSym+(n/1e3).toFixed(1)+'K';return currSym+n.toFixed(2);}if(n>=1e6)return currSym+(n/1e6).toFixed(2)+'M';if(n>=1e3)return currSym+(n/1e3).toFixed(1)+'K';return currSym+n.toFixed(2);}
+function r2(n){return Math.round(n*100)/100;}
+function calc(){
+  var dist=parseFloat(document.getElementById('distance').value);
+  var eff=parseFloat(document.getElementById('efficiency').value);
+  var price=parseFloat(document.getElementById('fuel-price').value);
+  var monthly=parseInt(document.getElementById('trips-pm').value)||4;
+  if(isNaN(dist)||dist<=0){showErr('Please enter a valid distance.');return;}
+  if(isNaN(eff)||eff<=0){showErr('Please enter a valid mileage / efficiency.');return;}
+  if(isNaN(price)||price<=0){showErr('Please enter a valid fuel price.');return;}
+  hideErr();
+  var distKm=unitSys==='imperial'?dist*1.60934:dist;
+  var effKmL=unitSys==='imperial'?eff*0.425144:eff;
+  var litres=distKm/effKmL;
+  var tripCost=litres*price;
+  var perKm=price/effKmL;
+  var per100=perKm*100;
+  var tankCost=FUEL[fuelType].tank*price;
+  var monCost=tripCost*monthly;
+  var wkCost=monCost/4.33;
+  var dayCost=monCost/30;
+  var dLbl=unitSys==='imperial'?'miles':'km';
+  var eLbl=unitSys==='imperial'?'mpg':'km/l';
+  var lDisp=unitSys==='imperial'?r2(litres*0.264172):r2(litres);
+  var lLbl=unitSys==='imperial'?'gal':'L';
+  document.getElementById('r-cost').textContent=fmtM(tripCost);
+  document.getElementById('r-sub').textContent=dist+' '+dLbl+' · '+eff+' '+eLbl+' · '+currSym+price+'/l · '+FUEL[fuelType].name;
+  document.getElementById('r-litres').textContent=lDisp+' '+lLbl;
+  document.getElementById('r-pkm').textContent=fmtM(perKm)+'/'+dLbl;
+  document.getElementById('r-p100').textContent=fmtM(per100);
+  document.getElementById('r-tank').textContent=fmtM(tankCost);
+  document.getElementById('r-daily').textContent=fmtM(dayCost);
+  document.getElementById('r-weekly').textContent=fmtM(wkCost);
+  document.getElementById('r-monthly').textContent=fmtM(monCost);
+  var cost100=perKm*(unitSys==='imperial'?62.14:100);
+  var cost500=perKm*(unitSys==='imperial'?310.7:500);
+  var maxC=Math.max(cost100,tripCost,cost500);
+  function bw(c){return Math.min((c/maxC)*100,100);}
+  document.getElementById('bar-100').style.width=bw(cost100)+'%';
+  document.getElementById('bar-trip').style.width=bw(tripCost)+'%';
+  document.getElementById('bar-500').style.width=bw(cost500)+'%';
+  document.getElementById('bv-100').textContent=fmtM(cost100);
+  document.getElementById('bv-trip').textContent=fmtM(tripCost);
+  document.getElementById('bv-500').textContent=fmtM(cost500);
+  var badge=document.getElementById('eff-badge');
+  badge.className='eff-badge';
+  if(effKmL>=20){badge.classList.add('eff-good');document.getElementById('eff-icon').textContent='🌱';document.getElementById('eff-title').textContent='Excellent efficiency';document.getElementById('eff-sub').textContent='Your vehicle is very fuel efficient';document.getElementById('eff-val').textContent=r2(effKmL)+' km/l';}
+  else if(effKmL>=12){badge.classList.add('eff-avg');document.getElementById('eff-icon').textContent='⚡';document.getElementById('eff-title').textContent='Average efficiency';document.getElementById('eff-sub').textContent='Typical for most cars';document.getElementById('eff-val').textContent=r2(effKmL)+' km/l';}
+  else{badge.classList.add('eff-poor');document.getElementById('eff-icon').textContent='🔴';document.getElementById('eff-title').textContent='Low efficiency';document.getElementById('eff-sub').textContent='Consider efficient driving habits';document.getElementById('eff-val').textContent=r2(effKmL)+' km/l';}
+  var tbody=document.getElementById('cmp-body');tbody.innerHTML='';
+  var mileages=unitSys==='imperial'?[20,30,35,40,50]:[8,12,15,20,25,35,50];
+  mileages.forEach(function(m){var l2=distKm/m;var c2=l2*price;var m2=c2*monthly;var isActive=Math.abs(m-effKmL)<effKmL*0.1;var tr=document.createElement('tr');if(isActive)tr.className='active-row';tr.innerHTML='<td>'+m+' '+eLbl+'</td><td>'+r2(unitSys==='imperial'?l2*0.264172:l2)+' '+lLbl+'</td><td>'+fmtM(c2)+'</td><td>'+fmtM(m2)+'</td>';tbody.appendChild(tr);});
+  var r=document.getElementById('res');r.classList.add('show');
+  setTimeout(function(){r.scrollIntoView({behavior:'smooth',block:'nearest'});},50);
+}
+function rst(){['distance','efficiency','fuel-price','trips-pm'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('vehicle-type').value='';document.getElementById('res').classList.remove('show');hideErr();}
+function showErr(m){var e=document.getElementById('err');e.textContent=m;e.classList.add('show');}
+function hideErr(){document.getElementById('err').classList.remove('show');}
+function cp(){var cost=document.getElementById('r-cost').textContent;var sub=document.getElementById('r-sub').textContent;var ltrs=document.getElementById('r-litres').textContent;var pkm=document.getElementById('r-pkm').textContent;var mon=document.getElementById('r-monthly').textContent;var text='Fuel Cost Results\n─────────────────\n'+sub+'\nTrip cost: '+cost+'\nFuel needed: '+ltrs+'\nCost per km: '+pkm+'\nMonthly: '+mon;function onSuccess(){var b=document.getElementById('cpbtn');b.textContent='✓ Copied!';b.style.color='var(--acc)';b.style.borderColor='var(--acc-bdr)';setTimeout(function(){b.textContent='📋 Copy Results';b.style.color='';b.style.borderColor='';},2500);}function fallback(){var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');onSuccess();}catch(e){}document.body.removeChild(ta);}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(onSuccess).catch(fallback);}else{fallback();}}
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';}); }});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';});}});})();
+function faq(el){var item=el.parentElement,was=item.classList.contains('open');document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open');});document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});if(!was){item.classList.add('open');el.setAttribute('aria-expanded','true');}}
+document.addEventListener('keydown',function(e){if(e.key==='Enter')calc();});
+</script>
+</body>
+</html>
