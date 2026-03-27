@@ -61,8 +61,29 @@ nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(7,8,
 .search-icon{color:var(--txt3);font-size:14px;flex-shrink:0}
 .ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:8px}
 .ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
-.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 16px 20px;flex-direction:column;gap:3px;z-index:99}
-.mob.open{display:flex}
+.mob {
+  position: fixed;
+  top: var(--nav);
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--bdr);
+  padding: 12px 16px 20px;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 99;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+.mob.open {
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0s;
+}
 .mob .nl{font-size:15px;padding:12px 14px}
 
 /* ── Hero ── */
