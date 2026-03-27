@@ -664,22 +664,28 @@ var ALL_TOOLS = [
 
 /* ── Live search ── */
 function searchTools() {
-  var q   = document.getElementById('search-input').value.trim().toLowerCase();
+  var q = document.getElementById('search-input').value.trim().toLowerCase();
   var box = document.getElementById('search-results');
-  if (!q) { box.classList.remove('open'); return; }
+  if (!q) {
+    box.classList.remove('open');
+    return;
+  }
 
-  var results = ALL_TOOLS.filter(function(t){
+  var results = ALL_TOOLS.filter(function(t) {
     return t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q);
   }).slice(0, 8);
 
-  if (!results.length) {
-    box.innerHTML = '<div class="sr-empty">No tools found for "' + escHtml(q) + '"</div>';
-  } else {
-    box.innerHTML = results.map(function(t){
-      return '<a class="sr-item" href="'+t.url+'"><span class="sr-icon">'+t.icon+'</span><div><div class="sr-name">'+t.name+'</div><div class="sr-cat">'+t.cat+'</div></div></a>';
-    }).join('');
-  }
-  box.classList.add('open');
+  // Batch DOM updates to avoid forced reflow
+  requestAnimationFrame(function() {
+    if (!results.length) {
+      box.innerHTML = '<div class="sr-empty">No tools found for "' + escHtml(q) + '"</div>';
+    } else {
+      box.innerHTML = results.map(function(t) {
+        return '<a class="sr-item" href="' + t.url + '"><span class="sr-icon">' + t.icon + '</span><div><div class="sr-name">' + t.name + '</div><div class="sr-cat">' + t.cat + '</div></div></a>';
+      }).join('');
+    }
+    box.classList.add('open');
+  });
 }
 
 function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
