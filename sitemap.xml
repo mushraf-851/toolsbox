@@ -2,54 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://classy-kitten-a00a65.netlify.app/</loc>
+    <loc>https://mytoolsbox.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Category Hubs -->
   <url>
-    <loc>https://classy-kitten-a00a65.netlify.app/calculators/calculators-index.html</loc>
+    <loc>https://mytoolsbox.org/calculators/calculators-index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://classy-kitten-a00a65.netlify.app/text-tools/text-tools-index.html</loc>
+    <loc>https://mytoolsbox.org/text-tools/text-tools-index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Calculator Tools -->
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/age-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/bmi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/emi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/percentage-calc.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/date-diff.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/calorie-calc.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/compound-interest.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/sip-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/gst-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/time-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/tip-calculator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/fuel-cost.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/due-date-calc.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/gpa-calculator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/calculators/discount-calc.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/age-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/bmi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/emi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/percentage-calc.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/date-diff.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/calorie-calc.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/compound-interest.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/sip-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/gst-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/time-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/tip-calculator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/fuel-cost.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/due-date-calc.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/gpa-calculator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/calculators/discount-calc.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Text Tools -->
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/word-counter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/character-counter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/case-converter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/lorem-ipsum.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/text-reverser.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/remove-duplicates.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/slug-generator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/password-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/find-replace.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/text-to-binary.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/whitespace-cleaner.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/reading-time.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/line-sorter.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/morse-converter.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://classy-kitten-a00a65.netlify.app/text-tools/hashtag-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/word-counter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/character-counter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/case-converter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/lorem-ipsum.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/text-reverser.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/remove-duplicates.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/slug-generator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/password-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/find-replace.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/text-to-binary.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/whitespace-cleaner.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/reading-time.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/line-sorter.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/morse-converter.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mytoolsbox.org/text-tools/hashtag-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
