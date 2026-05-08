@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Macro Calculator — Daily Protein, Carbs & Fat Targets | ToolsBox</title>
+<meta name="description" content="Free macro calculator. Find your daily protein, carbohydrate, and fat targets based on your weight, height, age, activity level, and fitness goal. TDEE, BMR, and full macro breakdown. Instant results.">
+<meta name="keywords" content="macro calculator, protein carb fat calculator, macronutrient calculator, TDEE macro calculator, how much protein per day, daily macros calculator, macro split calculator, bodybuilding macro calculator, keto macro calculator, weight loss macros">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/macro-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Macro Calculator — Protein, Carbs & Fat Targets | ToolsBox">
+<meta property="og:description" content="Calculate your daily protein, carbs and fat macros. TDEE, BMR, goal-specific macro splits. Free, instant.">
+<meta property="og:url" content="https://yourdomain.com/calculators/macro-calculator.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Macro Calculator | ToolsBox">
+<meta name="twitter:description" content="Free macro calculator. Daily protein, carbs and fat targets by goal. Mifflin-St Jeor formula.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Macro Calculator","url":"https://yourdomain.com/calculators/macro-calculator.html","description":"Free macro calculator. Find daily protein, carbohydrate and fat targets based on weight, height, activity level and fitness goal using Mifflin-St Jeor BMR formula.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my daily macros?","acceptedAnswer":{"@type":"Answer","text":"Step 1: Calculate BMR using Mifflin-St Jeor. Step 2: Multiply by activity factor for TDEE. Step 3: Apply calorie adjustment for your goal (deficit for loss, surplus for gain). Step 4: Split calories into protein (typically 25-35%), carbs (40-50%), and fat (20-35%) based on your goal."}},{"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"General guidelines: Sedentary adults: 0.8g per kg body weight. Active adults: 1.2-1.6g/kg. Muscle building: 1.6-2.2g/kg. Weight loss (to preserve muscle): 1.8-2.4g/kg. This calculator sets protein based on your specific goal and activity level."}},{"@type":"Question","name":"What is the best macro split for weight loss?","acceptedAnswer":{"@type":"Answer","text":"For weight loss, a common macro split is: Protein 30-35% (preserves muscle in deficit), Fat 25-35%, Carbs 30-40%. Higher protein is recommended during a calorie deficit to minimize muscle loss. The exact split is less important than total calorie deficit."}},{"@type":"Question","name":"What is TDEE?","acceptedAnswer":{"@type":"Answer","text":"TDEE (Total Daily Energy Expenditure) is the total calories you burn per day including exercise. TDEE = BMR × activity multiplier. For weight loss, eat 200-500 kcal below TDEE. For muscle gain, eat 200-400 kcal above TDEE."}},{"@type":"Question","name":"What are macronutrients?","acceptedAnswer":{"@type":"Answer","text":"Macronutrients are the three main nutrient groups: Protein (4 kcal/g) — builds and repairs muscle, keeps you full. Carbohydrates (4 kcal/g) — primary energy source, fuels exercise. Fat (9 kcal/g) — hormones, brain function, fat-soluble vitamin absorption. All three are essential."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#030d0f;--bg2:#041012;--surf:#071820;--surf2:#0c2130;--surf3:#112840;
+  --bdr:rgba(6,182,212,0.1);--bdr2:rgba(6,182,212,0.22);
+  --acc:#06b6d4;--acc2:#0891b2;--acc3:#67e8f9;
+  --acc-dim:rgba(6,182,212,0.08);--acc-bdr:rgba(6,182,212,0.3);--acc-glow:rgba(6,182,212,0.18);
+  --prot:#f97316;--prot-dim:rgba(249,115,22,0.1);--prot-bdr:rgba(249,115,22,0.3);
+  --carb:#06b6d4;--carb-dim:rgba(6,182,212,0.1);--carb-bdr:rgba(6,182,212,0.3);
+  --fat:#a855f7;--fat-dim:rgba(168,85,247,0.1);--fat-bdr:rgba(168,85,247,0.3);
+  --grn:#10b981;--grn-dim:rgba(16,185,129,0.09);--grn-bdr:rgba(16,185,129,0.28);
+  --red:#f43f5e;--red-dim:rgba(244,63,94,0.08);--red-bdr:rgba(244,63,94,0.28);
+  --txt:#e8f8fc;--txt2:#5a9ab0;--txt3:#1e4a5a;
+  --f:'Outfit',sans-serif;--fs:'Bebas Neue',cursive;
+  --nav:58px;--mw:720px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(ellipse 65% 45% at 20% -5%,rgba(6,182,212,.08),transparent),
+  radial-gradient(ellipse 50% 40% at 85% 95%,rgba(168,85,247,.05),transparent),
+  linear-gradient(rgba(6,182,212,.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(6,182,212,.025) 1px,transparent 1px);
+  background-size:100%,100%,54px 54px,54px 54px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(3,13,15,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 22px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:4px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:14px;flex-shrink:0}
+.logo-box{width:32px;height:32px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:18px;color:var(--bg)}
+.logo-txt{font-size:16px;font-weight:700;color:var(--txt);letter-spacing:-.3px}
+.logo-txt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:1px;flex:1}
+.nl{padding:6px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:22px;height:2px;background:var(--txt2);border-radius:2px;transition:all .25s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 18px 20px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:11px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 18px 90px}
+.bc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:30px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+/* HERO */
+.ph{text-align:center;margin-bottom:36px;animation:fD .6s ease both}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:18px;font-family:var(--fs)}
+h1{font-family:var(--fs);font-size:clamp(32px,7vw,58px);font-weight:400;line-height:1.0;color:var(--txt);margin-bottom:14px;letter-spacing:1px}
+h1 em{font-style:normal;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.7;max-width:500px;margin:0 auto;font-weight:500}
+/* CARD */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden;margin-bottom:14px}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}
+.sec-lbl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;display:flex;align-items:center;gap:9px;font-family:var(--fs)}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+/* UNIT TABS */
+.unit-tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:3px;gap:3px;margin-bottom:20px;width:fit-content}
+.utab{padding:7px 20px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;font-family:var(--fs);letter-spacing:.5px}
+.utab:hover{color:var(--txt)}
+.utab.on{background:var(--acc);color:var(--bg);box-shadow:0 2px 12px var(--acc-glow)}
+/* GENDER */
+.gpills{display:flex;gap:8px;margin-bottom:18px}
+.gpill{flex:1;padding:11px 8px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.gpill:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.gpill.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+/* INPUTS */
+.inp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);font-family:var(--fs)}
+.inp-w{position:relative}
+.inp-suf{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--txt3);pointer-events:none;font-family:var(--fs)}
+.num-inp{width:100%;background:var(--surf2);border:1px solid rgba(6,182,212,0.12);border-radius:11px;color:var(--txt);font-family:var(--f);font-size:16px;font-weight:700;padding:12px 44px 12px 13px;outline:none;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield}
+.num-inp.no-suf{padding-right:13px}
+.num-inp::-webkit-inner-spin-button,.num-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+.num-inp:focus{border-color:var(--acc-bdr);box-shadow:0 0 0 3px var(--acc-glow)}
+.num-inp::placeholder{color:var(--txt3)}
+/* ACTIVITY */
+.act-list{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.apill{padding:11px 14px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.apill:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.apill.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+.apill-lbl{font-weight:700}
+.apill-desc{font-size:10px;opacity:.7;font-weight:600}
+.apill-mult{font-size:11px;font-weight:700;color:var(--txt3);font-family:var(--fs)}
+.apill.on .apill-mult{color:var(--acc)}
+/* GOAL */
+.goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.gpcard{border-radius:13px;padding:14px;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;text-align:left;display:flex;flex-direction:column;gap:4px}
+.gpcard:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.gpcard.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--txt)}
+.gc-icon{font-size:20px}
+.gc-name{font-size:13px;font-weight:800;font-family:var(--fs);letter-spacing:.3px}
+.gc-desc{font-size:10px;font-weight:600;opacity:.75}
+/* RESULT */
+.res{display:none;margin-top:22px}
+.res.show{display:block;animation:fU .45s ease both}
+/* CALORIE HERO */
+.cal-hero{background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(6,182,212,.02));border:1px solid var(--acc-bdr);border-radius:20px;padding:26px 22px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden}
+.cal-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}
+.ch-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:10px;display:block;font-family:var(--fs)}
+.ch-val{font-family:var(--fs);font-size:clamp(54px,13vw,88px);font-weight:400;line-height:1;color:var(--acc);display:block;letter-spacing:1px}
+.ch-sub{font-size:13px;font-weight:600;color:var(--txt2);margin-top:6px;display:block}
+/* MACRO TRIO */
+.macro-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.mc{border-radius:18px;padding:20px 14px;text-align:center;position:relative;overflow:hidden}
+.mc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.mc-p{background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(249,115,22,.02));border:1px solid var(--prot-bdr)}
+.mc-p::after{background:linear-gradient(90deg,transparent,rgba(249,115,22,.5),transparent)}
+.mc-c{background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(6,182,212,.02));border:1px solid var(--carb-bdr)}
+.mc-c::after{background:linear-gradient(90deg,transparent,rgba(6,182,212,.5),transparent)}
+.mc-f{background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(168,85,247,.02));border:1px solid var(--fat-bdr)}
+.mc-f::after{background:linear-gradient(90deg,transparent,rgba(168,85,247,.5),transparent)}
+.mc-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:block;font-family:var(--fs)}
+.mc-p .mc-tag{color:var(--prot)}.mc-c .mc-tag{color:var(--carb)}.mc-f .mc-tag{color:var(--fat)}
+.mc-g{font-family:var(--fs);font-size:clamp(28px,7vw,46px);font-weight:400;line-height:1;display:block;letter-spacing:.5px}
+.mc-p .mc-g{color:var(--prot)}.mc-c .mc-g{color:var(--carb)}.mc-f .mc-g{color:var(--fat)}
+.mc-kcal{font-size:11px;font-weight:600;margin-top:5px;display:block;opacity:.7}
+.mc-p .mc-kcal{color:var(--prot)}.mc-c .mc-kcal{color:var(--carb)}.mc-f .mc-kcal{color:var(--fat)}
+/* MACRO BAR */
+.macro-bar-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:18px;margin-bottom:12px}
+.mbw-title{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:14px;font-family:var(--fs)}
+.macro-bar{height:20px;border-radius:100px;overflow:hidden;display:flex;margin-bottom:12px}
+.mb-p{background:var(--prot);transition:flex .6s ease}
+.mb-c{background:var(--carb);transition:flex .6s ease}
+.mb-f{background:var(--fat);transition:flex .6s ease}
+.macro-legend{display:flex;gap:18px;flex-wrap:wrap}
+.ml{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700}
+.ml-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.ml-lbl{color:var(--txt2)}
+.ml-val{color:var(--txt)}
+.ml-pct{font-size:11px;color:var(--txt3);margin-left:3px}
+/* STATS ROW */
+.stats-4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.s4{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:13px 8px;text-align:center}
+.s4v{display:block;font-family:var(--fs);font-size:clamp(16px,3.5vw,22px);font-weight:400;line-height:1.15;margin-bottom:4px;letter-spacing:.5px}
+.s4k{display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--txt3);font-family:var(--fs)}
+/* MEAL PLAN */
+.meal-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:18px;margin-bottom:12px}
+.mw-title{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:14px;font-family:var(--fs)}
+.meal-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--bdr);font-size:13px;font-weight:600}
+.meal-row:last-child{border-bottom:none;padding-bottom:0}
+.meal-name{flex:1;color:var(--txt2)}
+.meal-macro{display:flex;gap:12px}
+.mm{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
+.mm-p{background:var(--prot-dim);color:var(--prot)}
+.mm-c{background:var(--carb-dim);color:var(--carb)}
+.mm-f{background:var(--fat-dim);color:var(--fat)}
+/* BUTTONS */
+.brow{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:700;cursor:pointer;border:none;outline:none;transition:transform .12s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.97)}
+.bp{background:var(--acc);color:var(--bg);flex:1}
+.bp:hover{box-shadow:0 8px 28px var(--acc-glow)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.cpbtn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:11px;font-weight:700;padding:7px 14px;border-radius:9px;cursor:pointer;transition:all .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+.err{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:#fca5a5;font-size:13px;padding:11px 15px;border-radius:10px;margin-bottom:14px;font-weight:600}
+.err.show{display:block}
+.disc{font-size:11px;color:var(--txt3);padding:11px 15px;background:var(--surf2);border-radius:9px;border:1px solid var(--bdr);line-height:1.65;margin-bottom:10px}
+.info{margin-top:52px;animation:fU .6s ease .15s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:clamp(24px,5vw,38px);font-weight:400;color:var(--txt);margin-bottom:16px;letter-spacing:.5px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.8;margin-bottom:12px;font-weight:500}
+.formula-box{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-family:'Outfit',monospace;font-size:13px;color:var(--txt);line-height:1.9}
+.formula-box span{color:var(--acc);font-weight:700}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:13px;padding:18px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.65;margin:0;font-weight:500}
+.faq{margin-top:44px;animation:fU .6s ease .2s both}
+.fi{border-bottom:1px solid var(--bdr);padding:15px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
+.fq::after{content:'+';font-size:20px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .22s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .32s,padding .32s;font-weight:500}
+.fi.open .fa{max-height:260px;padding-top:11px}
+.rel{margin-top:44px;animation:fU .6s ease .25s both}
+.sl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:14px;font-family:var(--fs)}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:13px;padding:16px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .2s,transform .18s;display:block}
+.rc:hover{border-color:var(--acc-bdr);transform:translateY(-3px)}
+.ri{font-size:22px;display:block;margin-bottom:6px}
+.rn{font-size:12px;font-weight:700;display:block;font-family:var(--fs)}
+.rd{font-size:10px;color:var(--txt3);margin-top:3px;display:block}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--acc);color:var(--bg);font-family:var(--f);font-size:12px;font-weight:700;padding:.6rem 1.5rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:44px 22px 32px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.7;margin-top:10px;max-width:220px;font-weight:500}
+.fct{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:13px;font-family:var(--fs)}
+.fl{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s;font-weight:500}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:26px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3);font-weight:500}
+@keyframes fD{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.card{padding:20px 16px}.inp-grid{grid-template-columns:1fr 1fr}.macro-trio{grid-template-columns:1fr 1fr 1fr}.stats-4{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:22px}.fb-brand{grid-column:1/-1}.brow{flex-direction:column}.bp{flex:none;width:100%}}
+@media(max-width:400px){.macro-trio{grid-template-columns:1fr}.stats-4{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on" aria-current="page">🧮 Calculators</a><a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on">🧮 Calculators</a><a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a></div>
+<main>
+  <nav class="bc" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="../index.html">Calculators</a> <span>›</span> <span aria-current="page" style="color:var(--txt2)">Macro Calculator</span></nav>
+  <header class="ph">
+    <div class="badge">💪 Nutrition</div>
+    <h1>MACRO <em>CALCULATOR</em></h1>
+    <p class="sub">Get your personalised daily protein, carbohydrate, and fat targets based on your body, activity, and goal — powered by Mifflin-St Jeor.</p>
+  </header>
+
+  <section class="card" aria-label="Macro Calculator">
+    <!-- UNIT TABS -->
+    <div class="unit-tabs" role="group" aria-label="Unit system">
+      <button class="utab on" data-unit="metric" onclick="MC.setUnit(this)">METRIC</button>
+      <button class="utab" data-unit="imperial" onclick="MC.setUnit(this)">IMPERIAL</button>
+    </div>
+
+    <!-- GENDER -->
+    <div class="sec-lbl">Biological sex</div>
+    <div class="gpills" role="group">
+      <button class="gpill on" data-g="male" onclick="MC.setGender(this)">♂ Male</button>
+      <button class="gpill" data-g="female" onclick="MC.setGender(this)">♀ Female</button>
+    </div>
+
+    <!-- BASIC INPUTS -->
+    <div class="sec-lbl">Body measurements</div>
+    <div class="inp-grid" style="margin-bottom:16px">
+      <div class="field"><label for="mc-age">Age</label><div class="inp-w"><input type="number" id="mc-age" class="num-inp no-suf" placeholder="25" min="15" max="100" inputmode="numeric"><span class="inp-suf">yrs</span></div></div>
+      <div class="field"><label for="mc-weight" id="mc-w-lbl">Weight (kg)</label><div class="inp-w"><input type="number" id="mc-weight" class="num-inp" placeholder="75" min="30" inputmode="decimal"><span class="inp-suf" id="mc-w-unit">kg</span></div></div>
+      <div class="field"><label for="mc-height" id="mc-h-lbl">Height (cm)</label><div class="inp-w"><input type="number" id="mc-height" class="num-inp" placeholder="175" min="100" inputmode="decimal"><span class="inp-suf" id="mc-h-unit">cm</span></div></div>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="sec-lbl">Activity level</div>
+    <div class="act-list" role="group" aria-label="Activity level">
+      <button class="apill" data-mult="1.2" onclick="MC.setAct(this)"><span><span class="apill-lbl">🪑 Sedentary</span><br><span class="apill-desc">Desk job, little or no exercise</span></span><span class="apill-mult">×1.2</span></button>
+      <button class="apill" data-mult="1.375" onclick="MC.setAct(this)"><span><span class="apill-lbl">🚶 Lightly active</span><br><span class="apill-desc">Exercise 1-3 days/week</span></span><span class="apill-mult">×1.375</span></button>
+      <button class="apill on" data-mult="1.55" onclick="MC.setAct(this)"><span><span class="apill-lbl">🏃 Moderately active</span><br><span class="apill-desc">Exercise 3-5 days/week</span></span><span class="apill-mult">×1.55</span></button>
+      <button class="apill" data-mult="1.725" onclick="MC.setAct(this)"><span><span class="apill-lbl">💪 Very active</span><br><span class="apill-desc">Hard exercise 6-7 days/week</span></span><span class="apill-mult">×1.725</span></button>
+      <button class="apill" data-mult="1.9" onclick="MC.setAct(this)"><span><span class="apill-lbl">🏋️ Extra active</span><br><span class="apill-desc">Very hard exercise + physical job</span></span><span class="apill-mult">×1.9</span></button>
+    </div>
+
+    <!-- GOAL -->
+    <div class="sec-lbl">Your goal</div>
+    <div class="goal-grid" role="group" aria-label="Fitness goal">
+      <button class="gpcard" data-goal="lose-fast" onclick="MC.setGoal(this)"><span class="gc-icon">🔥</span><span class="gc-name">LOSE FAST</span><span class="gc-desc">−750 kcal deficit · 0.75 kg/wk</span></button>
+      <button class="gpcard on" data-goal="lose" onclick="MC.setGoal(this)"><span class="gc-icon">⚡</span><span class="gc-name">LOSE WEIGHT</span><span class="gc-desc">−500 kcal deficit · 0.5 kg/wk</span></button>
+      <button class="gpcard" data-goal="maintain" onclick="MC.setGoal(this)"><span class="gc-icon">⚖️</span><span class="gc-name">MAINTAIN</span><span class="gc-desc">TDEE · stay at current weight</span></button>
+      <button class="gpcard" data-goal="gain" onclick="MC.setGoal(this)"><span class="gc-icon">💪</span><span class="gc-name">BUILD MUSCLE</span><span class="gc-desc">+300 kcal surplus · lean bulk</span></button>
+    </div>
+
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+    <div class="brow">
+      <button class="btn bp" onclick="MC.calculate()">💪 Calculate My Macros</button>
+      <button class="btn bs" onclick="MC.resetCalc()">Reset</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="res" id="res" aria-live="polite">
+      <!-- CALORIE HERO -->
+      <div class="cal-hero" style="margin-top:22px">
+        <span class="ch-tag" id="ch-tag">🎯 Daily Calorie Target</span>
+        <span class="ch-val" id="ch-val">2000</span>
+        <span class="ch-sub" id="ch-sub">kcal per day</span>
+      </div>
+
+      <!-- MACRO TRIO -->
+      <div class="macro-trio">
+        <div class="mc mc-p"><span class="mc-tag">🥩 Protein</span><span class="mc-g" id="mc-prot-g">—</span><span class="mc-kcal" id="mc-prot-k">— kcal</span></div>
+        <div class="mc mc-c"><span class="mc-tag">🍚 Carbs</span><span class="mc-g" id="mc-carb-g">—</span><span class="mc-kcal" id="mc-carb-k">— kcal</span></div>
+        <div class="mc mc-f"><span class="mc-tag">🥑 Fat</span><span class="mc-g" id="mc-fat-g">—</span><span class="mc-kcal" id="mc-fat-k">— kcal</span></div>
+      </div>
+
+      <!-- MACRO BAR -->
+      <div class="macro-bar-wrap">
+        <div class="mbw-title">Macro split visualisation</div>
+        <div class="macro-bar"><div class="mb-p" id="mb-p" style="flex:30"></div><div class="mb-c" id="mb-c" style="flex:40"></div><div class="mb-f" id="mb-f" style="flex:30"></div></div>
+        <div class="macro-legend">
+          <div class="ml"><div class="ml-dot" style="background:var(--prot)"></div><span class="ml-lbl">Protein</span><span class="ml-val" id="ml-prot">—</span><span class="ml-pct" id="ml-prot-pct"></span></div>
+          <div class="ml"><div class="ml-dot" style="background:var(--carb)"></div><span class="ml-lbl">Carbs</span><span class="ml-val" id="ml-carb">—</span><span class="ml-pct" id="ml-carb-pct"></span></div>
+          <div class="ml"><div class="ml-dot" style="background:var(--fat)"></div><span class="ml-lbl">Fat</span><span class="ml-val" id="ml-fat">—</span><span class="ml-pct" id="ml-fat-pct"></span></div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-4">
+        <div class="s4"><span class="s4v" id="s-bmr" style="color:var(--acc)">—</span><span class="s4k">BMR</span></div>
+        <div class="s4"><span class="s4v" id="s-tdee" style="color:var(--grn)">—</span><span class="s4k">TDEE</span></div>
+        <div class="s4"><span class="s4v" id="s-deficit" style="color:var(--prot)">—</span><span class="s4k">Adjustment</span></div>
+        <div class="s4"><span class="s4v" id="s-rate" style="color:var(--fat)">—</span><span class="s4k">Loss/wk</span></div>
+      </div>
+
+      <!-- PER MEAL -->
+      <div class="meal-wrap">
+        <div class="mw-title">Per-meal breakdown (based on 3 meals/day)</div>
+        <div class="meal-row"><span class="meal-name">☀️ Breakfast (25%)</span><div class="meal-macro"><span class="mm mm-p" id="meal-b-p">—g P</span><span class="mm mm-c" id="meal-b-c">—g C</span><span class="mm mm-f" id="meal-b-f">—g F</span></div></div>
+        <div class="meal-row"><span class="meal-name">🥗 Lunch (35%)</span><div class="meal-macro"><span class="mm mm-p" id="meal-l-p">—g P</span><span class="mm mm-c" id="meal-l-c">—g C</span><span class="mm mm-f" id="meal-l-f">—g F</span></div></div>
+        <div class="meal-row"><span class="meal-name">🍽️ Dinner (30%)</span><div class="meal-macro"><span class="mm mm-p" id="meal-d-p">—g P</span><span class="mm mm-c" id="meal-d-c">—g C</span><span class="mm mm-f" id="meal-d-f">—g F</span></div></div>
+        <div class="meal-row"><span class="meal-name">🍎 Snacks (10%)</span><div class="meal-macro"><span class="mm mm-p" id="meal-s-p">—g P</span><span class="mm mm-c" id="meal-s-c">—g C</span><span class="mm mm-f" id="meal-s-f">—g F</span></div></div>
+      </div>
+
+      <p class="disc" role="note">⚠️ These are estimates based on population averages. Individual metabolism varies. Consult a registered dietitian for personalised nutrition advice, especially if you have health conditions.</p>
+      <div style="display:flex;gap:9px;flex-wrap:wrap"><button class="cpbtn" onclick="MC.copyResult()">📋 Copy Macros</button><button class="cpbtn" onclick="MC.resetCalc()">↺ Reset</button></div>
+    </div>
+  </section>
+
+  <section class="info" aria-labelledby="info-h">
+    <h2 id="info-h">HOW MACROS ARE CALCULATED</h2>
+    <p>This calculator uses the Mifflin-St Jeor equation for BMR, multiplied by your activity factor for TDEE. Your calorie target is then adjusted for your goal, and the calories are split into protein, carbs, and fat based on evidence-based ratios for each goal.</p>
+    <div class="formula-box">
+      <span>Men BMR</span> = 10×kg + 6.25×cm − 5×age + 5<br>
+      <span>Women BMR</span> = 10×kg + 6.25×cm − 5×age − 161<br>
+      <span>TDEE</span> = BMR × Activity Factor<br>
+      <span>Protein</span> = 1.6–2.2g per kg body weight (adjusted by goal)
+    </div>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🥩 Protein (4 kcal/g)</div><p>Builds and repairs muscle. Keeps you full. Essential for immune function. For weight loss: 1.8-2.2g/kg to preserve muscle. For muscle gain: 1.6-2.0g/kg. Never go below 0.8g/kg.</p></div>
+      <div class="ic"><div class="ic-t">🍚 Carbs (4 kcal/g)</div><p>Primary energy source. Fuels intense exercise. Spares protein for muscle building. Remaining calories after protein and fat are allocated to carbs. Prioritise complex carbs: oats, rice, potato.</p></div>
+      <div class="ic"><div class="ic-t">🥑 Fat (9 kcal/g)</div><p>Hormones, brain function, fat-soluble vitamins. Never go below 0.5g/kg. Typically set at 25-35% of calories. Prioritise unsaturated fats: olive oil, avocado, nuts, fatty fish.</p></div>
+      <div class="ic"><div class="ic-t">📊 Tracking matters</div><p>Use a food tracking app (MyFitnessPal, Cronometer) for accuracy. Even tracking 80% of meals produces significant results. Weighing food is more accurate than volume measures.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">FAQ</h2>
+    <div class="fi"><div class="fq" onclick="MC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How much protein do I need per day?</div><div class="fa">For active adults: 1.6-2.2g per kg of body weight. For weight loss (to preserve muscle): 1.8-2.4g/kg. For muscle building: 1.6-2.0g/kg. For sedentary adults: 0.8g/kg is the minimum. Spread protein across 3-5 meals for optimal muscle protein synthesis.</div></div>
+    <div class="fi"><div class="fq" onclick="MC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What macro split should I use for weight loss?</div><div class="fa">High-protein split works best for weight loss: Protein 30-35%, Fat 25-30%, Carbs 35-40%. Higher protein preserves muscle during a calorie deficit. The total calorie deficit matters more than the exact macro ratio, but protein should be prioritised.</div></div>
+    <div class="fi"><div class="fq" onclick="MC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I calculate macros for muscle gain?</div><div class="fa">Eat 200-400 kcal above TDEE (lean bulk). Set protein at 1.6-2.0g/kg, fat at 25% of calories, and fill remaining calories with carbs. Carbs fuel workouts and support recovery. Expect 0.25-0.5 kg weight gain per week — faster gain means more fat.</div></div>
+    <div class="fi"><div class="fq" onclick="MC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How accurate is this macro calculator?</div><div class="fa">The Mifflin-St Jeor formula is accurate within ±10% for most people. Accuracy decreases for very lean athletes (underestimates) and those with high body fat (overestimates). Treat these as starting targets and adjust by ±100-200 kcal based on weekly scale movement after 2 weeks.</div></div>
+    <div class="fi"><div class="fq" onclick="MC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Should I eat the same macros every day?</div><div class="fa">Daily targets work well for most people. Some athletes use carb cycling — higher carbs on training days, lower on rest days. However, hitting weekly macro totals matters more than daily precision. If you're 50g short on carbs one day, make it up the next.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="calorie-deficit-calculator.html"><span class="ri">🔥</span><span class="rn">CALORIE DEFICIT</span><span class="rd">Weight loss plan</span></a>
+      <a class="rc" href="bmi-calculator.html"><span class="ri">📊</span><span class="rn">BMI CALCULATOR</span><span class="rd">Body mass index</span></a>
+      <a class="rc" href="water-intake-calculator.html"><span class="ri">💧</span><span class="rn">WATER INTAKE</span><span class="rd">Daily hydration</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p></div>
+    <div><div class="fct">💪 Fitness Tools</div><ul class="fl"><li><a href="macro-calculator.html">💪 Macro Calc</a></li><li><a href="calorie-deficit-calculator.html">🔥 Calorie Deficit</a></li><li><a href="bmi-calculator.html">📊 BMI Calculator</a></li><li><a href="water-intake-calculator.html">💧 Water Intake</a></li><li></li></ul></div>
+    <div><div class="fct">🧮 Finance Tools</div><ul class="fl"><li><a href="sip-calculator.html">💹 SIP Calculator</a></li><li><a href="gst-calculator.html">🧾 GST Calculator</a></li><li><a href="income-tax-calculator.html">📊 Income Tax</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li><a href="../index.html">🧮 All Calculators</a></li><li><a href="../text-tools/text-tools-index.html">✍️ Text Tools</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up</span><span class="fc">Made with ❤️</span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var MC = (function () {
+  var _unit = 'metric', _gender = 'male', _actMult = 1.55, _goal = 'lose';
+
+  var GOAL_CFG = {
+    'lose-fast': { delta: -750, protG: 2.2, fatPct: 0.25, label: 'Aggressive deficit −750 kcal', rate: '~0.75 kg/wk' },
+    'lose':      { delta: -500, protG: 2.0, fatPct: 0.27, label: 'Moderate deficit −500 kcal',   rate: '~0.5 kg/wk'  },
+    'maintain':  { delta:    0, protG: 1.6, fatPct: 0.30, label: 'Maintenance (TDEE)',            rate: '0 kg/wk'     },
+    'gain':      { delta:  300, protG: 1.7, fatPct: 0.28, label: 'Lean surplus +300 kcal',        rate: '+~0.3 kg/wk' }
+  };
+
+  function r(n) { return Math.round(n); }
+  function showToast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2400); }
+  function showErr(m)   { var e = document.getElementById('err'); e.textContent = m; e.classList.add('show'); }
+  function hideErr()    { document.getElementById('err').classList.remove('show'); }
+  var _last = null;
+
+  return {
+    setUnit: function (el) {
+      _unit = el.dataset.unit;
+      document.querySelectorAll('.utab').forEach(function (p) { p.classList.toggle('on', p === el); });
+      var isImp = _unit === 'imperial';
+      document.getElementById('mc-w-lbl').textContent = 'Weight (' + (isImp ? 'lb' : 'kg') + ')';
+      document.getElementById('mc-h-lbl').textContent = 'Height (' + (isImp ? 'in' : 'cm') + ')';
+      document.getElementById('mc-w-unit').textContent = isImp ? 'lb' : 'kg';
+      document.getElementById('mc-h-unit').textContent = isImp ? 'in' : 'cm';
+      document.getElementById('mc-weight').placeholder = isImp ? '165' : '75';
+      document.getElementById('mc-height').placeholder = isImp ? '69'  : '175';
+    },
+    setGender: function (el) {
+      _gender = el.dataset.g;
+      document.querySelectorAll('.gpill').forEach(function (p) { p.classList.toggle('on', p === el); });
+    },
+    setAct: function (el) {
+      _actMult = parseFloat(el.dataset.mult);
+      document.querySelectorAll('.apill').forEach(function (p) { p.classList.toggle('on', p === el); });
+    },
+    setGoal: function (el) {
+      _goal = el.dataset.goal;
+      document.querySelectorAll('.gpcard').forEach(function (p) { p.classList.toggle('on', p === el); });
+    },
+
+    calculate: function () {
+      hideErr();
+      var wRaw = parseFloat(document.getElementById('mc-weight').value) || 0;
+      var hRaw = parseFloat(document.getElementById('mc-height').value) || 0;
+      var age  = parseInt(document.getElementById('mc-age').value, 10)  || 0;
+
+      if (!wRaw || !hRaw || !age) { showErr('Please enter your age, weight and height.'); return; }
+
+      var wKg = _unit === 'metric' ? wRaw : wRaw / 2.20462;
+      var hCm = _unit === 'metric' ? hRaw : hRaw * 2.54;
+
+      if (wKg < 30 || hCm < 100 || age < 15 || age > 100) { showErr('Please check your measurements — values seem out of range.'); return; }
+
+      var bmr  = 10 * wKg + 6.25 * hCm - 5 * age + (_gender === 'male' ? 5 : -161);
+      var tdee = bmr * _actMult;
+      var cfg  = GOAL_CFG[_goal];
+      var target = Math.max(1200, tdee + cfg.delta);
+
+      /* Macros */
+      var protG = r(wKg * cfg.protG);
+      var protKcal = protG * 4;
+      var fatKcal  = r(target * cfg.fatPct);
+      var fatG     = r(fatKcal / 9);
+      var carbKcal = Math.max(0, r(target - protKcal - fatKcal));
+      var carbG    = r(carbKcal / 4);
+
+      /* Percents */
+      var pP = r(protKcal / target * 100);
+      var pC = r(carbKcal / target * 100);
+      var pF = 100 - pP - pC;
+
+      /* Hero */
+      document.getElementById('ch-tag').textContent = '🎯 ' + cfg.label;
+      document.getElementById('ch-val').textContent = r(target);
+      document.getElementById('ch-sub').textContent = 'kcal per day · ' + cfg.rate;
+
+      /* Macro trio */
+      document.getElementById('mc-prot-g').textContent = protG + 'g';
+      document.getElementById('mc-prot-k').textContent = r(protKcal) + ' kcal';
+      document.getElementById('mc-carb-g').textContent = carbG + 'g';
+      document.getElementById('mc-carb-k').textContent = carbKcal + ' kcal';
+      document.getElementById('mc-fat-g').textContent  = fatG + 'g';
+      document.getElementById('mc-fat-k').textContent  = fatKcal + ' kcal';
+
+      /* Bar */
+      document.getElementById('mb-p').style.flex = String(pP);
+      document.getElementById('mb-c').style.flex = String(pC);
+      document.getElementById('mb-f').style.flex = String(pF);
+      document.getElementById('ml-prot').textContent = protG + 'g';  document.getElementById('ml-prot-pct').textContent = '(' + pP + '%)';
+      document.getElementById('ml-carb').textContent = carbG + 'g';  document.getElementById('ml-carb-pct').textContent = '(' + pC + '%)';
+      document.getElementById('ml-fat').textContent  = fatG  + 'g';  document.getElementById('ml-fat-pct').textContent  = '(' + pF + '%)';
+
+      /* Stats */
+      document.getElementById('s-bmr').textContent    = r(bmr)  + ' kcal';
+      document.getElementById('s-tdee').textContent   = r(tdee) + ' kcal';
+      document.getElementById('s-deficit').textContent= (cfg.delta >= 0 ? '+' : '') + cfg.delta + ' kcal';
+      document.getElementById('s-rate').textContent   = cfg.rate;
+
+      /* Meals */
+      var meals = [
+        { ids: ['meal-b-p','meal-b-c','meal-b-f'], pct: 0.25 },
+        { ids: ['meal-l-p','meal-l-c','meal-l-f'], pct: 0.35 },
+        { ids: ['meal-d-p','meal-d-c','meal-d-f'], pct: 0.30 },
+        { ids: ['meal-s-p','meal-s-c','meal-s-f'], pct: 0.10 }
+      ];
+      meals.forEach(function (m) {
+        document.getElementById(m.ids[0]).textContent = r(protG * m.pct) + 'g P';
+        document.getElementById(m.ids[1]).textContent = r(carbG * m.pct) + 'g C';
+        document.getElementById(m.ids[2]).textContent = r(fatG  * m.pct) + 'g F';
+      });
+
+      _last = { target: r(target), prot: protG, carb: carbG, fat: fatG, bmr: r(bmr), tdee: r(tdee) };
+      document.getElementById('res').classList.add('show');
+      setTimeout(function () { document.getElementById('res').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 60);
+    },
+
+    resetCalc: function () {
+      ['mc-age','mc-weight','mc-height'].forEach(function (id) { document.getElementById(id).value = ''; });
+      document.getElementById('res').classList.remove('show');
+      hideErr();
+    },
+
+    copyResult: function () {
+      if (!_last) return;
+      var d = _last;
+      var text = 'Macro Calculator Results\n──────────────────────────\nCalorie Target: ' + d.target + ' kcal/day\nProtein: ' + d.prot + 'g\nCarbs: ' + d.carb + 'g\nFat: ' + d.fat + 'g\nBMR: ' + d.bmr + ' kcal · TDEE: ' + d.tdee + ' kcal';
+      function ok() { showToast('✓ Macros copied'); }
+      function fb() { var ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(ta); ta.focus(); ta.select(); try { document.execCommand('copy'); ok(); } catch (e) {} document.body.removeChild(ta); }
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok).catch(fb); } else { fb(); }
+    },
+
+    faqToggle: function (el) {
+      var item = el.parentElement, was = item.classList.contains('open');
+      document.querySelectorAll('.fi').forEach(function (i) { i.classList.remove('open'); });
+      document.querySelectorAll('.fq').forEach(function (q) { q.setAttribute('aria-expanded', 'false'); });
+      if (!was) { item.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+    }
+  };
+}());
+
+document.querySelectorAll('.fq').forEach(function (el) { el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); MC.faqToggle(el); } }); });
+(function () { var h = document.getElementById('ham'), m = document.getElementById('mob'); if (!h || !m) return; h.addEventListener('click', function () { var o = m.classList.toggle('open'); h.setAttribute('aria-expanded', String(o)); var s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(5px,5px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)'; } else { s.forEach(function (x) { x.style.transform = ''; x.style.opacity = ''; }); } }); document.addEventListener('click', function (e) { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(function (x) { x.style.transform = ''; x.style.opacity = ''; }); } }); }());
+</script>
+</body>
+</html>

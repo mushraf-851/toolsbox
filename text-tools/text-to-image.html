@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Text to Image Converter — Convert Text to PNG/JPG Online Free | ToolsBox</title>
+<meta name="description" content="Free text to image converter. Convert any text to a downloadable PNG or JPG image. Customize font, size, color, background, padding and style. No signup needed. Works instantly in your browser.">
+<meta name="keywords" content="text to image converter, convert text to image, text to PNG, text to JPG, text image generator, online text to image, generate image from text, text screenshot generator, quote to image">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/text-tools/text-to-image.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Text to Image Converter — Free PNG/JPG Generator | ToolsBox">
+<meta property="og:description" content="Convert any text to a downloadable image. Custom fonts, colors, backgrounds. PNG and JPG. Free, instant.">
+<meta property="og:url" content="https://yourdomain.com/text-tools/text-to-image.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text to Image Converter | ToolsBox">
+<meta name="twitter:description" content="Free text to image tool. Convert text to PNG/JPG with custom fonts, colors and backgrounds.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text to Image Converter","url":"https://yourdomain.com/text-tools/text-to-image.html","description":"Free online text to image converter. Convert any text to PNG or JPG with custom fonts, colors, backgrounds and styling. Download instantly.","applicationCategory":"UtilityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript with Canvas support","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert text to an image?","acceptedAnswer":{"@type":"Answer","text":"Type or paste your text, choose your font, size, color, and background, then click Generate Image. The tool renders your text on an HTML Canvas and lets you download it as PNG or JPG. No software or signup required."}},{"@type":"Question","name":"What image formats can I download?","acceptedAnswer":{"@type":"Answer","text":"You can download your text image as PNG (lossless, supports transparency) or JPG (smaller file size, solid backgrounds). PNG is recommended for text as it preserves sharp edges."}},{"@type":"Question","name":"Can I use custom fonts for text to image?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool includes popular web fonts including serif, sans-serif, monospace, and decorative options. You can also adjust font size, weight (bold/normal), style (italic), and line spacing."}},{"@type":"Question","name":"Can I make the background transparent?","acceptedAnswer":{"@type":"Answer","text":"Yes. Toggle the transparent background option and download as PNG. JPG does not support transparency — use PNG for transparent backgrounds."}},{"@type":"Question","name":"What is the maximum image size I can generate?","acceptedAnswer":{"@type":"Answer","text":"You can generate images up to 4000×4000 pixels using the custom dimensions option. The default auto-size fits the text content. Large canvas sizes may require more browser memory."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070f;--bg2:#09091a;--surf:#0e0e22;--surf2:#14143a;--surf3:#1a1a48;
+  --bdr:rgba(99,102,241,0.12);--bdr2:rgba(99,102,241,0.25);
+  --acc:#6366f1;--acc2:#4f46e5;--acc3:#a5b4fc;
+  --acc-dim:rgba(99,102,241,0.1);--acc-bdr:rgba(99,102,241,0.35);--acc-glow:rgba(99,102,241,0.22);
+  --grn:#10b981;--grn-dim:rgba(16,185,129,0.09);--grn-bdr:rgba(16,185,129,0.28);
+  --red:#f43f5e;--red-dim:rgba(244,63,94,0.08);--red-bdr:rgba(244,63,94,0.28);
+  --amber:#f59e0b;--amber-dim:rgba(245,158,11,0.09);
+  --txt:#eeeeff;--txt2:#7876a8;--txt3:#3d3b70;
+  --f:'Familjen Grotesk',sans-serif;--fs:'Syne',sans-serif;
+  --nav:58px;--mw:840px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(ellipse 70% 50% at 50% -5%,rgba(99,102,241,.1),transparent),
+  radial-gradient(ellipse 40% 35% at 90% 80%,rgba(99,102,241,.06),transparent),
+  linear-gradient(rgba(99,102,241,.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(99,102,241,.03) 1px,transparent 1px);
+  background-size:100%,100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(7,7,15,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 22px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:4px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:14px;flex-shrink:0}
+.logo-box{width:32px;height:32px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:16px;font-weight:800;color:#fff}
+.logo-txt{font-size:16px;font-weight:700;color:var(--txt);letter-spacing:-.3px;font-family:var(--fs)}
+.logo-txt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:1px;flex:1}
+.nl{padding:6px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:22px;height:2px;background:var(--txt2);border-radius:2px;transition:all .25s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 18px 20px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:11px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 18px 90px}
+.bc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:34px;animation:fD .6s ease both}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px;font-family:var(--fs)}
+h1{font-family:var(--fs);font-size:clamp(28px,6vw,50px);font-weight:800;line-height:1.05;color:var(--txt);margin-bottom:12px;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.7;max-width:520px;margin:0 auto;font-weight:500}
+.layout{display:grid;grid-template-columns:360px 1fr;gap:14px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;padding:22px;position:relative;overflow:hidden;animation:fU .6s ease .08s both}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}
+.sec-lbl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;display:flex;align-items:center;gap:8px;font-family:var(--fs)}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+/* TEXT AREA */
+textarea{width:100%;background:var(--surf2);border:1px solid rgba(99,102,241,0.14);border-radius:12px;color:var(--txt);font-family:var(--f);font-size:15px;line-height:1.65;padding:14px 16px;outline:none;resize:vertical;min-height:120px;max-height:280px;transition:border-color .2s;-webkit-font-smoothing:antialiased;margin-bottom:14px}
+textarea:focus{border-color:var(--acc-bdr)}
+textarea::placeholder{color:var(--txt3)}
+/* CONTROLS */
+.ctrl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3)}
+select,.num-inp,.color-inp,.text-inp{width:100%;background:var(--surf2);border:1px solid rgba(99,102,241,0.14);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:13px;font-weight:600;padding:9px 12px;outline:none;transition:border-color .2s;-webkit-appearance:none;-moz-appearance:textfield;cursor:pointer}
+.num-inp::-webkit-inner-spin-button,.num-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+select:focus,.num-inp:focus,.color-inp:focus,.text-inp:focus{border-color:var(--acc-bdr)}
+.color-row{display:flex;align-items:center;gap:8px}
+.color-swatch{width:36px;height:36px;border-radius:8px;border:2px solid rgba(99,102,241,0.2);cursor:pointer;overflow:hidden;flex-shrink:0;padding:0}
+.color-swatch input[type=color]{width:100%;height:100%;border:none;padding:0;cursor:pointer;opacity:0;position:absolute}
+.color-swatch{position:relative}
+.color-val{font-size:12px;font-weight:700;color:var(--txt2);font-family:var(--f)}
+/* TOGGLE PILLS */
+.tog-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.togp{padding:6px 13px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s}
+.togp:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.togp.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+/* TEXT ALIGN */
+.align-row{display:flex;gap:5px}
+.abtn{width:34px;height:34px;border-radius:8px;border:1px solid var(--bdr);background:transparent;color:var(--txt2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .18s}
+.abtn:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.abtn.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+/* CANVAS PREVIEW */
+.preview-wrap{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;padding:20px;animation:fU .6s ease .12s both;min-height:320px;display:flex;flex-direction:column}
+.preview-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}
+.preview-wrap{position:relative;overflow:hidden}
+.preview-area{flex:1;display:flex;align-items:center;justify-content:center;background:repeating-conic-gradient(rgba(99,102,241,.05) 0% 25%,transparent 0% 50%) 0 0/20px 20px;border-radius:12px;min-height:260px;overflow:hidden;position:relative;margin-bottom:14px}
+#preview-canvas{max-width:100%;max-height:460px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6);display:none}
+.preview-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--txt3);font-size:13px;font-weight:600}
+.preview-placeholder .icon{font-size:40px;opacity:.4}
+/* INFO BAR */
+.info-bar{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--txt3);margin-bottom:12px;font-weight:600;flex-wrap:wrap;gap:6px}
+/* BUTTONS */
+.brow{display:flex;gap:9px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 20px;border-radius:11px;font-family:var(--f);font-size:13px;font-weight:700;cursor:pointer;border:none;outline:none;transition:transform .12s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.97)}
+.bp{background:var(--acc);color:#fff;flex:1}
+.bp:hover{box-shadow:0 8px 28px var(--acc-glow)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.bd{background:var(--grn-dim);color:var(--grn);border:1px solid var(--grn-bdr)}
+.bd:hover{background:rgba(16,185,129,.15);box-shadow:0 4px 16px rgba(16,185,129,.15)}
+.bd:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.err{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:#fca5a5;font-size:13px;padding:10px 14px;border-radius:9px;margin-bottom:12px;font-weight:600}
+.err.show{display:block}
+/* PRESET CARDS */
+.preset-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.preset-card{border-radius:10px;padding:10px 8px;cursor:pointer;border:2px solid transparent;transition:all .2s;text-align:center;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.preset-card:hover{transform:scale(1.04)}
+.preset-card.on{border-color:rgba(255,255,255,.4);transform:scale(1.04)}
+/* INFO */
+.info{margin-top:48px;animation:fU .6s ease .15s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:clamp(22px,4.5vw,32px);font-weight:800;color:var(--txt);margin-bottom:14px;letter-spacing:-.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.8;margin-bottom:12px;font-weight:500}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0;font-weight:500}
+.faq{margin-top:42px;animation:fU .6s ease .2s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
+.fq::after{content:'+';font-size:20px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .22s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .32s,padding .32s;font-weight:500}
+.fi.open .fa{max-height:220px;padding-top:10px}
+.rel{margin-top:42px;animation:fU .6s ease .25s both}
+.sl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;font-family:var(--fs)}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:14px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .2s,transform .18s;display:block}
+.rc:hover{border-color:var(--acc-bdr);transform:translateY(-3px)}
+.ri{font-size:20px;display:block;margin-bottom:5px}
+.rn{font-size:11px;font-weight:700;display:block;font-family:var(--fs)}
+.rd{font-size:10px;color:var(--txt3);margin-top:3px;display:block}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--acc);color:#fff;font-family:var(--f);font-size:12px;font-weight:700;padding:.6rem 1.5rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 22px 28px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.7;margin-top:10px;max-width:220px;font-weight:500}
+.fct{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;font-family:var(--fs)}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s;font-weight:500}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:22px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3);font-weight:500}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.nav-links{display:none}.ham{display:flex}.layout{grid-template-columns:1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}}
+@media(max-width:480px){.ctrl-grid{grid-template-columns:1fr}.preset-grid{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a><a href="../index.html" class="nl on" aria-current="page">✍️ Text Tools</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation"><a href="../index.html" class="nl">🏠 Home</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a><a href="../index.html" class="nl on">✍️ Text Tools</a></div>
+<main>
+  <nav class="bc" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="../index.html">Text Tools</a> <span>›</span> <span aria-current="page" style="color:var(--txt2)">Text to Image</span></nav>
+  <header class="ph">
+    <div class="badge">🖼️ Image Generator</div>
+    <h1>Text to <em>Image</em> Converter</h1>
+    <p class="sub">Turn any text into a beautiful downloadable image. Customize fonts, colors, backgrounds and download as PNG or JPG — all in your browser.</p>
+  </header>
+
+  <div class="layout">
+    <!-- LEFT: CONTROLS -->
+    <div class="card" aria-label="Text to Image Controls">
+      <div class="sec-lbl">Your text</div>
+      <textarea id="tti-text" placeholder="Type your text here…&#10;&#10;Supports multiple lines!" rows="6"></textarea>
+
+      <!-- STYLE PRESETS -->
+      <div class="sec-lbl">Quick presets</div>
+      <div class="preset-grid" id="preset-grid">
+        <div class="preset-card on" data-preset="dark" style="background:#1a1a2e;color:#a5b4fc" onclick="TTI.setPreset(this,'dark')">Dark</div>
+        <div class="preset-card" data-preset="light" style="background:#f8fafc;color:#1e293b" onclick="TTI.setPreset(this,'light')">Light</div>
+        <div class="preset-card" data-preset="sunset" style="background:linear-gradient(135deg,#ff6b6b,#ffa500);color:#fff" onclick="TTI.setPreset(this,'sunset')">Sunset</div>
+        <div class="preset-card" data-preset="ocean" style="background:linear-gradient(135deg,#0099ff,#00d4ff);color:#fff" onclick="TTI.setPreset(this,'ocean')">Ocean</div>
+        <div class="preset-card" data-preset="forest" style="background:linear-gradient(135deg,#1a4a2e,#2d8653);color:#e8f5e9" onclick="TTI.setPreset(this,'forest')">Forest</div>
+        <div class="preset-card" data-preset="rose" style="background:linear-gradient(135deg,#be185d,#f43f5e);color:#fff" onclick="TTI.setPreset(this,'rose')">Rose</div>
+        <div class="preset-card" data-preset="purple" style="background:linear-gradient(135deg,#4c1d95,#7c3aed);color:#e9d5ff" onclick="TTI.setPreset(this,'purple')">Purple</div>
+        <div class="preset-card" data-preset="transparent" style="background:repeating-conic-gradient(#bbb 0% 25%,#fff 0% 50%) 0/14px 14px;color:#333" onclick="TTI.setPreset(this,'transparent')">Transp.</div>
+      </div>
+
+      <!-- FONT & SIZE -->
+      <div class="sec-lbl">Typography</div>
+      <div class="ctrl-grid" style="margin-bottom:10px">
+        <div class="field"><label>Font family</label>
+          <select id="tti-font">
+            <option value="Georgia, serif">Georgia (Serif)</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+            <option value="Palatino, serif">Palatino</option>
+            <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+            <option value="Verdana, sans-serif">Verdana</option>
+            <option value="Tahoma, sans-serif">Tahoma</option>
+            <option value="'Courier New', monospace">Courier New (Mono)</option>
+            <option value="'Lucida Console', monospace">Lucida Console</option>
+            <option value="Impact, fantasy" selected>Impact</option>
+            <option value="'Comic Sans MS', cursive">Comic Sans</option>
+          </select>
+        </div>
+        <div class="field"><label>Font size (px)</label><input type="number" id="tti-size" class="num-inp" value="48" min="10" max="300"></div>
+      </div>
+      <div class="ctrl-grid" style="margin-bottom:12px">
+        <div class="field"><label>Font weight</label>
+          <select id="tti-weight"><option value="normal">Normal</option><option value="bold" selected>Bold</option><option value="300">Light (300)</option><option value="600">Semi-Bold (600)</option><option value="900">Black (900)</option></select>
+        </div>
+        <div class="field"><label>Text align</label>
+          <div class="align-row">
+            <button class="abtn on" data-align="left" onclick="TTI.setAlign(this)" title="Left align">≡</button>
+            <button class="abtn" data-align="center" onclick="TTI.setAlign(this)" title="Center align">☰</button>
+            <button class="abtn" data-align="right" onclick="TTI.setAlign(this)" title="Right align">≡</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLORS -->
+      <div class="sec-lbl">Colors</div>
+      <div class="ctrl-grid" style="margin-bottom:12px">
+        <div class="field"><label>Text color</label>
+          <div class="color-row">
+            <div class="color-swatch" id="text-swatch" style="background:#a5b4fc"><input type="color" id="tti-text-color" value="#a5b4fc" oninput="TTI.updateSwatch('text-swatch',this.value)"></div>
+            <span class="color-val" id="text-color-val">#a5b4fc</span>
+          </div>
+        </div>
+        <div class="field"><label>Background</label>
+          <div class="color-row">
+            <div class="color-swatch" id="bg-swatch" style="background:#1a1a2e"><input type="color" id="tti-bg-color" value="#1a1a2e" oninput="TTI.updateSwatch('bg-swatch',this.value)"></div>
+            <span class="color-val" id="bg-color-val">#1a1a2e</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIMENSIONS & PADDING -->
+      <div class="sec-lbl">Canvas & layout</div>
+      <div class="ctrl-grid" style="margin-bottom:10px">
+        <div class="field"><label>Width (px · 0=auto)</label><input type="number" id="tti-w" class="num-inp" value="0" min="0" max="4000" placeholder="Auto"></div>
+        <div class="field"><label>Height (px · 0=auto)</label><input type="number" id="tti-h" class="num-inp" value="0" min="0" max="4000" placeholder="Auto"></div>
+      </div>
+      <div class="ctrl-grid" style="margin-bottom:12px">
+        <div class="field"><label>Padding (px)</label><input type="number" id="tti-pad" class="num-inp" value="48" min="0" max="200"></div>
+        <div class="field"><label>Line spacing</label><input type="number" id="tti-line" class="num-inp" value="1.4" min="0.8" max="3" step="0.1"></div>
+      </div>
+
+      <!-- OPTIONS -->
+      <div class="sec-lbl">Options</div>
+      <div class="tog-row">
+        <button class="togp" id="tog-italic" onclick="TTI.togOption('italic',this)">𝐼 Italic</button>
+        <button class="togp" id="tog-shadow" onclick="TTI.togOption('shadow',this)">✦ Shadow</button>
+        <button class="togp" id="tog-transp" onclick="TTI.togOption('transparent',this)">⬜ Transparent bg</button>
+        <button class="togp on" id="tog-wrap" onclick="TTI.togOption('wrap',this)">↵ Word wrap</button>
+      </div>
+
+      <div class="err" id="err" role="alert" aria-live="polite"></div>
+      <div class="brow">
+        <button class="btn bp" onclick="TTI.generate()">🎨 Generate Image</button>
+        <button class="btn bs" onclick="TTI.resetAll()">Reset</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: PREVIEW & DOWNLOAD -->
+    <div class="preview-wrap" style="position:relative">
+      <div class="sec-lbl">Preview</div>
+      <div class="preview-area" id="preview-area">
+        <div class="preview-placeholder" id="preview-placeholder">
+          <span class="icon">🖼️</span>
+          <span>Click "Generate Image" to see your preview here</span>
+        </div>
+        <canvas id="preview-canvas" aria-label="Text image preview"></canvas>
+      </div>
+      <div class="info-bar" id="info-bar" style="display:none">
+        <span id="canvas-size">—</span>
+        <span id="canvas-chars">—</span>
+      </div>
+      <div class="brow">
+        <button class="btn bd" id="dl-png" disabled onclick="TTI.download('png')">⬇ Download PNG</button>
+        <button class="btn bd" id="dl-jpg" disabled onclick="TTI.download('jpg')" style="background:var(--amber-dim);color:var(--amber);border-color:var(--amber-bdr)">⬇ Download JPG</button>
+        <button class="btn bs" id="copy-img" disabled onclick="TTI.copyImage()" style="display:none">📋 Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO SECTION -->
+  <section class="info" aria-labelledby="info-h">
+    <h2 id="info-h">How to convert text to an image</h2>
+    <p>This tool uses the HTML Canvas API to render text directly in your browser — no server, no uploads, no privacy concerns. Type your text, pick your style, and generate a pixel-perfect image you can download immediately.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🖼️ PNG vs JPG</div><p>PNG supports transparency and is lossless — best for text with crisp edges. JPG uses compression — smaller files but no transparency support. For text-on-solid-background, JPG saves file size.</p></div>
+      <div class="ic"><div class="ic-t">📐 Custom dimensions</div><p>Set width and height to 0 for auto-sizing (fits your text). Or set specific pixel dimensions for social media posts: Instagram square=1080×1080, Twitter post=1200×675, Facebook=1200×630.</p></div>
+      <div class="ic"><div class="ic-t">✦ Text shadow tip</div><p>Enable "Shadow" for a subtle drop shadow that improves text readability against light backgrounds. Adjust shadow color by choosing a dark text color — the shadow inherits from text color with opacity.</p></div>
+      <div class="ic"><div class="ic-t">⬜ Transparent PNG</div><p>Enable "Transparent bg" and download as PNG to get a text-only image with no background. Perfect for overlaying text onto photos in design tools like Canva or Photoshop.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="TTI.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Is my text sent to a server?</div><div class="fa">No. Everything runs entirely in your browser using the HTML Canvas API. Your text never leaves your device. No data is stored, logged, or transmitted. It's 100% private and works offline after the page loads.</div></div>
+    <div class="fi"><div class="fq" onclick="TTI.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What are the best dimensions for social media?</div><div class="fa">Instagram square: 1080×1080. Instagram story: 1080×1920. Twitter post: 1200×675. Facebook cover: 1640×856. LinkedIn post: 1200×627. YouTube thumbnail: 1280×720. Set these in the Width/Height fields.</div></div>
+    <div class="fi"><div class="fq" onclick="TTI.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Why does my text look blurry?</div><div class="fa">Increase the font size and canvas resolution. The tool renders at 2x device pixel ratio for sharp output. Try font size 48-72px for large text. Avoid making the canvas too small — text looks sharpest when the canvas is at least 400px wide.</div></div>
+    <div class="fi"><div class="fq" onclick="TTI.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Can I use gradient backgrounds?</div><div class="fa">Use the Sunset, Ocean, Forest, Rose or Purple presets which apply beautiful gradients. For custom gradients, select a preset then manually tweak the text and background colors.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="text-to-morse.html"><span class="ri">📡</span><span class="rn">Text to Morse</span><span class="rd">Convert to Morse code</span></a>
+      <a class="rc" href="case-converter.html"><span class="ri">🔠</span><span class="rn">Case Converter</span><span class="rd">Change text case</span></a>
+      <a class="rc" href="word-counter.html"><span class="ri">📝</span><span class="rn">Word Counter</span><span class="rd">Count words fast</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online tools. No sign-up. Works instantly in your browser.</p></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl"><li><a href="text-to-image.html">🖼️ Text to Image</a></li><li><a href="text-to-morse.html">📡 Text to Morse</a></li><li><a href="morse-to-text.html">🔊 Morse to Text</a></li><li><a href="word-counter.html">📝 Word Counter</a></li><li><a href="case-converter.html">🔠 Case Converter</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/sip-calculator.html">💹 SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">🧾 GST Calculator</a></li><li><a href="../calculators/tip-calculator.html">🍽️ Tip Calculator</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li><a href="../index.html">✍️ All Text Tools</a></li><li><a href="../calculators/calculators-index.html">🧮 All Calculators</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up</span><span class="fc">Made with ❤️</span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var TTI = (function () {
+  var _align = 'left';
+  var _opts  = { italic: false, shadow: false, transparent: false, wrap: true };
+  var _generated = false;
+
+  var PRESETS = {
+    dark:        { textColor:'#a5b4fc', bg:'#1a1a2e', gradient: null },
+    light:       { textColor:'#1e293b', bg:'#f8fafc', gradient: null },
+    sunset:      { textColor:'#ffffff', bg:'#ff6b6b', gradient: ['#ff6b6b','#ffa500'] },
+    ocean:       { textColor:'#ffffff', bg:'#0099ff', gradient: ['#0050c8','#00d4ff'] },
+    forest:      { textColor:'#e8f5e9', bg:'#1a4a2e', gradient: ['#1a4a2e','#2d8653'] },
+    rose:        { textColor:'#ffffff', bg:'#be185d', gradient: ['#be185d','#f43f5e'] },
+    purple:      { textColor:'#e9d5ff', bg:'#4c1d95', gradient: ['#4c1d95','#7c3aed'] },
+    transparent: { textColor:'#1e293b', bg:'transparent', gradient: null }
+  };
+
+  function showToast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2400); }
+  function showErr(m) { var e = document.getElementById('err'); e.textContent = m; e.classList.add('show'); }
+  function hideErr() { document.getElementById('err').classList.remove('show'); }
+
+  return {
+    updateSwatch: function (id, val) {
+      document.getElementById(id).style.background = val;
+      document.getElementById(id.replace('-swatch','') + '-color-val').textContent = val;
+    },
+
+    setAlign: function (el) {
+      _align = el.dataset.align;
+      document.querySelectorAll('.abtn').forEach(function (b) { b.classList.toggle('on', b === el); });
+    },
+
+    setPreset: function (el, key) {
+      document.querySelectorAll('.preset-card').forEach(function (p) { p.classList.toggle('on', p === el); });
+      var p = PRESETS[key];
+      document.getElementById('tti-text-color').value = p.textColor;
+      TTI.updateSwatch('text-swatch', p.textColor);
+      document.getElementById('tti-bg-color').value = p.bg === 'transparent' ? '#ffffff' : p.bg;
+      TTI.updateSwatch('bg-swatch', p.bg === 'transparent' ? '#ffffff' : p.bg);
+      if (key === 'transparent') {
+        if (!_opts.transparent) { _opts.transparent = true; document.getElementById('tog-transp').classList.add('on'); }
+      } else {
+        _opts.transparent = false; document.getElementById('tog-transp').classList.remove('on');
+      }
+    },
+
+    togOption: function (key, el) {
+      _opts[key] = !_opts[key];
+      el.classList.toggle('on', _opts[key]);
+    },
+
+    generate: function () {
+      hideErr();
+      var text = document.getElementById('tti-text').value;
+      if (!text.trim()) { showErr('Please enter some text first.'); return; }
+
+      var fontFamily = document.getElementById('tti-font').value;
+      var fontSize   = Math.max(10, Math.min(300, parseInt(document.getElementById('tti-size').value, 10) || 48));
+      var fontWeight = document.getElementById('tti-weight').value;
+      var lineSpacing= parseFloat(document.getElementById('tti-line').value) || 1.4;
+      var padding    = Math.max(0, parseInt(document.getElementById('tti-pad').value, 10) || 0);
+      var fixedW     = parseInt(document.getElementById('tti-w').value, 10) || 0;
+      var fixedH     = parseInt(document.getElementById('tti-h').value, 10) || 0;
+      var textColor  = document.getElementById('tti-text-color').value;
+      var bgColor    = document.getElementById('tti-bg-color').value;
+      var italic     = _opts.italic ? 'italic ' : '';
+      var fontStr    = italic + fontWeight + ' ' + fontSize + 'px ' + fontFamily;
+
+      var DPR = Math.min(window.devicePixelRatio || 1, 3);
+      var canvas = document.getElementById('preview-canvas');
+      var ctx    = canvas.getContext('2d');
+
+      /* measure text */
+      ctx.font = fontStr;
+      var lines = text.split('\n');
+      var wrapWidth = fixedW > 0 ? (fixedW - padding * 2) : 900;
+      var wrapped = [];
+      if (_opts.wrap) {
+        lines.forEach(function (line) {
+          if (!line.trim()) { wrapped.push(''); return; }
+          var words = line.split(' ');
+          var cur = '';
+          words.forEach(function (w) {
+            var test = cur ? cur + ' ' + w : w;
+            if (ctx.measureText(test).width > wrapWidth && cur) { wrapped.push(cur); cur = w; }
+            else cur = test;
+          });
+          if (cur) wrapped.push(cur);
+        });
+      } else { wrapped = lines; }
+
+      var maxW = wrapped.reduce(function (m, l) { return Math.max(m, ctx.measureText(l).width); }, 0);
+      var lineH = fontSize * lineSpacing;
+      var totalH = wrapped.length * lineH;
+
+      var canvasW = fixedW > 0 ? fixedW : Math.ceil(maxW + padding * 2);
+      var canvasH = fixedH > 0 ? fixedH : Math.ceil(totalH + padding * 2);
+
+      canvas.width  = canvasW * DPR;
+      canvas.height = canvasH * DPR;
+      canvas.style.width  = canvasW + 'px';
+      canvas.style.height = canvasH + 'px';
+      ctx.scale(DPR, DPR);
+
+      /* background */
+      if (!_opts.transparent) {
+        var preset = document.querySelector('.preset-card.on');
+        var pKey = preset ? preset.dataset.preset : null;
+        if (pKey && PRESETS[pKey] && PRESETS[pKey].gradient) {
+          var grd = ctx.createLinearGradient(0, 0, canvasW, canvasH);
+          grd.addColorStop(0, PRESETS[pKey].gradient[0]);
+          grd.addColorStop(1, PRESETS[pKey].gradient[1]);
+          ctx.fillStyle = grd;
+        } else {
+          ctx.fillStyle = bgColor;
+        }
+        ctx.fillRect(0, 0, canvasW, canvasH);
+      } else {
+        ctx.clearRect(0, 0, canvasW, canvasH);
+      }
+
+      /* text */
+      ctx.font = fontStr;
+      ctx.fillStyle = textColor;
+      ctx.textBaseline = 'top';
+      ctx.textAlign = _align === 'center' ? 'center' : _align === 'right' ? 'right' : 'left';
+
+      var xBase = _align === 'center' ? canvasW / 2 : _align === 'right' ? canvasW - padding : padding;
+      var yBase = fixedH > 0 ? (canvasH - totalH) / 2 : padding;
+
+      if (_opts.shadow) {
+        ctx.shadowColor = 'rgba(0,0,0,0.45)';
+        ctx.shadowBlur  = fontSize * 0.08;
+        ctx.shadowOffsetX = fontSize * 0.04;
+        ctx.shadowOffsetY = fontSize * 0.04;
+      }
+
+      wrapped.forEach(function (line, i) {
+        ctx.fillText(line, xBase, yBase + i * lineH);
+      });
+
+      ctx.shadowColor = 'transparent';
+
+      /* show */
+      document.getElementById('preview-placeholder').style.display = 'none';
+      canvas.style.display = 'block';
+      document.getElementById('info-bar').style.display = 'flex';
+      document.getElementById('canvas-size').textContent = canvasW + ' × ' + canvasH + ' px';
+      document.getElementById('canvas-chars').textContent = text.length + ' chars · ' + wrapped.length + ' lines';
+
+      document.getElementById('dl-png').disabled = false;
+      document.getElementById('dl-jpg').disabled = false;
+      if (navigator.clipboard && window.ClipboardItem) {
+        document.getElementById('copy-img').disabled = false;
+        document.getElementById('copy-img').style.display = '';
+      }
+      _generated = true;
+    },
+
+    download: function (fmt) {
+      if (!_generated) return;
+      var canvas = document.getElementById('preview-canvas');
+      var type   = fmt === 'jpg' ? 'image/jpeg' : 'image/png';
+      var link   = document.createElement('a');
+      link.download = 'toolsbox-text-' + Date.now() + '.' + fmt;
+      link.href  = canvas.toDataURL(type, 0.95);
+      link.click();
+      showToast('✓ ' + fmt.toUpperCase() + ' downloaded!');
+    },
+
+    copyImage: function () {
+      var canvas = document.getElementById('preview-canvas');
+      canvas.toBlob(function (blob) {
+        try {
+          navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(function () { showToast('✓ Image copied to clipboard!'); }).catch(function () { showToast('Copy not supported — use Download instead'); });
+        } catch (e) { showToast('Copy not supported — use Download instead'); }
+      });
+    },
+
+    resetAll: function () {
+      document.getElementById('tti-text').value = '';
+      document.getElementById('preview-canvas').style.display = 'none';
+      document.getElementById('preview-placeholder').style.display = '';
+      document.getElementById('info-bar').style.display = 'none';
+      document.getElementById('dl-png').disabled = true;
+      document.getElementById('dl-jpg').disabled = true;
+      document.getElementById('copy-img').disabled = true;
+      _generated = false;
+      hideErr();
+    },
+
+    faqToggle: function (el) {
+      var item = el.parentElement, was = item.classList.contains('open');
+      document.querySelectorAll('.fi').forEach(function (i) { i.classList.remove('open'); });
+      document.querySelectorAll('.fq').forEach(function (q) { q.setAttribute('aria-expanded', 'false'); });
+      if (!was) { item.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+    }
+  };
+}());
+
+document.querySelectorAll('.fq').forEach(function (el) { el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); TTI.faqToggle(el); } }); });
+(function () { var h = document.getElementById('ham'), m = document.getElementById('mob'); if (!h || !m) return; h.addEventListener('click', function () { var o = m.classList.toggle('open'); h.setAttribute('aria-expanded', String(o)); var s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(5px,5px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)'; } else { s.forEach(function (x) { x.style.transform = ''; x.style.opacity = ''; }); } }); document.addEventListener('click', function (e) { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(function (x) { x.style.transform = ''; x.style.opacity = ''; }); } }); }());
+</script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Hex Calculator — Hexadecimal Arithmetic & Base Converter | ToolsBox</title>
+<meta name="description" content="Free hex calculator. Perform hexadecimal arithmetic (add, subtract, multiply, divide) and convert between hex, decimal, binary and octal instantly. No signup needed.">
+<meta name="keywords" content="hex calculator, hexadecimal calculator, hex to decimal, decimal to hex, hex arithmetic, binary octal hex converter, base conversion calculator, hexadecimal arithmetic">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/hex-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hex Calculator — Hexadecimal Arithmetic & Base Converter | ToolsBox">
+<meta property="og:description" content="Perform hexadecimal arithmetic and convert between hex, decimal, binary and octal. Free, instant, no signup.">
+<meta property="og:url" content="https://yourdomain.com/calculators/hex-calculator.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hex Calculator | ToolsBox">
+<meta name="twitter:description" content="Free hex calculator — arithmetic and base conversion between hex, decimal, binary and octal.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hex Calculator","url":"https://yourdomain.com/calculators/hex-calculator.html","description":"Free hexadecimal calculator for arithmetic operations and base conversion between hexadecimal, decimal, binary and octal number systems.","applicationCategory":"UtilityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I add hexadecimal numbers?","acceptedAnswer":{"@type":"Answer","text":"To add hex numbers, convert each to decimal, add them, then convert back to hex. For example: 1A + 2F = 26 + 47 = 73 decimal = 49 hex. This calculator does it all automatically."}},{"@type":"Question","name":"What is hexadecimal used for?","acceptedAnswer":{"@type":"Answer","text":"Hexadecimal is used in computing for memory addresses, color codes (like #FF5733), machine code, debugging, and representing binary data compactly. Each hex digit represents exactly 4 binary bits."}},{"@type":"Question","name":"How do you convert hex to decimal?","acceptedAnswer":{"@type":"Answer","text":"Multiply each hex digit by 16 raised to its position power and sum the results. For example: 1A in hex = (1×16¹) + (A×16⁰) = 16 + 10 = 26 decimal."}},{"@type":"Question","name":"What are the hex digits?","acceptedAnswer":{"@type":"Answer","text":"Hex uses 16 digits: 0–9 for values zero to nine, and A–F (or a–f) for values ten to fifteen. So A=10, B=11, C=12, D=13, E=14, F=15."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06070a;--bg2:#090b0f;--surf:#0d1018;--surf2:#131620;--surf3:#1a1e2a;
+  --bdr:rgba(255,255,255,.06);--bdr2:rgba(255,255,255,.12);
+  --acc:#22c55e;--acc-dim:rgba(34,197,94,.08);--acc-bdr:rgba(34,197,94,.3);--acc-glow:rgba(34,197,94,.18);
+  --hex:#f59e0b;--hex-dim:rgba(245,158,11,.08);--hex-bdr:rgba(245,158,11,.25);
+  --dec:#60a5fa;--dec-dim:rgba(96,165,250,.08);--dec-bdr:rgba(96,165,250,.25);
+  --bin:#a78bfa;--bin-dim:rgba(167,139,250,.08);--bin-bdr:rgba(167,139,250,.25);
+  --oct:#34d399;--oct-dim:rgba(52,211,153,.08);--oct-bdr:rgba(52,211,153,.25);
+  --rose:#f87171;--rose-dim:rgba(248,113,113,.08);--rose-bdr:rgba(248,113,113,.22);
+  --txt:#eceaf4;--txt2:#8a8898;--txt3:#50505f;
+  --f:'DM Sans',sans-serif;--fs:'DM Serif Display',serif;
+  --nav:58px;--mw:780px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 55% 40% at 20% 0%,rgba(245,158,11,.06),transparent),radial-gradient(ellipse 40% 28% at 90% 85%,rgba(96,165,250,.04),transparent),linear-gradient(rgba(255,255,255,.007) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.007) 1px,transparent 1px);background-size:100%,100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,10,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:14px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--hex);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:14px;font-weight:700;color:#06070a}
+.logo-txt{font-size:17px;font-weight:800;color:var(--txt);letter-spacing:-.4px}
+.logo-txt em{font-style:italic;color:var(--hex);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--hex);background:var(--hex-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--hex-dim);border:1px solid var(--hex-bdr);color:var(--hex);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(28px,6vw,46px);font-weight:400;line-height:1.1;color:var(--txt);margin-bottom:12px;letter-spacing:-.3px}
+h1 em{font-style:italic;color:var(--hex)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:500px;margin:0 auto}
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--surf2);padding:4px;border-radius:14px;border:1px solid var(--bdr)}
+.tab{flex:1;padding:10px 8px;border-radius:10px;font-family:var(--f);font-size:13px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt3);transition:all .18s;text-align:center}
+.tab:hover{color:var(--txt2)}
+.tab.on{background:var(--surf);color:var(--hex);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+/* CARD */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,158,11,.45),transparent)}
+/* ARITHMETIC CALC */
+.calc-display{background:var(--surf2);border:1px solid var(--bdr);border-radius:16px;padding:16px 20px;margin-bottom:20px;min-height:90px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.disp-expr{font-size:13px;color:var(--txt3);font-family:monospace;word-break:break-all;text-align:right}
+.disp-result{font-family:'DM Serif Display',serif;font-size:clamp(28px,6vw,44px);font-weight:400;color:var(--hex);letter-spacing:-1px;word-break:break-all;text-align:right}
+.disp-result.error{color:var(--rose);font-family:var(--f);font-size:20px;font-weight:700}
+/* BASE TOGGLES */
+.base-row{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.base-btn{padding:6px 14px;border-radius:8px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:var(--surf2);color:var(--txt3);transition:all .15s}
+.base-btn:hover{color:var(--txt);border-color:var(--bdr2)}
+.base-btn.on{background:var(--hex-dim);border-color:var(--hex-bdr);color:var(--hex)}
+/* HEX KEYPAD */
+.keypad{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.key{height:52px;border-radius:12px;font-family:var(--f);font-size:17px;font-weight:700;cursor:pointer;border:none;background:var(--surf2);color:var(--txt);transition:all .12s;display:flex;align-items:center;justify-content:center;user-select:none;-webkit-tap-highlight-color:transparent}
+.key:hover{background:var(--surf3);transform:translateY(-1px)}
+.key:active{transform:scale(.95)}
+.key.hex-key{color:var(--hex);background:var(--hex-dim);border:1px solid var(--hex-bdr)}
+.key.hex-key:hover{background:rgba(245,158,11,.15)}
+.key.op-key{color:var(--dec);background:var(--dec-dim);border:1px solid var(--dec-bdr);font-size:20px}
+.key.op-key:hover{background:rgba(96,165,250,.15)}
+.key.eq-key{background:var(--hex);color:#06070a;grid-column:span 2}
+.key.eq-key:hover{box-shadow:0 4px 16px var(--hex-dim)}
+.key.clear-key{color:var(--rose);background:var(--rose-dim);border:1px solid var(--rose-bdr)}
+.key.clear-key:hover{background:rgba(248,113,113,.15)}
+.key.back-key{color:var(--txt2)}
+/* MULTI-BASE DISPLAY */
+.multi-base{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.mb-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:14px;transition:border-color .18s;cursor:pointer}
+.mb-card:hover{border-color:var(--bdr2)}
+.mb-label{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.mb-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:100px;border:1px solid}
+.mb-badge.hex{background:var(--hex-dim);border-color:var(--hex-bdr);color:var(--hex)}
+.mb-badge.dec{background:var(--dec-dim);border-color:var(--dec-bdr);color:var(--dec)}
+.mb-badge.bin{background:var(--bin-dim);border-color:var(--bin-bdr);color:var(--bin)}
+.mb-badge.oct{background:var(--oct-dim);border-color:var(--oct-bdr);color:var(--oct)}
+.mb-val{font-family:monospace;font-size:clamp(14px,3.5vw,20px);font-weight:700;color:var(--txt);word-break:break-all;line-height:1.4}
+.mb-sub{font-size:11px;color:var(--txt3);margin-top:4px}
+.copy-hint{font-size:10px;color:var(--txt3);float:right}
+/* CONVERTER TAB */
+.conv-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.conv-field{display:flex;flex-direction:column;gap:7px}
+.conv-label-row{display:flex;align-items:center;justify-content:space-between}
+label.conv-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+.conv-inp{width:100%;background:var(--surf2);border:2px solid var(--bdr);border-radius:12px;color:var(--txt);font-family:monospace;font-size:18px;font-weight:700;padding:13px 16px;outline:none;transition:border-color .2s,box-shadow .2s;letter-spacing:.05em}
+.conv-inp::placeholder{color:var(--txt3);font-weight:400;font-size:14px}
+.conv-inp.hex-inp:focus{border-color:var(--hex-bdr);box-shadow:0 0 0 3px var(--hex-dim)}
+.conv-inp.dec-inp:focus{border-color:var(--dec-bdr);box-shadow:0 0 0 3px var(--dec-dim)}
+.conv-inp.bin-inp:focus{border-color:var(--bin-bdr);box-shadow:0 0 0 3px var(--bin-dim)}
+.conv-inp.oct-inp:focus{border-color:var(--oct-bdr);box-shadow:0 0 0 3px var(--oct-dim)}
+.conv-err{font-size:11px;color:var(--rose);display:none}
+.conv-err.show{display:block}
+/* HISTORY */
+.hist-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;margin-top:18px}
+.hw-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--bdr)}
+.hw-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--txt3)}
+.h-row{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--bdr);font-size:13px;cursor:pointer;transition:background .12s}
+.h-row:last-child{border-bottom:none}
+.h-row:hover{background:rgba(245,158,11,.04)}
+.h-expr{font-family:monospace;color:var(--txt2)}
+.h-eq{font-weight:700;color:var(--hex);font-family:monospace}
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--acc);color:#06070a;font-family:var(--f);font-size:13px;font-weight:700;padding:.55rem 1.4rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* INFO/FAQ */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:22px;font-weight:400;color:var(--txt);margin-bottom:14px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ref-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.ref-table th{background:var(--surf2);color:var(--txt3);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:8px 12px;text-align:left;border-bottom:1px solid var(--bdr)}
+.ref-table td{padding:7px 12px;border-bottom:1px solid var(--bdr);color:var(--txt2);font-family:monospace}
+.ref-table tr:last-child td{border-bottom:none}
+.ref-table td:first-child{color:var(--hex);font-weight:700}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:280px;padding-top:10px}
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:var(--hex-bdr);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}.rn{font-size:12px;font-weight:700;display:block}.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--hex)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:24px 14px 60px}.card{padding:18px 14px}.multi-base{grid-template-columns:1fr 1fr}.tabs .tab{font-size:12px;padding:8px 4px}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.rg{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.fi3{grid-template-columns:1fr}.multi-base{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="logo-box">0x</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="../index.html" class="nl on" aria-current="page">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="../index.html" class="nl on">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+<main>
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span> › </span>
+    <a href="../index.html">Calculators</a><span> › </span>
+    <span aria-current="page" style="color:var(--txt2)">Hex Calculator</span>
+  </nav>
+  <header class="ph">
+    <div class="badge">0x Hex Tool</div>
+    <h1>Hex <em>Calculator</em></h1>
+    <p class="sub">Perform hexadecimal arithmetic and convert between hex, decimal, binary and octal number systems — live as you type.</p>
+  </header>
+
+  <div class="card">
+    <!-- TABS -->
+    <div class="tabs" role="tablist">
+      <button class="tab on" id="tab-calc" onclick="HC.setTab('calc')" role="tab" aria-selected="true" aria-controls="pane-calc">🔢 Calculator</button>
+      <button class="tab" id="tab-conv" onclick="HC.setTab('conv')" role="tab" aria-selected="false" aria-controls="pane-conv">🔄 Converter</button>
+      <button class="tab" id="tab-ref" onclick="HC.setTab('ref')" role="tab" aria-selected="false" aria-controls="pane-ref">📋 Reference</button>
+    </div>
+
+    <!-- CALCULATOR PANE -->
+    <div id="pane-calc" role="tabpanel">
+      <!-- DISPLAY -->
+      <div class="calc-display" aria-live="polite">
+        <span class="disp-expr" id="disp-expr"></span>
+        <span class="disp-result" id="disp-result">0</span>
+      </div>
+
+      <!-- BASE MODE SELECTOR -->
+      <div class="base-row" role="group" aria-label="Input base">
+        <span style="font-size:12px;font-weight:700;color:var(--txt3);align-self:center">Input base:</span>
+        <button class="base-btn on" id="base-16" onclick="HC.setBase(16)" aria-pressed="true">HEX (16)</button>
+        <button class="base-btn" id="base-10" onclick="HC.setBase(10)" aria-pressed="false">DEC (10)</button>
+        <button class="base-btn" id="base-2" onclick="HC.setBase(2)" aria-pressed="false">BIN (2)</button>
+        <button class="base-btn" id="base-8" onclick="HC.setBase(8)" aria-pressed="false">OCT (8)</button>
+      </div>
+
+      <!-- KEYPAD -->
+      <div class="keypad" role="group" aria-label="Calculator keypad">
+        <!-- Row 1 -->
+        <button class="key clear-key" onclick="HC.clearAll()" aria-label="Clear">AC</button>
+        <button class="key back-key" onclick="HC.backspace()" aria-label="Backspace">⌫</button>
+        <button class="key" onclick="HC.inputParens()" aria-label="Parentheses">( )</button>
+        <button class="key op-key" onclick="HC.inputOp('%')" aria-label="Modulo">%</button>
+        <button class="key op-key" onclick="HC.inputOp('/')" aria-label="Divide">÷</button>
+        <!-- Hex keys + digits -->
+        <button class="key hex-key" onclick="HC.inputChar('A')" aria-label="A">A</button>
+        <button class="key hex-key" onclick="HC.inputChar('B')" aria-label="B">B</button>
+        <button class="key" onclick="HC.inputChar('7')" aria-label="7">7</button>
+        <button class="key" onclick="HC.inputChar('8')" aria-label="8">8</button>
+        <button class="key" onclick="HC.inputChar('9')" aria-label="9">9</button>
+        <button class="key hex-key" onclick="HC.inputChar('C')" aria-label="C">C</button>
+        <button class="key hex-key" onclick="HC.inputChar('D')" aria-label="D">D</button>
+        <button class="key" onclick="HC.inputChar('4')" aria-label="4">4</button>
+        <button class="key" onclick="HC.inputChar('5')" aria-label="5">5</button>
+        <button class="key" onclick="HC.inputChar('6')" aria-label="6">6</button>
+        <button class="key hex-key" onclick="HC.inputChar('E')" aria-label="E">E</button>
+        <button class="key hex-key" onclick="HC.inputChar('F')" aria-label="F">F</button>
+        <button class="key" onclick="HC.inputChar('1')" aria-label="1">1</button>
+        <button class="key" onclick="HC.inputChar('2')" aria-label="2">2</button>
+        <button class="key" onclick="HC.inputChar('3')" aria-label="3">3</button>
+        <!-- bottom row -->
+        <button class="key op-key" onclick="HC.inputOp('*')" aria-label="Multiply">×</button>
+        <button class="key" onclick="HC.inputChar('0')" aria-label="0">0</button>
+        <button class="key" onclick="HC.inputChar('.')" aria-label="Decimal point">.</button>
+        <button class="key op-key" onclick="HC.inputOp('-')" aria-label="Subtract">−</button>
+        <button class="key op-key" onclick="HC.inputOp('+')" aria-label="Add">+</button>
+        <!-- equals -->
+        <button class="key eq-key" onclick="HC.calculate()" aria-label="Equals" style="grid-column:span 3">=&nbsp;Calculate</button>
+        <button class="key op-key" onclick="HC.bitwiseOp('AND')" aria-label="AND" title="Bitwise AND" style="font-size:13px">AND</button>
+        <button class="key op-key" onclick="HC.bitwiseOp('OR')" aria-label="OR" title="Bitwise OR" style="font-size:13px">OR</button>
+        <button class="key op-key" onclick="HC.bitwiseOp('XOR')" aria-label="XOR" title="Bitwise XOR" style="font-size:13px">XOR</button>
+        <button class="key op-key" onclick="HC.bitwiseOp('NOT')" aria-label="NOT" title="Bitwise NOT (32-bit)" style="font-size:13px">NOT</button>
+        <button class="key op-key" onclick="HC.bitwiseOp('SHL')" aria-label="Shift Left" title="Shift Left" style="font-size:13px">&lt;&lt;</button>
+        <button class="key op-key" onclick="HC.bitwiseOp('SHR')" aria-label="Shift Right" title="Shift Right" style="font-size:13px">&gt;&gt;</button>
+      </div>
+
+      <!-- MULTI-BASE OUTPUT -->
+      <div class="multi-base" aria-label="Number in all bases">
+        <div class="mb-card" onclick="HC.copyBase('hex')" title="Click to copy hex" role="button" tabindex="0" aria-label="Hexadecimal value">
+          <div class="mb-label"><span class="mb-badge hex">HEX 16</span><span class="copy-hint">click to copy</span></div>
+          <div class="mb-val" id="mb-hex">0</div>
+          <div class="mb-sub">Base 16 • Digits: 0–9, A–F</div>
+        </div>
+        <div class="mb-card" onclick="HC.copyBase('dec')" title="Click to copy decimal" role="button" tabindex="0" aria-label="Decimal value">
+          <div class="mb-label"><span class="mb-badge dec">DEC 10</span><span class="copy-hint">click to copy</span></div>
+          <div class="mb-val" id="mb-dec">0</div>
+          <div class="mb-sub">Base 10 • Digits: 0–9</div>
+        </div>
+        <div class="mb-card" onclick="HC.copyBase('bin')" title="Click to copy binary" role="button" tabindex="0" aria-label="Binary value">
+          <div class="mb-label"><span class="mb-badge bin">BIN 2</span><span class="copy-hint">click to copy</span></div>
+          <div class="mb-val" id="mb-bin">0</div>
+          <div class="mb-sub">Base 2 • Digits: 0–1</div>
+        </div>
+        <div class="mb-card" onclick="HC.copyBase('oct')" title="Click to copy octal" role="button" tabindex="0" aria-label="Octal value">
+          <div class="mb-label"><span class="mb-badge oct">OCT 8</span><span class="copy-hint">click to copy</span></div>
+          <div class="mb-val" id="mb-oct">0</div>
+          <div class="mb-sub">Base 8 • Digits: 0–7</div>
+        </div>
+      </div>
+
+      <!-- HISTORY -->
+      <div class="hist-wrap" id="hist-wrap" style="display:none" aria-label="Calculation history">
+        <div class="hw-head">
+          <span class="hw-title">History</span>
+          <button class="tab" style="font-size:12px;padding:4px 12px;width:auto;background:var(--surf3)" onclick="HC.clearHistory()">Clear</button>
+        </div>
+        <div id="hist-body"></div>
+      </div>
+    </div>
+
+    <!-- CONVERTER PANE -->
+    <div id="pane-conv" style="display:none" role="tabpanel">
+      <p style="font-size:13px;color:var(--txt3);margin-bottom:16px">Type in any field — all others update instantly.</p>
+      <div class="conv-grid">
+        <div class="conv-field">
+          <div class="conv-label-row"><label class="conv-lbl" for="cv-hex" style="color:var(--hex)">Hexadecimal (Base 16)</label><span class="conv-err" id="err-hex">Invalid hex</span></div>
+          <input type="text" class="conv-inp hex-inp" id="cv-hex" placeholder="e.g. 1A3F or FF" spellcheck="false" autocomplete="off" oninput="HC.convChange('hex')">
+        </div>
+        <div class="conv-field">
+          <div class="conv-label-row"><label class="conv-lbl" for="cv-dec" style="color:var(--dec)">Decimal (Base 10)</label><span class="conv-err" id="err-dec">Invalid decimal</span></div>
+          <input type="text" class="conv-inp dec-inp" id="cv-dec" placeholder="e.g. 6719 or -255" spellcheck="false" autocomplete="off" oninput="HC.convChange('dec')">
+        </div>
+        <div class="conv-field">
+          <div class="conv-label-row"><label class="conv-lbl" for="cv-bin" style="color:var(--bin)">Binary (Base 2)</label><span class="conv-err" id="err-bin">Invalid binary</span></div>
+          <input type="text" class="conv-inp bin-inp" id="cv-bin" placeholder="e.g. 1101001000111111" spellcheck="false" autocomplete="off" oninput="HC.convChange('bin')">
+        </div>
+        <div class="conv-field">
+          <div class="conv-label-row"><label class="conv-lbl" for="cv-oct" style="color:var(--oct)">Octal (Base 8)</label><span class="conv-err" id="err-oct">Invalid octal</span></div>
+          <input type="text" class="conv-inp oct-inp" id="cv-oct" placeholder="e.g. 15077 or 377" spellcheck="false" autocomplete="off" oninput="HC.convChange('oct')">
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERENCE PANE -->
+    <div id="pane-ref" style="display:none" role="tabpanel">
+      <p style="font-size:13px;color:var(--txt2);margin-bottom:14px">Hex uses digits 0–9 and letters A–F to represent values 0–15 per digit. Each hex digit equals exactly 4 binary bits (a nibble).</p>
+      <table class="ref-table" aria-label="Hex to decimal reference">
+        <thead><tr><th>HEX</th><th>DEC</th><th>BIN</th><th>OCT</th></tr></thead>
+        <tbody id="ref-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">What is hexadecimal?</h2>
+    <p>Hexadecimal (base 16) is a positional numeral system using 16 symbols: 0–9 and A–F. It is widely used in computing because it compactly represents binary data — each hex digit maps to exactly 4 binary bits. One byte (8 bits) is always two hex digits, making hex ideal for memory addresses, colour codes and machine code.</p>
+    <p>Common uses include HTML/CSS colour codes (#FF5733), memory addresses (0x7FFE), Unicode code points (U+1F600), and network MAC addresses.</p>
+  </section>
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="HC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I add hexadecimal numbers?</div><div class="fa">Enter your hex expression in the calculator (e.g. 1A + 2F) and press =. The calculator converts to decimal, performs the operation, then shows the result in all four bases simultaneously.</div></div>
+    <div class="fi"><div class="fq" onclick="HC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do you convert hex to decimal?</div><div class="fa">Multiply each hex digit by 16 raised to its position. For 1A: (1×16¹) + (A×16⁰) = 16 + 10 = 26. The converter tab lets you type in any base and instantly see all others.</div></div>
+    <div class="fi"><div class="fq" onclick="HC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What are bitwise operations?</div><div class="fa">AND, OR, XOR and NOT are bitwise operators that work on individual bits. AND returns 1 only if both bits are 1. OR returns 1 if either bit is 1. XOR returns 1 if bits differ. NOT flips all bits (32-bit). Shift left (<<) and shift right (>>) move all bits by one position.</div></div>
+    <div class="fi"><div class="fq" onclick="HC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is hexadecimal used for?</div><div class="fa">Hex is used in: HTML/CSS colour codes (#RRGGBB), memory addresses in debugging, Unicode character codes (U+xxxx), IP and MAC address notation, cryptographic hash values (MD5, SHA), and machine/assembly code representation.</div></div>
+  </section>
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl" id="rel-h">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="scientific-calculator.html"><span class="ri">🔬</span><span class="rn">Scientific Calc</span><span class="rd">Advanced functions</span></a>
+      <a class="rc" href="quadratic-formula-calculator.html"><span class="ri">📐</span><span class="rn">Quadratic Calc</span><span class="rd">Solve ax²+bx+c=0</span></a>
+      <a class="rc" href="exponent-calculator.html"><span class="ri">🔢</span><span class="rn">Exponent Calc</span><span class="rd">Powers & roots</span></a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="fi3">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo"><div class="logo-box">0x</div><span class="logo-txt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p>
+    </div>
+    <div><div class="fct">🔢 Math Tools</div><ul class="fl">
+      <li><a href="hex-calculator.html">0x Hex Calculator</a></li>
+      <li><a href="quadratic-formula-calculator.html">📐 Quadratic Calc</a></li>
+      <li><a href="exponent-calculator.html">🔢 Exponent Calc</a></li>
+      <li><a href="scientific-calculator.html">🔬 Scientific Calc</a></li>
+      <li><a href="fraction-calculator.html">½ Fraction Calc</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 More Calc</div><ul class="fl">
+      <li><a href="percentage-calc.html">💯 % Calculator</a></li>
+      <li><a href="unit-converter.html">🔄 Unit Converter</a></li>
+      <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+    </ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl">
+      <li><a href="../index.html">🏠 All Tools</a></li>
+      <li><a href="../index.html">🧮 All Calculators</a></li>
+      <li><a href="../text-tools/text-tools-index.html">✍️ All Text Tools</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Build reference table
+(function(){
+  var tbody = document.getElementById('ref-body');
+  var rows = '';
+  for(var i=0;i<=31;i++){
+    rows += '<tr><td>' + i.toString(16).toUpperCase() + '</td><td style="color:var(--dec)">' + i + '</td><td style="color:var(--bin)">' + i.toString(2) + '</td><td style="color:var(--oct)">' + i.toString(8) + '</td></tr>';
+  }
+  tbody.innerHTML = rows;
+})();
+
+var HC = (function(){
+  var _expr = '';
+  var _base = 16;
+  var _history = [];
+
+  function showToast(m){ var t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },1800); }
+  function setDisplay(result, expr){
+    document.getElementById('disp-result').textContent = result;
+    document.getElementById('disp-result').className = 'disp-result' + (result==='Error'?' error':'');
+    document.getElementById('disp-expr').textContent = expr || '';
+  }
+  function updateMultiBase(n){
+    if(isNaN(n)||n===null){ ['hex','dec','bin','oct'].forEach(function(b){ document.getElementById('mb-'+b).textContent='—'; }); return; }
+    var v = Math.round(n);
+    document.getElementById('mb-hex').textContent = '0x' + Math.abs(v).toString(16).toUpperCase();
+    document.getElementById('mb-dec').textContent = v.toString(10);
+    document.getElementById('mb-bin').textContent = (v<0?'-':'') + Math.abs(v).toString(2);
+    document.getElementById('mb-oct').textContent = '0o' + Math.abs(v).toString(8);
+  }
+  function parseNum(s){
+    s = s.trim().toUpperCase();
+    var n;
+    if(_base===16) n = parseInt(s, 16);
+    else if(_base===2) n = parseInt(s, 2);
+    else if(_base===8) n = parseInt(s, 8);
+    else n = parseFloat(s);
+    return n;
+  }
+  function evalExpr(expr){
+    // Replace operators and letters for safe eval
+    // Convert hex numbers in expression to decimal
+    var e = expr.toUpperCase();
+    // Replace hex tokens (sequences of hex digits) with decimal equivalents when in hex mode
+    if(_base === 16){
+      e = e.replace(/([0-9A-F]+)/g, function(m){ var n=parseInt(m,16); return isNaN(n)?m:n; });
+    } else if(_base === 2){
+      e = e.replace(/([01]+)/g, function(m){ var n=parseInt(m,2); return isNaN(n)?m:n; });
+    } else if(_base === 8){
+      e = e.replace(/([0-7]+)/g, function(m){ var n=parseInt(m,8); return isNaN(n)?m:n; });
+    }
+    e = e.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/MOD/g,'%');
+    try{
+      var result = Function('"use strict"; return (' + e + ')')();
+      return { val: result, ok: true };
+    } catch(ex){ return { val: null, ok: false }; }
+  }
+  function toBaseStr(n){
+    var v = Math.round(n);
+    if(_base===16) return v.toString(16).toUpperCase();
+    if(_base===2) return v.toString(2);
+    if(_base===8) return v.toString(8);
+    return v.toString(10);
+  }
+  function isValidChar(c){
+    var valid = '0123456789.';
+    if(_base>=16) valid += 'ABCDEF';
+    else if(_base===8) valid = '01234567.';
+    else if(_base===2) valid = '01.';
+    return valid.includes(c.toUpperCase());
+  }
+  function enableHexKeys(){
+    ['A','B','C','D','E','F'].forEach(function(c){
+      var btn = document.querySelector('.key.hex-key[aria-label="'+c+'"]');
+      if(btn) btn.style.opacity = _base >= 16 ? '1' : '0.3';
+    });
+  }
+
+  return {
+    setTab: function(t){
+      ['calc','conv','ref'].forEach(function(id){
+        document.getElementById('tab-'+id).classList.toggle('on', id===t);
+        document.getElementById('tab-'+id).setAttribute('aria-selected', String(id===t));
+        document.getElementById('pane-'+id).style.display = id===t ? '' : 'none';
+      });
+    },
+    setBase: function(b){
+      _base = b;
+      [16,10,2,8].forEach(function(n){ var el=document.getElementById('base-'+n); if(el){ el.classList.toggle('on',n===b); el.setAttribute('aria-pressed',String(n===b)); } });
+      enableHexKeys();
+      _expr = '';
+      setDisplay('0','');
+      updateMultiBase(0);
+    },
+    inputChar: function(c){
+      if(!isValidChar(c)) return;
+      _expr += c.toUpperCase();
+      setDisplay(_expr, '');
+      // Live multi-base update for simple number entry
+      var r = evalExpr(_expr);
+      if(r.ok && !isNaN(r.val)) updateMultiBase(r.val);
+    },
+    inputOp: function(op){
+      _expr += op;
+      setDisplay(_expr, '');
+    },
+    inputParens: function(){
+      var open = (_expr.match(/\(/g)||[]).length;
+      var close = (_expr.match(/\)/g)||[]).length;
+      _expr += open>close ? ')' : '(';
+      setDisplay(_expr, '');
+    },
+    backspace: function(){
+      _expr = _expr.slice(0,-1);
+      setDisplay(_expr||'0','');
+      if(!_expr) updateMultiBase(0);
+    },
+    clearAll: function(){ _expr=''; setDisplay('0',''); updateMultiBase(0); },
+    calculate: function(){
+      if(!_expr) return;
+      var saved = _expr;
+      var r = evalExpr(_expr);
+      if(!r.ok || isNaN(r.val)){
+        setDisplay('Error', saved + ' =');
+        return;
+      }
+      var resultStr = toBaseStr(r.val);
+      setDisplay(resultStr, saved + ' =');
+      updateMultiBase(r.val);
+      _history.unshift({ expr: saved, result: resultStr, val: r.val });
+      if(_history.length>10) _history.pop();
+      this.renderHistory();
+      _expr = resultStr;
+    },
+    bitwiseOp: function(op){
+      if(!_expr) return;
+      var r = evalExpr(_expr);
+      if(!r.ok) return;
+      var v = Math.round(r.val);
+      var result;
+      if(op==='NOT') result = ~v;
+      else if(op==='SHL') result = v << 1;
+      else if(op==='SHR') result = v >> 1;
+      else if(op==='AND'){ _expr += ' & '; setDisplay(_expr,''); return; }
+      else if(op==='OR') { _expr += ' | '; setDisplay(_expr,''); return; }
+      else if(op==='XOR'){ _expr += ' ^ '; setDisplay(_expr,''); return; }
+      if(result!==undefined){
+        var resultStr = toBaseStr(result);
+        setDisplay(resultStr, _expr + ' ' + op + ' =');
+        updateMultiBase(result);
+        _expr = resultStr;
+      }
+    },
+    copyBase: function(base){
+      var txt = document.getElementById('mb-'+base).textContent;
+      if(txt==='—') return;
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(txt).then(function(){ showToast('Copied ' + txt); });
+      } else {
+        var ta=document.createElement('textarea'); ta.value=txt; ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); showToast('Copied '+txt);}catch(e){} document.body.removeChild(ta);
+      }
+    },
+    renderHistory: function(){
+      var hw = document.getElementById('hist-wrap');
+      var hb = document.getElementById('hist-body');
+      if(!_history.length){ hw.style.display='none'; return; }
+      hw.style.display='';
+      hb.innerHTML = _history.map(function(h,i){
+        return '<div class="h-row" onclick="HC.recallHistory('+i+')" role="button" tabindex="0"><span class="h-expr">'+h.expr+' =</span><span class="h-eq">'+h.result+'</span></div>';
+      }).join('');
+    },
+    recallHistory: function(i){ if(_history[i]){ _expr=_history[i].result; setDisplay(_expr,''); updateMultiBase(_history[i].val); } },
+    clearHistory: function(){ _history=[]; document.getElementById('hist-wrap').style.display='none'; },
+    convChange: function(from){
+      ['hex','dec','bin','oct'].forEach(function(b){ document.getElementById('err-'+b).classList.remove('show'); });
+      var val = document.getElementById('cv-'+from).value.trim();
+      if(!val){ ['hex','dec','bin','oct'].forEach(function(b){ if(b!==from) document.getElementById('cv-'+b).value=''; }); return; }
+      var n;
+      if(from==='hex') n = parseInt(val.replace(/^0x/i,''),16);
+      else if(from==='dec') n = parseFloat(val);
+      else if(from==='bin') n = parseInt(val.replace(/^0b/i,''),2);
+      else n = parseInt(val.replace(/^0o/i,''),8);
+      if(isNaN(n)){ document.getElementById('err-'+from).classList.add('show'); return; }
+      var maps = { hex: n.toString(16).toUpperCase(), dec: n.toString(10), bin: n.toString(2), oct: n.toString(8) };
+      Object.keys(maps).forEach(function(b){ if(b!==from) document.getElementById('cv-'+b).value=maps[b]; });
+    },
+    faqToggle: function(el){ var item=el.parentElement,was=item.classList.contains('open'); document.querySelectorAll('.fi').forEach(function(i){ i.classList.remove('open'); }); document.querySelectorAll('.fq').forEach(function(q){ q.setAttribute('aria-expanded','false'); }); if(!was){ item.classList.add('open'); el.setAttribute('aria-expanded','true'); } }
+  };
+}());
+
+// Keyboard support
+document.addEventListener('keydown', function(e){
+  var paneCalc = document.getElementById('pane-calc');
+  if(paneCalc.style.display === 'none') return;
+  if(['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','A','B','C','D','E','F'].includes(e.key)) HC.inputChar(e.key);
+  else if(e.key==='+') HC.inputOp('+');
+  else if(e.key==='-') HC.inputOp('-');
+  else if(e.key==='*') HC.inputOp('*');
+  else if(e.key==='/') { e.preventDefault(); HC.inputOp('/'); }
+  else if(e.key==='%') HC.inputOp('%');
+  else if(e.key==='Enter') HC.calculate();
+  else if(e.key==='Backspace') HC.backspace();
+  else if(e.key==='Escape') HC.clearAll();
+});
+document.querySelectorAll('[role=button]').forEach(function(el){ el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.click(); } }); });
+document.querySelectorAll('.fq').forEach(function(el){ el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); HC.faqToggle(el); } }); });
+(function(){ var h=document.getElementById('ham'),m=document.getElementById('mob'); h.addEventListener('click',function(){ var open=m.classList.toggle('open'); h.setAttribute('aria-expanded',String(open)); var s=h.querySelectorAll('span'); if(open){ s[0].style.transform='rotate(45deg) translate(4px,4px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; }else{ s.forEach(function(x){ x.style.transform=''; x.style.opacity=''; }); } }); document.addEventListener('click',function(e){ if(!h.contains(e.target)&&!m.contains(e.target)){ m.classList.remove('open'); h.setAttribute('aria-expanded','false'); h.querySelectorAll('span').forEach(function(x){ x.style.transform=''; x.style.opacity=''; }); } }); })();
+</script>
+</body>
+</html>

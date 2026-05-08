@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Text Summariser — AI Summary Generator Online | ToolsBox</title>
+<meta name="description" content="Free AI text summariser. Summarise any long text, article or document into bullet points, paragraphs or key points. Adjustable length. Instant AI-powered summary generator.">
+<meta name="keywords" content="text summariser, AI summarizer, text summary generator, summarize text online, article summarizer, paragraph summarizer, AI summary tool, text condenser">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://mytoolsbox.org/text-tools/text-summariser.html">
+<meta property="og:title" content="Text Summariser — AI Summary Generator | ToolsBox">
+<meta property="og:description" content="Free AI text summariser. Summarise articles, documents and long text into bullet points or paragraphs. Instant results.">
+<meta property="og:url" content="https://mytoolsbox.org/text-tools/text-summariser.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Summariser","url":"https://mytoolsbox.org/text-tools/text-summariser.html","description":"Free AI text summariser. Summarise any text into bullet points, paragraphs or key takeaways. Instant AI-powered summary generator.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f6f1;--bg2:#ede9e0;--surf:#ffffff;--surf2:#f3f0ea;--surf3:#e8e3d8;
+  --bdr:rgba(0,0,0,0.08);--bdr2:rgba(0,0,0,0.14);
+  --acc:#1a6b3c;--acc2:#155c33;--acc-dim:rgba(26,107,60,0.08);--acc-bdr:rgba(26,107,60,0.2);
+  --gold:#b45309;--gold-dim:rgba(180,83,9,0.08);
+  --red:#c0392b;--red-dim:rgba(192,57,43,0.08);--red-bdr:rgba(192,57,43,0.2);
+  --blue:#1d4ed8;--purple:#6d28d9;
+  --txt:#1a1814;--txt2:#5a5650;--txt3:#9a9490;
+  --f:'Instrument Sans',sans-serif;--fm:'Instrument Mono',monospace;--fs:'Fraunces',serif;
+  --nav:58px;--mw:860px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(248,246,241,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:linear-gradient(135deg,#0f2d6b,#0891b2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#22d3ee;font-style:italic;font-family:var(--fs)}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt)}.logo-txt em{font-style:italic;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 80px}
+/* Header */
+.ph{text-align:center;margin-bottom:36px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fs);font-size:clamp(32px,6vw,52px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:14px;letter-spacing:-1px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:16px;line-height:1.7;max-width:500px;margin:0 auto}
+/* Main card */
+.tool-card{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+/* Controls bar */
+.ctrl-bar{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--bdr);flex-wrap:wrap}
+.ctrl-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ctrl-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt3)}
+.ctrl-pill{padding:6px 14px;border-radius:100px;font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--bdr2);background:transparent;color:var(--txt2);transition:all .18s}
+.ctrl-pill:hover{border-color:var(--acc-bdr);color:var(--acc)}.ctrl-pill.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+.ctrl-sep{width:1px;height:24px;background:var(--bdr2);flex-shrink:0}
+/* Char count */
+.meta-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;background:var(--surf2);border-bottom:1px solid var(--bdr)}
+.mb-count{font-family:var(--fm);font-size:11px;color:var(--txt3)}
+.mb-hint{font-size:11px;color:var(--txt3)}
+/* Input */
+textarea{width:100%;background:transparent;border:none;color:var(--txt);font-family:var(--f);font-size:15px;line-height:1.8;padding:20px;resize:none;outline:none;min-height:240px;display:block}
+textarea::placeholder{color:var(--txt3)}
+/* Progress bar while loading */
+.progress-bar{height:3px;background:var(--surf2);position:relative;overflow:hidden;display:none}
+.progress-bar.show{display:block}
+.pb-fill{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--acc),transparent);animation:sweep 1.4s ease infinite}
+@keyframes sweep{0%{left:-100%}100%{left:100%}}
+/* Output */
+.output-wrap{padding:20px;border-top:1px solid var(--bdr);display:none}
+.output-wrap.show{display:block}
+.ow-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.ow-title{font-family:var(--fs);font-size:16px;font-weight:700;color:var(--txt)}
+.ow-actions{display:flex;gap:6px}
+.act-btn{padding:6px 14px;border-radius:8px;font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--bdr2);background:transparent;color:var(--txt2);transition:all .15s}
+.act-btn:hover{background:var(--surf2);color:var(--txt)}
+.act-btn.green{border-color:var(--acc-bdr);color:var(--acc);background:var(--acc-dim)}
+/* Summary content */
+.summary-content{font-size:15px;line-height:1.8;color:var(--txt);white-space:pre-wrap;word-break:break-word}
+.summary-content.bullets ul{list-style:none;padding:0;margin:0}
+.summary-content.bullets li{padding:8px 0 8px 24px;position:relative;border-bottom:1px solid var(--bdr)}
+.summary-content.bullets li:last-child{border-bottom:none}
+.summary-content.bullets li::before{content:'✦';position:absolute;left:0;color:var(--acc);font-size:12px;top:10px}
+/* Key metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--bdr)}
+.metric{text-align:center}
+.m-val{font-family:var(--fs);font-size:22px;font-weight:700;color:var(--acc);display:block;line-height:1}
+.m-key{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt3);display:block;margin-top:3px}
+/* Action row */
+.action-row{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-top:1px solid var(--bdr);flex-wrap:wrap;gap:10px}
+.status-row{display:flex;align-items:center;gap:8px}
+.sd{width:8px;height:8px;border-radius:50%}
+.sd-idle{background:var(--txt3)}.sd-loading{background:var(--acc);animation:pulse .8s ease infinite}.sd-done{background:var(--acc)}.sd-err{background:var(--red)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.st{font-size:12px;font-weight:500;color:var(--txt2)}
+.btn-row{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:transform .1s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
+.btn-primary{background:var(--acc);color:#fff}.btn-primary:hover{background:var(--acc2);box-shadow:0 4px 16px rgba(26,107,60,0.28)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.btn-ghost{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr2)}.btn-ghost:hover{background:var(--surf3);color:var(--txt)}
+.err-box{display:none;margin:0 20px 12px;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:10px 14px;border-radius:8px}.err-box.show{display:block}
+/* Info/FAQ/Footer */
+.info{margin-top:48px}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px;font-family:var(--fs)}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:240px;padding-top:10px}
+.rel{margin-top:40px}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:var(--acc-bdr);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}.rn{font-size:12px;font-weight:700;display:block}.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 60px}.ctrl-bar{gap:8px}.metrics{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}}
+@media(max-width:400px){.metrics{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on" aria-current="page">✍️ Text Tools</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on">✍️ Text Tools</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a></div>
+
+<main>
+  <nav style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px" aria-label="Breadcrumb">
+    <a href="../index.html" style="color:var(--txt3);text-decoration:none">Home</a><span> › </span>
+    <a href="../index.html" style="color:var(--txt3);text-decoration:none">Text Tools</a><span> › </span>
+    <span style="color:var(--txt2)">Text Summariser</span>
+  </nav>
+
+  <header class="ph">
+    <div class="badge">📝 AI-Powered Tool</div>
+    <h1>Text <em>Summariser</em></h1>
+    <p class="sub">Paste any long text, article or document and get a clear, accurate summary instantly. Choose format and length.</p>
+  </header>
+
+  <div class="tool-card">
+    <!-- Controls -->
+    <div class="ctrl-bar">
+      <div class="ctrl-group">
+        <span class="ctrl-lbl">Format</span>
+        <button class="ctrl-pill on" data-format="bullets" onclick="setCtrl('format',this)">• Bullets</button>
+        <button class="ctrl-pill" data-format="paragraph" onclick="setCtrl('format',this)">¶ Paragraph</button>
+        <button class="ctrl-pill" data-format="key_points" onclick="setCtrl('format',this)">🔑 Key Points</button>
+        <button class="ctrl-pill" data-format="tldr" onclick="setCtrl('format',this)">⚡ TL;DR</button>
+      </div>
+      <div class="ctrl-sep"></div>
+      <div class="ctrl-group">
+        <span class="ctrl-lbl">Length</span>
+        <button class="ctrl-pill on" data-length="medium" onclick="setCtrl('length',this)">Medium</button>
+        <button class="ctrl-pill" data-length="short" onclick="setCtrl('length',this)">Short</button>
+        <button class="ctrl-pill" data-length="long" onclick="setCtrl('length',this)">Detailed</button>
+      </div>
+    </div>
+
+    <!-- Meta bar -->
+    <div class="meta-bar">
+      <span class="mb-count" id="word-count">0 words · 0 chars</span>
+      <span class="mb-hint">Ctrl+Enter to summarise</span>
+    </div>
+
+    <!-- Input -->
+    <textarea id="inp-text" maxlength="10000" placeholder="Paste your text here…
+
+Works with:
+• News articles and blog posts
+• Research papers and reports  
+• Meeting notes and transcripts
+• Legal or technical documents
+• Any long-form content you need condensed"
+  oninput="onInput()" aria-label="Text to summarise"></textarea>
+
+    <!-- Progress -->
+    <div class="progress-bar" id="progress-bar"><div class="pb-fill"></div></div>
+
+    <!-- Error -->
+    <div class="err-box" id="err-box" role="alert"></div>
+
+    <!-- Output -->
+    <div class="output-wrap" id="output-wrap">
+      <div class="ow-header">
+        <span class="ow-title" id="ow-title">Summary</span>
+        <div class="ow-actions">
+          <button class="act-btn" onclick="clearOutput()">✕ Clear</button>
+          <button class="act-btn green" id="copy-out-btn" onclick="copyOutput()">📋 Copy</button>
+        </div>
+      </div>
+      <div class="summary-content" id="summary-content"></div>
+      <div class="metrics" id="metrics">
+        <div class="metric"><span class="m-val" id="m-orig">—</span><span class="m-key">Original words</span></div>
+        <div class="metric"><span class="m-val" id="m-summ">—</span><span class="m-key">Summary words</span></div>
+        <div class="metric"><span class="m-val" id="m-reduction">—</span><span class="m-key">Reduction</span></div>
+        <div class="metric"><span class="m-val" id="m-time">—</span><span class="m-key">Read time saved</span></div>
+      </div>
+    </div>
+
+    <!-- Action row -->
+    <div class="action-row">
+      <div class="status-row">
+        <div class="sd sd-idle" id="status-dot"></div>
+        <span class="st" id="status-text">Ready to summarise</span>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+        <button class="btn btn-primary" id="sum-btn" onclick="summarise()" disabled>📝 Summarise →</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">How the text summariser works</h2>
+    <p>Our AI summariser reads your full text and extracts the most important information, condensing it into your chosen format. Unlike keyword-extraction tools, it understands context and meaning — producing summaries that actually read well.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">• Bullet points</div><p>Best for quick scanning. Extracts distinct facts and ideas as separate bullets. Great for meeting notes, reports and articles where you want to skim the key points quickly.</p></div>
+      <div class="ic"><div class="ic-t">¶ Paragraph</div><p>A flowing prose summary — best when you need to share the summary with others or when the text has a narrative structure. Reads like a mini-version of the original.</p></div>
+      <div class="ic"><div class="ic-t">🔑 Key Points</div><p>Numbered key takeaways — ideal for research, studying, and decision-making. Highlights the most important conclusions or insights from the text in priority order.</p></div>
+      <div class="ic"><div class="ic-t">⚡ TL;DR</div><p>One or two sentence ultra-short summary. Perfect for Reddit-style summaries, social media descriptions, or when you just need the gist in the fewest possible words.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faqh">
+    <h2 id="faqh">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">How long can the input text be?</div><div class="fa">Up to 10,000 characters (approximately 1,500-2,000 words) per request. For longer documents like research papers or full reports, paste them in sections. Each section will be summarised, and you can then summarise those summaries for a final condensed version.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">Does the summariser change the meaning of the text?</div><div class="fa">No. The summariser preserves the original meaning, facts, and conclusions — it only reduces length. It may rephrase for clarity, but will not add information that wasn't in the original text or change the author's intent.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">What types of text does it work best with?</div><div class="fa">Works best with: news articles, blog posts, research papers, meeting notes, legal documents, product descriptions, and educational content. Works less well with: poetry, highly technical code, or texts that rely heavily on formatting (tables, equations) since those elements don't transfer to plain text summaries.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="relh">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="ai-humanizer.html"><span class="ri">✨</span><span class="rn">AI Humanizer</span><span class="rd">Make AI sound human</span></a>
+      <a class="rc" href="grammar-checker.html"><span class="ri">✅</span><span class="rn">Grammar Checker</span><span class="rd">Fix errors instantly</span></a>
+      <a class="rc" href="word-counter.html"><span class="ri">📊</span><span class="rn">Word Counter</span><span class="rd">Count words & chars</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online text and calculator tools. No sign-up. Works instantly.</p></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl"><li><a href="word-counter.html">📝 Word Counter</a></li><li><a href="grammar-checker.html">✅ Grammar Checker</a></li><li><a href="ai-humanizer.html">✨ AI Humanizer</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">🏦 EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">💹 SIP Calculator</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li><a href="../index.html">✍️ All Text Tools</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+var format = 'bullets';
+var length = 'medium';
+var isLoading = false;
+
+function setCtrl(type, btn) {
+  var group = btn.parentElement;
+  group.querySelectorAll('.ctrl-pill').forEach(function(p){p.classList.remove('on');});
+  btn.classList.add('on');
+  if (type === 'format') format = btn.dataset.format;
+  else length = btn.dataset.length;
+}
+
+function onInput() {
+  var text = document.getElementById('inp-text').value;
+  var words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  document.getElementById('word-count').textContent = words + ' words · ' + text.length + ' chars';
+  document.getElementById('sum-btn').disabled = words < 30 || isLoading;
+}
+
+function setStatus(state, msg) {
+  var dot = document.getElementById('status-dot');
+  dot.className = 'sd sd-' + state;
+  document.getElementById('status-text').textContent = msg;
+}
+
+function buildPrompt(text) {
+  var formatInstructions = {
+    bullets: 'as a clear bullet point list (use - for each bullet). Each bullet should be a complete, standalone insight.',
+    paragraph: 'as a concise paragraph in flowing prose.',
+    key_points: 'as a numbered list of key takeaways (1. 2. 3. etc.), ordered by importance.',
+    tldr: 'as a TL;DR — a 1-2 sentence ultra-brief summary capturing only the absolute core idea.'
+  };
+  var lengthInstructions = {
+    short: 'Keep it very brief — 2-4 points or sentences maximum.',
+    medium: 'Aim for 5-8 points or 100-150 words.',
+    long: 'Be thorough — 8-12 points or 200-250 words, covering all major themes.'
+  };
+  return 'Summarise the following text ' + formatInstructions[format] + '\n\n' + lengthInstructions[length] + '\n\nIMPORTANT: Output ONLY the summary. No preamble like "Here is a summary:" — just the summary content directly.\n\nText to summarise:\n\n' + text;
+}
+
+var FORMAT_TITLES = {
+  bullets: '• Bullet Point Summary',
+  paragraph: '¶ Paragraph Summary',
+  key_points: '🔑 Key Takeaways',
+  tldr: '⚡ TL;DR'
+};
+
+async function summarise() {
+  var text = document.getElementById('inp-text').value.trim();
+  if (!text || text.split(/\s+/).length < 30) return;
+  if (isLoading) return;
+
+  isLoading = true;
+  document.getElementById('sum-btn').disabled = true;
+  document.getElementById('err-box').classList.remove('show');
+  document.getElementById('output-wrap').classList.remove('show');
+  document.getElementById('progress-bar').classList.add('show');
+  setStatus('loading', 'Summarising…');
+
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: buildPrompt(text) }]
+      })
+    });
+
+    var data = await response.json();
+    if (!response.ok) throw new Error(data.error?.message || 'API error ' + response.status);
+
+    var result = '';
+    if (data.content) data.content.forEach(function(b){ if(b.type==='text') result += b.text; });
+    if (!result.trim()) throw new Error('No summary received. Please try again.');
+
+    /* Render output */
+    document.getElementById('ow-title').textContent = FORMAT_TITLES[format];
+    var sc = document.getElementById('summary-content');
+    sc.className = 'summary-content';
+    if (format === 'bullets' || format === 'key_points') {
+      /* Render as HTML list for bullets */
+      var lines = result.split('\n').filter(function(l){return l.trim();});
+      var html = '<ul>';
+      lines.forEach(function(l){
+        var cleaned = l.replace(/^[-•*\d.]+\s*/,'').trim();
+        if (cleaned) html += '<li>' + escHtml(cleaned) + '</li>';
+      });
+      html += '</ul>';
+      sc.innerHTML = html;
+      if (format === 'bullets') sc.classList.add('bullets');
+    } else {
+      sc.textContent = result.trim();
+    }
+
+    /* Metrics */
+    var origWords = text.split(/\s+/).filter(Boolean).length;
+    var summWords = result.trim().split(/\s+/).filter(Boolean).length;
+    var reduction = Math.round((1 - summWords/origWords)*100);
+    var savedMins = Math.max(1,Math.round((origWords-summWords)/200));
+    document.getElementById('m-orig').textContent = origWords;
+    document.getElementById('m-summ').textContent = summWords;
+    document.getElementById('m-reduction').textContent = reduction + '%';
+    document.getElementById('m-time').textContent = savedMins + ' min';
+
+    document.getElementById('output-wrap').classList.add('show');
+    setStatus('done', 'Summary complete!');
+    document.getElementById('output-wrap').scrollIntoView({ behavior:'smooth', block:'nearest' });
+  } catch (err) {
+    var eb = document.getElementById('err-box');
+    eb.textContent = '⚠️ ' + (err.message || 'Something went wrong. Please try again.');
+    eb.classList.add('show');
+    setStatus('err', 'Error — please retry');
+  } finally {
+    isLoading = false;
+    document.getElementById('progress-bar').classList.remove('show');
+    document.getElementById('sum-btn').disabled = false;
+    onInput();
+  }
+}
+
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function clearAll() {
+  document.getElementById('inp-text').value='';
+  onInput();
+  clearOutput();
+  setStatus('idle','Ready to summarise');
+}
+
+function clearOutput() {
+  document.getElementById('output-wrap').classList.remove('show');
+  document.getElementById('err-box').classList.remove('show');
+}
+
+function copyOutput() {
+  var content = document.getElementById('summary-content');
+  var text = content.innerText || content.textContent;
+  function ok() {
+    var b=document.getElementById('copy-out-btn');var orig=b.textContent;
+    b.textContent='✓ Copied!';setTimeout(function(){b.textContent=orig;},2000);
+  }
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(ok).catch(function(){});
+  else { var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta); }
+}
+
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';}); }});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-enabled','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';}); }});})();
+function faq(el){var i=el.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});if(!w){i.classList.add('open');el.setAttribute('aria-enabled','true');}}
+document.getElementById('inp-text').addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();summarise();}});
+</script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Quadratic Formula Calculator — Solve ax²+bx+c=0 | ToolsBox</title>
+<meta name="description" content="Free quadratic formula calculator. Solve any quadratic equation ax²+bx+c=0. Get real and complex roots, discriminant analysis, vertex, axis of symmetry and parabola graph with step-by-step solutions.">
+<meta name="keywords" content="quadratic formula calculator, quadratic equation solver, ax2+bx+c calculator, discriminant calculator, quadratic roots calculator, solve quadratic equation online, parabola calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://mytoolsbox.org/calculators/quadratic-formula.html">
+<meta property="og:title" content="Quadratic Formula Calculator — Solve ax²+bx+c=0 | ToolsBox">
+<meta property="og:description" content="Solve any quadratic equation instantly. Real and complex roots, discriminant, vertex, parabola graph. Step-by-step solutions.">
+<meta property="og:url" content="https://mytoolsbox.org/calculators/quadratic-formula.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quadratic Formula Calculator","url":"https://mytoolsbox.org/calculators/quadratic-formula.html","description":"Free quadratic formula calculator. Solve ax²+bx+c=0 with real and complex roots, discriminant analysis, vertex, axis of symmetry and interactive parabola graph.","applicationCategory":"EducationApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the quadratic formula?","acceptedAnswer":{"@type":"Answer","text":"The quadratic formula solves ax²+bx+c=0: x = (-b ± √(b²-4ac)) / (2a). The two solutions are x₁ = (-b + √(b²-4ac)) / (2a) and x₂ = (-b - √(b²-4ac)) / (2a). The expression b²-4ac is called the discriminant and determines whether roots are real or complex."}},{"@type":"Question","name":"What is the discriminant?","acceptedAnswer":{"@type":"Answer","text":"The discriminant is D = b²-4ac. If D > 0: two distinct real roots. If D = 0: one repeated real root (the parabola touches the x-axis). If D < 0: two complex conjugate roots (no real roots — parabola doesn't cross x-axis)."}},{"@type":"Question","name":"How do you find the vertex of a parabola?","acceptedAnswer":{"@type":"Answer","text":"For y = ax²+bx+c, the vertex is at x = -b/(2a) and y = c - b²/(4a). The axis of symmetry is the vertical line x = -b/(2a). If a > 0, the parabola opens upward and the vertex is a minimum. If a < 0, it opens downward and the vertex is a maximum."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060709;--bg2:#0b0c10;--surf:#0f1115;--surf2:#151719;--surf3:#1c1e24;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.13);
+  --acc:#f59e0b;--acc2:#d97706;--acc-dim:rgba(245,158,11,0.09);--acc-bdr:rgba(245,158,11,0.25);
+  --grn:#4ade80;--grn-dim:rgba(74,222,128,0.09);--grn-bdr:rgba(74,222,128,0.22);
+  --red:#f87171;--red-dim:rgba(248,113,113,0.08);--red-bdr:rgba(248,113,113,0.22);
+  --blue:#60a5fa;--blue-dim:rgba(96,165,250,0.09);--blue-bdr:rgba(96,165,250,0.22);
+  --purple:#a78bfa;--pur-dim:rgba(167,139,250,0.09);--pur-bdr:rgba(167,139,250,0.22);
+  --cyan:#22d3ee;--orange:#fb923c;--pink:#f472b6;
+  --txt:#edeae3;--txt2:#888480;--txt3:#46433e;
+  --f:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;--fs:'Playfair Display',serif;
+  --nav:58px;--mw:720px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 80% 45% at 50% -8%,rgba(245,158,11,0.07),transparent),linear-gradient(rgba(255,255,255,0.01) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.01) 1px,transparent 1px);background-size:100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,9,0.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:linear-gradient(135deg,#0f2d6b,#0891b2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#22d3ee;font-style:italic;font-family:var(--fs)}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt)}.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none}.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(28px,6vw,46px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:480px;margin:0 auto}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,158,11,0.4),transparent)}
+
+/* Equation display */
+.eq-display{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px 18px;margin-bottom:22px;text-align:center;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--txt);min-height:54px;display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap}
+.eq-a{color:var(--acc)}.eq-b{color:var(--blue)}.eq-c{color:var(--grn)}
+.eq-x2{color:var(--txt)}.eq-op{color:var(--txt3)}
+
+/* ABC inputs */
+.abc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+input[type=number]{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;color:var(--txt);font-family:var(--fm);font-size:18px;font-weight:700;padding:12px 16px;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;-moz-appearance:textfield;text-align:center}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}
+#inp-a:focus{border-color:rgba(245,158,11,0.5);box-shadow:0 0 0 3px rgba(245,158,11,0.08)}
+#inp-b:focus{border-color:rgba(96,165,250,0.5);box-shadow:0 0 0 3px rgba(96,165,250,0.08)}
+#inp-c:focus{border-color:rgba(74,222,128,0.5);box-shadow:0 0 0 3px rgba(74,222,128,0.08)}
+.inp-a-styled{border-color:rgba(245,158,11,0.3)!important}
+.inp-b-styled{border-color:rgba(96,165,250,0.3)!important}
+.inp-c-styled{border-color:rgba(74,222,128,0.3)!important}
+.hint{font-size:11px;color:var(--txt3);margin-top:4px;line-height:1.5}
+
+/* Example presets */
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.preset-pill{padding:6px 12px;border-radius:8px;font-family:var(--fm);font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:var(--surf2);color:var(--txt2);transition:all .18s}
+.preset-pill:hover{border-color:var(--acc-bdr);color:var(--acc);background:var(--acc-dim)}
+
+.err{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:10px 14px;border-radius:8px;margin-top:4px}.err.show{display:block}
+.brow{display:flex;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:700;cursor:pointer;border:none;transition:transform .12s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
+.bp{background:var(--acc);color:#060809;flex:1}.bp:hover{background:#fcd34d;box-shadow:0 6px 24px rgba(245,158,11,0.28)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr);padding:13px 18px}.bs:hover{background:var(--surf3);color:var(--txt)}
+
+/* Results */
+.res{opacity:0;transform:translateY(10px);transition:opacity .38s,transform .38s;pointer-events:none;margin-top:24px}
+.res.show{opacity:1;transform:translateY(0);pointer-events:auto}
+
+/* Discriminant card */
+.disc-card{border-radius:16px;padding:20px;margin-bottom:12px;text-align:center;position:relative;overflow:hidden}
+.disc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.disc-positive{background:linear-gradient(135deg,rgba(74,222,128,0.1),rgba(74,222,128,0.02));border:1px solid rgba(74,222,128,0.22)}
+.disc-positive::after{background:linear-gradient(90deg,transparent,rgba(74,222,128,0.6),transparent)}
+.disc-zero{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.02));border:1px solid rgba(245,158,11,0.22)}
+.disc-zero::after{background:linear-gradient(90deg,transparent,rgba(245,158,11,0.6),transparent)}
+.disc-negative{background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(167,139,250,0.02));border:1px solid rgba(167,139,250,0.22)}
+.disc-negative::after{background:linear-gradient(90deg,transparent,rgba(167,139,250,0.6),transparent)}
+.disc-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px}
+.disc-val{font-family:var(--fm);font-size:clamp(40px,10vw,64px);font-weight:700;line-height:1;display:block;letter-spacing:-2px}
+.disc-desc{font-size:13px;color:var(--txt2);margin-top:7px}
+
+/* Roots display */
+.roots-section{margin-bottom:12px}
+.roots-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px}
+.roots-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.root-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px;text-align:center;transition:border-color .18s}
+.root-card:hover{border-color:rgba(245,158,11,0.25)}
+.root-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);display:block;margin-bottom:6px}
+.root-val{font-family:var(--fm);font-size:clamp(16px,4vw,22px);font-weight:700;color:var(--acc);display:block;word-break:break-all;line-height:1.2}
+.root-decimal{font-size:12px;color:var(--txt3);margin-top:4px}
+.root-card.complex{border-color:var(--pur-bdr)}
+.root-card.complex .root-val{color:var(--purple)}
+
+/* Properties grid */
+.props-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.pg{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:12px 8px;text-align:center}
+.pv{display:block;font-family:var(--fm);font-size:15px;font-weight:700;line-height:1.1;margin-bottom:3px;word-break:break-all}
+.pk{display:block;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--txt3)}
+
+/* Parabola SVG */
+.graph-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px;margin-bottom:12px;overflow:hidden}
+.graph-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.graph-svg{width:100%;height:260px;display:block}
+
+/* Formula box */
+.formula-box{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:12px}
+.fb-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);margin-bottom:6px}
+.fb-text{font-family:var(--fm);font-size:15px;color:var(--acc);font-weight:700;line-height:1.7}
+
+/* Steps */
+.steps-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px;margin-bottom:12px}
+.steps-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.step{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--bdr)}
+.step:last-child{border-bottom:none}
+.sn{width:22px;height:22px;border-radius:50%;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.st{font-size:13px;color:var(--txt2);line-height:1.6}
+.sm{font-family:var(--fm);font-size:12px;color:var(--acc);display:block;margin-top:3px;padding:3px 8px;background:var(--surf3);border-radius:5px;width:fit-content}
+
+.cpbtn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:12px;font-weight:600;padding:8px 14px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt)}
+
+/* Info / FAQ */
+.info{margin-top:48px}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:260px;padding-top:10px}
+.rel{margin-top:40px}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(245,158,11,0.25);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}.rn{font-size:12px;font-weight:700;display:block}.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:24px 14px 60px}.card{padding:22px 16px}.abc-grid{grid-template-columns:1fr 1fr 1fr}.props-grid{grid-template-columns:1fr 1fr}.roots-grid{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.brow{flex-direction:column}.bs{width:100%}}
+@media(max-width:400px){.abc-grid{grid-template-columns:1fr}.props-grid{grid-template-columns:1fr 1fr}.roots-grid{grid-template-columns:1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on" aria-current="page">🧮 Calculators</a><a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on">🧮 Calculators</a><a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a></div>
+
+<main>
+  <nav class="bc"><a href="../index.html">Home</a><span> › </span><a href="../index.html">Calculators</a><span> › </span><span style="color:var(--txt2)">Quadratic Formula Calculator</span></nav>
+  <header class="ph">
+    <div class="badge">🔢 Algebra Calculator</div>
+    <h1>Quadratic Formula <em>Calculator</em></h1>
+    <p class="sub">Solve any quadratic equation ax²+bx+c=0. Get real & complex roots, discriminant, vertex, parabola graph and full step-by-step solution.</p>
+  </header>
+
+  <div class="card">
+    <!-- Live equation display -->
+    <div class="eq-display" id="eq-display">
+      <span class="eq-a" id="eq-a">a</span><span class="eq-x2">x²</span>
+      <span class="eq-op" id="eq-op1">+</span>
+      <span class="eq-b" id="eq-b">b</span><span class="eq-x2">x</span>
+      <span class="eq-op" id="eq-op2">+</span>
+      <span class="eq-c" id="eq-c">c</span>
+      <span class="eq-op"> = 0</span>
+    </div>
+
+    <!-- Formula reference -->
+    <div class="formula-box">
+      <div class="fb-title">Quadratic formula</div>
+      <div class="fb-text">x = (−b ± √(b² − 4ac)) / (2a)</div>
+    </div>
+
+    <!-- ABC inputs -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px">Enter coefficients</div>
+    <div class="abc-grid">
+      <div class="field">
+        <label for="inp-a" style="color:rgba(245,158,11,0.8)">a (x² coefficient)</label>
+        <input type="number" class="inp-a-styled" id="inp-a" placeholder="1" step="any" oninput="liveEq()" aria-label="Coefficient a">
+        <div class="hint">Must not be 0</div>
+      </div>
+      <div class="field">
+        <label for="inp-b" style="color:rgba(96,165,250,0.8)">b (x coefficient)</label>
+        <input type="number" class="inp-b-styled" id="inp-b" placeholder="-3" step="any" oninput="liveEq()" aria-label="Coefficient b">
+      </div>
+      <div class="field">
+        <label for="inp-c" style="color:rgba(74,222,128,0.8)">c (constant)</label>
+        <input type="number" class="inp-c-styled" id="inp-c" placeholder="2" step="any" oninput="liveEq()" aria-label="Coefficient c">
+      </div>
+    </div>
+
+    <!-- Presets -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:8px">Quick examples</div>
+    <div class="presets">
+      <button class="preset-pill" onclick="setPreset(1,-5,6)">x²−5x+6</button>
+      <button class="preset-pill" onclick="setPreset(1,0,-4)">x²−4</button>
+      <button class="preset-pill" onclick="setPreset(2,-4,2)">2x²−4x+2</button>
+      <button class="preset-pill" onclick="setPreset(1,2,5)">x²+2x+5</button>
+      <button class="preset-pill" onclick="setPreset(1,-1,-6)">x²−x−6</button>
+      <button class="preset-pill" onclick="setPreset(3,6,3)">3x²+6x+3</button>
+    </div>
+
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+    <div class="brow">
+      <button class="btn bp" onclick="calc()">Solve Equation →</button>
+      <button class="btn bs" onclick="rst()">Reset</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="res" id="res" aria-live="polite">
+
+      <!-- Discriminant -->
+      <div class="disc-card" id="disc-card">
+        <span class="disc-lbl" id="disc-lbl">Discriminant D = b²−4ac</span>
+        <span class="disc-val" id="disc-val">—</span>
+        <div class="disc-desc" id="disc-desc"></div>
+      </div>
+
+      <!-- Roots -->
+      <div class="roots-section">
+        <div class="roots-title">Solutions (roots)</div>
+        <div class="roots-grid">
+          <div class="root-card" id="root1-card">
+            <span class="root-label">x₁</span>
+            <span class="root-val" id="root1-val">—</span>
+            <div class="root-decimal" id="root1-dec"></div>
+          </div>
+          <div class="root-card" id="root2-card">
+            <span class="root-label">x₂</span>
+            <span class="root-val" id="root2-val">—</span>
+            <div class="root-decimal" id="root2-dec"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parabola properties -->
+      <div class="props-grid">
+        <div class="pg"><span class="pv" id="pv-vertex" style="color:var(--acc)">—</span><span class="pk">Vertex (h, k)</span></div>
+        <div class="pg"><span class="pv" id="pv-axis" style="color:var(--blue)">—</span><span class="pk">Axis of symmetry</span></div>
+        <div class="pg"><span class="pv" id="pv-opens" style="color:var(--grn)">—</span><span class="pk">Opens</span></div>
+        <div class="pg"><span class="pv" id="pv-yint" style="color:var(--orange)">—</span><span class="pk">y-intercept</span></div>
+      </div>
+
+      <!-- Graph -->
+      <div class="graph-box">
+        <div class="graph-title">📈 Parabola graph</div>
+        <canvas class="graph-svg" id="graph-canvas" width="680" height="260"></canvas>
+      </div>
+
+      <!-- Steps -->
+      <div class="steps-box">
+        <div class="steps-title">📝 Step-by-step solution</div>
+        <div id="steps-list"></div>
+      </div>
+
+      <button class="cpbtn" id="cpbtn" onclick="cp()">📋 Copy Results</button>
+    </div>
+  </div>
+
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">How the quadratic formula works</h2>
+    <p>Any equation of the form ax²+bx+c=0 (where a≠0) is a quadratic. The quadratic formula always works and gives exact solutions, unlike factoring (which only works for "nice" integers) or completing the square (which can be tedious).</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🟢 D &gt; 0: Two real roots</div><p>When b²−4ac &gt; 0, the parabola crosses the x-axis at two distinct points. Both roots are real numbers. If D is a perfect square, the roots are rational (the equation can be factored).</p></div>
+      <div class="ic"><div class="ic-t">🟡 D = 0: One repeated root</div><p>When b²−4ac = 0, the parabola touches the x-axis at exactly one point — the vertex. The single root x = −b/(2a) has multiplicity 2. The equation is a perfect square: a(x−r)²=0.</p></div>
+      <div class="ic"><div class="ic-t">🟣 D &lt; 0: Complex roots</div><p>When b²−4ac &lt; 0, the parabola never crosses the x-axis. Roots are complex conjugates: x = (−b ± i√|D|) / (2a). They come in conjugate pairs: if p+qi is a root, so is p−qi.</p></div>
+      <div class="ic"><div class="ic-t">📌 Vertex form</div><p>y = a(x−h)²+k where vertex (h,k): h = −b/(2a), k = c − b²/(4a). Useful for graphing. If a&gt;0, vertex is minimum; if a&lt;0, vertex is maximum. The axis of symmetry is x = h.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faqh">
+    <h2 id="faqh">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">How do I use the quadratic formula step by step?</div><div class="fa">1) Identify a, b, c from ax²+bx+c=0. 2) Calculate the discriminant: D=b²−4ac. 3) If D≥0: x = (−b±√D) / (2a). 4) Calculate x₁=(−b+√D)/(2a) and x₂=(−b−√D)/(2a). Example: x²−5x+6=0 → a=1,b=−5,c=6 → D=25−24=1 → x=(5±1)/2 → x₁=3, x₂=2.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">What are Vieta's formulas?</div><div class="fa">For roots x₁ and x₂ of ax²+bx+c=0: Sum of roots: x₁+x₂ = −b/a. Product of roots: x₁×x₂ = c/a. These let you check your answers: if roots are 2 and 3, sum=5=−(−5)/1 ✓, product=6=6/1 ✓. You can also reconstruct the equation from roots: a(x−x₁)(x−x₂)=0.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">When should I use factoring vs the quadratic formula?</div><div class="fa">Factoring is faster when it works — look for integer roots by testing factors of c/a. The quadratic formula always works for any coefficients, including decimals and fractions. Completing the square is useful for deriving vertex form. The quadratic formula is the most reliable all-purpose method.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">What if a = 0?</div><div class="fa">If a=0, the equation is linear (bx+c=0), not quadratic. The "quadratic formula" requires a≠0 because we divide by 2a. Linear equations have one solution: x=−c/b (if b≠0). If both a and b are 0, the equation has either no solution (c≠0) or infinitely many solutions (c=0).</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="relh">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="root-calculator.html"><span class="ri">√</span><span class="rn">Root Calculator</span><span class="rd">Square & nth roots</span></a>
+      <a class="rc" href="scientific-calculator.html"><span class="ri">🔬</span><span class="rn">Scientific Calc</span><span class="rd">Advanced math</span></a>
+      <a class="rc" href="triangle-calculator.html"><span class="ri">📐</span><span class="rn">Triangle Calc</span><span class="rd">Geometry solver</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online calculator and text tools. No sign-up. Works instantly.</p></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="root-calculator.html">√ Root Calculator</a></li><li><a href="scientific-calculator.html">🔬 Scientific Calc</a></li><li><a href="percentage-calc.html">💯 Percentage</a></li></ul></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl"><li><a href="../text-tools/word-counter.html">📝 Word Counter</a></li><li><a href="../text-tools/password-generator.html">🔐 Password Gen</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li><a href="../index.html">🧮 All Calculators</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+var lastResult = '';
+
+function r(n,d){ return Math.round(n*Math.pow(10,d||6))/Math.pow(10,d||6); }
+
+function getABC(){
+  return {
+    a:parseFloat(document.getElementById('inp-a').value),
+    b:parseFloat(document.getElementById('inp-b').value),
+    c:parseFloat(document.getElementById('inp-c').value)
+  };
+}
+
+function liveEq(){
+  var ab=getABC();
+  var a=isNaN(ab.a)?'a':ab.a, b=isNaN(ab.b)?'b':ab.b, c=isNaN(ab.c)?'c':ab.c;
+  /* Build equation string */
+  var aTxt = (a===1)?'':((a===-1)?'−':(a+''));
+  var bAbs = Math.abs(b);
+  var bSign = b>=0?'+':'−';
+  var bTxt = (bAbs===1)?'':bAbs;
+  var cSign = c>=0?'+':'−';
+  var cAbs = Math.abs(c);
+  document.getElementById('eq-a').textContent = typeof a==='string'?a:aTxt;
+  document.getElementById('eq-op1').textContent = typeof b==='number'?(b>=0?' + ':' − '):' + ';
+  document.getElementById('eq-b').textContent = typeof b==='string'?b:(bTxt+'');
+  document.getElementById('eq-op2').textContent = typeof c==='number'?(c>=0?' + ':' − '):' + ';
+  document.getElementById('eq-c').textContent = typeof c==='string'?c:(cAbs+'');
+}
+
+function setPreset(a,b,c){
+  document.getElementById('inp-a').value=a;
+  document.getElementById('inp-b').value=b;
+  document.getElementById('inp-c').value=c;
+  liveEq(); calc();
+}
+
+function addStep(text,math){
+  var div=document.createElement('div');div.className='step';
+  var n=document.getElementById('steps-list').children.length+1;
+  div.innerHTML='<div class="sn">'+n+'</div><div class="st">'+text+(math?'<span class="sm">'+math+'</span>':'')+' </div>';
+  document.getElementById('steps-list').appendChild(div);
+}
+
+function fracStr(num,den){
+  /* return fraction string if den divides nicely, else decimal */
+  if(den===0) return '∞';
+  var g=gcd(Math.abs(Math.round(num*1000)),Math.abs(Math.round(den*1000)));
+  var n2=Math.round(num*1000)/g, d2=Math.round(den*1000)/g;
+  if(d2===1) return String(n2);
+  if(Math.abs(n2)%1===0&&Math.abs(d2)%1===0) return n2+'/'+d2;
+  return String(r(num/den,6));
+}
+
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a||1;}
+
+function calc(){
+  document.getElementById('steps-list').innerHTML='';
+  hideErr();
+  var {a,b,c}=getABC();
+  if(isNaN(a)||isNaN(b)||isNaN(c)){showErr('Please enter values for a, b and c.');return;}
+  if(a===0){showErr('Coefficient a cannot be 0. (That would make it a linear equation, not quadratic.)');return;}
+
+  var D = b*b - 4*a*c;
+  var h = -b/(2*a);
+  var k = c - b*b/(4*a);
+  var yInt = c;
+
+  addStep('Identify coefficients from ax²+bx+c=0','a='+a+', b='+b+', c='+c);
+  addStep('Calculate discriminant: D = b²−4ac = '+b+'²−4×'+a+'×'+c,'D = '+r(b*b)+'−'+r(4*a*c)+' = '+r(D,10));
+
+  /* Discriminant card */
+  var dCard=document.getElementById('disc-card');
+  var dVal=document.getElementById('disc-val');
+  var dLbl=document.getElementById('disc-lbl');
+  var dDesc=document.getElementById('disc-desc');
+  dVal.textContent=r(D,6);
+  if(D>0){
+    dCard.className='disc-card disc-positive';
+    dVal.style.color='var(--grn)';
+    dLbl.style.color='rgba(74,222,128,0.8)';
+    dDesc.textContent='D > 0 → Two distinct real roots. The parabola crosses the x-axis at two points.';
+    addStep('D > 0 → Two distinct real roots');
+  } else if(D===0){
+    dCard.className='disc-card disc-zero';
+    dVal.style.color='var(--acc)';
+    dLbl.style.color='rgba(245,158,11,0.8)';
+    dDesc.textContent='D = 0 → One repeated real root. The parabola touches the x-axis at exactly one point.';
+    addStep('D = 0 → One repeated real root (double root)');
+  } else {
+    dCard.className='disc-card disc-negative';
+    dVal.style.color='var(--purple)';
+    dLbl.style.color='rgba(167,139,250,0.8)';
+    dDesc.textContent='D < 0 → Two complex conjugate roots. The parabola does not cross the x-axis.';
+    addStep('D < 0 → Two complex conjugate roots (no real solutions)');
+  }
+
+  /* Roots */
+  var r1,r2,r1Dec,r2Dec;
+  var isComplex=false;
+  if(D>=0){
+    r1=(-b+Math.sqrt(D))/(2*a);
+    r2=(-b-Math.sqrt(D))/(2*a);
+    r1Dec=D===0?'(repeated root)':'≈ '+r(r1,8);
+    r2Dec=D===0?'(same as x₁)':'≈ '+r(r2,8);
+    var r1Str=r(r1,6).toString(), r2Str=r(r2,6).toString();
+    document.getElementById('root1-val').textContent=r1Str;
+    document.getElementById('root2-val').textContent=D===0?r1Str:r2Str;
+    document.getElementById('root1-dec').textContent=r1Dec;
+    document.getElementById('root2-dec').textContent=r2Dec;
+    document.getElementById('root1-card').classList.remove('complex');
+    document.getElementById('root2-card').classList.remove('complex');
+    addStep('Apply quadratic formula: x = (−b ± √D) / (2a)');
+    addStep('x₁ = (−('+b+')+√'+r(D,6)+') / (2×'+a+')','x₁ = '+r1Str);
+    if(D!==0) addStep('x₂ = (−('+b+')−√'+r(D,6)+') / (2×'+a+')','x₂ = '+r(r2,6));
+    lastResult='Quadratic: '+a+'x²+('+b+')x+('+c+')=0\nD='+r(D,6)+'\nx₁='+r1Str+(D===0?'\n(repeated root)':'\nx₂='+r(r2,6));
+  } else {
+    isComplex=true;
+    var realPart=-b/(2*a);
+    var imagPart=Math.sqrt(Math.abs(D))/(2*a);
+    var realStr=r(realPart,6).toString();
+    var imagStr=r(Math.abs(imagPart),6).toString();
+    var c1=realStr+' + '+imagStr+'i';
+    var c2=realStr+' − '+imagStr+'i';
+    document.getElementById('root1-val').textContent=c1;
+    document.getElementById('root2-val').textContent=c2;
+    document.getElementById('root1-dec').textContent='Complex root';
+    document.getElementById('root2-dec').textContent='Complex conjugate';
+    document.getElementById('root1-card').classList.add('complex');
+    document.getElementById('root2-card').classList.add('complex');
+    addStep('D < 0 → Complex roots: x = (−b ± i√|D|) / (2a)');
+    addStep('Real part: '+realStr+', Imaginary part: ±'+imagStr+'i');
+    addStep('x₁ = '+c1+', x₂ = '+c2);
+    lastResult='Quadratic: '+a+'x²+('+b+')x+('+c+')=0\nD='+r(D,6)+' (complex)\nx₁='+c1+'\nx₂='+c2;
+  }
+
+  /* Properties */
+  document.getElementById('pv-vertex').textContent='('+r(h,4)+', '+r(k,4)+')';
+  document.getElementById('pv-axis').textContent='x = '+r(h,4);
+  document.getElementById('pv-opens').textContent=a>0?'Upward ↑':'Downward ↓';
+  document.getElementById('pv-yint').textContent='(0, '+c+')';
+  addStep('Vertex: h=−b/(2a)='+r(h,4)+', k=c−b²/(4a)='+r(k,4),'Vertex = ('+r(h,4)+', '+r(k,4)+')');
+  addStep('Axis of symmetry: x = '+r(h,4));
+
+  drawGraph(a,b,c,h,k,D,isComplex);
+
+  document.getElementById('res').classList.add('show');
+  setTimeout(function(){document.getElementById('res').scrollIntoView({behavior:'smooth',block:'nearest'});},50);
+}
+
+function drawGraph(a,b,c,h,k,D,isComplex){
+  var canvas=document.getElementById('graph-canvas');
+  var ctx=canvas.getContext('2d');
+  var W=canvas.offsetWidth||680, H=260;
+  canvas.width=W*2; canvas.height=H*2; ctx.scale(2,2); W=canvas.width/2; H=canvas.height/2;
+
+  ctx.clearRect(0,0,W,H);
+  /* Background */
+  ctx.fillStyle='rgba(21,23,25,0)'; ctx.fillRect(0,0,W,H);
+
+  /* Determine range */
+  var xRange=Math.max(6, Math.abs(h)*2.5+3);
+  var yRange=Math.max(8, Math.abs(k)*2+6);
+  var xMin=h-xRange/2, xMax=h+xRange/2;
+  var yMin=k-yRange/2, yMax=k+yRange/2;
+
+  function sx(x){ return (x-xMin)/(xMax-xMin)*W; }
+  function sy(y){ return H-(y-yMin)/(yMax-yMin)*H; }
+
+  /* Grid lines */
+  ctx.strokeStyle='rgba(255,255,255,0.05)'; ctx.lineWidth=0.5;
+  for(var xi=Math.ceil(xMin);xi<=Math.floor(xMax);xi++){ctx.beginPath();ctx.moveTo(sx(xi),0);ctx.lineTo(sx(xi),H);ctx.stroke();}
+  for(var yi=Math.ceil(yMin);yi<=Math.floor(yMax);yi++){ctx.beginPath();ctx.moveTo(0,sy(yi));ctx.lineTo(W,sy(yi));ctx.stroke();}
+
+  /* Axes */
+  ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1.5;
+  if(yMin<0&&yMax>0){ctx.beginPath();ctx.moveTo(0,sy(0));ctx.lineTo(W,sy(0));ctx.stroke();}
+  if(xMin<0&&xMax>0){ctx.beginPath();ctx.moveTo(sx(0),0);ctx.lineTo(sx(0),H);ctx.stroke();}
+
+  /* Axis labels */
+  ctx.fillStyle='rgba(136,132,128,0.8)'; ctx.font='bold 9px Inter,sans-serif'; ctx.textAlign='center';
+  for(var xi=Math.ceil(xMin);xi<=Math.floor(xMax);xi++){if(xi===0)continue;if(yMin<0&&yMax>0)ctx.fillText(xi,sx(xi),sy(0)+11);}
+  ctx.textAlign='right';
+  for(var yi=Math.ceil(yMin);yi<=Math.floor(yMax);yi++){if(yi===0)continue;if(xMin<0&&xMax>0)ctx.fillText(yi,sx(0)-4,sy(yi)+4);}
+
+  /* Axis of symmetry (dashed) */
+  ctx.strokeStyle='rgba(245,158,11,0.25)'; ctx.lineWidth=1; ctx.setLineDash([4,4]);
+  ctx.beginPath(); ctx.moveTo(sx(h),0); ctx.lineTo(sx(h),H); ctx.stroke();
+  ctx.setLineDash([]);
+
+  /* Parabola */
+  var steps=300;
+  var dx=(xMax-xMin)/steps;
+  ctx.beginPath();
+  var started=false;
+  for(var i=0;i<=steps;i++){
+    var x=xMin+i*dx;
+    var y=a*x*x+b*x+c;
+    var px=sx(x),py=sy(y);
+    if(py>=0&&py<=H){if(!started){ctx.moveTo(px,py);started=true;}else{ctx.lineTo(px,py);}}
+    else{started=false;}
+  }
+  ctx.strokeStyle=isComplex?'rgba(167,139,250,0.9)':'rgba(245,158,11,0.9)';
+  ctx.lineWidth=2.5; ctx.stroke();
+
+  /* Vertex dot */
+  ctx.beginPath(); ctx.arc(sx(h),sy(k),5,0,Math.PI*2);
+  ctx.fillStyle=isComplex?'var(--purple)':'rgba(245,158,11,1)';
+  ctx.fill();
+  ctx.fillStyle=isComplex?'rgba(167,139,250,0.8)':'rgba(245,158,11,0.8)';
+  ctx.font='bold 10px Inter,sans-serif'; ctx.textAlign='center';
+  ctx.fillText('V('+r(h,2)+','+r(k,2)+')',sx(h),sy(k)+(a>0?-10:14));
+
+  /* Root dots */
+  if(!isComplex&&D>=0){
+    var roots=D===0?[h]:[-b/(2*a)+Math.sqrt(D)/(2*a),-b/(2*a)-Math.sqrt(D)/(2*a)];
+    roots.forEach(function(rx){
+      if(rx>=xMin&&rx<=xMax){
+        ctx.beginPath();ctx.arc(sx(rx),sy(0),5,0,Math.PI*2);
+        ctx.fillStyle='rgba(74,222,128,0.9)';ctx.fill();
+        ctx.fillStyle='rgba(74,222,128,0.8)';ctx.font='bold 10px Inter,sans-serif';ctx.textAlign='center';
+        ctx.fillText('('+r(rx,2)+', 0)',sx(rx),sy(0)-10);
+      }
+    });
+  }
+}
+
+function rst(){
+  ['inp-a','inp-b','inp-c'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('eq-a').textContent='a';
+  document.getElementById('eq-b').textContent='b';
+  document.getElementById('eq-c').textContent='c';
+  document.getElementById('res').classList.remove('show');
+  hideErr();
+}
+function showErr(m){var e=document.getElementById('err');e.textContent=m;e.classList.add('show');}
+function hideErr(){document.getElementById('err').classList.remove('show');}
+function cp(){if(!lastResult)return;var ok=function(){var b=document.getElementById('cpbtn');b.textContent='✓ Copied!';b.style.color='var(--acc)';setTimeout(function(){b.textContent='📋 Copy Results';b.style.color='';},2500);};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(lastResult).then(ok).catch(function(){});}else{var ta=document.createElement('textarea');ta.value=lastResult;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta);}}
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';}); }});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';}); }});})();
+function faq(el){var i=el.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});if(!w){i.classList.add('open');el.setAttribute('aria-expanded','true');}}
+document.addEventListener('keydown',function(e){if(e.key==='Enter')calc();});
+liveEq();
+</script>
+</body>
+</html>

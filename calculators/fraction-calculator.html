@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Fraction Calculator — Add, Subtract, Multiply & Divide Fractions | ToolsBox</title>
+<meta name="description" content="Free fraction calculator. Add, subtract, multiply and divide fractions and mixed numbers. Shows step-by-step solutions, simplified answers, decimal equivalents. Supports proper fractions, improper fractions and mixed numbers. Instant results.">
+<meta name="keywords" content="fraction calculator, add fractions calculator, subtract fractions calculator, multiply fractions, divide fractions, mixed number calculator, simplify fractions, fraction to decimal, LCD calculator, improper fraction calculator, equivalent fractions, fraction simplifier, how to add fractions with different denominators">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/calculators/fraction-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fraction Calculator — Add, Subtract, Multiply & Divide | ToolsBox">
+<meta property="og:description" content="Calculate with fractions and mixed numbers. Step-by-step solutions, simplification, decimal equivalent. Free, instant.">
+<meta property="og:url" content="https://yourdomain.com/calculators/fraction-calculator.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fraction Calculator | ToolsBox">
+<meta name="twitter:description" content="Free fraction calculator. Add, subtract, multiply, divide fractions with step-by-step solutions.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fraction Calculator","url":"https://yourdomain.com/calculators/fraction-calculator.html","description":"Free fraction calculator. Add, subtract, multiply and divide fractions and mixed numbers with step-by-step solutions.","applicationCategory":"EducationApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you add fractions with different denominators?","acceptedAnswer":{"@type":"Answer","text":"To add fractions with different denominators: 1) Find the Least Common Denominator (LCD). 2) Convert both fractions to equivalent fractions with the LCD. 3) Add the numerators. 4) Simplify the result. Example: 1/3 + 1/4 = 4/12 + 3/12 = 7/12."}},{"@type":"Question","name":"How do you multiply fractions?","acceptedAnswer":{"@type":"Answer","text":"To multiply fractions: multiply the numerators together and multiply the denominators together. Then simplify. Example: 2/3 × 3/4 = (2×3)/(3×4) = 6/12 = 1/2."}},{"@type":"Question","name":"How do you divide fractions?","acceptedAnswer":{"@type":"Answer","text":"To divide fractions: multiply the first fraction by the reciprocal of the second. Flip the second fraction and multiply. Example: 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6."}},{"@type":"Question","name":"How do you simplify a fraction?","acceptedAnswer":{"@type":"Answer","text":"To simplify a fraction: find the Greatest Common Divisor (GCD) of the numerator and denominator, then divide both by the GCD. Example: 12/18 — GCD(12,18)=6 — simplified = 2/3."}},{"@type":"Question","name":"How do you add mixed numbers?","acceptedAnswer":{"@type":"Answer","text":"To add mixed numbers: convert both to improper fractions first (whole × denominator + numerator / denominator), then add the fractions using LCD, then convert back to a mixed number if needed."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060410;--bg2:#080616;--surf:#0f0a22;--surf2:#171034;--surf3:#1e1644;
+  --bdr:rgba(124,58,237,.12);--bdr2:rgba(124,58,237,.26);
+  --acc:#7c3aed;--acc2:#6d28d9;--acc3:#c4b5fd;
+  --acc-dim:rgba(124,58,237,.1);--acc-bdr:rgba(124,58,237,.35);--acc-glow:rgba(124,58,237,.22);
+  --grn:#10b981;--grn-dim:rgba(16,185,129,.09);--grn-bdr:rgba(16,185,129,.3);
+  --red:#f43f5e;--red-dim:rgba(244,63,94,.08);--red-bdr:rgba(244,63,94,.28);
+  --amber:#f59e0b;--amber-dim:rgba(245,158,11,.09);--amber-bdr:rgba(245,158,11,.28);
+  --sky:#38bdf8;--sky-dim:rgba(56,189,248,.08);
+  --txt:#f0ecff;--txt2:#8068c0;--txt3:#4030a0;
+  --f:'Nunito',sans-serif;--fs:'Playfair Display',serif;
+  --nav:58px;--mw:720px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(ellipse 65% 50% at 50% -5%,rgba(124,58,237,.1),transparent),
+  radial-gradient(ellipse 40% 30% at 90% 85%,rgba(124,58,237,.06),transparent),
+  linear-gradient(rgba(124,58,237,.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(124,58,237,.025) 1px,transparent 1px);
+  background-size:100%,100%,56px 56px,56px 56px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,4,16,.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 22px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:4px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:14px;flex-shrink:0}
+.logo-box{width:32px;height:32px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:15px}
+.logo-txt{font-size:16px;font-weight:800;color:var(--txt);letter-spacing:-.3px}
+.logo-txt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:1px;flex:1}
+.nl{padding:6px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:22px;height:2px;background:var(--txt2);border-radius:2px;transition:all .25s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 18px 20px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:11px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 18px 90px}
+.bc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:34px;animation:fD .6s ease both}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(28px,6.5vw,50px);font-weight:700;line-height:1.06;color:var(--txt);margin-bottom:12px;letter-spacing:-.3px}
+h1 em{font-style:normal;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.7;max-width:500px;margin:0 auto;font-weight:600}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;position:relative;overflow:hidden;animation:fU .6s ease .08s both;margin-bottom:14px}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}
+.sec-lbl{font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+/* OPERATION TABS */
+.op-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:var(--surf2);border:1px solid var(--bdr);border-radius:13px;padding:4px;margin-bottom:22px}
+.otab{padding:12px 6px;border-radius:9px;font-size:16px;font-weight:900;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;line-height:1}
+.otab:hover{color:var(--txt)}.otab.on{background:var(--acc);color:#fff;box-shadow:0 2px 14px var(--acc-glow)}
+.otab span{display:block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:3px;opacity:.8}
+/* FRACTION INPUT LAYOUT */
+.fraction-layout{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.fraction-input{display:flex;flex-direction:column;align-items:center;gap:0;min-width:140px}
+.fi-whole{display:flex;align-items:flex-end;gap:8px}
+.fi-stack{display:flex;flex-direction:column;align-items:center;gap:3px;position:relative}
+.fi-label{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);text-align:center;margin-bottom:6px}
+.fi-input{width:72px;background:var(--surf2);border:1px solid rgba(124,58,237,.18);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:20px;font-weight:800;padding:10px 8px;outline:none;transition:border-color .2s,box-shadow .2s;text-align:center;-moz-appearance:textfield}
+.fi-input::-webkit-inner-spin-button,.fi-input::-webkit-outer-spin-button{-webkit-appearance:none}
+.fi-input:focus{border-color:var(--acc-bdr);box-shadow:0 0 0 3px var(--acc-glow)}
+.fi-input::placeholder{color:var(--txt3);font-size:14px}
+.fi-line{width:72px;height:3px;background:var(--acc);border-radius:2px;margin:2px 0}
+.fi-whole-inp{width:52px;background:var(--surf2);border:1px solid rgba(124,58,237,.18);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:18px;font-weight:800;padding:8px 6px;outline:none;transition:border-color .2s,box-shadow .2s;text-align:center;-moz-appearance:textfield;align-self:flex-end}
+.fi-whole-inp::-webkit-inner-spin-button,.fi-whole-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+.fi-whole-inp:focus{border-color:var(--acc-bdr);box-shadow:0 0 0 3px var(--acc-glow)}
+.op-symbol{font-size:28px;font-weight:900;color:var(--acc);flex-shrink:0;padding:0 4px}
+/* MODE TOGGLE */
+.mode-row{display:flex;gap:6px;margin-bottom:18px}
+.mp{padding:7px 16px;border-radius:9px;font-size:12px;font-weight:800;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s}
+.mp:hover{border-color:var(--acc-bdr);color:var(--txt)}.mp.on{background:var(--acc-dim);border-color:var(--acc-bdr);color:var(--acc)}
+/* RESULT */
+.res{display:none}.res.show{display:block;animation:fU .5s ease both}
+/* ANSWER HERO */
+.ans-hero{background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(124,58,237,.02));border:1px solid var(--acc-bdr);border-radius:20px;padding:28px 22px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden}
+.ans-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}
+.ans-tag{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;display:block}
+/* Fraction display */
+.frac-display{display:inline-flex;flex-direction:column;align-items:center;gap:4px;vertical-align:middle}
+.frac-num{font-family:var(--fs);font-size:clamp(32px,8vw,56px);font-weight:700;color:var(--acc);line-height:1}
+.frac-line{width:100%;min-width:60px;height:4px;background:var(--acc);border-radius:2px}
+.frac-den{font-family:var(--fs);font-size:clamp(32px,8vw,56px);font-weight:700;color:var(--acc);line-height:1}
+.ans-whole{font-family:var(--fs);font-size:clamp(40px,10vw,72px);font-weight:700;color:var(--acc);margin-right:10px;line-height:1}
+.ans-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ans-decimal{font-size:15px;font-weight:700;color:var(--txt2);display:block;margin-top:6px}
+.ans-mixed{font-size:13px;font-weight:700;color:var(--acc3);display:block}
+/* STEP BY STEP */
+.steps-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:16px;padding:20px;margin-bottom:12px}
+.sw-title{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:14px}
+.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.step:last-child{margin-bottom:0}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-body{flex:1}
+.step-title{font-size:13px;font-weight:800;color:var(--txt);margin-bottom:4px}
+.step-math{font-size:14px;font-weight:700;color:var(--acc3);font-family:monospace;background:var(--surf3);border-radius:8px;padding:6px 12px;display:inline-block;margin-top:4px}
+.step-desc{font-size:12px;color:var(--txt2);margin-top:4px;line-height:1.6;font-weight:600}
+/* EQUIVALENT FRACTIONS */
+.equiv-wrap{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:18px;margin-bottom:12px}
+.ew-title{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.equiv-chips{display:flex;gap:8px;flex-wrap:wrap}
+.equiv-chip{background:var(--surf3);border:1px solid var(--bdr);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:800;color:var(--txt);text-align:center;transition:border-color .2s}
+.equiv-chip:hover{border-color:var(--acc-bdr);color:var(--acc)}
+/* STATS ROW */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.st{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:12px 8px;text-align:center}
+.stv{display:block;font-size:clamp(14px,3.5vw,19px);font-weight:800;line-height:1.2;margin-bottom:4px;color:var(--acc)}
+.stk{display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--txt3)}
+/* BTNS */
+.brow{display:flex;gap:9px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:800;cursor:pointer;border:none;outline:none;transition:transform .12s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.97)}
+.bp{background:var(--acc);color:#fff;flex:1}
+.bp:hover{box-shadow:0 8px 28px var(--acc-glow)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.cpbtn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:11px;font-weight:700;padding:7px 14px;border-radius:9px;cursor:pointer;transition:all .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+.err{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:#fca5a5;font-size:13px;padding:10px 14px;border-radius:9px;margin-bottom:12px;font-weight:700}
+.err.show{display:block}
+/* INFO */
+.info{margin-top:48px;animation:fU .6s ease .15s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:clamp(22px,4.5vw,34px);font-weight:700;color:var(--txt);margin-bottom:14px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.8;margin-bottom:12px;font-weight:600}
+.formula-box{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:13px;color:var(--txt);line-height:2}
+.formula-box span{color:var(--acc);font-weight:800}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:800;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0;font-weight:600}
+.faq{margin-top:42px;animation:fU .6s ease .2s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
+.fq::after{content:'+';font-size:20px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .22s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .32s,padding .32s;font-weight:600}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.rel{margin-top:42px;animation:fU .6s ease .25s both}
+.sl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:14px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .2s,transform .18s;display:block}
+.rc:hover{border-color:var(--acc-bdr);transform:translateY(-3px)}
+.ri{font-size:20px;display:block;margin-bottom:5px}
+.rn{font-size:11px;font-weight:800;display:block}
+.rd{font-size:10px;color:var(--txt3);margin-top:3px;display:block;font-weight:600}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--acc);color:#fff;font-family:var(--f);font-size:12px;font-weight:700;padding:.6rem 1.5rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 22px 28px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.7;margin-top:10px;max-width:220px;font-weight:600}
+.fct{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s;font-weight:600}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:22px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3);font-weight:600}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.card{padding:20px 16px}.fraction-layout{gap:8px}.fi-input{width:58px;font-size:18px}.fi-whole-inp{width:44px;font-size:16px}.stat-row{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.brow{flex-direction:column}.bp{flex:none;width:100%}}
+@media(max-width:400px){.op-tabs{grid-template-columns:1fr 1fr}.stat-row{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">½</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob"><a href="../index.html" class="nl">🏠 Home</a><a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a></div>
+
+<main>
+  <nav class="bc" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span>  <span>›</span> <span aria-current="page" style="color:var(--txt2)">Fraction Calculator</span></nav>
+  <header class="ph">
+    <div class="badge">½ Fractions</div>
+    <h1>Fraction <em>Calculator</em></h1>
+    <p class="sub">Add, subtract, multiply and divide fractions and mixed numbers. Get step-by-step solutions, simplified answers, and decimal equivalents instantly.</p>
+  </header>
+
+  <section class="card" aria-label="Fraction Calculator">
+    <!-- OPERATION -->
+    <div class="sec-lbl">Operation</div>
+    <div class="op-tabs" role="group" id="op-tabs">
+      <button class="otab on" data-op="add" onclick="FC.setOp(this)">+<span>Add</span></button>
+      <button class="otab" data-op="sub" onclick="FC.setOp(this)">−<span>Subtract</span></button>
+      <button class="otab" data-op="mul" onclick="FC.setOp(this)">×<span>Multiply</span></button>
+      <button class="otab" data-op="div" onclick="FC.setOp(this)">÷<span>Divide</span></button>
+    </div>
+
+    <!-- MODE -->
+    <div class="sec-lbl">Input mode</div>
+    <div class="mode-row" id="mode-row">
+      <button class="mp on" data-mode="simple" onclick="FC.setMode(this)">½ Simple fractions</button>
+      <button class="mp" data-mode="mixed" onclick="FC.setMode(this)">1½ Mixed numbers</button>
+    </div>
+
+    <!-- FRACTION INPUTS -->
+    <div class="sec-lbl">Enter fractions</div>
+    <div class="fraction-layout" id="fraction-layout">
+      <!-- Fraction 1 -->
+      <div class="fraction-input" id="frac1-wrap">
+        <div class="fi-label">Fraction 1</div>
+        <div class="fi-whole" id="frac1-whole-row" style="display:none">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+            <div style="font-size:9px;font-weight:700;color:var(--txt3)">WHOLE</div>
+            <input type="number" id="w1" class="fi-whole-inp" placeholder="0" min="0" step="1" inputmode="numeric">
+          </div>
+        </div>
+        <div class="fi-stack">
+          <input type="number" id="n1" class="fi-input" placeholder="1" step="1" inputmode="numeric" aria-label="Numerator 1">
+          <div class="fi-line"></div>
+          <input type="number" id="d1" class="fi-input" placeholder="2" min="1" step="1" inputmode="numeric" aria-label="Denominator 1">
+        </div>
+      </div>
+
+      <!-- OP symbol -->
+      <div class="op-symbol" id="op-symbol">+</div>
+
+      <!-- Fraction 2 -->
+      <div class="fraction-input" id="frac2-wrap">
+        <div class="fi-label">Fraction 2</div>
+        <div class="fi-whole" id="frac2-whole-row" style="display:none">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+            <div style="font-size:9px;font-weight:700;color:var(--txt3)">WHOLE</div>
+            <input type="number" id="w2" class="fi-whole-inp" placeholder="0" min="0" step="1" inputmode="numeric">
+          </div>
+        </div>
+        <div class="fi-stack">
+          <input type="number" id="n2" class="fi-input" placeholder="1" step="1" inputmode="numeric" aria-label="Numerator 2">
+          <div class="fi-line"></div>
+          <input type="number" id="d2" class="fi-input" placeholder="3" min="1" step="1" inputmode="numeric" aria-label="Denominator 2">
+        </div>
+      </div>
+    </div>
+
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+    <div class="brow">
+      <button class="btn bp" onclick="FC.calculate()">= Calculate</button>
+      <button class="btn bs" onclick="FC.clearAll()">Clear</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="res" id="res" aria-live="polite" style="margin-top:22px">
+
+      <!-- ANSWER HERO -->
+      <div class="ans-hero">
+        <span class="ans-tag" id="ans-tag">Result</span>
+        <div class="ans-row" id="ans-display"></div>
+        <span class="ans-decimal" id="ans-decimal"></span>
+        <span class="ans-mixed" id="ans-mixed"></span>
+      </div>
+
+      <!-- STATS -->
+      <div class="stat-row">
+        <div class="st"><span class="stv" id="s-simplified" style="color:var(--acc)">—</span><span class="stk">Simplified</span></div>
+        <div class="st"><span class="stv" id="s-decimal" style="color:var(--grn)">—</span><span class="stk">Decimal</span></div>
+        <div class="st"><span class="stv" id="s-percent" style="color:var(--sky)">—</span><span class="stk">Percentage</span></div>
+        <div class="st"><span class="stv" id="s-mixed" style="color:var(--amber)">—</span><span class="stk">Mixed Number</span></div>
+      </div>
+
+      <!-- STEPS -->
+      <div class="steps-wrap">
+        <div class="sw-title">Step-by-step solution</div>
+        <div id="steps-container"></div>
+      </div>
+
+      <!-- EQUIVALENT FRACTIONS -->
+      <div class="equiv-wrap" id="equiv-wrap">
+        <div class="ew-title">Equivalent fractions</div>
+        <div class="equiv-chips" id="equiv-chips"></div>
+      </div>
+
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:4px">
+        <button class="cpbtn" onclick="FC.copyResult()">📋 Copy Result</button>
+        <button class="cpbtn" onclick="FC.clearAll()">↺ Clear</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMPLIFY TOOL -->
+  <section class="card" style="animation-delay:.1s" aria-label="Simplify Fraction Tool">
+    <div class="sec-lbl">Simplify a fraction</div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+      <div class="fraction-input" style="min-width:unset">
+        <div class="fi-stack">
+          <input type="number" id="simp-n" class="fi-input" placeholder="12" step="1" inputmode="numeric" aria-label="Numerator to simplify">
+          <div class="fi-line"></div>
+          <input type="number" id="simp-d" class="fi-input" placeholder="18" min="1" step="1" inputmode="numeric" aria-label="Denominator to simplify">
+        </div>
+      </div>
+      <button class="btn bp" style="flex:none;min-width:120px" onclick="FC.simplifyTool()">Simplify</button>
+      <div id="simp-result" style="font-family:var(--f);font-size:16px;font-weight:800;color:var(--acc)"></div>
+    </div>
+  </section>
+
+  <section class="info" aria-labelledby="info-h">
+    <h2 id="info-h">How to work with fractions</h2>
+    <p>A fraction represents a part of a whole: numerator/denominator. Operations on fractions follow specific rules depending on whether denominators are the same (like fractions) or different (unlike fractions). This calculator handles all cases automatically and shows every step.</p>
+    <div class="formula-box">
+      <span>Add/Subtract</span>: Find LCD, convert, then add/subtract numerators<br>
+      <span>Multiply</span>: (a/b) × (c/d) = (a×c) / (b×d)<br>
+      <span>Divide</span>: (a/b) ÷ (c/d) = (a/b) × (d/c) = (a×d) / (b×c)<br>
+      <span>Simplify</span>: Divide both by GCD &nbsp;|&nbsp; <span>LCD</span> = LCM of denominators
+    </div>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🔢 GCD & LCM</div><p>GCD (Greatest Common Divisor) is used to simplify fractions. LCM (Least Common Multiple) is used to find LCD for addition and subtraction. GCD(12,18)=6. LCM(4,6)=12.</p></div>
+      <div class="ic"><div class="ic-t">½ Mixed numbers</div><p>Mixed number 2¾ = improper fraction 11/4 (2×4+3=11). Always convert to improper fractions before computing, then convert back. 11/4 = 2 remainder 3 = 2¾.</p></div>
+      <div class="ic"><div class="ic-t">❌ Cross multiply</div><p>Shortcut for comparing fractions: a/b vs c/d — cross multiply: a×d vs b×c. Also useful: to check if two fractions are equal, cross products must be equal.</p></div>
+      <div class="ic"><div class="ic-t">🎯 Proper vs improper</div><p>Proper fraction: numerator &lt; denominator (3/4). Improper fraction: numerator ≥ denominator (7/4). A fraction with numerator 0 equals 0. Denominator can never be 0.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="FC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do you add fractions with different denominators?</div><div class="fa">Step 1: Find the Least Common Denominator (LCD = LCM of both denominators). Step 2: Convert each fraction: multiply numerator and denominator by LCD÷denominator. Step 3: Add the new numerators, keep the LCD as denominator. Step 4: Simplify by dividing by GCD. Example: 1/3 + 1/4 → LCD=12 → 4/12 + 3/12 = 7/12.</div></div>
+    <div class="fi"><div class="fq" onclick="FC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do you multiply and divide fractions?</div><div class="fa">Multiply: multiply numerators × numerators, denominators × denominators, then simplify. 2/3 × 3/4 = 6/12 = 1/2. Divide: flip the second fraction (take reciprocal) and multiply. 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6. Tip: cross-cancel before multiplying to keep numbers small.</div></div>
+    <div class="fi"><div class="fq" onclick="FC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do you simplify a fraction?</div><div class="fa">Find the GCD (Greatest Common Divisor) of the numerator and denominator using the Euclidean algorithm, then divide both by the GCD. Example: 24/36 → GCD(24,36)=12 → 24÷12 / 36÷12 = 2/3. A fraction is fully simplified when GCD of numerator and denominator is 1.</div></div>
+    <div class="fi"><div class="fq" onclick="FC.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do you convert a fraction to a decimal?</div><div class="fa">Divide the numerator by the denominator. 3/4 = 3 ÷ 4 = 0.75. 1/3 = 1 ÷ 3 = 0.333... (repeating). 7/8 = 0.875. Some fractions convert to terminating decimals (denominators with only 2 and 5 as prime factors). Others are repeating.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="root-calculator.html"><span class="ri">√</span><span class="rn">Root Calculator</span><span class="rd">Square & nth roots</span></a>
+      <a class="rc" href="percentage-calc.html"><span class="ri">%</span><span class="rn">Percentage</span><span class="rd">Quick % math</span></a>
+      <a class="rc" href="scientific-calculator.html"><span class="ri">🔬</span><span class="rn">Scientific Calc</span><span class="rd">Advanced math</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">½</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online calculator tools. No sign-up. Instant results.</p></div>
+    <div><div class="fct">🧮 Math Tools</div><ul class="fl"><li><a href="fraction-calculator.html">½ Fraction Calc</a></li><li><a href="root-calculator.html">√ Root Calc</a></li><li><a href="percentage-calc.html">% Percentage</a></li><li><a href="triangle-calculator.html">△ Triangle</a></li></ul></div>
+    <div><div class="fct">💰 Finance</div><ul class="fl"><li><a href="sip-calculator.html">💹 SIP</a></li><li><a href="gst-calculator.html">🧾 GST</a></li><li><a href="income-tax-calculator.html">📊 Income Tax</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li></li><li><a href="../text-tools/text-tools-index.html">✍️ Text Tools</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up</span><span class="fc">Made with ❤️</span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var FC = (function () {
+  var _op = 'add', _mode = 'simple';
+  var _last = null;
+
+  /* ── Math helpers ── */
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function simplify(n, d) { var g = gcd(Math.abs(n), Math.abs(d)); var sign = d < 0 ? -1 : 1; return { n: sign * n / g, d: sign * d / g }; }
+  function toMixed(n, d) { if (d === 1) return { w: n, n: 0, d: 1 }; var w = Math.trunc(n / d); var rem = n % d; return { w, n: rem, d }; }
+  function toImproper(w, n, d) { return { n: w * d + n, d }; }
+  function fmtFrac(n, d) { var s = simplify(n, d); return s.n + '/' + s.d; }
+  function r4(n) { return Math.round(n * 10000) / 10000; }
+
+  function showToast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2400); }
+  function showErr(m) { var e = document.getElementById('err'); e.textContent = m; e.classList.add('show'); }
+  function hideErr() { document.getElementById('err').classList.remove('show'); }
+
+  function addStep(num, title, math, desc) {
+    var con = document.getElementById('steps-container');
+    var div = document.createElement('div'); div.className = 'step';
+    div.innerHTML = '<div class="step-num">' + num + '</div><div class="step-body"><div class="step-title">' + title + '</div><div class="step-math">' + math + '</div>' + (desc ? '<div class="step-desc">' + desc + '</div>' : '') + '</div>';
+    con.appendChild(div);
+  }
+
+  function fracHTML(n, d) {
+    var s = simplify(n, d);
+    return '<div class="frac-display"><span class="frac-num">' + s.n + '</span><div class="frac-line"></div><span class="frac-den">' + s.d + '</span></div>';
+  }
+
+  return {
+    setOp: function (el) {
+      _op = el.dataset.op;
+      document.querySelectorAll('#op-tabs .otab').forEach(function (p) { p.classList.toggle('on', p === el); });
+      var syms = { add:'+', sub:'−', mul:'×', div:'÷' };
+      document.getElementById('op-symbol').textContent = syms[_op];
+      document.getElementById('res').classList.remove('show');
+      hideErr();
+    },
+    setMode: function (el) {
+      _mode = el.dataset.mode;
+      document.querySelectorAll('#mode-row .mp').forEach(function (p) { p.classList.toggle('on', p === el); });
+      var showWhole = _mode === 'mixed';
+      document.getElementById('frac1-whole-row').style.display = showWhole ? 'flex' : 'none';
+      document.getElementById('frac2-whole-row').style.display = showWhole ? 'flex' : 'none';
+      document.getElementById('res').classList.remove('show');
+      hideErr();
+    },
+    calculate: function () {
+      hideErr();
+      document.getElementById('steps-container').innerHTML = '';
+
+      var n1r = parseInt(document.getElementById('n1').value, 10);
+      var d1r = parseInt(document.getElementById('d1').value, 10);
+      var n2r = parseInt(document.getElementById('n2').value, 10);
+      var d2r = parseInt(document.getElementById('d2').value, 10);
+
+      if (isNaN(n1r)||isNaN(d1r)||isNaN(n2r)||isNaN(d2r)) { showErr('Please fill in all four fields (numerators and denominators).'); return; }
+      if (d1r === 0 || d2r === 0) { showErr('Denominator cannot be zero.'); return; }
+
+      var a, b, c, d;
+      if (_mode === 'mixed') {
+        var w1 = parseInt(document.getElementById('w1').value, 10) || 0;
+        var w2 = parseInt(document.getElementById('w2').value, 10) || 0;
+        var imp1 = toImproper(w1, n1r, d1r);
+        var imp2 = toImproper(w2, n2r, d2r);
+        a = imp1.n; b = imp1.d; c = imp2.n; d = imp2.d;
+        addStep(1, 'Convert mixed numbers to improper fractions',
+          (w1 || n1r ? (w1 + ' ' + n1r + '/' + d1r + ' = ' + a + '/' + b) : a + '/' + b) + ' and ' +
+          (w2 || n2r ? (w2 + ' ' + n2r + '/' + d2r + ' = ' + c + '/' + d) : c + '/' + d),
+          'Multiply whole by denominator and add numerator: ' + w1 + '×' + d1r + '+' + n1r + '=' + a);
+      } else {
+        a = n1r; b = d1r; c = n2r; d = d2r;
+        addStep(1, 'Identify the fractions', a + '/' + b + ' and ' + c + '/' + d, '');
+      }
+
+      var resN, resD;
+
+      if (_op === 'add' || _op === 'sub') {
+        var lcd = lcm(b, d);
+        var m1 = lcd / b, m2 = lcd / d;
+        var an = a * m1, cn = c * m2;
+        addStep(2, 'Find the LCD (Least Common Denominator)', 'LCM(' + b + ', ' + d + ') = ' + lcd, 'LCD is the smallest number divisible by both denominators.');
+        addStep(3, 'Convert to equivalent fractions with LCD',
+          a + '/' + b + ' = ' + an + '/' + lcd + ' and ' + c + '/' + d + ' = ' + cn + '/' + lcd,
+          'Multiply numerator and denominator by ' + m1 + ' and ' + m2 + ' respectively.');
+        resN = _op === 'add' ? an + cn : an - cn;
+        resD = lcd;
+        addStep(4, (_op === 'add' ? 'Add' : 'Subtract') + ' the numerators',
+          an + (_op === 'add' ? ' + ' : ' − ') + cn + ' = ' + resN, 'Keep the denominator: ' + lcd);
+
+      } else if (_op === 'mul') {
+        resN = a * c; resD = b * d;
+        addStep(2, 'Multiply numerators together', a + ' × ' + c + ' = ' + resN, '');
+        addStep(3, 'Multiply denominators together', b + ' × ' + d + ' = ' + resD, '');
+
+      } else { /* div */
+        if (c === 0) { showErr('Cannot divide by zero (second numerator is 0).'); return; }
+        resN = a * d; resD = b * c;
+        addStep(2, 'Take the reciprocal of the second fraction', c + '/' + d + ' → ' + d + '/' + c, 'Flip the numerator and denominator of the divisor.');
+        addStep(3, 'Multiply by the reciprocal', a + '/' + b + ' × ' + d + '/' + c + ' = ' + resN + '/' + resD, '');
+      }
+
+      var s = simplify(resN, resD);
+      var g = gcd(Math.abs(resN), Math.abs(resD));
+      addStep(_op === 'add' || _op === 'sub' ? 5 : 4, 'Simplify the result',
+        resN + '/' + resD + (g > 1 ? ' ÷ ' + g + '/' + g + ' = ' + s.n + '/' + s.d : ' (already simplified)'),
+        g > 1 ? 'GCD(' + Math.abs(resN) + ', ' + Math.abs(resD) + ') = ' + g : 'The fraction is already in its simplest form.');
+
+      var decimal = s.n / s.d;
+      var pct = (decimal * 100).toFixed(4) + '%';
+      var mixed = toMixed(s.n, s.d);
+
+      /* Render answer */
+      var ansRow = document.getElementById('ans-display');
+      var opLabels = { add:'Addition Result', sub:'Subtraction Result', mul:'Multiplication Result', div:'Division Result' };
+      document.getElementById('ans-tag').textContent = opLabels[_op];
+
+      if (s.d === 1) {
+        ansRow.innerHTML = '<span class="ans-whole">' + s.n + '</span>';
+        document.getElementById('ans-mixed').textContent = '';
+      } else {
+        ansRow.innerHTML = (Math.abs(mixed.w) > 0 ? '<span class="ans-whole">' + (s.n < 0 ? '−' : '') + Math.abs(mixed.w) + '</span>' : '') + fracHTML(Math.abs(mixed.n), mixed.d);
+        if (Math.abs(mixed.w) > 0) { document.getElementById('ans-mixed').textContent = 'Improper: ' + s.n + '/' + s.d; }
+        else { document.getElementById('ans-mixed').textContent = ''; }
+      }
+      document.getElementById('ans-decimal').textContent = 'Decimal: ' + r4(decimal);
+
+      /* Stats */
+      document.getElementById('s-simplified').textContent = s.n + '/' + s.d;
+      document.getElementById('s-decimal').textContent = r4(decimal);
+      document.getElementById('s-percent').textContent = (decimal * 100).toFixed(2) + '%';
+      document.getElementById('s-mixed').textContent = Math.abs(mixed.w) > 0 ? (s.n < 0 ? '−' : '') + Math.abs(mixed.w) + ' ' + Math.abs(mixed.n) + '/' + mixed.d : s.n + '/' + s.d;
+
+      /* Equivalent fractions */
+      var chips = document.getElementById('equiv-chips');
+      chips.innerHTML = '';
+      for (var m = 1; m <= 8; m++) {
+        var chip = document.createElement('div'); chip.className = 'equiv-chip';
+        chip.textContent = (s.n * m) + '/' + (s.d * m);
+        chips.appendChild(chip);
+      }
+
+      _last = { simplified: s.n + '/' + s.d, decimal: r4(decimal), pct, op: _op };
+      document.getElementById('res').classList.add('show');
+      setTimeout(function () { document.getElementById('res').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 60);
+    },
+
+    simplifyTool: function () {
+      var n = parseInt(document.getElementById('simp-n').value, 10);
+      var d = parseInt(document.getElementById('simp-d').value, 10);
+      var el = document.getElementById('simp-result');
+      if (isNaN(n)||isNaN(d)||d===0) { el.textContent = 'Enter valid numerator / denominator'; el.style.color='var(--red)'; return; }
+      var s = simplify(n, d);
+      var dec = r4(n / d);
+      var g = gcd(Math.abs(n), Math.abs(d));
+      el.style.color = 'var(--acc)';
+      el.innerHTML = n + '/' + d + ' = <strong style="font-size:20px">' + s.n + '/' + s.d + '</strong> &nbsp; (GCD = ' + g + ' · decimal = ' + dec + ')';
+    },
+
+    clearAll: function () {
+      ['n1','d1','n2','d2','w1','w2'].forEach(function (id) { var el = document.getElementById(id); if (el) el.value = ''; });
+      document.getElementById('res').classList.remove('show');
+      document.getElementById('steps-container').innerHTML = '';
+      hideErr();
+    },
+
+    copyResult: function () {
+      if (!_last) return;
+      var text = 'Fraction Calculator Result\n─────────────────────────\n' +
+        'Result: ' + _last.simplified + '\nDecimal: ' + _last.decimal + '\nPercentage: ' + _last.pct;
+      function ok() { showToast('✓ Result copied!'); }
+      function fb() { var ta = document.createElement('textarea'); ta.value = text; ta.style.cssText='position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(ta); ta.focus(); ta.select(); try{document.execCommand('copy');ok();}catch(e){} document.body.removeChild(ta); }
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok).catch(fb); } else { fb(); }
+      function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2400);}
+    },
+
+    faqToggle: function (el) {
+      var item = el.parentElement, was = item.classList.contains('open');
+      document.querySelectorAll('.fi').forEach(function (i) { i.classList.remove('open'); });
+      document.querySelectorAll('.fq').forEach(function (q) { q.setAttribute('aria-expanded', 'false'); });
+      if (!was) { item.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+    }
+  };
+}());
+
+document.querySelectorAll('.fq').forEach(function (el) { el.addEventListener('keydown', function (e) { if (e.key==='Enter'||e.key===' '){e.preventDefault();FC.faqToggle(el);} }); });
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',String(o));var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';});}});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';});}});}());
+</script>
+</body>
+</html>

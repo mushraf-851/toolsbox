@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Savings Goal Calculator — How Much to Save Per Month | ToolsBox</title>
+<meta name="description" content="Free savings goal calculator. Find out how much to save per month to reach any financial goal. Calculate time to reach your goal, total interest earned and monthly savings plan. Works for emergency fund, vacation, car, home down payment.">
+<meta name="keywords" content="savings goal calculator, how much to save per month, savings calculator, monthly savings calculator, goal savings calculator, savings plan calculator, emergency fund calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://mytoolsbox.org/calculators/savings-goal-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Savings Goal Calculator — Monthly Savings Planner | ToolsBox">
+<meta property="og:description" content="Calculate how much to save each month to reach your financial goal. Emergency fund, vacation, down payment, car — any goal. Free savings calculator.">
+<meta property="og:url" content="https://mytoolsbox.org/calculators/savings-goal-calculator.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Savings Goal Calculator | ToolsBox">
+<meta name="twitter:description" content="How much do you need to save per month? Free savings goal calculator with monthly plan.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Savings Goal Calculator","url":"https://mytoolsbox.org/calculators/savings-goal-calculator.html","description":"Free savings goal calculator. Calculate how much to save per month to reach any financial goal, with interest earned and monthly milestone breakdown.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much should I save per month?","acceptedAnswer":{"@type":"Answer","text":"Use this savings goal calculator: enter your target amount, current savings, annual return rate and deadline. The calculator shows exactly how much to save monthly. A general rule is the 50-30-20 rule: 50% needs, 30% wants, 20% savings."}},{"@type":"Question","name":"How do I calculate savings goal?","acceptedAnswer":{"@type":"Answer","text":"Monthly savings needed = (Goal − Current savings × (1+r)^n) / ((1+r)^n − 1) × r, where r = monthly interest rate and n = number of months. This accounts for compound interest on both your existing savings and new monthly contributions."}},{"@type":"Question","name":"How long will it take to save a certain amount?","acceptedAnswer":{"@type":"Answer","text":"Use this calculator: enter your goal amount, current savings, monthly savings amount and interest rate. The calculator will show exactly how many months and years it will take to reach your goal with compound interest."}},{"@type":"Question","name":"What is a good savings interest rate in India?","acceptedAnswer":{"@type":"Answer","text":"Savings accounts: 3–7%. Fixed deposits: 6–7.5%. Liquid mutual funds: 6–7%. RD (Recurring Deposit): 6.5–7.5%. PPF: 7.1% (tax-free). For long-term goals (5+ years), equity mutual funds historically give 12–15% CAGR."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060709;--bg2:#0b0c10;--surf:#0f1115;--surf2:#151719;--surf3:#1c1e24;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#34d399;--acc2:#10b981;--acc-dim:rgba(52,211,153,0.09);--acc-bdr:rgba(52,211,153,0.24);
+  --grn:#4ade80;--grn-dim:rgba(74,222,128,0.09);--grn-bdr:rgba(74,222,128,0.22);
+  --gold:#fbbf24;--gold-dim:rgba(251,191,36,0.09);--gold-bdr:rgba(251,191,36,0.22);
+  --blue:#60a5fa;--blue-dim:rgba(96,165,250,0.09);
+  --purple:#a78bfa;--red:#f87171;--orange:#fb923c;--cyan:#22d3ee;
+  --txt:#edeae3;--txt2:#888480;--txt3:#46433e;
+  --f:'Outfit',sans-serif;--fs:'Playfair Display',serif;
+  --nav:58px;--mw:720px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 80% 45% at 50% -8%,rgba(52,211,153,0.07),transparent),linear-gradient(rgba(255,255,255,0.011) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.011) 1px,transparent 1px);background-size:100%,52px 52px,52px 52px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,9,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:15px;font-weight:700;color:#060709}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-0.3px}
+.logo-txt em{font-style:italic;color:var(--acc);font-family:var(--fs)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none}.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--fs);font-size:clamp(28px,6vw,48px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:500px;margin:0 auto}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,0.35),transparent)}
+/* Goal presets */
+.preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.preset-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 14px;border-radius:12px;border:1px solid var(--bdr);background:var(--surf2);cursor:pointer;transition:all .18s;font-family:var(--f)}
+.preset-btn:hover{border-color:var(--acc-bdr);background:var(--acc-dim)}
+.preset-btn.on{border-color:var(--acc);background:var(--acc-dim)}
+.pb-icon{font-size:18px}
+.pb-name{font-size:10px;font-weight:700;color:var(--txt);text-align:center}
+.preset-btn.on .pb-name{color:var(--acc)}
+/* Mode tabs */
+.tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:4px;gap:4px;margin-bottom:20px}
+.tab{flex:1;padding:9px 6px;border-radius:9px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.tab:hover{color:var(--txt)}.tab.on{background:var(--surf3);color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,0.4)}
+/* Inputs */
+.slbl{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:8px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+input[type=number],select{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;color:var(--txt);font-family:var(--f);font-size:15px;font-weight:600;padding:12px 16px;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}
+input:focus,select:focus{border-color:rgba(52,211,153,0.45);box-shadow:0 0 0 3px rgba(52,211,153,0.07);outline:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2346433e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer}
+.input-u{position:relative}.input-u input{padding-left:36px;padding-right:36px}
+.u-pre{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px;font-weight:700;color:var(--txt3);pointer-events:none}
+.u-suf{position:absolute;right:13px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--txt3);pointer-events:none}
+.hint{font-size:11px;color:var(--txt3);margin-top:4px;line-height:1.5}
+.err{display:none;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.22);color:#f87171;font-size:13px;padding:10px 14px;border-radius:8px;margin-top:4px}.err.show{display:block}
+.brow{display:flex;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:700;cursor:pointer;border:none;transition:transform .12s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
+.bp{background:var(--acc);color:#060709;flex:1}.bp:hover{background:#6ee7b7;box-shadow:0 6px 24px rgba(52,211,153,0.28)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr);padding:13px 18px}.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+/* Results */
+.res{opacity:0;transform:translateY(10px);transition:opacity .38s,transform .38s;pointer-events:none;margin-top:24px}
+.res.show{opacity:1;transform:translateY(0);pointer-events:auto}
+/* Hero */
+.hero{background:linear-gradient(135deg,rgba(52,211,153,0.11),rgba(52,211,153,0.03));border:1px solid rgba(52,211,153,0.22);border-radius:18px;padding:26px 22px;text-align:center;margin-bottom:12px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,0.55),transparent)}
+.hero-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(52,211,153,.8);display:block;margin-bottom:5px}
+.hero-num{font-family:var(--fs);font-size:clamp(52px,12vw,82px);font-weight:700;line-height:1;color:var(--acc);display:block;letter-spacing:-2px}
+.hero-sub{font-size:13px;color:var(--txt2);margin-top:7px}
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.stat{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:14px 10px;text-align:center;transition:border-color .18s}
+.stat:hover{border-color:rgba(52,211,153,0.18)}
+.sv{display:block;font-family:var(--fs);font-size:20px;font-weight:700;line-height:1.1;margin-bottom:3px;word-break:break-word}
+.sk{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+/* Progress visualization */
+.progress-section{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:18px;margin-bottom:12px}
+.ps-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.ps-pct{color:var(--acc);font-size:12px}
+.progress-track{height:12px;background:var(--surf3);border-radius:100px;overflow:hidden;margin-bottom:8px}
+.progress-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--acc2),var(--acc));transition:width .6s cubic-bezier(.34,1.56,.64,1)}
+.ps-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--txt3)}
+/* Interest card */
+.interest-card{background:var(--gold-dim);border:1px solid var(--gold-bdr);border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ic-left{display:flex;align-items:center;gap:10px}
+.ic-icon{font-size:22px}
+.ic-title{font-size:13px;font-weight:700;color:var(--txt)}
+.ic-sub{font-size:11px;color:rgba(251,191,36,.6);margin-top:2px}
+.ic-val{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--gold);white-space:nowrap}
+/* Timeline milestones */
+.timeline-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px;margin-bottom:12px}
+.tl-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.milestone-list{display:flex;flex-direction:column;gap:0}
+.milestone{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--bdr);position:relative}
+.milestone:last-child{border-bottom:none}
+.ms-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;background:var(--surf3);border:2px solid var(--bdr)}
+.ms-dot.reached{background:var(--acc);border-color:var(--acc-bdr)}
+.ms-dot.goal{background:var(--gold);border-color:var(--gold-bdr)}
+.ms-content{flex:1}
+.ms-label{font-size:13px;font-weight:600;color:var(--txt)}
+.ms-date{font-size:11px;color:var(--txt3);margin-top:1px}
+.ms-amount{font-family:var(--fs);font-size:15px;font-weight:700;color:var(--acc);white-space:nowrap}
+.ms-amount.goal-amt{color:var(--gold)}
+/* Monthly savings table */
+.tbl-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.tbl-ttl{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);padding:11px 14px 7px}
+.tscroll{max-height:260px;overflow-y:auto}
+.tscroll::-webkit-scrollbar{width:4px}
+.tscroll::-webkit-scrollbar-thumb{background:var(--surf3);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead{position:sticky;top:0;background:var(--surf3);z-index:1}
+th{padding:8px 10px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+th:not(:first-child),td:not(:first-child){text-align:right}
+td{padding:8px 10px;border-bottom:1px solid var(--bdr);color:var(--txt2)}
+tr:last-child td{border-bottom:none}
+tr.goal-row td{color:var(--gold);font-weight:700;background:rgba(251,191,36,0.05)}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.cpbtn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:12px;font-weight:600;padding:8px 14px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+/* Info/FAQ/Footer */
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:260px;padding-top:10px}
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(52,211,153,0.22);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}.rn{font-size:12px;font-weight:700;display:block}.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:24px 14px 60px}.card{padding:22px 16px}.r2{grid-template-columns:1fr 1fr}.r3{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(3,1fr)}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.brow{flex-direction:column}.bs{width:100%}.preset-row{gap:5px}}
+@media(max-width:400px){.r2{grid-template-columns:1fr}.r3{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="../index.html" class="nl on" aria-current="page">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="../index.html" class="nl on">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main>
+  <nav class="bc">
+    <a href="../index.html">Home</a><span> › </span>
+    <a href="../index.html">Calculators</a><span> › </span>
+    <span style="color:var(--txt2)">Savings Goal Calculator</span>
+  </nav>
+  <header class="ph">
+    <div class="badge">🎯 Savings Planner</div>
+    <h1>Savings Goal <em>Calculator</em></h1>
+    <p class="sub">Find exactly how much to save per month to reach any financial goal. Emergency fund, vacation, car, home — with interest earned and monthly milestone tracking.</p>
+  </header>
+
+  <div class="card">
+    <!-- Goal presets -->
+    <div class="slbl" style="margin-bottom:10px">What are you saving for?</div>
+    <div class="preset-row" id="preset-row" role="group" aria-label="Savings goal presets">
+      <button class="preset-btn" onclick="setPreset('emergency',this)"><span class="pb-icon">🛡️</span><span class="pb-name">Emergency<br>Fund</span></button>
+      <button class="preset-btn" onclick="setPreset('vacation',this)"><span class="pb-icon">✈️</span><span class="pb-name">Vacation<br>Trip</span></button>
+      <button class="preset-btn" onclick="setPreset('car',this)"><span class="pb-icon">🚗</span><span class="pb-name">New<br>Car</span></button>
+      <button class="preset-btn" onclick="setPreset('home',this)"><span class="pb-icon">🏠</span><span class="pb-name">Home Down<br>Payment</span></button>
+      <button class="preset-btn" onclick="setPreset('education',this)"><span class="pb-icon">🎓</span><span class="pb-name">Education<br>Fund</span></button>
+      <button class="preset-btn" onclick="setPreset('wedding',this)"><span class="pb-icon">💍</span><span class="pb-name">Wedding<br>Fund</span></button>
+      <button class="preset-btn on" onclick="setPreset('custom',this)"><span class="pb-icon">🎯</span><span class="pb-name">Custom<br>Goal</span></button>
+    </div>
+
+    <!-- Mode tabs -->
+    <div class="tabs" role="tablist">
+      <button class="tab on" id="tab-monthly" onclick="setMode('monthly')" role="tab" aria-selected="true">📅 Find monthly savings</button>
+      <button class="tab" id="tab-time" onclick="setMode('time')" role="tab" aria-selected="false">⏱️ Find time to reach goal</button>
+    </div>
+
+    <!-- Shared inputs -->
+    <div class="r2">
+      <div class="field">
+        <label for="goal-amount">Savings goal amount (₹)</label>
+        <div class="input-u"><span class="u-pre">₹</span><input type="number" id="goal-amount" placeholder="500000" min="1000" step="1000"></div>
+        <div class="hint" id="goal-hint">Your target amount</div>
+      </div>
+      <div class="field">
+        <label for="current-savings">Current savings (₹)</label>
+        <div class="input-u"><span class="u-pre">₹</span><input type="number" id="current-savings" placeholder="0" min="0" step="100"></div>
+        <div class="hint">Already saved toward this goal</div>
+      </div>
+    </div>
+    <div class="r2">
+      <div class="field">
+        <label for="interest-rate">Annual return rate (%)</label>
+        <select id="interest-rate">
+          <option value="3.5">3.5% — Savings account</option>
+          <option value="6">6.0% — Liquid fund</option>
+          <option value="7" selected>7.0% — RD / FD</option>
+          <option value="7.1">7.1% — PPF</option>
+          <option value="10">10% — Balanced MF</option>
+          <option value="12">12% — Equity MF</option>
+          <option value="0">0% — No interest (cash)</option>
+        </select>
+      </div>
+      <div class="field" id="field-time" style="display:none">
+        <label for="monthly-amount">Your monthly savings (₹)</label>
+        <div class="input-u"><span class="u-pre">₹</span><input type="number" id="monthly-amount" placeholder="10000" min="100" step="100"></div>
+        <div class="hint">How much you can save each month</div>
+      </div>
+      <div class="field" id="field-months">
+        <label for="months">Time to reach goal</label>
+        <select id="months">
+          <option value="3">3 months</option>
+          <option value="6">6 months</option>
+          <option value="12" selected>1 year</option>
+          <option value="18">1.5 years</option>
+          <option value="24">2 years</option>
+          <option value="36">3 years</option>
+          <option value="48">4 years</option>
+          <option value="60">5 years</option>
+          <option value="84">7 years</option>
+          <option value="120">10 years</option>
+          <option value="180">15 years</option>
+          <option value="240">20 years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="err" id="err" role="alert" aria-live="polite"></div>
+    <div class="brow">
+      <button class="btn bp" onclick="calc()">🎯 Calculate Savings Plan →</button>
+      <button class="btn bs" onclick="rst()">Reset</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="res" id="res" aria-live="polite">
+      <!-- Hero -->
+      <div class="hero">
+        <span class="hero-lbl" id="hero-lbl">Monthly savings needed</span>
+        <span class="hero-num" id="r-hero">—</span>
+        <div class="hero-sub" id="r-sub"></div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat"><span class="sv" id="r-total-saved" style="color:var(--acc)">—</span><span class="sk">Total you save</span></div>
+        <div class="stat"><span class="sv" id="r-interest" style="color:var(--gold)">—</span><span class="sk">Interest earned</span></div>
+        <div class="stat"><span class="sv" id="r-months-stat" style="color:var(--blue)">—</span><span class="sk">Months / Years</span></div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-section">
+        <div class="ps-title">
+          <span>Progress toward goal</span>
+          <span class="ps-pct" id="r-starting-pct">Starting: 0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="r-prog-fill" style="width:0%"></div></div>
+        <div class="ps-labels">
+          <span id="ps-start">₹0 now</span>
+          <span style="color:var(--acc);font-weight:600" id="ps-goal">Goal: ₹5,00,000</span>
+        </div>
+      </div>
+
+      <!-- Interest bonus card -->
+      <div class="interest-card">
+        <div class="ic-left">
+          <span class="ic-icon" aria-hidden="true">💰</span>
+          <div>
+            <div class="ic-title">Interest / returns bonus</div>
+            <div class="ic-sub" id="ic-sub">Money working for you</div>
+          </div>
+        </div>
+        <span class="ic-val" id="r-interest-big">—</span>
+      </div>
+
+      <!-- Milestone timeline -->
+      <div class="timeline-box">
+        <div class="tl-title">📅 Savings milestones</div>
+        <div class="milestone-list" id="milestone-list"></div>
+      </div>
+
+      <!-- Month-by-month table -->
+      <div class="tbl-box">
+        <div class="tbl-ttl">Month-by-month savings tracker</div>
+        <div class="tscroll">
+          <table aria-label="Monthly savings breakdown">
+            <thead><tr><th>Month</th><th>Contribution</th><th>Interest</th><th>Balance</th><th>Progress</th></tr></thead>
+            <tbody id="tbl-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <button class="cpbtn" id="cpbtn" onclick="cp()">📋 Copy Results</button>
+    </div>
+  </div>
+
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">How to use this savings goal calculator</h2>
+    <p>Choose your goal type, enter the target amount, your existing savings and the time frame. The calculator shows exactly how much to save monthly, with a month-by-month breakdown including interest earned.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🛡️ Emergency fund</div><p>Financial experts recommend 3–6 months of living expenses as an emergency fund. If your monthly expenses are ₹50,000, target ₹1.5–3 lakh. Keep it in a high-interest savings account or liquid fund for quick access.</p></div>
+      <div class="ic"><div class="ic-t">🏠 Down payment</div><p>For a home loan, most banks require 10–20% down payment. On a ₹50 lakh flat, you need ₹5–10 lakh saved. Start early — saving ₹15,000/month for 3 years at 7% gives you ₹5.8 lakh.</p></div>
+      <div class="ic"><div class="ic-t">💡 Power of returns</div><p>Higher return rates dramatically reduce monthly savings needed. For ₹5 lakh in 3 years: at 0% you save ₹13,889/month. At 12% you save only ₹11,424/month — saving ₹88,000 in total contributions.</p></div>
+      <div class="ic"><div class="ic-t">📅 50-30-20 rule</div><p>A simple budgeting rule: 50% of take-home income for needs, 30% for wants, 20% for savings and investments. If you earn ₹60,000/month, target ₹12,000/month toward savings goals.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faqh">
+    <h2 id="faqh">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">How much should I save per month for an emergency fund?</div><div class="fa">Calculate your monthly expenses (rent, food, utilities, EMIs, subscriptions). Multiply by 3–6. That's your target. If your monthly expenses are ₹40,000, you need ₹1.2–2.4 lakh. Use this calculator to find exactly how much to save monthly to build it in your desired timeframe.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">Where should I keep my savings goal money?</div><div class="fa">Short-term goals (under 1 year): High-yield savings account (3.5–6%) or liquid mutual funds (6–7%). Medium-term (1–3 years): FD or RD (6.5–7.5%) or debt mutual funds. Long-term (3+ years): PPF (7.1%, tax-free), or equity mutual funds (10–15% historically).</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">How do I save more money each month?</div><div class="fa">1) Set up automatic transfer on salary day (pay yourself first). 2) Cancel unused subscriptions. 3) Cook more, eat out less. 4) Use the 24-hour rule before any non-essential purchase. 5) Increase savings by 1% each time you get a raise. Even ₹500 extra per month compounds significantly over 5+ years.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">Does interest really make a big difference for savings goals?</div><div class="fa">Yes, significantly. To save ₹10 lakh in 5 years: at 0% interest you need ₹16,667/month. At 7% (RD/FD), you need only ₹13,795/month. At 12% (equity MF), only ₹12,244/month. Over 5 years, the 12% return saves you ₹26,520 in total contributions vs cash savings.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="relh">
+    <div class="sl" id="relh">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="sip-calculator.html"><span class="ri">💹</span><span class="rn">SIP Calculator</span><span class="rd">Mutual fund returns</span></a>
+      <a class="rc" href="rd-calculator.html"><span class="ri">💰</span><span class="rn">RD Calculator</span><span class="rd">Recurring deposit</span></a>
+      <a class="rc" href="ppf-calculator.html"><span class="ri">🏛️</span><span class="rn">PPF Calculator</span><span class="rd">Tax-free savings</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="sip-calculator.html">💹 SIP Calculator</a></li>
+      <li><a href="rd-calculator.html">💰 RD Calculator</a></li>
+      <li><a href="ppf-calculator.html">🏛️ PPF Calculator</a></li>
+      <li><a href="emi-calculator.html">🏦 EMI Calculator</a></li>
+      <li><a href="cagr-calculator.html">📊 CAGR Calculator</a></li>
+    </ul></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl">
+      <li><a href="../text-tools/word-counter.html">📝 Word Counter</a></li>
+      <li><a href="../text-tools/case-converter.html">🔠 Case Converter</a></li>
+      <li><a href="../text-tools/password-generator.html">🔐 Password Gen</a></li>
+    </ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl">
+      <li><a href="../index.html">🏠 All Tools</a></li>
+      <li><a href="../index.html">🧮 All Calculators</a></li>
+      <li><a href="../text-tools/text-tools-index.html">✍️ All Text Tools</a></li>
+      <li><a href="break-even-calculator.html">📊 Break-even Calc</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 50+ tools</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+var mode = 'monthly';
+
+var PRESETS = {
+  emergency: { amount: 300000, months: 12, label: 'Emergency fund (6 months expenses)' },
+  vacation:  { amount: 150000, months: 12, label: 'International vacation' },
+  car:       { amount: 500000, months: 36, label: 'Car down payment' },
+  home:      { amount: 1000000, months: 60, label: 'Home down payment' },
+  education: { amount: 2000000, months: 120, label: 'Higher education fund' },
+  wedding:   { amount: 800000, months: 24, label: 'Wedding fund' },
+  custom:    { amount: null, months: null, label: 'Custom goal' },
+};
+
+function setPreset(key, btn) {
+  document.querySelectorAll('.preset-btn').forEach(function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  var p = PRESETS[key];
+  if (p && p.amount) {
+    document.getElementById('goal-amount').value = p.amount;
+    document.getElementById('goal-hint').textContent = p.label;
+    /* Set months selector closest match */
+    var sel = document.getElementById('months');
+    var opts = Array.from(sel.options).map(function(o){ return parseInt(o.value); });
+    var closest = opts.reduce(function(a,b){ return Math.abs(b-p.months)<Math.abs(a-p.months)?b:a; });
+    sel.value = closest;
+  }
+}
+
+function setMode(m) {
+  mode = m;
+  ['monthly','time'].forEach(function(id){
+    document.getElementById('tab-'+id).classList.toggle('on',id===m);
+    document.getElementById('tab-'+id).setAttribute('aria-selected',id===m);
+  });
+  document.getElementById('field-months').style.display = m==='monthly' ? '' : 'none';
+  document.getElementById('field-time').style.display = m==='time' ? '' : 'none';
+  document.getElementById('hero-lbl').textContent = m==='monthly' ? 'Monthly savings needed' : 'Time to reach goal';
+  document.getElementById('res').classList.remove('show');
+}
+
+function fmt(n) {
+  n = Math.round(n);
+  if (n >= 1e7) return '₹'+(n/1e7).toFixed(2)+' Cr';
+  if (n >= 1e5) return '₹'+(n/1e5).toFixed(2)+' L';
+  if (n >= 1e3) return '₹'+(n/1e3).toFixed(1)+'K';
+  return '₹'+n.toLocaleString('en-IN');
+}
+
+function calc() {
+  var goal     = parseFloat(document.getElementById('goal-amount').value);
+  var existing = parseFloat(document.getElementById('current-savings').value) || 0;
+  var rate     = parseFloat(document.getElementById('interest-rate').value) || 0;
+  var r        = rate / 1200; /* monthly rate */
+
+  if (isNaN(goal) || goal <= 0) { showErr('Please enter a valid savings goal amount.'); return; }
+  if (existing >= goal) { showErr('Your current savings already meet or exceed your goal!'); return; }
+  hideErr();
+
+  var monthlySave, totalMonths;
+
+  if (mode === 'monthly') {
+    totalMonths = parseInt(document.getElementById('months').value);
+    var needed  = goal - existing * Math.pow(1+r, totalMonths);
+    if (r === 0) {
+      monthlySave = needed / totalMonths;
+    } else {
+      monthlySave = needed * r / (Math.pow(1+r, totalMonths) - 1);
+    }
+    if (monthlySave < 0) monthlySave = 0;
+  } else {
+    var monthlyAmt = parseFloat(document.getElementById('monthly-amount').value);
+    if (isNaN(monthlyAmt) || monthlyAmt <= 0) { showErr('Please enter your monthly savings amount.'); return; }
+    monthlySave = monthlyAmt;
+    /* Find months */
+    if (r === 0) {
+      totalMonths = Math.ceil((goal - existing) / monthlyAmt);
+    } else {
+      /* FV = existing*(1+r)^n + monthly*((1+r)^n-1)/r = goal */
+      /* Solve iteratively */
+      totalMonths = 1;
+      while (totalMonths < 3600) {
+        var fv = existing * Math.pow(1+r, totalMonths) + monthlyAmt * (Math.pow(1+r, totalMonths) - 1) / r;
+        if (fv >= goal) break;
+        totalMonths++;
+      }
+    }
+  }
+
+  /* Build monthly data */
+  var balance = existing;
+  var totalContrib = existing;
+  var months = [];
+  for (var m = 1; m <= totalMonths; m++) {
+    var interest = balance * r;
+    balance = balance + monthlySave + interest;
+    totalContrib += monthlySave;
+    months.push({ m: m, contrib: monthlySave, interest: interest, balance: balance });
+  }
+
+  var totalInterest = balance - totalContrib;
+  var startPct = existing / goal * 100;
+  var yrs = Math.floor(totalMonths / 12);
+  var mos = totalMonths % 12;
+  var timeStr = yrs > 0 ? yrs + ' yr' + (yrs>1?'s':'') + (mos>0?' '+mos+' mo':'') : totalMonths + ' months';
+
+  /* DOM */
+  document.getElementById('r-hero').textContent = mode==='monthly' ? fmt(monthlySave)+'/mo' : timeStr;
+  document.getElementById('r-sub').textContent = 'To reach '+fmt(goal)+' from '+fmt(existing)+' in '+timeStr;
+  document.getElementById('r-total-saved').textContent = fmt(totalContrib - existing);
+  document.getElementById('r-interest').textContent = fmt(totalInterest);
+  document.getElementById('r-months-stat').textContent = timeStr;
+
+  /* Progress */
+  document.getElementById('r-starting-pct').textContent = 'Starting: ' + startPct.toFixed(1) + '%';
+  document.getElementById('r-prog-fill').style.width = Math.min(startPct, 100) + '%';
+  document.getElementById('ps-start').textContent = fmt(existing) + ' now';
+  document.getElementById('ps-goal').textContent = 'Goal: ' + fmt(goal);
+
+  /* Interest card */
+  document.getElementById('r-interest-big').textContent = fmt(totalInterest);
+  document.getElementById('ic-sub').textContent = 'At ' + rate + '% annual return over ' + timeStr;
+
+  /* Milestones */
+  buildMilestones(months, goal, existing, totalMonths);
+
+  /* Table — show every month or every quarter */
+  buildTable(months, goal, totalContrib);
+
+  document.getElementById('res').classList.add('show');
+  setTimeout(function(){ document.getElementById('res').scrollIntoView({ behavior:'smooth', block:'nearest' }); }, 50);
+}
+
+function buildMilestones(months, goal, existing, totalMonths) {
+  var list = document.getElementById('milestone-list');
+  list.innerHTML = '';
+  var pcts = [0.25, 0.5, 0.75, 1.0];
+  var milestones = [];
+
+  /* Starting */
+  milestones.push({ label: 'Starting balance', amount: existing, date: 'Today', reached: true, isGoal: false });
+
+  pcts.forEach(function(pct) {
+    var target = goal * pct;
+    var mo = months.find(function(m){ return m.balance >= target; });
+    if (mo) {
+      var d = new Date();
+      d.setMonth(d.getMonth() + mo.m);
+      var dateStr = d.toLocaleDateString('en-IN', { month:'short', year:'numeric' });
+      milestones.push({
+        label: Math.round(pct*100) + '% of goal reached',
+        amount: target,
+        date: dateStr + ' (Month ' + mo.m + ')',
+        reached: pct === 1.0,
+        isGoal: pct === 1.0
+      });
+    }
+  });
+
+  milestones.forEach(function(ms) {
+    var div = document.createElement('div'); div.className = 'milestone';
+    var dot = document.createElement('div'); dot.className = 'ms-dot' + (ms.reached ? (ms.isGoal ? ' goal' : ' reached') : '');
+    var cont = document.createElement('div'); cont.className = 'ms-content';
+    cont.innerHTML = '<div class="ms-label">' + ms.label + '</div><div class="ms-date">' + ms.date + '</div>';
+    var amt = document.createElement('div');
+    amt.className = 'ms-amount' + (ms.isGoal ? ' goal-amt' : '');
+    amt.textContent = fmt(ms.amount);
+    div.appendChild(dot); div.appendChild(cont); div.appendChild(amt);
+    list.appendChild(div);
+  });
+}
+
+function buildTable(months, goal, totalContrib) {
+  var tbody = document.getElementById('tbl-body'); tbody.innerHTML = '';
+  var step = months.length <= 24 ? 1 : months.length <= 60 ? 3 : 6;
+  months.forEach(function(mo, i) {
+    if ((i+1) % step !== 0 && (i+1) !== months.length) return;
+    var pct = Math.min((mo.balance / goal) * 100, 100);
+    var isGoal = (i+1) === months.length;
+    var tr = document.createElement('tr');
+    if (isGoal) tr.className = 'goal-row';
+    tr.innerHTML = '<td style="color:var(--txt3);font-weight:700">' + (i+1) + (isGoal?' 🎯':'') + '</td>' +
+      '<td style="color:var(--acc)">' + fmt(mo.contrib) + '</td>' +
+      '<td style="color:var(--gold)">' + fmt(mo.interest) + '</td>' +
+      '<td style="color:var(--txt);font-weight:700">' + fmt(mo.balance) + '</td>' +
+      '<td style="color:'+(pct>=100?'var(--grn)':'var(--txt2)')+'">'+pct.toFixed(1)+'%</td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function rst() {
+  document.getElementById('goal-amount').value = '';
+  document.getElementById('current-savings').value = '';
+  document.getElementById('monthly-amount').value = '';
+  document.getElementById('months').value = '12';
+  document.getElementById('interest-rate').value = '7';
+  document.getElementById('res').classList.remove('show');
+  document.querySelectorAll('.preset-btn').forEach(function(b){ b.classList.remove('on'); });
+  document.querySelector('.preset-btn:last-child').classList.add('on');
+  hideErr();
+}
+
+function showErr(m){ var e=document.getElementById('err');e.textContent=m;e.classList.add('show'); }
+function hideErr(){ document.getElementById('err').classList.remove('show'); }
+
+function cp() {
+  var t = 'Savings Goal Results\n─────────────────────\n'+
+    'Goal: '+document.getElementById('r-sub').textContent+'\n'+
+    document.getElementById('hero-lbl').textContent+': '+document.getElementById('r-hero').textContent+'\n'+
+    'Total contributions: '+document.getElementById('r-total-saved').textContent+'\n'+
+    'Interest earned: '+document.getElementById('r-interest').textContent+'\n'+
+    'Time to goal: '+document.getElementById('r-months-stat').textContent;
+  function ok(){ var b=document.getElementById('cpbtn');b.textContent='✓ Copied!';b.style.color='var(--acc)';setTimeout(function(){b.textContent='📋 Copy Results';b.style.color='';},2500); }
+  function fb(){ var ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta); }
+  if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(t).then(ok).catch(fb); } else { fb(); }
+}
+
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';}); }});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';}); }});})();
+function faq(el){var i=el.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});if(!w){i.classList.add('open');el.setAttribute('aria-expanded','true');}}
+document.addEventListener('keydown',function(e){if(e.key==='Enter')calc();});
+</script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Random Number Generator — Generate Random Numbers Instantly | ToolsBox</title>
+<meta name="description" content="Free random number generator. Generate single or multiple random numbers within any range. Supports integers, decimals, unique sets, dice rolls, and random lists. No signup needed.">
+<meta name="keywords" content="random number generator, generate random numbers, random number picker, random integer generator, dice roller, lottery number generator, random list generator, number randomizer">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://yourdomain.com/text-tools/random-number-generator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Random Number Generator | ToolsBox">
+<meta property="og:description" content="Generate random numbers in any range. Single, multiple, unique, dice, decimals. Free, instant, no signup.">
+<meta property="og:url" content="https://yourdomain.com/text-tools/random-number-generator.html">
+<meta property="og:site_name" content="ToolsBox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Random Number Generator | ToolsBox">
+<meta name="twitter:description" content="Free random number generator. Any range, any count. Instant.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Random Number Generator","url":"https://yourdomain.com/text-tools/random-number-generator.html","description":"Free random number generator. Generate single or multiple random numbers in any range with support for decimals, unique sets and dice rolls.","applicationCategory":"UtilityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I generate a random number between 1 and 100?","acceptedAnswer":{"@type":"Answer","text":"Set the minimum to 1, maximum to 100, count to 1, and click Generate. This tool uses the Web Crypto API for cryptographically secure randomness — far better than Math.random()."}},{"@type":"Question","name":"Can I generate multiple random numbers at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set the Count field to how many numbers you want. Enable Unique to ensure no number appears twice. You can generate up to 10,000 numbers at once."}},{"@type":"Question","name":"How do I use this as a dice roller?","acceptedAnswer":{"@type":"Answer","text":"Use the Dice Roller tab. Select d4, d6, d8, d10, d12, d20 or d100, enter the number of dice, and roll. Results show individual die values and the total sum."}},{"@type":"Question","name":"Is this random number generator truly random?","acceptedAnswer":{"@type":"Answer","text":"This tool uses window.crypto.getRandomValues() — the Web Crypto API — which provides cryptographically secure pseudo-random numbers. This is significantly more random than Math.random() which many online tools use."}},{"@type":"Question","name":"Can I generate random decimal numbers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable the Decimals toggle and set how many decimal places you want (1–8). The generator will produce floating-point numbers within your specified range."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090a;--bg2:#0c0c0e;--surf:#111114;--surf2:#18181c;--surf3:#222228;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.13);
+  --acc:#eab308;--acc2:#ca8a04;--acc3:#fde047;
+  --acc-dim:rgba(234,179,8,0.1);--acc-bdr:rgba(234,179,8,0.32);--acc-glow:rgba(234,179,8,0.2);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.09);--grn-bdr:rgba(34,197,94,0.26);
+  --sky:#38bdf8;--sky-dim:rgba(56,189,248,0.08);--sky-bdr:rgba(56,189,248,0.24);
+  --rose:#f87171;--rose-dim:rgba(248,113,113,0.08);--rose-bdr:rgba(248,113,113,0.24);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.09);--violet-bdr:rgba(167,139,250,0.26);
+  --txt:#f4f4f5;--txt2:#71717a;--txt3:#3f3f46;
+  --f:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
+  --nav:58px;--mw:700px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 60% 40% at 50% -10%,rgba(234,179,8,.07),transparent),linear-gradient(rgba(255,255,255,.006) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.006) 1px,transparent 1px);background-size:100%,48px 48px,48px 48px;pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(9,9,10,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;font-weight:700;color:#09090a}
+.logo-txt{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-.4px}
+.logo-txt em{font-style:italic;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}
+.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}
+.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:36px 18px 80px}
+.bc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+.ph{text-align:center;margin-bottom:32px;animation:fD .55s ease both}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:16px}
+h1{font-family:var(--f);font-size:clamp(28px,6vw,48px);font-weight:700;line-height:1.06;color:var(--txt);margin-bottom:12px;letter-spacing:-.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:15px;line-height:1.65;max-width:480px;margin:0 auto;font-weight:500}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:22px;padding:28px;animation:fU .6s ease .08s both;position:relative;overflow:hidden;margin-bottom:14px}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(234,179,8,.4),transparent)}
+.tabs{display:flex;background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:4px;gap:4px;margin-bottom:24px}
+.tab{flex:1;padding:9px 8px;border-radius:9px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.tab:hover{color:var(--txt)}
+.tab.on{background:var(--surf3);color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,.5)}
+.sec-lbl{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+/* range inputs */
+.range-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3)}
+.num-inp{width:100%;background:var(--surf2);border:1px solid var(--bdr);border-radius:11px;color:var(--txt);font-family:var(--mono);font-size:16px;font-weight:700;padding:12px 14px;outline:none;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield;text-align:center}
+.num-inp::-webkit-inner-spin-button,.num-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+.num-inp:focus{border-color:var(--acc-bdr);box-shadow:0 0 0 3px var(--acc-glow)}
+.num-inp::placeholder{color:var(--txt3)}
+/* toggles */
+.toggle-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.tog{display:flex;align-items:center;gap:8px;background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:9px 14px;cursor:pointer;transition:all .18s;user-select:none}
+.tog:hover{border-color:var(--acc-bdr)}
+.tog.on{background:var(--acc-dim);border-color:var(--acc-bdr)}
+.tog-sw{width:32px;height:18px;border-radius:100px;background:var(--surf3);position:relative;transition:background .2s;flex-shrink:0}
+.tog.on .tog-sw{background:var(--acc)}
+.tog-sw::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.tog.on .tog-sw::after{transform:translateX(14px)}
+.tog-lbl{font-size:12px;font-weight:700;color:var(--txt2);transition:color .18s}
+.tog.on .tog-lbl{color:var(--acc)}
+/* decimal field */
+.dec-field{display:none;align-items:center;gap:10px;margin-bottom:16px}
+.dec-field.show{display:flex}
+.dec-field label{font-size:11px;font-weight:700;color:var(--txt2);white-space:nowrap}
+.dec-inp{background:var(--surf2);border:1px solid var(--bdr);border-radius:9px;color:var(--txt);font-family:var(--mono);font-size:14px;font-weight:700;padding:8px 14px;width:80px;text-align:center;outline:none;transition:border-color .2s;-moz-appearance:textfield}
+.dec-inp::-webkit-inner-spin-button,.dec-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+.dec-inp:focus{border-color:var(--acc-bdr)}
+/* BIG NUMBER output */
+.big-num{background:linear-gradient(135deg,rgba(234,179,8,.12),rgba(234,179,8,.03));border:1px solid var(--acc-bdr);border-radius:18px;padding:28px 22px;text-align:center;margin:16px 0;position:relative;overflow:hidden;cursor:pointer;transition:transform .15s}
+.big-num:hover{transform:scale(1.01)}
+.big-num::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(234,179,8,.55),transparent)}
+.bn-label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:10px;display:block}
+.bn-val{font-family:var(--mono);font-size:clamp(42px,12vw,80px);font-weight:700;line-height:1;color:var(--acc);display:block;letter-spacing:-.02em;word-break:break-all}
+.bn-hint{font-size:10px;color:var(--txt3);margin-top:8px;display:block;font-weight:600}
+/* multi results */
+.multi-out{background:var(--surf2);border:1px solid var(--bdr);border-radius:14px;padding:16px;margin-bottom:12px;display:none}
+.multi-out.show{display:block}
+.mo-title{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.num-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.num-chip{background:var(--surf3);border:1px solid var(--bdr);border-radius:8px;padding:6px 14px;font-family:var(--mono);font-size:14px;font-weight:700;color:var(--acc);cursor:pointer;transition:all .15s}
+.num-chip:hover{background:var(--acc-dim);border-color:var(--acc-bdr)}
+.mo-stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:11px;font-weight:600;color:var(--txt3)}
+.mo-stats span{color:var(--txt2)}
+.mo-stats b{color:var(--txt)}
+/* DICE */
+.dice-grid{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.die-btn{padding:10px 16px;border-radius:11px;font-family:var(--mono);font-size:14px;font-weight:700;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.die-btn:hover{border-color:var(--acc-bdr);color:var(--txt)}
+.die-btn.on{background:var(--acc);border-color:var(--acc);color:#09090a;box-shadow:0 4px 16px var(--acc-glow)}
+.dice-results{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;justify-content:center}
+.die-face{width:52px;height:52px;border-radius:12px;background:var(--surf2);border:2px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;font-weight:700;color:var(--acc);animation:dicePop .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes dicePop{from{opacity:0;transform:scale(.5) rotate(-10deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+.dice-sum{text-align:center;font-family:var(--mono);font-size:14px;color:var(--txt2);margin-top:4px;font-weight:700}
+/* HISTORY */
+.hist-list{display:flex;flex-direction:column;gap:5px;max-height:180px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--surf3) transparent}
+.hist-item{background:var(--surf2);border:1px solid var(--bdr);border-radius:9px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--txt2);cursor:pointer;transition:border-color .15s}
+.hist-item:hover{border-color:var(--acc-bdr)}
+.hist-val{color:var(--acc);font-weight:700}
+.hist-meta{font-size:10px;color:var(--txt3)}
+.hist-empty{text-align:center;padding:20px;font-size:12px;color:var(--txt3)}
+/* buttons */
+.brow{display:flex;gap:9px;margin-top:0;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:12px;font-family:var(--f);font-size:14px;font-weight:700;cursor:pointer;border:none;outline:none;transition:transform .12s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.97)}
+.bp{background:var(--acc);color:#09090a;flex:1}
+.bp:hover{background:var(--acc3);box-shadow:0 6px 22px var(--acc-glow)}
+.bs{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}
+.bs:hover{background:var(--surf3);color:var(--txt);border-color:var(--bdr2)}
+.cpbtn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bdr);color:var(--txt2);font-family:var(--f);font-size:11px;font-weight:700;padding:7px 13px;border-radius:8px;cursor:pointer;transition:all .15s}
+.cpbtn:hover{background:var(--surf2);color:var(--txt);border-color:var(--bdr2)}
+.err{display:none;background:var(--rose-dim);border:1px solid var(--rose-bdr);color:#fca5a5;font-size:13px;padding:10px 14px;border-radius:8px;margin-bottom:12px;font-weight:600}
+.err.show{display:block}
+.info{margin-top:48px;animation:fU .6s ease .2s both}
+.info h2,.faq h2{font-family:var(--f);font-size:clamp(20px,4vw,26px);font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px;font-weight:500}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0;font-weight:500}
+.faq{margin-top:40px;animation:fU .6s ease .25s both}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;font-weight:500}
+.fi.open .fa{max-height:220px;padding-top:10px}
+.rel{margin-top:40px;animation:fU .6s ease .3s both}
+.sl{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:14px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:var(--acc-bdr);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:5px}
+.rn{font-size:11px;font-weight:700;display:block}
+.rd{font-size:10px;color:var(--txt3);margin-top:2px;display:block;font-weight:500}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--grn);color:#09090a;font-family:var(--f);font-size:12px;font-weight:700;padding:.55rem 1.4rem;border-radius:100px;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px;font-weight:500}
+.fct{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s;font-weight:500}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3);font-weight:500}
+@keyframes fD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.nav-links{display:none}.ham{display:flex}main{padding:24px 14px 60px}.card{padding:20px 14px}.range-row{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.brow{flex-direction:column}.bp{flex:none;width:100%}}
+@media(max-width:400px){.range-row{grid-template-columns:1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="logo-box">#</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a><a href="../index.html" class="nl on" aria-current="page">✍️ Text Tools</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob" role="navigation"><a href="../index.html" class="nl">🏠 Home</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a><a href="../index.html" class="nl on">✍️ Text Tools</a></div>
+
+<main>
+  <nav class="bc" aria-label="Breadcrumb"><a href="../index.html">Home</a><span> › </span><a href="../index.html">Text Tools</a><span> › </span><span aria-current="page" style="color:var(--txt2)">Random Number Generator</span></nav>
+  <header class="ph">
+    <div class="badge">🎲 Random Generator</div>
+    <h1>Random Number <em>Generator</em></h1>
+    <p class="sub">Generate cryptographically secure random numbers in any range. Single, multiple, unique, dice, decimals — all modes included.</p>
+  </header>
+
+  <section class="card" aria-label="Random Number Generator">
+    <div class="tabs" role="tablist">
+      <button class="tab on" onclick="RNG.setTab('single')" role="tab" aria-selected="true">🎯 Single</button>
+      <button class="tab" onclick="RNG.setTab('multi')" role="tab" aria-selected="false">📋 Multiple</button>
+      <button class="tab" onclick="RNG.setTab('dice')" role="tab" aria-selected="false">🎲 Dice Roller</button>
+    </div>
+
+    <!-- SINGLE / MULTI PANE -->
+    <div id="pane-num">
+      <div class="sec-lbl">Range</div>
+      <div class="range-row">
+        <div class="field"><label for="rng-min">Minimum</label><input type="number" id="rng-min" class="num-inp" value="1" placeholder="1" oninput="RNG.autoCalc()"></div>
+        <div class="field"><label for="rng-max">Maximum</label><input type="number" id="rng-max" class="num-inp" value="100" placeholder="100" oninput="RNG.autoCalc()"></div>
+        <div class="field" id="count-field"><label for="rng-count">Count</label><input type="number" id="rng-count" class="num-inp" value="1" min="1" max="10000" placeholder="1" oninput="RNG.autoCalc()"></div>
+      </div>
+
+      <div class="toggle-row" role="group" aria-label="Options">
+        <div class="tog" id="tog-unique" onclick="RNG.togOpt('unique')" role="checkbox" aria-checked="false" tabindex="0"><div class="tog-sw"></div><span class="tog-lbl">Unique numbers</span></div>
+        <div class="tog" id="tog-decimal" onclick="RNG.togOpt('decimal')" role="checkbox" aria-checked="false" tabindex="0"><div class="tog-sw"></div><span class="tog-lbl">Allow decimals</span></div>
+        <div class="tog" id="tog-sort" onclick="RNG.togOpt('sort')" role="checkbox" aria-checked="false" tabindex="0"><div class="tog-sw"></div><span class="tog-lbl">Sort results</span></div>
+      </div>
+
+      <div class="dec-field" id="dec-field">
+        <label>Decimal places</label>
+        <input type="number" id="dec-places" class="dec-inp" value="2" min="1" max="8" oninput="RNG.autoCalc()">
+      </div>
+
+      <div class="err" id="err" role="alert" aria-live="polite"></div>
+
+      <!-- BIG RESULT -->
+      <div class="big-num" id="big-num" onclick="RNG.copySingle()" title="Click to copy" role="button" aria-label="Result — click to copy">
+        <span class="bn-label">🎲 Your Random Number</span>
+        <span class="bn-val" id="bn-val">—</span>
+        <span class="bn-hint">Click to copy</span>
+      </div>
+
+      <!-- MULTI RESULTS -->
+      <div class="multi-out" id="multi-out">
+        <div class="mo-title">All generated numbers <span id="mo-count-lbl"></span></div>
+        <div class="num-cloud" id="num-cloud"></div>
+        <div class="mo-stats" id="mo-stats"></div>
+      </div>
+
+      <div class="brow" style="margin-top:12px">
+        <button class="btn bp" onclick="RNG.generate()" id="gen-btn">🎲 Generate</button>
+        <button class="btn bs" onclick="RNG.copyAll()" id="copy-all-btn" style="display:none">📋 Copy All</button>
+        <button class="btn bs" onclick="RNG.resetNum()">Reset</button>
+      </div>
+    </div>
+
+    <!-- DICE PANE -->
+    <div id="pane-dice" style="display:none">
+      <div class="sec-lbl">Select die type</div>
+      <div class="dice-grid" role="group" aria-label="Die type">
+        <button class="die-btn" data-sides="4" onclick="RNG.setDie(this)">d4</button>
+        <button class="die-btn on" data-sides="6" onclick="RNG.setDie(this)">d6</button>
+        <button class="die-btn" data-sides="8" onclick="RNG.setDie(this)">d8</button>
+        <button class="die-btn" data-sides="10" onclick="RNG.setDie(this)">d10</button>
+        <button class="die-btn" data-sides="12" onclick="RNG.setDie(this)">d12</button>
+        <button class="die-btn" data-sides="20" onclick="RNG.setDie(this)">d20</button>
+        <button class="die-btn" data-sides="100" onclick="RNG.setDie(this)">d100</button>
+      </div>
+
+      <div class="field" style="margin-bottom:18px">
+        <label for="dice-count" style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3)">Number of dice</label>
+        <input type="number" id="dice-count" class="num-inp" value="2" min="1" max="20" style="max-width:120px">
+      </div>
+
+      <div class="dice-results" id="dice-results"></div>
+      <div class="dice-sum" id="dice-sum"></div>
+
+      <div class="brow" style="margin-top:16px">
+        <button class="btn bp" onclick="RNG.rollDice()">🎲 Roll Dice</button>
+        <button class="btn bs" onclick="RNG.resetDice()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY CARD -->
+  <section class="card" style="animation-delay:.12s" aria-label="Generation history">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <div class="sec-lbl" style="margin-bottom:0;flex:1">History</div>
+      <button class="cpbtn" onclick="RNG.clearHist()" style="padding:5px 10px;font-size:11px">Clear</button>
+    </div>
+    <div class="hist-list" id="hist-list"><div class="hist-empty">No generations yet — results appear here.</div></div>
+  </section>
+
+  <section class="info" aria-labelledby="info-h">
+    <h2 id="info-h">About this random number generator</h2>
+    <p>This tool uses <strong style="color:var(--txt)">window.crypto.getRandomValues()</strong> — the Web Crypto API — for cryptographically secure randomness. Unlike Math.random(), which is predictable, the Crypto API is suitable for security-sensitive applications.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🔐 Crypto secure</div><p>Uses window.crypto.getRandomValues() — the same API used by password managers and cryptographic software. Not predictable or reproducible.</p></div>
+      <div class="ic"><div class="ic-t">🎯 Unique mode</div><p>Enable "Unique numbers" to ensure no number appears twice in your result set. Useful for lottery picks, shuffling, and fair draws.</p></div>
+      <div class="ic"><div class="ic-t">🎲 Dice roller</div><p>Supports d4, d6, d8, d10, d12, d20, d100. Roll multiple dice at once and get individual results plus the total sum.</p></div>
+      <div class="ic"><div class="ic-t">📋 Bulk generation</div><p>Generate up to 10,000 numbers at once. Sort them, copy them all, or click any individual number chip to copy it.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="RNG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I generate a random number between 1 and 10?</div><div class="fa">Set Min to 1, Max to 10, keep Count at 1, and click Generate. Use the keyboard shortcut Space or Enter to generate quickly without clicking.</div></div>
+    <div class="fi"><div class="fq" onclick="RNG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I pick lottery numbers?</div><div class="fa">Set Min = 1, Max = 49 (or your lottery's range), Count = 6 (or however many numbers your lottery requires), enable Unique, and click Generate. Enable Sort to see them in order.</div></div>
+    <div class="fi"><div class="fq" onclick="RNG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Is this truly random?</div><div class="fa">This generator uses window.crypto.getRandomValues() — a cryptographically secure pseudo-random number generator (CSPRNG). It's far more unpredictable than Math.random() and suitable for security applications.</div></div>
+    <div class="fi"><div class="fq" onclick="RNG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">Can I generate negative numbers?</div><div class="fa">Yes. Set Min to a negative value like -100 and Max to 100. The generator handles negative ranges correctly.</div></div>
+    <div class="fi"><div class="fq" onclick="RNG.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">How do I use this as a dice roller?</div><div class="fa">Click the "Dice Roller" tab. Select your die type (d4 through d100), set how many dice to roll, and click Roll. Individual die values and the sum are shown.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="rel-h">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      
+      <a class="rc" href="../text-tools/word-counter.html"><span class="ri">📝</span><span class="rn">Word Counter</span><span class="rd">Count words fast</span></a>
+      
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">#</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online calculator and text tools. No sign-up. Works instantly in your browser.</p></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl"><li><a href="random-number-generator.html">🎲 Random Number</a></li><li></li><li><a href="../text-tools/word-counter.html">📝 Word Counter</a></li><li></li><li></li><li></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/sip-calculator.html">💹 SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">🧾 GST Calculator</a></li><li><a href="../calculators/tip-calculator.html">🍽️ Tip Calculator</a></li><li><a href="../calculators/time-calculator.html">⏱ Time Calc</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li><a href="../index.html">✍️ All Text Tools</a></li><li><a href="../calculators/calculators-index.html">🧮 All Calculators</a></li><li></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up · 30+ tools</span><span class="fc">Made with ❤️</span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+var RNG=(function(){
+  var _tab='single',_dieSides=6,_opts={unique:false,decimal:false,sort:false};
+  var _calcHist=[];
+
+  /* ── secure random int [lo, hi] ── */
+  function secRandInt(lo,hi){
+    var range=hi-lo+1;
+    var arr=new Uint32Array(1);
+    var max=Math.floor(4294967296/range)*range;
+    do{window.crypto.getRandomValues(arr);}while(arr[0]>=max);
+    return lo+arr[0]%range;
+  }
+  function secRandFloat(lo,hi,dec){
+    var arr=new Uint32Array(1);window.crypto.getRandomValues(arr);
+    var f=lo+(arr[0]/4294967296)*(hi-lo);
+    return parseFloat(f.toFixed(dec));
+  }
+
+  function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2200);}
+  function showErr(m){var e=document.getElementById('err');e.textContent=m;e.classList.add('show');}
+  function hideErr(){document.getElementById('err').classList.remove('show');}
+  function copyText(text,msg){
+    function ok(){showToast(msg||'✓ Copied');}
+    function fb(){var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(ok).catch(fb);}else{fb();}
+  }
+
+  function pushHist(label,val){
+    _calcHist.unshift({label:label,val:val,time:new Date().toLocaleTimeString()});
+    if(_calcHist.length>20)_calcHist.pop();
+    renderHist();
+  }
+  function renderHist(){
+    var el=document.getElementById('hist-list');
+    if(!_calcHist.length){el.innerHTML='<div class="hist-empty">No generations yet — results appear here.</div>';return;}
+    el.innerHTML=_calcHist.map(function(h,i){
+      return '<div class="hist-item" onclick="RNG.recallHist('+i+')" role="button" tabindex="0" title="Click to restore">'+
+        '<span class="hist-val">'+h.val+'</span>'+
+        '<span class="hist-meta">'+h.label+' · '+h.time+'</span></div>';
+    }).join('');
+  }
+
+  return{
+    setTab:function(t){
+      _tab=t;
+      var tabs=['single','multi','dice'];
+      document.querySelectorAll('.tab').forEach(function(el,i){el.classList.toggle('on',tabs[i]===t);el.setAttribute('aria-selected',String(tabs[i]===t));});
+      document.getElementById('pane-num').style.display=(t==='single'||t==='multi')?'':'none';
+      document.getElementById('pane-dice').style.display=t==='dice'?'':'none';
+      if(t==='single'){document.getElementById('count-field').style.display='none';document.getElementById('multi-out').classList.remove('show');document.getElementById('copy-all-btn').style.display='none';}
+      else if(t==='multi'){document.getElementById('count-field').style.display='';};
+    },
+    togOpt:function(k){
+      _opts[k]=!_opts[k];
+      var el=document.getElementById('tog-'+k);
+      el.classList.toggle('on',_opts[k]);el.setAttribute('aria-checked',String(_opts[k]));
+      if(k==='decimal'){document.getElementById('dec-field').classList.toggle('show',_opts.decimal);}
+      if(_tab!=='dice')this.autoCalc();
+    },
+    setDie:function(el){
+      _dieSides=parseInt(el.dataset.sides,10);
+      document.querySelectorAll('.die-btn').forEach(function(p){p.classList.toggle('on',p===el);});
+    },
+    autoCalc:function(){/* no auto-calc on range change for RNG — deliberate */},
+    generate:function(){
+      hideErr();
+      var lo=parseFloat(document.getElementById('rng-min').value);
+      var hi=parseFloat(document.getElementById('rng-max').value);
+      var count=_tab==='multi'?Math.max(1,Math.min(10000,parseInt(document.getElementById('rng-count').value,10)||1)):1;
+      if(isNaN(lo)||isNaN(hi)){showErr('Please enter valid min and max values.');return;}
+      if(lo>hi){showErr('Minimum must be less than or equal to maximum.');return;}
+      var dec=_opts.decimal?Math.max(1,Math.min(8,parseInt(document.getElementById('dec-places').value,10)||2)):0;
+
+      var nums=[];
+      if(_opts.unique&&!_opts.decimal){
+        var range=hi-lo+1;
+        if(count>range){showErr('Count ('+count+') exceeds the range size ('+range+'). Disable Unique or increase the range.');return;}
+        /* Fisher-Yates on generated pool */
+        var pool=[];for(var i=lo;i<=hi;i++)pool.push(i);
+        for(var j=pool.length-1;j>0;j--){var k=secRandInt(0,j);var tmp=pool[j];pool[j]=pool[k];pool[k]=tmp;}
+        nums=pool.slice(0,count);
+      } else {
+        for(var n=0;n<count;n++){
+          nums.push(dec?secRandFloat(lo,hi,dec):secRandInt(lo,hi));
+        }
+      }
+      if(_opts.sort) nums.sort(function(a,b){return a-b;});
+
+      var first=nums[0];
+      /* BIG NUM */
+      var bnVal=document.getElementById('bn-val');
+      bnVal.style.animation='none';bnVal.offsetHeight;bnVal.style.animation='';
+      bnVal.textContent=_tab==='multi'&&count>1?count+' numbers generated':first;
+      document.getElementById('big-num').style.display='';
+
+      /* MULTI */
+      if(_tab==='multi'&&count>1){
+        document.getElementById('multi-out').classList.add('show');
+        document.getElementById('mo-count-lbl').textContent='('+count+')';
+        var cloud=document.getElementById('num-cloud');
+        cloud.innerHTML=nums.map(function(n){
+          return '<div class="num-chip" onclick="RNG._copyChip(\''+n+'\')" title="Copy '+n+'">'+n+'</div>';
+        }).join('');
+        var sum=nums.reduce(function(a,b){return a+b;},0);
+        var avg=sum/nums.length;
+        document.getElementById('mo-stats').innerHTML='Sum: <b>'+Math.round(sum*1e6)/1e6+'</b> · Average: <b>'+Math.round(avg*1e6)/1e6+'</b> · Min: <b>'+Math.min.apply(null,nums)+'</b> · Max: <b>'+Math.max.apply(null,nums)+'</b>';
+        document.getElementById('copy-all-btn').style.display='';
+        bnVal.textContent=count+' numbers generated';
+      } else {
+        document.getElementById('multi-out').classList.remove('show');
+        document.getElementById('copy-all-btn').style.display='none';
+        bnVal.textContent=first;
+      }
+
+      var label='['+lo+'–'+hi+']'+(count>1?' ×'+count:'');
+      pushHist(label,_tab==='multi'&&count>1?nums.slice(0,3).join(', ')+(count>3?'…':''):first);
+    },
+    _copyChip:function(v){copyText(String(v),'✓ Copied: '+v);},
+    copySingle:function(){var v=document.getElementById('bn-val').textContent;if(v&&v!=='—')copyText(v,'✓ Copied: '+v);},
+    copyAll:function(){
+      var chips=document.querySelectorAll('.num-chip');
+      if(!chips.length)return;
+      var nums=Array.from(chips).map(function(c){return c.textContent;}).join(', ');
+      copyText(nums,'✓ All numbers copied');
+    },
+    rollDice:function(){
+      var count=Math.max(1,Math.min(20,parseInt(document.getElementById('dice-count').value,10)||1));
+      var results=[];
+      for(var i=0;i<count;i++)results.push(secRandInt(1,_dieSides));
+      var container=document.getElementById('dice-results');
+      container.innerHTML=results.map(function(v){
+        return '<div class="die-face">'+v+'</div>';
+      }).join('');
+      var sum=results.reduce(function(a,b){return a+b;},0);
+      var sumEl=document.getElementById('dice-sum');
+      sumEl.innerHTML=count>1?'Total: <span style="color:var(--acc);font-size:18px">'+sum+'</span> · '+results.join(' + '):'';
+      pushHist('d'+_dieSides+'×'+count,results.join(', ')+(count>1?' (Σ'+sum+')':''));
+    },
+    setDie:function(el){
+      _dieSides=parseInt(el.dataset.sides,10);
+      document.querySelectorAll('.die-btn').forEach(function(p){p.classList.toggle('on',p===el);});
+    },
+    resetNum:function(){
+      document.getElementById('rng-min').value='1';
+      document.getElementById('rng-max').value='100';
+      document.getElementById('rng-count').value='1';
+      document.getElementById('bn-val').textContent='—';
+      document.getElementById('multi-out').classList.remove('show');
+      document.getElementById('copy-all-btn').style.display='none';
+      hideErr();
+    },
+    resetDice:function(){
+      document.getElementById('dice-results').innerHTML='';
+      document.getElementById('dice-sum').innerHTML='';
+      document.getElementById('dice-count').value='2';
+    },
+    clearHist:function(){_calcHist=[];renderHist();},
+    recallHist:function(i){var h=_calcHist[i];showToast('History: '+h.val);},
+    faqToggle:function(el){var item=el.parentElement,was=item.classList.contains('open');document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open');});document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});if(!was){item.classList.add('open');el.setAttribute('aria-expanded','true');}}
+  };
+}());
+
+/* Init */
+RNG.setTab('single');
+document.querySelectorAll('.tog').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});});
+document.querySelectorAll('.fq').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();RNG.faqToggle(el);}});});
+document.addEventListener('keydown',function(e){if((e.key===' '||e.key==='Enter')&&e.target===document.body){e.preventDefault();RNG._tab==='dice'?RNG.rollDice():RNG.generate();}});
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',String(o));var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';})}});})();
+</script>
+</body>
+</html>

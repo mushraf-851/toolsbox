@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Grammar Checker — Free AI Grammar & Spelling Checker | ToolsBox</title>
+<meta name="description" content="Free AI grammar checker. Instantly check grammar, spelling, punctuation and style. Get corrections with explanations. Works for essays, emails, and all writing.">
+<meta name="keywords" content="grammar checker, free grammar check, spell checker online, grammar and spelling checker, check grammar online, English grammar checker, grammar correction tool, AI grammar checker">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ToolsBox">
+<link rel="canonical" href="https://mytoolsbox.org/text-tools/grammar-checker.html">
+<meta property="og:title" content="Grammar Checker — Free AI Grammar & Spelling Check | ToolsBox">
+<meta property="og:description" content="Free AI grammar checker with instant corrections and explanations. Check grammar, spelling, punctuation and style.">
+<meta property="og:url" content="https://mytoolsbox.org/text-tools/grammar-checker.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Grammar Checker","url":"https://mytoolsbox.org/text-tools/grammar-checker.html","description":"Free AI grammar and spelling checker. Instantly check grammar, spelling, punctuation and style with corrections and explanations.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0d;--bg2:#0f1114;--surf:#141619;--surf2:#1c1f24;--surf3:#242830;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --grm-red:#ff6b6b;--grm-red-dim:rgba(255,107,107,0.1);--grm-red-bdr:rgba(255,107,107,0.25);
+  --grm-gold:#ffb347;--grm-gold-dim:rgba(255,179,71,0.1);--grm-gold-bdr:rgba(255,179,71,0.25);
+  --grm-blue:#74b9ff;--grm-blue-dim:rgba(116,185,255,0.1);--grm-blue-bdr:rgba(116,185,255,0.25);
+  --grm-grn:#55efc4;--grm-grn-dim:rgba(85,239,196,0.1);--grm-grn-bdr:rgba(85,239,196,0.25);
+  --acc:#74b9ff;--acc-dim:rgba(116,185,255,0.09);--acc-bdr:rgba(116,185,255,0.25);
+  --txt:#e2e0dc;--txt2:#7a7870;--txt3:#3d3b38;
+  --f:'Geist',sans-serif;--fm:'Geist Mono',monospace;--fs:'Literata',serif;
+  --nav:58px;--mw:860px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(116,185,255,0.05),transparent);pointer-events:none;z-index:0}
+nav.top{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(10,11,13,0.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:1080px;width:100%;margin:0 auto;display:flex;align-items:center;gap:5px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-right:12px;flex-shrink:0}
+.logo-box{width:30px;height:30px;background:linear-gradient(135deg,#0f2d6b,#0891b2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#22d3ee;font-style:italic;font-family:var(--fs)}
+.logo-txt{font-size:17px;font-weight:600;color:var(--txt)}.logo-txt em{font-style:italic;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:6px 11px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--txt2);transition:color .15s,background .15s;white-space:nowrap}
+.nl:hover{color:var(--txt);background:var(--surf2)}.nl.on{color:var(--acc);background:var(--acc-dim)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:auto}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .2s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99}
+.mob.open{display:flex}.mob .nl{font-size:15px;padding:10px 14px}
+main{position:relative;z-index:1;flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 80px}
+/* Header */
+.ph{text-align:center;margin-bottom:36px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fs);font-size:clamp(32px,6vw,50px);font-weight:700;line-height:1.08;color:var(--txt);margin-bottom:14px;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--acc)}
+.sub{color:var(--txt2);font-size:16px;line-height:1.7;max-width:480px;margin:0 auto}
+/* Score badges */
+.score-row{display:flex;gap:8px;justify-content:center;margin-bottom:28px;flex-wrap:wrap}
+.score-badge{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid}
+.sb-grammar{background:var(--grm-red-dim);border-color:var(--grm-red-bdr);color:var(--grm-red)}
+.sb-style{background:var(--grm-gold-dim);border-color:var(--grm-gold-bdr);color:var(--grm-gold)}
+.sb-clarity{background:var(--grm-blue-dim);border-color:var(--grm-blue-bdr);color:var(--grm-blue)}
+.sb-correct{background:var(--grm-grn-dim);border-color:var(--grm-grn-bdr);color:var(--grm-grn)}
+/* Main layout */
+.tool-wrap{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:800px){.tool-wrap{grid-template-columns:1fr}}
+/* Left: editor */
+.editor-card{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.editor-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--bdr)}
+.et-left{display:flex;align-items:center;gap:8px}
+.et-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lang-select{background:var(--surf2);border:1px solid var(--bdr);border-radius:7px;color:var(--txt2);font-family:var(--f);font-size:11px;font-weight:600;padding:4px 8px;outline:none;cursor:pointer;-webkit-appearance:none}
+.et-right{display:flex;align-items:center;gap:6px}
+.char-badge{font-family:var(--fm);font-size:11px;color:var(--txt3)}
+/* Editable area */
+.editor-body{flex:1;position:relative;min-height:320px}
+.editor-input{width:100%;background:transparent;border:none;color:var(--txt);font-family:var(--fs);font-size:16px;line-height:1.85;padding:20px;resize:none;outline:none;min-height:320px;display:block;position:relative;z-index:2}
+.editor-input::placeholder{color:var(--txt3);font-style:italic}
+/* Highlighted layer — rendered beneath textarea */
+.highlight-layer{position:absolute;top:0;left:0;right:0;bottom:0;padding:20px;font-family:var(--fs);font-size:16px;line-height:1.85;color:transparent;pointer-events:none;white-space:pre-wrap;word-break:break-word;z-index:1}
+.hl-grammar{border-bottom:2px solid var(--grm-red);color:transparent}
+.hl-style{border-bottom:2px solid var(--grm-gold);color:transparent}
+.hl-clarity{border-bottom:2px solid var(--grm-blue);color:transparent}
+/* Progress */
+.editor-progress{height:3px;background:var(--surf2);overflow:hidden;display:none}
+.editor-progress.show{display:block}
+.ep-fill{height:100%;background:linear-gradient(90deg,transparent,var(--acc),transparent);background-size:200% 100%;animation:sweep 1.4s ease infinite}
+@keyframes sweep{0%{background-position:200% 0}100%{background-position:-200% 0}}
+/* Bottom action bar */
+.editor-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--bdr);flex-wrap:wrap;gap:8px}
+.ef-status{display:flex;align-items:center;gap:7px}
+.sd{width:7px;height:7px;border-radius:50%}
+.sd-idle{background:var(--txt3)}.sd-loading{background:var(--acc);animation:pulse .8s ease infinite}.sd-done{background:var(--grm-grn)}.sd-err{background:var(--grm-red)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.st{font-size:12px;color:var(--txt2)}
+.ef-btns{display:flex;gap:6px}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:9px 18px;border-radius:9px;font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:transform .1s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
+.btn-primary{background:var(--acc);color:#0a0b0d}.btn-primary:hover{background:#a3c8ff;box-shadow:0 4px 16px rgba(116,185,255,0.25)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.btn-ghost{background:var(--surf2);color:var(--txt2);border:1px solid var(--bdr)}.btn-ghost:hover{background:var(--surf3);color:var(--txt)}
+/* Right: errors panel */
+.errors-card{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.errors-header{padding:14px 16px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.eh-title{font-size:13px;font-weight:700;color:var(--txt)}
+.error-count{font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--grm-red-dim);color:var(--grm-red);border:1px solid var(--grm-red-bdr)}
+.error-count.ok{background:var(--grm-grn-dim);color:var(--grm-grn);border-color:var(--grm-grn-bdr)}
+.errors-body{flex:1;overflow-y:auto;max-height:420px}
+.errors-body::-webkit-scrollbar{width:4px}.errors-body::-webkit-scrollbar-thumb{background:var(--surf3);border-radius:10px}
+/* Error items */
+.err-item{padding:12px 14px;border-bottom:1px solid var(--bdr);cursor:pointer;transition:background .15s}
+.err-item:last-child{border-bottom:none}
+.err-item:hover{background:var(--surf2)}
+.err-type{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:100px;margin-bottom:6px;border:1px solid}
+.et-grammar{background:var(--grm-red-dim);color:var(--grm-red);border-color:var(--grm-red-bdr)}
+.et-style{background:var(--grm-gold-dim);color:var(--grm-gold);border-color:var(--grm-gold-bdr)}
+.et-clarity{background:var(--grm-blue-dim);color:var(--grm-blue);border-color:var(--grm-blue-bdr)}
+.err-original{font-family:var(--fm);font-size:12px;color:var(--grm-red);text-decoration:line-through;margin-bottom:3px;word-break:break-all}
+.err-correction{font-family:var(--fm);font-size:12px;color:var(--grm-grn);margin-bottom:4px;word-break:break-all}
+.err-explanation{font-size:11px;color:var(--txt2);line-height:1.5}
+/* Empty state */
+.empty-state{padding:32px 16px;text-align:center}
+.es-icon{font-size:36px;display:block;margin-bottom:10px}
+.es-text{font-size:13px;color:var(--txt3);line-height:1.6}
+/* Error box */
+.err-box{display:none;margin:10px 14px;background:var(--grm-red-dim);border:1px solid var(--grm-red-bdr);color:var(--grm-red);font-size:13px;padding:10px 14px;border-radius:8px}.err-box.show{display:block}
+/* Corrected text card */
+.corrected-card{background:var(--surf);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;margin-top:14px;display:none}
+.corrected-card.show{display:block}
+.cc-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--bdr)}
+.cc-title{font-size:13px;font-weight:700;color:var(--grm-grn)}
+.cc-actions{display:flex;gap:6px}
+.cc-btn{padding:5px 12px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--txt2);transition:all .15s}
+.cc-btn:hover{background:var(--surf2);color:var(--txt)}
+.cc-btn.green{border-color:var(--grm-grn-bdr);color:var(--grm-grn);background:var(--grm-grn-dim)}
+.corrected-body{padding:18px;font-family:var(--fs);font-size:15px;line-height:1.85;color:var(--txt);white-space:pre-wrap;word-break:break-word}
+/* Info/FAQ */
+.info{margin-top:48px}
+.info h2,.faq h2{font-family:var(--fs);font-size:24px;font-weight:700;color:var(--txt);margin-bottom:14px;letter-spacing:-0.3px}
+.info p{font-size:14px;color:var(--txt2);line-height:1.75;margin-bottom:10px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ic{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px}
+.ic-t{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.ic p{font-size:12px;color:var(--txt3);line-height:1.6;margin:0}
+.faq{margin-top:40px}
+.fi{border-bottom:1px solid var(--bdr);padding:14px 0}.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none}
+.fq::after{content:'+';font-size:18px;font-weight:300;color:var(--txt3);flex-shrink:0;transition:transform .2s}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.fi.open .fa{max-height:240px;padding-top:10px}
+.rel{margin-top:40px}
+.sl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:15px 12px;text-align:center;text-decoration:none;color:var(--txt);transition:border-color .18s,transform .15s;display:block}
+.rc:hover{border-color:rgba(116,185,255,0.25);transform:translateY(-2px)}
+.ri{font-size:20px;display:block;margin-bottom:6px}.rn{font-size:12px;font-weight:700;display:block}.rd{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 30px;margin-top:auto}
+.fi3{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fbd{font-size:13px;color:var(--txt3);line-height:1.65;margin-top:10px;max-width:210px}
+.fct{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 60px}.ig{grid-template-columns:1fr}.fi3{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.errors-card{max-height:300px}}
+@media(max-width:400px){.rg{grid-template-columns:1fr 1fr}.fi3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a>
+    <div class="nav-links"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on" aria-current="page">✍️ Text Tools</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a></div>
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob"><a href="../index.html" class="nl">🏠 Home</a><a href="../index.html" class="nl on">✍️ Text Tools</a><a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a></div>
+
+<main>
+  <nav style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:28px" aria-label="Breadcrumb">
+    <a href="../index.html" style="color:var(--txt3);text-decoration:none">Home</a><span> › </span>
+    <a href="../index.html" style="color:var(--txt3);text-decoration:none">Text Tools</a><span> › </span>
+    <span style="color:var(--txt2)">Grammar Checker</span>
+  </nav>
+
+  <header class="ph">
+    <div class="badge">✅ AI-Powered Checker</div>
+    <h1>Grammar <em>Checker</em></h1>
+    <p class="sub">Instantly check grammar, spelling, punctuation and style. Get corrections with clear explanations for every error found.</p>
+  </header>
+
+  <!-- Legend row -->
+  <div class="score-row" aria-label="Error type legend">
+    <div class="score-badge sb-grammar">🔴 Grammar & Spelling</div>
+    <div class="score-badge sb-style">🟡 Style & Clarity</div>
+    <div class="score-badge sb-clarity">🔵 Punctuation</div>
+    <div class="score-badge sb-correct">🟢 Correct</div>
+  </div>
+
+  <div class="tool-wrap">
+    <!-- Left: Editor -->
+    <div class="editor-card">
+      <div class="editor-topbar">
+        <div class="et-left">
+          <span class="et-label">Language</span>
+          <select class="lang-select" id="lang-sel">
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+            <option value="en-AU">English (AU)</option>
+          </select>
+        </div>
+        <div class="et-right">
+          <span class="char-badge" id="char-badge">0 words</span>
+        </div>
+      </div>
+
+      <div class="editor-body">
+        <div class="highlight-layer" id="highlight-layer" aria-hidden="true"></div>
+        <textarea id="editor-input" maxlength="5000" placeholder="Type or paste your text here to check for grammar, spelling and style errors…
+
+This tool checks for:
+• Grammar and spelling mistakes
+• Punctuation errors  
+• Style and clarity issues
+• Sentence structure problems
+
+Ctrl+Enter to check"
+  oninput="onEditorInput()" aria-label="Text to grammar check"></textarea>
+      </div>
+
+      <div class="editor-progress" id="editor-progress"><div class="ep-fill"></div></div>
+      <div class="err-box" id="err-box" role="alert"></div>
+
+      <div class="editor-footer">
+        <div class="ef-status">
+          <div class="sd sd-idle" id="status-dot"></div>
+          <span class="st" id="status-text">Ready to check</span>
+        </div>
+        <div class="ef-btns">
+          <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+          <button class="btn btn-primary" id="check-btn" onclick="checkGrammar()" disabled>✅ Check Grammar →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Errors panel -->
+    <div class="errors-card">
+      <div class="errors-header">
+        <span class="eh-title">Issues Found</span>
+        <span class="error-count ok" id="error-count">—</span>
+      </div>
+      <div class="errors-body" id="errors-body">
+        <div class="empty-state">
+          <span class="es-icon">📋</span>
+          <div class="es-text">Enter text and click<br><strong>Check Grammar</strong><br>to see issues here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Corrected text -->
+  <div class="corrected-card" id="corrected-card">
+    <div class="cc-header">
+      <span class="cc-title">✅ Corrected Text</span>
+      <div class="cc-actions">
+        <button class="cc-btn" onclick="document.getElementById('corrected-card').classList.remove('show')">Hide</button>
+        <button class="cc-btn green" onclick="copyCorrected()">📋 Copy</button>
+        <button class="cc-btn green" onclick="applyCorrection()">✓ Use this</button>
+      </div>
+    </div>
+    <div class="corrected-body" id="corrected-body"></div>
+  </div>
+
+  <section class="info" aria-labelledby="hiw">
+    <h2 id="hiw">What the grammar checker catches</h2>
+    <p>Our AI grammar checker goes beyond basic spell-check. It understands context and catches errors that simple rule-based tools miss — including wrong word choices, missing commas, awkward phrasing and complex grammatical mistakes.</p>
+    <div class="ig">
+      <div class="ic"><div class="ic-t">🔴 Grammar & Spelling</div><p>Subject-verb agreement, wrong tense, missing articles, incorrect word forms, misspellings, homophones (their/there/they're), double negatives, and dangling modifiers.</p></div>
+      <div class="ic"><div class="ic-t">🟡 Style Issues</div><p>Passive voice overuse, wordiness, repetitive words, vague language, overly complex sentences, and missed opportunities for stronger, clearer expression.</p></div>
+      <div class="ic"><div class="ic-t">🔵 Punctuation</div><p>Missing or extra commas, incorrect apostrophes, semicolon misuse, hyphenation errors, missing periods and incorrect quotation mark placement.</p></div>
+      <div class="ic"><div class="ic-t">📝 Full corrections</div><p>Every error comes with the corrected version plus a plain-English explanation of why it was wrong. Use the "Corrected Text" output to get the full corrected version in one click.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faqh">
+    <h2 id="faqh">Frequently asked questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">Is this grammar checker free?</div><div class="fa">Yes, completely free. No account required, no character limit sign-ups, no watermarks. The tool supports up to 5,000 characters (about 700-900 words) per check. For longer documents, paste them in sections.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">Does it check for plagiarism?</div><div class="fa">No — this is a grammar, spelling and style checker only. It does not check for plagiarism. For plagiarism checking, you would need a dedicated tool like Copyscape, Turnitin or Grammarly's plagiarism feature.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">What is the difference between grammar and style errors?</div><div class="fa">Grammar errors are factually wrong (subject-verb disagreement, misspelling, wrong tense) — they must be corrected. Style issues are not wrong but could be improved (passive voice, wordiness, repetition). You can safely ignore style suggestions if you prefer your original phrasing. Grammar errors should always be fixed.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" tabindex="0" role="button" aria-expanded="false">Does it work with British English?</div><div class="fa">Yes — use the language selector in the editor to choose English (US), English (UK) or English (AU). This affects spelling conventions: colour/color, favour/favor, recognise/recognize, and so on. Punctuation rules also differ slightly between UK and US English.</div></div>
+  </section>
+
+  <section class="rel" aria-labelledby="relh">
+    <div class="sl">🔗 Related tools</div>
+    <div class="rg">
+      <a class="rc" href="ai-humanizer.html"><span class="ri">✨</span><span class="rn">AI Humanizer</span><span class="rd">Make AI sound human</span></a>
+      
+      <a class="rc" href="word-counter.html"><span class="ri">📊</span><span class="rn">Word Counter</span><span class="rd">Count words & chars</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="fi3">
+    <div class="fb-brand"><a href="../index.html" class="logo"><div class="logo-box">T</div><span class="logo-txt">Tools<em>Box</em></span></a><p class="fbd">Free online text and calculator tools. No sign-up. Works instantly.</p></div>
+    <div><div class="fct">✍️ Text Tools</div><ul class="fl"><li><a href="word-counter.html">📝 Word Counter</a></li><li><a href="ai-humanizer.html">✨ AI Humanizer</a></li><li></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">🏦 EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">💹 SIP Calculator</a></li></ul></div>
+    <div><div class="fct">📌 Quick Links</div><ul class="fl"><li><a href="../index.html">🏠 All Tools</a></li><li><a href="../index.html">✍️ All Text Tools</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+var isLoading = false;
+var lastErrors = [];
+var lastCorrected = '';
+
+function onEditorInput() {
+  var text = document.getElementById('editor-input').value;
+  var words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  document.getElementById('char-badge').textContent = words + ' words';
+  document.getElementById('check-btn').disabled = words < 3 || isLoading;
+}
+
+function setStatus(state, msg) {
+  document.getElementById('status-dot').className = 'sd sd-' + state;
+  document.getElementById('status-text').textContent = msg;
+}
+
+function buildGrammarPrompt(text, lang) {
+  var langLabel = { 'en-US': 'American English', 'en-GB': 'British English', 'en-AU': 'Australian English' }[lang] || 'English';
+  return 'You are a professional grammar checker. Analyze the following text in ' + langLabel + ' and identify ALL grammar, spelling, punctuation and style errors.\n\nRespond ONLY with a valid JSON object in exactly this format — no markdown, no explanation:\n{\n  "errors": [\n    {\n      "type": "grammar|spelling|punctuation|style",\n      "original": "the incorrect phrase or word",\n      "correction": "the corrected phrase or word",\n      "explanation": "brief plain-English explanation why it is wrong"\n    }\n  ],\n  "corrected_text": "the full text with ALL corrections applied",\n  "overall_score": 0-100\n}\n\nIf there are NO errors, return errors as an empty array and corrected_text as the original text with score 100.\n\nText to check:\n\n' + text;
+}
+
+var TYPE_META = {
+  grammar:     { label:'Grammar',     cls:'et-grammar' },
+  spelling:    { label:'Spelling',    cls:'et-grammar' },
+  punctuation: { label:'Punctuation', cls:'et-clarity' },
+  style:       { label:'Style',       cls:'et-style' }
+};
+
+async function checkGrammar() {
+  var text = document.getElementById('editor-input').value.trim();
+  if (!text || text.split(/\s+/).length < 3) return;
+  if (isLoading) return;
+
+  isLoading = true;
+  document.getElementById('check-btn').disabled = true;
+  document.getElementById('err-box').classList.remove('show');
+  document.getElementById('editor-progress').classList.add('show');
+  document.getElementById('corrected-card').classList.remove('show');
+  setStatus('loading', 'Checking grammar…');
+
+  var lang = document.getElementById('lang-sel').value;
+
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: buildGrammarPrompt(text, lang) }]
+      })
+    });
+
+    var data = await response.json();
+    if (!response.ok) throw new Error(data.error?.message || 'API error ' + response.status);
+
+    var rawText = '';
+    if (data.content) data.content.forEach(function(b){ if(b.type==='text') rawText += b.text; });
+
+    /* Parse JSON — strip any markdown fences */
+    var jsonStr = rawText.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
+    var parsed;
+    try { parsed = JSON.parse(jsonStr); }
+    catch(e) { throw new Error('Could not parse grammar results. Please try again.'); }
+
+    lastErrors = parsed.errors || [];
+    lastCorrected = parsed.corrected_text || text;
+
+    renderErrors(lastErrors);
+    if (lastCorrected && lastCorrected !== text) {
+      document.getElementById('corrected-body').textContent = lastCorrected;
+      document.getElementById('corrected-card').classList.add('show');
+    }
+
+    var errCount = lastErrors.length;
+    var countEl = document.getElementById('error-count');
+    countEl.textContent = errCount === 0 ? '✓ No errors' : errCount + (errCount === 1 ? ' issue' : ' issues');
+    countEl.className = 'error-count' + (errCount === 0 ? ' ok' : '');
+    setStatus('done', errCount === 0 ? '✅ No errors found!' : errCount + ' issue' + (errCount===1?'':'s') + ' found');
+
+  } catch (err) {
+    var eb = document.getElementById('err-box');
+    eb.textContent = '⚠️ ' + (err.message || 'Something went wrong. Please try again.');
+    eb.classList.add('show');
+    setStatus('err', 'Error — please retry');
+  } finally {
+    isLoading = false;
+    document.getElementById('editor-progress').classList.remove('show');
+    document.getElementById('check-btn').disabled = false;
+    onEditorInput();
+  }
+}
+
+function renderErrors(errors) {
+  var body = document.getElementById('errors-body');
+  body.innerHTML = '';
+
+  if (!errors || errors.length === 0) {
+    body.innerHTML = '<div class="empty-state"><span class="es-icon">✅</span><div class="es-text"><strong style="color:var(--grm-grn)">No errors found!</strong><br>Your text looks great.</div></div>';
+    return;
+  }
+
+  errors.forEach(function(e, i) {
+    var meta = TYPE_META[e.type] || TYPE_META.grammar;
+    var div = document.createElement('div');
+    div.className = 'err-item';
+    div.innerHTML =
+      '<span class="err-type ' + meta.cls + '">' + meta.label + '</span>' +
+      '<div class="err-original">' + escHtml(e.original || '') + '</div>' +
+      '<div class="err-correction">→ ' + escHtml(e.correction || '') + '</div>' +
+      '<div class="err-explanation">' + escHtml(e.explanation || '') + '</div>';
+    body.appendChild(div);
+  });
+}
+
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function clearAll() {
+  document.getElementById('editor-input').value = '';
+  document.getElementById('errors-body').innerHTML = '<div class="empty-state"><span class="es-icon">📋</span><div class="es-text">Enter text and click<br><strong>Check Grammar</strong><br>to see issues here</div></div>';
+  document.getElementById('error-count').textContent = '—';
+  document.getElementById('error-count').className = 'error-count ok';
+  document.getElementById('corrected-card').classList.remove('show');
+  document.getElementById('err-box').classList.remove('show');
+  document.getElementById('char-badge').textContent = '0 words';
+  document.getElementById('check-btn').disabled = true;
+  lastErrors = []; lastCorrected = '';
+  setStatus('idle', 'Ready to check');
+}
+
+function applyCorrection() {
+  if (!lastCorrected) return;
+  document.getElementById('editor-input').value = lastCorrected;
+  onEditorInput();
+  document.getElementById('corrected-card').classList.remove('show');
+  setStatus('idle', 'Corrected text applied');
+}
+
+function copyCorrected() {
+  var text = document.getElementById('corrected-body').textContent;
+  function ok() {var b=document.querySelector('.cc-btn.green:last-child');var t=b.textContent;b.textContent='✓ Copied!';setTimeout(function(){b.textContent=t;},2000);}
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(ok).catch(function(){});
+  else { var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta); }
+}
+
+(function(){var h=document.getElementById('ham'),m=document.getElementById('mob');if(!h||!m)return;h.addEventListener('click',function(){var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);var s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(function(x){x.style.transform='';x.style.opacity='';});}});document.addEventListener('click',function(e){if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-enabled','false');h.querySelectorAll('span').forEach(function(x){x.style.transform='';x.style.opacity='';});}});})();
+function faq(el){var i=el.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.fq').forEach(function(q){q.setAttribute('aria-expanded','false');});if(!w){i.classList.add('open');el.setAttribute('aria-enabled','true');}}
+document.getElementById('editor-input').addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();checkGrammar();}});
+</script>
+</body>
+</html>
