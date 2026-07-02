@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File QR Code Generator — Share Files Instantly With One Scan | ToolsBox</title>
+<meta name="description" content="Free file QR code generator. Create a scannable QR code to share any file from Google Drive, Dropbox, OneDrive, WeTransfer, or any URL. Download PNG & SVG. No sign-up.">
+<meta name="keywords" content="file QR code generator, QR code to share file, file sharing QR code, QR code for file download, Google Drive QR code, Dropbox QR code, OneDrive QR code file, WeTransfer QR code, share file via QR, QR code file link, free file QR generator, document sharing QR code, PDF QR code, file download QR code, QR code file transfer, scan to download file, file share QR, cloud file QR code, QR for document sharing, share PDF via QR, QR code for report, file QR for business, QR code for presentation, QR code file download free, share video file QR, share image QR code, QR code resume share, QR code brochure download, file share QR no account, scan to download document, file QR code for events, QR code portfolio share, digital file QR code, share spreadsheet QR, QR code for training material">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-file.html">
+<meta property="og:title" content="File QR Code Generator — Share Any File With One Scan | ToolsBox">
+<meta property="og:description" content="Create a QR code that opens or downloads any file — Google Drive, Dropbox, OneDrive, WeTransfer, or any URL. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-file.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-file.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="File QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code to share any file. Scan to download or view. Google Drive, Dropbox, OneDrive & more. Free, no sign-up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"File QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-file.html","description":"Free file QR code generator. Create a scannable QR code to share any file from Google Drive, Dropbox, OneDrive, WeTransfer, or any cloud storage.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a QR code to share a file?","acceptedAnswer":{"@type":"Answer","text":"Upload your file to Google Drive, Dropbox, OneDrive, or WeTransfer, get the shareable link, paste it into the generator, add a file name and description, then click Generate. Anyone who scans can open or download the file instantly."}},{"@type":"Question","name":"What file types can I share via QR code?","acceptedAnswer":{"@type":"Answer","text":"Any file type hosted on a cloud storage platform — PDFs, Word documents, Excel spreadsheets, PowerPoint presentations, images, videos, ZIP archives, CAD files, and more. The QR encodes the link; the file type is determined by your cloud storage."}},{"@type":"Question","name":"Can people download the file without a Google account?","acceptedAnswer":{"@type":"Answer","text":"It depends on your sharing settings. For Google Drive, set sharing to 'Anyone with the link'. For Dropbox, public links work without an account. For OneDrive, use 'Anyone with the link' permission. WeTransfer links always work without an account."}},{"@type":"Question","name":"How do I get a shareable link from Google Drive?","acceptedAnswer":{"@type":"Answer","text":"Right-click your file in Google Drive → Share → Change to 'Anyone with the link' → Copy link. Paste this link into the generator. Anyone who scans the QR opens the file or gets a download prompt."}},{"@type":"Question","name":"Does the file QR code expire?","acceptedAnswer":{"@type":"Answer","text":"The QR code image never expires. However, the file link may expire depending on your platform — WeTransfer links expire after 7 days, some OneDrive/Dropbox links may expire based on settings. Use permanent cloud storage links for printed QR codes."}},{"@type":"Question","name":"How large can the file be?","acceptedAnswer":{"@type":"Answer","text":"There is no file size limit — the QR encodes a link, not the file itself. The file can be any size as long as it's hosted on your cloud platform. QR codes do not carry file data directly."}},{"@type":"Question","name":"Is my file link stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your file URL never leaves your device and is never stored on our servers."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#6366f1;--acc-dark:#4f46e5;--acc-dim:rgba(99,102,241,0.1);--acc-bdr:rgba(99,102,241,0.3);
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);transition:color .15s}.bc a:hover{color:var(--txt2)}
+/* HERO */
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.app-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.app-tag{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+/* TOOL */
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+/* Platform tabs */
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 6px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+/* Platform grid */
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.pl-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;transition:all .15s;font-family:var(--f)}
+.pl-btn:hover{border-color:var(--acc-bdr)}
+.pl-btn.on{border-color:var(--acc);background:var(--acc-dim)}
+.pl-emoji{font-size:20px}
+.pl-label{font-size:10px;font-weight:700;color:var(--txt);text-align:center}
+/* FORM */
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+select.inp{cursor:pointer;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.4}
+.hint{font-size:11px;color:var(--txt3);line-height:1.5}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* File type badges */
+.filetype-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.ft-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:100px;border:1px solid var(--bdr2);background:var(--surf2);font-size:11px;font-weight:700;color:var(--txt2);cursor:pointer;transition:all .15s}
+.ft-badge:hover,.ft-badge.on{border-color:var(--acc-bdr);background:var(--acc-dim);color:var(--acc)}
+/* Link preview */
+.link-preview-text{font-family:var(--fm);font-size:10px;color:var(--txt3);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:4px;margin-bottom:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+/* gen btn */
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;box-shadow:0 4px 20px rgba(99,102,241,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+/* Customise */
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+/* Preview */
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.18}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(99,102,241,.18);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block;min-height:16px}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* Content */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:52px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-hd{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-hd span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#818cf8)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-sec{max-width:760px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.platform-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.r2{grid-template-columns:1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}.platform-grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">📁</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">File QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">📁 File QR Code Generator</div>
+    <h1>Share Any <b>File</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code that opens or downloads any file instantly when scanned — PDFs, documents, images, videos, spreadsheets, and more from Google Drive, Dropbox, OneDrive, WeTransfer, and beyond.</p>
+    <div class="app-strip" role="list" aria-label="Compatible platforms">
+      <span class="app-tag" role="listitem">📂 Google Drive</span>
+      <span class="app-tag" role="listitem">📦 Dropbox</span>
+      <span class="app-tag" role="listitem">☁️ OneDrive</span>
+      <span class="app-tag" role="listitem">🔀 WeTransfer</span>
+      <span class="app-tag" role="listitem">🌐 Any URL</span>
+    </div>
+  </header>
+
+  <section aria-label="File QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">📁 File share details</span>
+          <span class="ch-badge">FILE QR</span>
+        </div>
+        <div class="card-body">
+
+          <!-- Platform selector -->
+          <label class="lbl" style="display:block;margin-bottom:10px">File Platform</label>
+          <div class="platform-grid" id="platform-grid">
+            <button class="pl-btn on" data-platform="gdrive" onclick="setPlatform(this)" aria-pressed="true"><span class="pl-emoji">📂</span><span class="pl-label">Google Drive</span></button>
+            <button class="pl-btn" data-platform="dropbox" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">📦</span><span class="pl-label">Dropbox</span></button>
+            <button class="pl-btn" data-platform="onedrive" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">☁️</span><span class="pl-label">OneDrive</span></button>
+            <button class="pl-btn" data-platform="wetransfer" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🔀</span><span class="pl-label">WeTransfer</span></button>
+            <button class="pl-btn" data-platform="notion" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">📝</span><span class="pl-label">Notion</span></button>
+            <button class="pl-btn" data-platform="github" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🐙</span><span class="pl-label">GitHub</span></button>
+            <button class="pl-btn" data-platform="box" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🗄️</span><span class="pl-label">Box</span></button>
+            <button class="pl-btn" data-platform="other" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🌐</span><span class="pl-label">Other URL</span></button>
+          </div>
+
+          <div id="platform-hint" class="info-box">
+            <strong>Google Drive:</strong> Right-click your file → Share → "Anyone with the link" → Copy link. Paste it below.
+          </div>
+
+          <!-- File type badges -->
+          <label class="lbl" style="display:block;margin-bottom:8px">File Type <span style="font-weight:400;color:var(--txt3)">(for label)</span></label>
+          <div class="filetype-row" id="filetype-row">
+            <button class="ft-badge on" data-ft="📄 PDF" onclick="setFT(this)" aria-pressed="true">📄 PDF</button>
+            <button class="ft-badge" data-ft="📝 Doc" onclick="setFT(this)" aria-pressed="false">📝 Doc</button>
+            <button class="ft-badge" data-ft="📊 Sheet" onclick="setFT(this)" aria-pressed="false">📊 Sheet</button>
+            <button class="ft-badge" data-ft="📑 Slides" onclick="setFT(this)" aria-pressed="false">📑 Slides</button>
+            <button class="ft-badge" data-ft="🖼️ Image" onclick="setFT(this)" aria-pressed="false">🖼️ Image</button>
+            <button class="ft-badge" data-ft="🎬 Video" onclick="setFT(this)" aria-pressed="false">🎬 Video</button>
+            <button class="ft-badge" data-ft="🗜️ ZIP" onclick="setFT(this)" aria-pressed="false">🗜️ ZIP</button>
+            <button class="ft-badge" data-ft="💾 Other" onclick="setFT(this)" aria-pressed="false">💾 Other</button>
+          </div>
+
+          <div class="fld">
+            <label class="lbl lbl-req" for="f-url">File Share Link</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">🔗</span>
+              <input type="url" id="f-url" class="inp has-icon" placeholder="https://drive.google.com/file/d/YOUR_FILE_ID/view" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="f-url-hint">
+            </div>
+            <span id="f-url-hint" class="hint">Paste the shareable link from your cloud storage platform.</span>
+          </div>
+
+          <div class="section-div">File Details (Optional)</div>
+
+          <div class="r2">
+            <div class="fld">
+              <label class="lbl" for="f-name">File Name</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📄</span>
+                <input type="text" id="f-name" class="inp has-icon" placeholder="Q3 Report 2025.pdf" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="f-size">File Size</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">💾</span>
+                <input type="text" id="f-size" class="inp has-icon" placeholder="2.4 MB" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl" for="f-desc">Description / Note</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">💬</span>
+              <input type="text" id="f-desc" class="inp has-icon" placeholder="Q3 Financial Report — Confidential" oninput="autoGenerate()">
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl" for="f-access">Access Mode</label>
+            <select id="f-access" class="inp" onchange="autoGenerate()">
+              <option value="view">👁️ View only</option>
+              <option value="download">⬇️ Download</option>
+              <option value="edit">✏️ View & Edit</option>
+            </select>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate File QR Code">⚡ Generate File QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="Hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#6366f1','#eef2ff');autoGenerate()"><span class="pr-dot" style="background:#6366f1"></span>Indigo</button>
+              <button class="pr-btn" onclick="preset('#0891b2','#e0f7fa');autoGenerate()"><span class="pr-dot" style="background:#0891b2"></span>Cyan</button>
+              <button class="pr-btn" onclick="preset('#16a34a','#f0fdf4');autoGenerate()"><span class="pr-dot" style="background:#16a34a"></span>Green</button>
+              <button class="pr-btn" onclick="preset('#dc2626','#fef2f2');autoGenerate()"><span class="pr-dot" style="background:#dc2626"></span>Red</button>
+              <button class="pr-btn" onclick="preset('#f0f2f5','#060708');autoGenerate()"><span class="pr-dot" style="background:#060708;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size"></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📁</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">File QR Code</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 File sharing tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Set sharing to "Anyone with the link" before copying</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use permanent links — avoid expiring WeTransfer links for print</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan before printing on documents or packaging</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for any print size — scales perfectly</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box section-block">
+    <h3>📊 File Sharing & QR Code Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">2B+</div><div class="stat-label">Google Drive users worldwide — the most popular cloud file sharing platform</div></div>
+      <div class="stat-item"><div class="stat-num">73%</div><div class="stat-label">of professionals share files digitally rather than printing or emailing attachments</div></div>
+      <div class="stat-item"><div class="stat-num">3s</div><div class="stat-label">average time to scan a QR code and access a file vs 30+ seconds typing a URL</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">free — no sign-up, no watermarks, unlimited file QR codes generated</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section-block" aria-label="How to create a file QR code">
+    <h2 class="section-hd">📖 How to Create a <span>File QR Code</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num" aria-hidden="true">01</div><div class="step-title">Upload Your File</div><div class="step-desc">Upload your file to Google Drive, Dropbox, OneDrive, WeTransfer, or any cloud storage. The file stays on your chosen platform — this tool only encodes the link.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">02</div><div class="step-title">Get the Shareable Link</div><div class="step-desc">Set sharing to "Anyone with the link" on your platform. Copy the link. For Google Drive: Share → Change to Anyone → Copy. For Dropbox: right-click → Copy link.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">03</div><div class="step-title">Choose Platform & File Type</div><div class="step-desc">Select your cloud storage platform and file type. These help label the QR in the preview for easy identification — PDF, Doc, Spreadsheet, Video, etc.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">04</div><div class="step-title">Paste & Add Details</div><div class="step-desc">Paste the file link. Optionally add the file name, size, and a description. Set the access mode (View, Download, or Edit) as a label for the QR.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">05</div><div class="step-title">Customise Design</div><div class="step-desc">Match QR colours to your brand. Add your company logo in the centre. Choose size and error correction level. Level H is recommended with logo overlay.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">06</div><div class="step-title">Download & Deploy</div><div class="step-desc">Download SVG for print (crisp at any size) or PNG for digital. Place on documents, packaging, presentations, business cards, or any physical material.</div></div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-block" aria-label="Use cases for file QR codes">
+    <h2 class="section-hd">💼 <span>8 Ways</span> to Use File QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📄</span><div class="uc-title">PDF Reports & Brochures</div><div class="uc-desc">Print a QR code on a summary page or cover. Readers scan to download the full detailed PDF report or product brochure instantly.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎪</span><div class="uc-title">Event Materials</div><div class="uc-desc">Print QR codes on conference programmes, lanyards, and signage. Attendees scan to download speaker slides, event schedules, or resources.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎓</span><div class="uc-title">Education & Training</div><div class="uc-desc">Print QR codes on handouts and textbooks. Students scan to access supplementary PDFs, exercise files, templates, and reading materials.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📦</span><div class="uc-title">Product Documentation</div><div class="uc-desc">Include a QR code on product packaging or instruction sheets linking to the full user manual PDF, safety data sheet, or assembly guide.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏢</span><div class="uc-title">Business Proposals</div><div class="uc-desc">Add a QR code to a printed executive summary linking to the full proposal, contract, or detailed scoping document on Drive.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎨</span><div class="uc-title">Portfolio & Creative Work</div><div class="uc-desc">Add QR codes to physical portfolios, business cards, or showreels linking to your full digital portfolio, design files, or demo reel.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏗️</span><div class="uc-title">Construction & Engineering</div><div class="uc-desc">Attach QR codes to plans and spec sheets on site. Engineers scan to access CAD drawings, safety documents, and technical specifications.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🍽️</span><div class="uc-title">Digital Menus & Pricing</div><div class="uc-desc">Restaurants and retailers print QR codes that open the latest menu, pricing, or catalogue PDF — update the file without reprinting the QR.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-block" aria-label="Benefits of file QR codes">
+    <h2 class="section-hd">🚀 <span>6 Benefits</span> of File QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">⚡</span><div class="bn-title">Instant File Access</div><div class="bn-desc">One scan opens the file immediately — no typing a URL, no searching, no emailing attachments. Scanners go from physical print to digital file in under 3 seconds.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔄</span><div class="bn-title">Update Without Reprinting</div><div class="bn-desc">Update the file on Google Drive or Dropbox and the same QR code always opens the latest version. No need to reprint when content changes.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🌍</span><div class="bn-title">Any Device, Any Platform</div><div class="bn-desc">Every smartphone reads QR codes without any app. Google Drive, Dropbox, and OneDrive are optimised for mobile — files open instantly on any device.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔒</span><div class="bn-title">Control Access</div><div class="bn-desc">Set sharing permissions on your cloud platform. Revoke access at any time — the QR code will stop working without reprinting or replacing any physical material.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📊</span><div class="bn-title">Trackable Downloads</div><div class="bn-desc">Google Drive and Dropbox show you how many people accessed the file and when. Combine with UTM parameters for even more detailed analytics.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💰</span><div class="bn-title">Zero Cost</div><div class="bn-desc">Generate unlimited file QR codes for free. No per-code fees, no subscription, no watermarks. Use with any cloud storage platform you already have.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-block" aria-label="Related QR code tools">
+    <h2 class="section-hd">🔗 <span>Related</span> QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-custom-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">Custom URL QR</div><div class="rel-desc">UTM tracking & params</div></div></a>
+      <a href="qr-google-sheets.html" class="rel-card"><span class="rel-icon">📊</span><div class="rel-info"><div class="rel-title">Google Sheets QR</div><div class="rel-desc">Share spreadsheets</div></div></a>
+      <a href="qr-google-forms.html" class="rel-card"><span class="rel-icon">📝</span><div class="rel-info"><div class="rel-title">Google Forms QR</div><div class="rel-desc">Surveys & forms</div></div></a>
+      <a href="qr-excel.html" class="rel-card"><span class="rel-icon">📗</span><div class="rel-info"><div class="rel-title">Excel QR Code</div><div class="rel-desc">Share Excel files</div></div></a>
+      <a href="qr-pptx.html" class="rel-card"><span class="rel-icon">📑</span><div class="rel-info"><div class="rel-title">PowerPoint QR</div><div class="rel-desc">Share presentations</div></div></a>
+      <a href="qr-video.html" class="rel-card"><span class="rel-icon">▶️</span><div class="rel-info"><div class="rel-title">Video QR Code</div><div class="rel-desc">Link to any video</div></div></a>
+      <a href="qr-logo-qr.html" class="rel-card"><span class="rel-icon">🎨</span><div class="rel-info"><div class="rel-title">Logo QR Code</div><div class="rel-desc">Branded QR with logo</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🌐</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Accept payments</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Collect 5-star reviews</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article section-block">
+    <h2>📖 Complete Guide to File QR Codes</h2>
+    <p>A file QR code encodes a link to a file hosted on a cloud storage platform — not the file itself. When someone scans the QR code, their device opens the file link and either previews it in the browser or prompts a download, depending on the file type and platform. This means any file size can be shared via QR code, and the same QR code always links to the most current version of the file.</p>
+    <h3>Getting Shareable Links from Each Platform</h3>
+    <p><strong>Google Drive:</strong> Right-click your file → Share → click the permission dropdown → choose "Anyone with the link" → set role (Viewer/Commenter/Editor) → Copy link. For direct download, replace /view at the end of the URL with /export?format=pdf (for Google Docs) or /uc?export=download (for uploaded files).</p>
+    <p><strong>Dropbox:</strong> Right-click the file → Share → Copy link. For direct download instead of preview, replace ?dl=0 with ?dl=1 at the end of the Dropbox URL.</p>
+    <p><strong>OneDrive:</strong> Right-click the file → Share → set "Anyone with the link" → Copy. OneDrive links open in a browser preview with a download option.</p>
+    <p><strong>WeTransfer:</strong> Upload your file on wetransfer.com → send to yourself → copy the download link from the email. Note: WeTransfer links expire after 7 days — use permanent cloud storage for printed QR codes.</p>
+    <h3>Pro Tips for File QR Codes</h3>
+    <ul>
+      <li><strong>Never use expiring links for print:</strong> WeTransfer and some OneDrive/SharePoint links expire. For printed QR codes on physical materials, use permanent Google Drive or Dropbox links.</li>
+      <li><strong>Update without reprinting:</strong> Upload the new version of your file with the same name and share link. The QR code always points to the latest version — no reprinting needed.</li>
+      <li><strong>Combine with file name label:</strong> Add the file name and type as a text label below the QR code on your printed material. This helps people understand what they'll get before scanning.</li>
+      <li><strong>Revoke access remotely:</strong> Changed your mind? Update the sharing permissions on Google Drive or Dropbox — the QR code will stop working without any physical changes.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="section-block faq-sec" aria-label="Frequently asked questions">
+    <h2 class="section-hd">Frequently Asked <span>Questions</span></h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I get a shareable link for my file?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">For Google Drive: right-click → Share → "Anyone with the link" → Copy. For Dropbox: right-click → Copy Dropbox link. For OneDrive: Share → "Anyone with the link" → Copy. For WeTransfer: upload and copy the download link from your confirmation email.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can people download the file without an account?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes, if you set the correct permissions. For Google Drive: set to "Anyone with the link" (no Google account required). For Dropbox: public links work without an account. For WeTransfer: all download links work without an account.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the file QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">The QR code image never expires. The file link may expire depending on your platform — WeTransfer links expire after 7 days. For printed QR codes, use permanent links from Google Drive or Dropbox.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I update the file without changing the QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Update the file on Google Drive or Dropbox while keeping the same share link. The QR code always points to whatever is at that URL — update the content as often as you need without reprinting.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What file types can I share?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Any file type — PDFs, Word documents, Excel spreadsheets, PowerPoint presentations, images, videos, ZIP archives, CAD files, and more. The QR encodes a link to the file on your cloud platform. The file type is determined by your storage provider.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my file link stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your file URL never leaves your device and is never stored on our servers.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I make the file download directly instead of previewing?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">For Google Drive uploaded files, change /view at the end of the URL to /uc?export=download. For Dropbox, change ?dl=0 to ?dl=1 at the end of the link. This forces a download instead of a browser preview.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">📁</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">📁 File & Doc QR Codes</div><ul class="fl">
+      <li><a href="qr-file.html">📁 File QR Code</a></li>
+      <li><a href="qr-google-sheets.html">📊 Google Sheets QR</a></li>
+      <li><a href="qr-excel.html">📗 Excel QR Code</a></li>
+      <li><a href="qr-pptx.html">📑 PowerPoint QR</a></li>
+      <li><a href="qr-google-forms.html">📝 Google Forms QR</a></li>
+    </ul></div>
+    <div><div class="fct">💳 Payment QR Codes</div><ul class="fl">
+      <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+      <li><a href="qr-paypal.html">🅿️ PayPal QR</a></li>
+      <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+      <li><a href="qr-crypto.html">₿ Crypto QR</a></li>
+      <li><a href="qr-payment.html">💰 All Payments</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+      <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC='Q', currentLogoBase64=null, genTimer=null, PLATFORM='gdrive', FILETYPE='📄 PDF';
+
+/* ── PLATFORM DATA ── */
+const PLATFORMS = {
+  gdrive:    { hint:'<strong>Google Drive:</strong> Right-click file → Share → "Anyone with the link" → Copy link. Paste below.', placeholder:'https://drive.google.com/file/d/YOUR_ID/view', label:'Google Drive File QR' },
+  dropbox:   { hint:'<strong>Dropbox:</strong> Right-click file → Share → Copy Dropbox link. Change ?dl=0 to ?dl=1 for direct download.', placeholder:'https://www.dropbox.com/s/XXXX/filename.pdf?dl=0', label:'Dropbox File QR' },
+  onedrive:  { hint:'<strong>OneDrive:</strong> Right-click file → Share → "Anyone with the link" → Copy link.', placeholder:'https://onedrive.live.com/…', label:'OneDrive File QR' },
+  wetransfer:{ hint:'<strong>WeTransfer:</strong> Upload your file → copy the download link from your email. Note: links expire in 7 days.', placeholder:'https://we.tl/XXXXXXXX', label:'WeTransfer File QR' },
+  notion:    { hint:'<strong>Notion:</strong> Open the page → Share → enable "Share to web" → Copy link.', placeholder:'https://notion.so/YOUR_PAGE_ID', label:'Notion Document QR' },
+  github:    { hint:'<strong>GitHub:</strong> Navigate to the file → click Raw → copy the URL, or copy the file/release download URL.', placeholder:'https://github.com/user/repo/raw/main/filename.pdf', label:'GitHub File QR' },
+  box:       { hint:'<strong>Box:</strong> Right-click file → Share → Create shared link → Copy link.', placeholder:'https://app.box.com/s/XXXXXXXX', label:'Box File QR' },
+  other:     { hint:'<strong>Any URL:</strong> Paste any publicly accessible file or document URL below.', placeholder:'https://yoursite.com/files/document.pdf', label:'File QR Code' }
+};
+
+function setPlatform(btn) {
+  document.querySelectorAll('.pl-btn').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  PLATFORM=btn.dataset.platform;
+  const d=PLATFORMS[PLATFORM];
+  document.getElementById('platform-hint').innerHTML=d.hint;
+  document.getElementById('f-url').placeholder=d.placeholder;
+  hideErr(); autoGenerate();
+}
+
+function setFT(btn) {
+  document.querySelectorAll('.ft-badge').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  FILETYPE=btn.dataset.ft;
+  autoGenerate();
+}
+
+/* ── BUILD URL ── */
+function buildURL() {
+  const url=document.getElementById('f-url').value.trim();
+  if(!url) throw new Error('Please paste your file share link.');
+  if(!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+  return url;
+}
+
+/* ── LIVE PREVIEW ── */
+function livePreview() {
+  try{
+    const url=buildURL();
+    const el=document.getElementById('link-preview');
+    el.style.display='block';
+    const name=document.getElementById('f-name').value.trim();
+    const size=document.getElementById('f-size').value.trim();
+    let label='Will link to: ';
+    if(name) label+=name+(size?' ('+size+')':'')+' — ';
+    el.innerHTML=label+'<strong>'+escHtml(url.slice(0,80))+(url.length>80?'…':'')+'</strong>';
+  }catch(e){document.getElementById('link-preview').style.display='none';}
+}
+
+/* ── GENERATE ── */
+async function generateQR() {
+  hideErr();
+  let data; try{data=buildURL();}catch(e){showErr(e.message);return;}
+  livePreview();
+  const size=parseInt(document.getElementById('sz-range').value)||300;
+  const fg=document.getElementById('fg-col').value;
+  const bg=document.getElementById('bg-col').value;
+  const container=document.getElementById('qr-out'); container.innerHTML='';
+  try {
+    const canvas=document.createElement('canvas');
+    await QRCode.toCanvas(canvas,data,{width:size,margin:2,color:{dark:fg,light:bg},errorCorrectionLevel:EC});
+    if(currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const name=document.getElementById('f-name').value.trim();
+    const access=document.getElementById('f-access').value;
+    const accessLabel={view:'👁️ View',download:'⬇️ Download',edit:'✏️ Edit'};
+    document.getElementById('qm-type').textContent=PLATFORMS[PLATFORM].label;
+    document.getElementById('qm-info').textContent=size+'×'+size+' · EC:'+EC;
+    document.getElementById('qm-ready').textContent='✓ Ready'+(name?' — '+FILETYPE+' '+name:' — '+FILETYPE)+' · '+accessLabel[access];
+    flashEffect();
+  }catch(e){showErr('QR generation failed: '+e.message);}
+}
+
+function overlayLogo(canvas){
+  return new Promise(resolve=>{
+    if(!currentLogoBase64) return resolve();
+    const ctx=canvas.getContext('2d'); const ms=Math.floor(canvas.width*0.22);
+    const img=new Image();
+    img.onload=()=>{
+      let w=ms,h=ms; const r=img.width/img.height;
+      if(r>1)h=ms/r; else if(r<1)w=ms*r;
+      const x=(canvas.width-w)/2,y=(canvas.height-h)/2,pad=6;
+      ctx.fillStyle='#ffffff'; ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x-pad,y-pad,w+pad*2,h+pad*2,8);
+      else ctx.fillRect(x-pad,y-pad,w+pad*2,h+pad*2);
+      ctx.fill(); ctx.drawImage(img,x,y,w,h); resolve();
+    }; img.onerror=()=>resolve(); img.src=currentLogoBase64;
+  });
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};}
+
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function autoGenerate(){livePreview();clearTimeout(genTimer);genTimer=setTimeout(()=>{try{buildURL();generateQR();}catch(e){}},400);}
+function flashEffect(){const fl=document.getElementById('qr-flash');fl.style.opacity='1';setTimeout(()=>fl.style.opacity='0',500);}
+function getCanvas(){return document.querySelector('#qr-out canvas');}
+function dlPNG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const a=document.createElement('a');a.download='file-qr-toolsbox.png';a.href=c.toDataURL('image/png');a.click();}
+function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const sz=parseInt(document.getElementById('sz-range').value)||300;const d=c.toDataURL('image/png');const svg=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}">\n<title>File QR Code — ToolsBox</title>\n<image x="0" y="0" width="${sz}" height="${sz}" xlink:href="${d}"/>\n</svg>`;const blob=new Blob([svg],{type:'image/svg+xml'});const a=document.createElement('a');a.download='file-qr-toolsbox.svg';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the QR code → Copy Image.');}}
+function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
+async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'file-qr.png',{type:'image/png'});await navigator.share({title:'File QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const name=document.getElementById('f-name').value||'File';const win=window.open('','_blank');win.document.write(`<html><head><title>File QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">${name} · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function resetAll(){['f-url','f-name','f-size','f-desc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('f-access').value='view';document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📁</span><span class="qr-ph-txt">QR code appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('link-preview').style.display='none';rmLogo();}
+function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
+function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
+function syncCol(hid,cid){const v=document.getElementById(hid).value;if(/^#[0-9a-fA-F]{6}$/.test(v))document.getElementById(cid).value=v;}
+function updSize(){document.getElementById('sz-label').textContent=document.getElementById('sz-range').value+'×'+document.getElementById('sz-range').value;}
+function setEC(ec,btn){EC=ec;document.querySelectorAll('.ec-p').forEach(p=>{p.classList.remove('on');p.setAttribute('aria-pressed','false');});btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+function preset(fg,bg){document.getElementById('fg-col').value=fg;document.getElementById('fg-hex').value=fg;document.getElementById('bg-col').value=bg;document.getElementById('bg-hex').value=bg;}
+function handleLogo(inp){const f=inp.files[0];if(!f)return;if(f.size>512000){showErr('Logo must be under 500 KB');return;}const reader=new FileReader();reader.onload=e=>{currentLogoBase64=e.target.result;document.getElementById('logo-img').src=currentLogoBase64;document.getElementById('logo-name').textContent=f.name;document.getElementById('logo-prev').style.display='flex';setEC('H',document.querySelector('.ec-p[data-ec="H"]'));autoGenerate();};reader.readAsDataURL(f);}
+function rmLogo(){currentLogoBase64=null;document.getElementById('logo-inp').value='';document.getElementById('logo-prev').style.display='none';document.getElementById('logo-img').src='';autoGenerate();}
+function showErr(m){const e=document.getElementById('err-box');e.textContent='⚠️ '+m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
+function hideErr(){document.getElementById('err-box').classList.remove('show');}
+function faq(el){const p=el.parentElement;const open=p.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('open');x.querySelector('.fq').setAttribute('aria-expanded','false');});if(!open){p.classList.add('open');el.setAttribute('aria-expanded','true');}}
+(function(){const h=document.getElementById('ham'),m=document.getElementById('mob-menu');h.addEventListener('click',()=>{const o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}});})();
+(function(){const drop=document.getElementById('logo-drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag-over');}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag-over');}));drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);document.getElementById('logo-inp').files=dt.files;handleLogo(document.getElementById('logo-inp'));}});drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('logo-inp').click();}});})();
+window.addEventListener('load',()=>{
+  document.getElementById('f-url').value='https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/view';
+  document.getElementById('f-name').value='Q3 Financial Report 2025.pdf';
+  document.getElementById('f-size').value='2.4 MB';
+  document.getElementById('f-desc').value='Q3 Financial Report — Finance Team';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

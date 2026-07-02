@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar Event QR Code Generator — Add Events Instantly with a Scan | ToolsBox</title>
+<meta name="description" content="Free calendar QR code generator. Create a scannable QR to add events to Google Calendar, Apple Calendar & Outlook instantly. No typing, no errors. Free, no sign-up.">
+<meta name="keywords" content="calendar QR code generator, add to calendar QR code, event QR code generator, Google Calendar QR code, Apple Calendar QR code, Outlook calendar QR code, scan to add event, iCal QR code, calendar invite QR code, event invite QR, meeting QR code, appointment QR code, conference event QR, scan to save event, calendar link QR, free calendar QR generator, VEVENT QR code, ics QR code, event RSVP QR code, event details QR code, meeting invite QR code, webinar QR code, schedule QR code, event reminder QR code, class schedule QR code, workshop QR code, seminar QR code, event planning QR code, scan to join event, add event QR code free">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-calendar.html">
+<meta property="og:title" content="Calendar Event QR Code Generator — Add Events Instantly | ToolsBox">
+<meta property="og:description" content="Create a QR code that adds events to Google Calendar, Apple Calendar or Outlook instantly when scanned. Free, custom colors, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-calendar.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-calendar.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calendar QR Code Generator — Free Event QR | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code to add events to any calendar app instantly. Google, Apple, Outlook. Free, no sign-up.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Calendar Event QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-calendar.html","description":"Free calendar event QR code generator. Create scannable QR codes that add events to Google Calendar, Apple Calendar and Outlook instantly.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a calendar QR code work?","acceptedAnswer":{"@type":"Answer","text":"A calendar QR code encodes event details (title, date, time, location, description) using the iCalendar (iCal) format or a Google Calendar URL. When scanned, the phone's camera opens the appropriate calendar app and prompts the user to save the event — no typing required."}},{"@type":"Question","name":"What calendar apps support QR code events?","acceptedAnswer":{"@type":"Answer","text":"Google Calendar QR codes work on any device with a browser. iCal (VEVENT) QR codes work natively on iPhone and Mac (Apple Calendar), and can be opened in Outlook, Thunderbird and any app that supports .ics files. Use the Google Calendar tab for the broadest cross-platform compatibility."}},{"@type":"Question","name":"What is the iCal format for a calendar QR code?","acceptedAnswer":{"@type":"Answer","text":"iCal (iCalendar) is a standard format for calendar data. A VEVENT in iCal format looks like: BEGIN:VCALENDAR\\nBEGIN:VEVENT\\nDTSTART:20250101T090000Z\\nDTEND:20250101T100000Z\\nSUMMARY:Event Title\\nLOCATION:Venue\\nDESCRIPTION:Details\\nEND:VEVENT\\nEND:VCALENDAR. This generator creates this format for the iCal/Apple tab."}},{"@type":"Question","name":"Can I create a QR code for a recurring event?","acceptedAnswer":{"@type":"Answer","text":"The iCal format supports recurring events via the RRULE property. This generator creates single-instance events. For recurring events, create the event in Google Calendar first, then share the event link via the Google Calendar tab."}},{"@type":"Question","name":"Does the calendar QR code expire?","acceptedAnswer":{"@type":"Answer","text":"The QR code image never expires. For iCal format QR codes, the event data is encoded directly so they work forever. For Google Calendar link QR codes, the link works as long as Google Calendar is available (indefinitely)."}},{"@type":"Question","name":"Where should I display my calendar event QR code?","acceptedAnswer":{"@type":"Answer","text":"Best locations: event invitations and save-the-date cards, conference posters and banners, business cards for recurring meetings, email newsletters, trade show displays, classroom announcements, webinar promotional materials, and any physical material where you want attendees to save an event."}},{"@type":"Question","name":"Is my event data stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your event details never leave your device — never sent to any server, never stored, never tracked."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#0ea5e9;--acc-dark:#0284c7;--acc-dim:rgba(14,165,233,0.1);--acc-bdr:rgba(14,165,233,0.28);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.1);--grn-bdr:rgba(34,197,94,0.28);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.1);--red-bdr:rgba(239,68,68,0.28);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#6366f1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.compat-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.compat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:72px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.inp-icon.top{top:14px;transform:none}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* DATE-TIME PAIR */
+.dt-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* ALLDAY TOGGLE */
+.allday-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.toggle-wrap{position:relative;display:inline-flex;align-items:center;cursor:pointer}
+.toggle-inp{position:absolute;opacity:0;width:0;height:0}
+.toggle-track{width:38px;height:20px;background:var(--surf3);border-radius:100px;transition:background .2s;border:1.5px solid var(--bdr2)}
+.toggle-inp:checked + .toggle-track{background:var(--acc)}
+.toggle-knob{position:absolute;left:3px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:#fff;border-radius:50%;transition:left .2s;pointer-events:none}
+.toggle-inp:checked ~ .toggle-knob{left:21px}
+.toggle-label{font-size:12px;font-weight:600;color:var(--txt2)}
+/* URL PREVIEW */
+.link-preview-text{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(14,165,233,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(14,165,233,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(14,165,233,.15);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(34,197,94,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-block h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-block h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#6366f1)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}.dt-pair{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Calendar Event QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">📅 Calendar Event QR Code Generator</div>
+    <h1>Add Events to <b>Any Calendar</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code that instantly adds your event to Google Calendar, Apple Calendar or Outlook when scanned. No typing, no errors, no missed details — attendees save the event in seconds. 100% free, no sign-up required.</p>
+    <div class="compat-strip" role="list" aria-label="Compatible calendars">
+      <span class="compat-badge" role="listitem">📅 Google Calendar</span>
+      <span class="compat-badge" role="listitem">🍎 Apple Calendar</span>
+      <span class="compat-badge" role="listitem">🪟 Outlook</span>
+      <span class="compat-badge" role="listitem">📱 All Phones</span>
+    </div>
+  </header>
+
+  <section aria-label="Calendar Event QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title" id="card-title">📅 Event details</span>
+          <span class="ch-badge" id="card-badge">CALENDAR QR</span>
+        </div>
+        <div class="card-body">
+
+          <div class="mode-tabs" role="tablist" aria-label="Calendar type">
+            <button class="mtab on" id="tab-gcal" onclick="setMode('gcal')" role="tab" aria-selected="true">📅 Google Cal</button>
+            <button class="mtab" id="tab-ical" onclick="setMode('ical')" role="tab" aria-selected="false">🍎 iCal / Apple</button>
+            <button class="mtab" id="tab-outlook" onclick="setMode('outlook')" role="tab" aria-selected="false">🪟 Outlook</button>
+          </div>
+
+          <!-- SHARED FIELDS (all modes) -->
+          <div class="fld">
+            <label class="lbl lbl-req" for="ev-title">Event Title</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">📌</span>
+              <input type="text" id="ev-title" class="inp has-icon" placeholder="e.g. Product Launch, Team Meeting, Conference" oninput="autoGenerate()" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- ALL-DAY TOGGLE -->
+          <div class="allday-row">
+            <label class="toggle-wrap" for="allday-toggle" aria-label="All-day event">
+              <input type="checkbox" id="allday-toggle" class="toggle-inp" onchange="toggleAllDay();autoGenerate()">
+              <span class="toggle-track"></span>
+              <span class="toggle-knob"></span>
+            </label>
+            <span class="toggle-label">All-day event</span>
+          </div>
+
+          <div class="r2" id="date-section">
+            <div class="fld">
+              <label class="lbl lbl-req" for="ev-start-date">Start Date</label>
+              <input type="date" id="ev-start-date" class="inp" oninput="autoGenerate()" aria-label="Event start date">
+            </div>
+            <div class="fld" id="start-time-field">
+              <label class="lbl lbl-req" for="ev-start-time">Start Time</label>
+              <input type="time" id="ev-start-time" class="inp" value="09:00" oninput="autoGenerate()" aria-label="Event start time">
+            </div>
+          </div>
+          <div class="r2" id="end-section">
+            <div class="fld">
+              <label class="lbl" for="ev-end-date">End Date</label>
+              <input type="date" id="ev-end-date" class="inp" oninput="autoGenerate()" aria-label="Event end date">
+            </div>
+            <div class="fld" id="end-time-field">
+              <label class="lbl" for="ev-end-time">End Time</label>
+              <input type="time" id="ev-end-time" class="inp" value="10:00" oninput="autoGenerate()" aria-label="Event end time">
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl" for="ev-location">Location (optional)</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">📍</span>
+              <input type="text" id="ev-location" class="inp has-icon" placeholder="e.g. 123 Main St, New York or Zoom Meeting" oninput="autoGenerate()">
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl" for="ev-desc">Description (optional)</label>
+            <div class="inp-wrap">
+              <span class="inp-icon top" aria-hidden="true">📝</span>
+              <textarea id="ev-desc" class="inp has-icon" placeholder="Event details, agenda, notes, join link..." oninput="autoGenerate()" rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- MODE-SPECIFIC EXTRAS -->
+          <div id="form-gcal" style="display:none">
+            <div class="info-box">
+              <strong>Google Calendar:</strong> Generates a calendar.google.com URL. Works on any device with a browser — broadest compatibility. Attendees click "Save" on the Google Calendar page.
+            </div>
+          </div>
+          <div id="form-ical">
+            <div class="info-box">
+              <strong>iCal / Apple Calendar:</strong> Encodes a VEVENT in iCal format. Works natively on iPhone and Mac. Also opens in Outlook, Thunderbird and any app supporting .ics files. Best for Apple device users.
+            </div>
+          </div>
+          <div id="form-outlook" style="display:none">
+            <div class="info-box">
+              <strong>Outlook.com / Microsoft 365:</strong> Generates an Outlook.com "new event" URL with all details pre-filled. Works on any device with a browser. Best for Microsoft 365 and Outlook users.
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Calendar Event QR Code">📅 Generate Calendar QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Colour Presets</label><div class="preset-row">
+            <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+            <button class="pr-btn" onclick="preset('#0ea5e9','#f0f9ff');autoGenerate()" aria-label="Sky Blue"><span class="pr-dot" style="background:#0ea5e9"></span>Sky</button>
+            <button class="pr-btn" onclick="preset('#4285f4','#e8f0fe');autoGenerate()" aria-label="Google Blue"><span class="pr-dot" style="background:#4285f4"></span>Google</button>
+            <button class="pr-btn" onclick="preset('#0078d4','#e6f2fb');autoGenerate()" aria-label="Outlook Blue"><span class="pr-dot" style="background:#0078d4"></span>Outlook</button>
+            <button class="pr-btn" onclick="preset('#10b981','#f0fdf4');autoGenerate()" aria-label="Green"><span class="pr-dot" style="background:#10b981"></span>Green</button>
+            <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+          </div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Size — <span id="sz-label">300×300</span></label><div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR size"></div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Error Correction</label><div class="ec-row" role="group" aria-label="Error correction level">
+            <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+            <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+            <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+            <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+          </div></div>
+          <div class="fld"><label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev"><img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span><button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📅</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta"><span class="qm-type" id="qm-type">Calendar Event QR</span><span class="qm-info" id="qm-info">—</span></div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Google Calendar tab for broadest device support</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">iCal tab is best for iPhone and Mac users</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Add a Zoom/Meet link in the Description field</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for sharp print on any material</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan before printing on event materials</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box">
+    <h3>📊 Events & Calendar Adoption Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">500M+</div><div class="stat-label">Google Calendar active users — the world's most-used digital calendar by a wide margin</div></div>
+      <div class="stat-item"><div class="stat-num">40%</div><div class="stat-label">of event no-shows cite "I forgot" as the reason — a calendar QR directly eliminates this</div></div>
+      <div class="stat-item"><div class="stat-num">3×</div><div class="stat-label">higher event attendance when attendees add the event to their calendar vs. relying on memory</div></div>
+      <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">cost to create a calendar event QR code and eliminate manual event-entry errors forever</div></div>
+    </div>
+  </div>
+
+  <section class="section-block">
+    <h2>📖 How to Create a Calendar Event QR Code in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Choose Your Calendar</div><div class="step-desc">Select Google Calendar for broadest compatibility, iCal/Apple for iPhone and Mac users, or Outlook for Microsoft 365 organisations. Each generates the right format for that platform.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Enter Event Details</div><div class="step-desc">Fill in the event title (required), start date and time, end date and time, location and description. Include your Zoom or Google Meet link in the description field for virtual events.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Customise Your QR</div><div class="step-desc">Match colours to your event branding, add your organisation's logo at the QR centre, adjust the size for your intended use — invitation card, event banner, conference poster, or email.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Download & Distribute</div><div class="step-desc">Download SVG for print or PNG for digital. Place on event invitations, posters, email newsletters, registration confirmations, and any material where attendees need to save the event.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-title">Attendees Scan</div><div class="step-desc">When attendees scan the QR, their phone opens Google Calendar / Apple Calendar / Outlook with all event details pre-filled. They tap "Save" in one second — no typing, no errors.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-title">Reduce No-Shows</div><div class="step-desc">Saved calendar events trigger automatic reminders. Attendees get a notification 10–30 minutes before the event from their own calendar app — dramatically reducing no-show rates.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>💼 Use Cases for Calendar Event QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon">🎤</span><div class="uc-title">Conferences & Summits</div><div class="uc-desc">Print QR codes on conference programmes, badges and posters. Attendees scan session titles to save individual talks to their calendar with venue, room and speaker details pre-filled.</div></div>
+      <div class="use-card"><span class="uc-icon">💒</span><div class="uc-title">Weddings & Celebrations</div><div class="uc-desc">Add a QR code to save-the-date cards and wedding invitations. Guests scan to instantly save the ceremony and reception details — venue, time and date — to their calendar.</div></div>
+      <div class="use-card"><span class="uc-icon">🎓</span><div class="uc-title">Classes & Workshops</div><div class="uc-desc">Educators and trainers add a QR to class schedules and workshop flyers. Students scan to save each session with the classroom location or Zoom link directly in the description.</div></div>
+      <div class="use-card"><span class="uc-icon">🏢</span><div class="uc-title">Corporate Meetings</div><div class="uc-desc">Add calendar QR codes to meeting room booking confirmations, internal newsletters and desk cards. Team members scan to save recurring meetings without needing a calendar invite email.</div></div>
+      <div class="use-card"><span class="uc-icon">🌐</span><div class="uc-title">Webinars & Online Events</div><div class="uc-desc">Include a QR on registration confirmation pages and email campaigns. Attendees scan to save the webinar to their calendar with the Zoom/Teams join link in the description.</div></div>
+      <div class="use-card"><span class="uc-icon">🏃</span><div class="uc-title">Sports & Fitness Events</div><div class="uc-desc">Add QR codes to race bibs, gym class schedules and sports event flyers. Participants scan to save the event date, start time and meeting point directly to their calendar.</div></div>
+      <div class="use-card"><span class="uc-icon">🎭</span><div class="uc-title">Performances & Exhibitions</div><div class="uc-desc">Museums, theatres and galleries add calendar QRs to promotional materials. Visitors scan to save opening nights, exhibitions and performances directly from a poster or flyer.</div></div>
+      <div class="use-card"><span class="uc-icon">🏥</span><div class="uc-title">Healthcare Appointments</div><div class="uc-desc">Clinics and practitioners add a QR on appointment confirmation cards. Patients scan to save their appointment date, time and clinic location to their calendar with no risk of misreading.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🚀 6 Benefits of Calendar Event QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon">⚡</span><div class="bn-title">Instant, Zero-Error Event Saving</div><div class="bn-desc">Manual entry leads to wrong dates, typos in addresses and missing details. A QR code transfers every event detail perfectly in one tap — zero errors, zero effort from attendees.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📉</span><div class="bn-title">Dramatically Reduces No-Shows</div><div class="bn-desc">When events are saved to a calendar, attendees receive automatic reminders. Studies show 3× higher attendance rates for events saved to calendar vs. relying on memory or email.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🌐</span><div class="bn-title">Works on Any Calendar App</div><div class="bn-desc">Google Calendar QR works on any browser. iCal format works on Apple devices and any standard calendar app. One QR, universal event saving across all platforms and devices.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🎨</span><div class="bn-title">Professionally Branded</div><div class="bn-desc">Customise with your event colours and add your organisation's logo at the centre. A branded calendar QR on your invitation signals attention to detail and professionalism.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📍</span><div class="bn-title">Location & Link Included</div><div class="bn-desc">The venue address or Zoom link is embedded in the calendar event, not just on the printed material. Attendees always have the joining instructions right in their calendar reminder.</div></div>
+      <div class="benefit-card"><span class="bn-icon">💰</span><div class="bn-title">Free, Forever, No Service Needed</div><div class="bn-desc">Unlike third-party event registration platforms, this generator creates static QR codes — no monthly fees, no platform dependency, no expiry. Generate once, use indefinitely.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-attendance.html" class="rel-card"><span class="rel-icon">✅</span><div class="rel-info"><div class="rel-title">Attendance QR</div><div class="rel-desc">Check-in tracking</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-list-links.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">Link List QR</div><div class="rel-desc">Share all your links</div></div></a>
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR</div><div class="rel-desc">Scan to text</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-custom-url.html" class="rel-card"><span class="rel-icon">🔧</span><div class="rel-info"><div class="rel-title">Custom URL QR</div><div class="rel-desc">UTM & custom links</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Calendar Event QR Codes for Events & Meetings</h2>
+    <p>Event no-shows and forgotten meetings are universal problems. Whether you're running a conference, a wedding, a class or a business event, getting attendees to actually show up requires that they save the details. Calendar event QR codes solve this at the point of invitation — a single scan adds the event to any calendar app with all details pre-filled, and the calendar app sends automatic reminders so attendees never forget.</p>
+    <h3>Google Calendar vs. iCal vs. Outlook — Which to Choose?</h3>
+    <p><strong>Google Calendar (recommended for most events):</strong> Generates a calendar.google.com URL that works in any browser on any device. When scanned, it opens a Google Calendar "add event" page with all details pre-filled. Users tap Save. Works on iPhone, Android, Windows, Mac — any device with a browser and a Google account.</p>
+    <p><strong>iCal format (best for Apple users):</strong> Encodes the event in iCalendar (VEVENT) format directly in the QR. When an iPhone or Mac scans it, Apple Calendar opens immediately with the event ready to save — no browser needed. Also works with Outlook, Thunderbird and any calendar app that supports the .ics standard.</p>
+    <p><strong>Outlook (best for corporate environments):</strong> Generates an Outlook.com new event URL with all details pre-filled. Best for Microsoft 365 organisations where attendees use Outlook as their primary calendar.</p>
+    <h3>Pro Tips for Calendar Event QR Campaigns</h3>
+    <ul>
+      <li><strong>Include the virtual join link in the description:</strong> For webinars and hybrid events, add the Zoom, Teams or Meet URL directly in the description field. The join link travels with the calendar event to every attendee's device.</li>
+      <li><strong>Add "Scan to save this event" text:</strong> Print this instruction near the QR code. Explicit call-to-action text increases scan rates by 25–40% compared to a QR code alone.</li>
+      <li><strong>Use Level H error correction with a logo:</strong> If printing in small sizes (e.g. on business cards), enable H-level error correction. This allows the QR to scan even if up to 30% is obscured by your logo.</li>
+      <li><strong>Test on multiple devices before printing:</strong> Scan your QR on an iPhone, an Android, and a desktop browser to confirm the event details appear correctly in each calendar app.</li>
+      <li><strong>Create separate QRs for multi-session events:</strong> For conferences with multiple sessions, create individual QR codes for each session rather than one for the whole event. Attendees can save only the sessions they'll attend.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How does a calendar event QR code work?<span class="fq-icon">+</span></div><div class="fa">A calendar event QR code encodes event details (title, date, time, location, description) in a format that calendar apps understand. For Google Calendar, it's a URL. For iCal/Apple, it's VEVENT data. When scanned, the phone opens the appropriate calendar app with all details pre-filled — attendees just tap Save.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Which calendar tab should I choose?<span class="fq-icon">+</span></div><div class="fa">Google Calendar works for everyone with a Google account and any browser. Use iCal/Apple if your attendees are primarily iPhone or Mac users — it saves directly to Apple Calendar without a browser. Use Outlook for corporate environments with Microsoft 365. When in doubt, Google Calendar has the broadest compatibility.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I add a Zoom or Google Meet link to the calendar QR?<span class="fq-icon">+</span></div><div class="fa">Yes. Paste your Zoom, Google Meet, Microsoft Teams or any virtual meeting link into the Description field. When attendees save the event, the join link appears in the event description in their calendar app — available with one tap right before the meeting starts.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the calendar QR code expire?<span class="fq-icon">+</span></div><div class="fa">The QR code image never expires. iCal format QR codes have event data encoded directly — they work forever. Google Calendar and Outlook URL QR codes work as long as the respective services are available. All three approaches are effectively permanent for practical purposes.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I create a QR code for a recurring event?<span class="fq-icon">+</span></div><div class="fa">This generator creates single-instance events. For recurring events, the best approach is to create the recurring event in Google Calendar first, then share the event's Google Calendar link using the Google Calendar tab here. Alternatively, generate individual QR codes for each instance of a recurring event series.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What size should the QR code be for printing?<span class="fq-icon">+</span></div><div class="fa">For business card size: minimum 1.5cm × 1.5cm printed. For A4 flyers: 4–6cm. For banners and posters: 8–12cm. Always download SVG format for print — it scales to any size without quality loss. For event banners visible from 3+ metres, the QR should be at least 15cm × 15cm printed.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my event data stored on your servers?<span class="fq-icon">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your event title, date, location and description never leave your device — never sent to any server, never stored, never tracked.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">📅 Event QR Codes</div><ul class="fl"><li><a href="qr-calendar.html">📅 Calendar Event QR</a></li><li><a href="qr-attendance.html">✅ Attendance QR</a></li><li><a href="qr-ticket.html">🎟️ Ticket QR</a></li><li><a href="qr-booking.html">📆 Booking QR</a></li></ul></div>
+    <div><div class="fct">🏢 Business QR Codes</div><ul class="fl"><li><a href="qr-google-review.html">⭐ Google Review QR</a></li><li><a href="qr-vcard.html">👤 vCard QR</a></li><li><a href="qr-wifi.html">📶 WiFi QR</a></li><li><a href="qr-upi.html">💳 UPI QR</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">GST Calculator</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'gcal';
+
+/* ── SET TODAY AS DEFAULT DATE ── */
+(function() {
+  const today = new Date();
+  const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate() + 1);
+  const fmt = d => d.toISOString().split('T')[0];
+  document.getElementById('ev-start-date').value = fmt(tomorrow);
+  document.getElementById('ev-end-date').value = fmt(tomorrow);
+})();
+
+/* ── ALLDAY TOGGLE ── */
+function toggleAllDay() {
+  const allDay = document.getElementById('allday-toggle').checked;
+  document.getElementById('start-time-field').style.display = allDay ? 'none' : '';
+  document.getElementById('end-time-field').style.display = allDay ? 'none' : '';
+}
+
+/* ── MODE ── */
+function setMode(m) {
+  MODE = m;
+  ['gcal','ical','outlook'].forEach(id => {
+    document.getElementById('tab-' + id).classList.toggle('on', id === m);
+    document.getElementById('tab-' + id).setAttribute('aria-selected', id === m);
+    document.getElementById('form-' + id).style.display = id === m ? '' : 'none';
+  });
+  hideErr(); livePreview(); autoGenerate();
+}
+
+/* ── DATE/TIME HELPERS ── */
+function fmtDateTimeGoogle(dateStr, timeStr) {
+  // Returns YYYYMMDDTHHmmss format for Google Calendar
+  const d = dateStr.replace(/-/g, '');
+  if (!timeStr) return d;
+  const t = timeStr.replace(/:/g, '') + '00';
+  return d + 'T' + t;
+}
+function fmtDateGoogle(dateStr) { return dateStr.replace(/-/g, ''); }
+function fmtDateTimeICal(dateStr, timeStr) {
+  const d = dateStr.replace(/-/g, '');
+  if (!timeStr) return d;
+  const t = timeStr.replace(/:/g, '') + '00';
+  return d + 'T' + t + 'Z';
+}
+
+/* ── BUILD URL ── */
+function buildUrl() {
+  const title = document.getElementById('ev-title').value.trim();
+  if (!title) throw new Error('Please enter an event title.');
+  const startDate = document.getElementById('ev-start-date').value;
+  if (!startDate) throw new Error('Please select a start date.');
+  const endDate = document.getElementById('ev-end-date').value || startDate;
+  const startTime = document.getElementById('ev-start-time').value;
+  const endTime = document.getElementById('ev-end-time').value;
+  const allDay = document.getElementById('allday-toggle').checked;
+  const location = document.getElementById('ev-location').value.trim();
+  const desc = document.getElementById('ev-desc').value.trim();
+
+  if (MODE === 'gcal') {
+    const s = allDay ? fmtDateGoogle(startDate) : fmtDateTimeGoogle(startDate, startTime);
+    const e = allDay ? fmtDateGoogle(endDate) : fmtDateTimeGoogle(endDate, endTime);
+    let url = 'https://calendar.google.com/calendar/render?action=TEMPLATE';
+    url += '&text=' + encodeURIComponent(title);
+    url += '&dates=' + s + '/' + e;
+    if (location) url += '&location=' + encodeURIComponent(location);
+    if (desc) url += '&details=' + encodeURIComponent(desc);
+    return url;
+  } else if (MODE === 'ical') {
+    const s = allDay ? fmtDateGoogle(startDate) : fmtDateTimeICal(startDate, startTime);
+    const e = allDay ? fmtDateGoogle(endDate) : fmtDateTimeICal(endDate, endTime);
+    let ical = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//ToolsBox//Calendar QR//EN\r\nBEGIN:VEVENT\r\n';
+    ical += 'DTSTART:' + s + '\r\n';
+    ical += 'DTEND:' + e + '\r\n';
+    ical += 'SUMMARY:' + title.replace(/[\\;,]/g, '\\$&') + '\r\n';
+    if (location) ical += 'LOCATION:' + location.replace(/[\\;,]/g, '\\$&') + '\r\n';
+    if (desc) ical += 'DESCRIPTION:' + desc.replace(/[\\;,]/g, '\\$&').replace(/\n/g, '\\n') + '\r\n';
+    ical += 'END:VEVENT\r\nEND:VCALENDAR';
+    return ical;
+  } else {
+    // Outlook.com
+    const s = allDay ? startDate : (startDate + 'T' + (startTime || '09:00') + ':00');
+    const e = allDay ? endDate : (endDate + 'T' + (endTime || '10:00') + ':00');
+    let url = 'https://outlook.live.com/calendar/0/deeplink/compose?rru=addevent';
+    url += '&subject=' + encodeURIComponent(title);
+    url += '&startdt=' + encodeURIComponent(s);
+    url += '&enddt=' + encodeURIComponent(e);
+    if (location) url += '&location=' + encodeURIComponent(location);
+    if (desc) url += '&body=' + encodeURIComponent(desc);
+    url += '&allday=' + allDay;
+    return url;
+  }
+}
+
+function livePreview() {
+  try {
+    const url = buildUrl();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    const short = url.length > 90 ? url.substring(0, 90) + '…' : url;
+    el.innerHTML = 'Encoded: <strong>' + escHtml(short) + '</strong>';
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try { data = buildUrl(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value, bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: fg, light: bg }, errorCorrectionLevel: EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const labels = { gcal: 'Google Calendar QR', ical: 'Apple iCal QR', outlook: 'Outlook Calendar QR' };
+    document.getElementById('qm-type').textContent = labels[MODE];
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to add to calendar';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d'), ms = Math.floor(canvas.width * .22), img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms; const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill(); ctx.drawImage(img, x, y, w, h); resolve();
+    };
+    img.onerror = () => resolve(); img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => { try { buildUrl(); generateQR(); } catch(e) {} }, 400);
+  livePreview();
+}
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function dlPNG() { const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; } const a = document.createElement('a'); a.download = 'calendar-event-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click(); }
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300, d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Calendar Event QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' }); const a = document.createElement('a'); a.download = 'calendar-event-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); flashButton('cp-btn', '✓ Copied!'); }
+  catch(e) { alert('Right-click QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) { try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); const file = new File([blob], 'calendar-qr.png', { type: 'image/png' }); await navigator.share({ title: 'Calendar Event QR Code', files: [file] }); } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported.'); } }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {} }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Calendar QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Calendar Event QR · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['ev-title','ev-location','ev-desc'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+  const fmt = d => d.toISOString().split('T')[0];
+  document.getElementById('ev-start-date').value = fmt(tomorrow);
+  document.getElementById('ev-end-date').value = fmt(tomorrow);
+  document.getElementById('ev-start-time').value = '09:00';
+  document.getElementById('ev-end-time').value = '10:00';
+  document.getElementById('allday-toggle').checked = false;
+  toggleAllDay();
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📅</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—'; document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none'; rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body'), hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide'); hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) { EC = ec; document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); }); btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); }
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { currentLogoBase64 = e.target.result; document.getElementById('logo-img').src = currentLogoBase64; document.getElementById('logo-name').textContent = f.name; document.getElementById('logo-prev').style.display = 'flex'; setEC('H', document.querySelector('.ec-p[data-ec="H"]')); autoGenerate(); };
+  reader.readAsDataURL(f);
+}
+function rmLogo() { currentLogoBase64 = null; document.getElementById('logo-inp').value = ''; document.getElementById('logo-prev').style.display = 'none'; document.getElementById('logo-img').src = ''; autoGenerate(); }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement, open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+}
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => { const o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o); const s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(4px,4px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)'; } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+  document.addEventListener('click', e => { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+})();
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) { const dt = new DataTransfer(); dt.items.add(f); document.getElementById('logo-inp').files = dt.files; handleLogo(document.getElementById('logo-inp')); } });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+/* ── INIT ── */
+window.addEventListener('load', () => {
+  setMode('gcal');
+  document.getElementById('ev-title').value = 'Product Launch Event';
+  document.getElementById('ev-location').value = 'Main Conference Hall, New York';
+  document.getElementById('ev-desc').value = 'Join us for our annual product launch. Light refreshments provided.';
+  livePreview();
+  generateQR();
+});
+</script>
+</body>
+</html>

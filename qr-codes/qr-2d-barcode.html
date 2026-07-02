@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2D Barcode QR Code Generator — Inventory, Retail & Logistics | ToolsBox</title>
+<meta name="description" content="Free 2D barcode QR code generator. Create scannable 2D barcodes for inventory, retail, product labels, logistics, and asset tracking. Download PNG & SVG. No sign-up.">
+<meta name="keywords" content="2D barcode generator, QR code 2D barcode, 2D barcode QR, free 2D barcode generator, 2D barcode for inventory, 2D barcode for retail, product barcode QR, inventory QR barcode, asset tracking QR code, 2D barcode scanner, QR code barcode generator free, 2D barcode maker, data matrix alternative QR, 2D barcode for warehouse, logistics QR barcode, product label QR barcode, serial number QR barcode, part number QR code, 2D barcode for manufacturing, GS1 style QR code, supply chain QR barcode, QR barcode for products, scan 2D barcode, retail QR barcode, item tracking QR code, 2D barcode label generator, barcode to QR converter, QR code product identifier, 2D code generator online, scan item QR code, inventory management QR, QR barcode for assets, equipment QR barcode, stock QR barcode generator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-2d-barcode.html">
+<meta property="og:title" content="2D Barcode QR Code Generator — Inventory, Retail & Logistics | ToolsBox">
+<meta property="og:description" content="Create 2D barcodes for products, inventory, assets, and logistics. Encode product IDs, serial numbers, batch codes, and custom data. Free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-2d-barcode.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-2d-barcode.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2D Barcode QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate 2D barcodes for inventory, products, and assets. Encode any data. Free, no sign-up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"2D Barcode QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-2d-barcode.html","description":"Free 2D barcode QR code generator for inventory management, retail, logistics, and asset tracking.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a 2D barcode?","acceptedAnswer":{"@type":"Answer","text":"A 2D barcode (two-dimensional barcode) encodes data in both horizontal and vertical directions, allowing it to store significantly more information than a traditional 1D (linear) barcode. QR codes are the most popular type of 2D barcode. They can encode URLs, product IDs, serial numbers, batch codes, and structured data."}},{"@type":"Question","name":"What is the difference between a QR code and a 2D barcode?","acceptedAnswer":{"@type":"Answer","text":"A QR code IS a type of 2D barcode. Other 2D barcode formats include Data Matrix, PDF417, and Aztec codes. For most business purposes, QR codes are the best choice as they're supported by every smartphone camera without a dedicated scanner app."}},{"@type":"Question","name":"How much data can a 2D barcode QR code hold?","acceptedAnswer":{"@type":"Answer","text":"A QR code can hold up to 4,296 alphanumeric characters, 7,089 numeric digits, or 2,953 binary bytes. This is vastly more than a 1D barcode (typically 20-25 characters). For product and inventory use, this is more than sufficient for product ID, serial number, batch, date, and location data combined."}},{"@type":"Question","name":"Can I use QR codes for inventory management?","acceptedAnswer":{"@type":"Answer","text":"Yes. QR codes are increasingly replacing traditional barcodes in inventory management because they hold more data, scan from any angle, and work with standard smartphone cameras without dedicated hardware. Print the QR on labels, packaging, or stickers attached to items or shelving."}},{"@type":"Question","name":"What format should I download for product labels?","acceptedAnswer":{"@type":"Answer","text":"Download SVG for product label printing — it scales to any size without pixelation, from a tiny 1×1 cm label to a large shelf label. For digital inventory systems or email, use PNG. Minimum label size for reliable scanning: 2×2 cm."}},{"@type":"Question","name":"Can I scan these QR barcodes with a handheld scanner?","acceptedAnswer":{"@type":"Answer","text":"Yes. Standard 2D barcode handheld scanners (like Zebra or Honeywell devices) can read QR codes. Ensure your scanner is set to 2D mode (not 1D-only). Every modern smartphone camera can also scan QR codes without any app."}},{"@type":"Question","name":"Is my barcode data stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your product IDs, serial numbers, and barcode data never leave your device."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#f59e0b;--acc-dark:#d97706;--acc-dim:rgba(245,158,11,0.1);--acc-bdr:rgba(245,158,11,0.3);
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --blue:#3b82f6;--blue-dim:rgba(59,130,246,0.1);--blue-bdr:rgba(59,130,246,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#d97706);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#000;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);transition:color .15s}.bc a:hover{color:var(--txt2)}
+/* HERO */
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.app-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.app-tag{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+/* TOOL */
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+/* TABS */
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 6px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+/* FORM */
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp.mono{font-family:var(--fm);font-size:12px;letter-spacing:.03em}
+textarea.inp{resize:vertical;min-height:90px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.4}
+select.inp{cursor:pointer;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.hint{font-size:11px;color:var(--txt3);line-height:1.5}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* Data preview */
+.data-preview{background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:10px 13px;margin-top:4px;margin-bottom:12px;display:none}
+.dp-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);margin-bottom:5px}
+.dp-val{font-family:var(--fm);font-size:11px;color:var(--txt2);word-break:break-all;line-height:1.7}
+.dp-bytes{font-size:10px;color:var(--txt3);margin-top:4px}
+/* Data type cards */
+.dtype-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.dt-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;transition:all .15s;font-family:var(--f)}
+.dt-btn:hover{border-color:var(--acc-bdr)}
+.dt-btn.on{border-color:var(--acc);background:var(--acc-dim)}
+.dt-emoji{font-size:18px}
+.dt-label{font-size:10px;font-weight:700;color:var(--txt);text-align:center}
+/* gen btn */
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#000;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;box-shadow:0 4px 20px rgba(245,158,11,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,158,11,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+/* Customise */
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#000}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+/* Preview */
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.18}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(245,158,11,.15);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block;min-height:16px}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#000}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* Content */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:52px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-hd{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-hd span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#fbbf24)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-sec{max-width:760px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.dtype-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.r2{grid-template-columns:1fr}.r3{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}.dtype-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">▦</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">2D Barcode QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">▦ 2D Barcode QR Code Generator</div>
+    <h1>2D Barcodes for <b>Inventory</b>,<br>Retail & Logistics</h1>
+    <p class="sub">Create powerful 2D barcode QR codes for product labelling, inventory management, asset tracking, warehouse logistics, and supply chain. Encode product IDs, serial numbers, batch codes, and structured data — all free.</p>
+    <div class="app-strip" role="list" aria-label="Compatible with">
+      <span class="app-tag" role="listitem">📦 Inventory</span>
+      <span class="app-tag" role="listitem">🏪 Retail POS</span>
+      <span class="app-tag" role="listitem">🏭 Manufacturing</span>
+      <span class="app-tag" role="listitem">🚚 Logistics</span>
+      <span class="app-tag" role="listitem">🔧 Asset Tracking</span>
+      <span class="app-tag" role="listitem">📱 Any Scanner</span>
+    </div>
+  </header>
+
+  <section aria-label="2D Barcode QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">▦ Barcode Data Builder</span>
+          <span class="ch-badge">2D BARCODE</span>
+        </div>
+        <div class="card-body">
+
+          <!-- DATA TYPE SELECTOR -->
+          <label class="lbl" style="display:block;margin-bottom:10px">Data Type</label>
+          <div class="dtype-grid" id="dtype-grid">
+            <button class="dt-btn on" data-type="product" onclick="setDataType(this)" aria-pressed="true"><span class="dt-emoji">📦</span><span class="dt-label">Product</span></button>
+            <button class="dt-btn" data-type="serial" onclick="setDataType(this)" aria-pressed="false"><span class="dt-emoji">🔢</span><span class="dt-label">Serial No.</span></button>
+            <button class="dt-btn" data-type="asset" onclick="setDataType(this)" aria-pressed="false"><span class="dt-emoji">🔧</span><span class="dt-label">Asset</span></button>
+            <button class="dt-btn" data-type="batch" onclick="setDataType(this)" aria-pressed="false"><span class="dt-emoji">🏭</span><span class="dt-label">Batch/Lot</span></button>
+            <button class="dt-btn" data-type="location" onclick="setDataType(this)" aria-pressed="false"><span class="dt-emoji">📍</span><span class="dt-label">Location</span></button>
+            <button class="dt-btn" data-type="custom" onclick="setDataType(this)" aria-pressed="false"><span class="dt-emoji">⌨️</span><span class="dt-label">Custom</span></button>
+          </div>
+
+          <!-- PRODUCT -->
+          <div id="form-product">
+            <div class="fld">
+              <label class="lbl lbl-req" for="p-sku">Product SKU / Item Code</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📦</span>
+                <input type="text" id="p-sku" class="inp has-icon mono" placeholder="SKU-00123" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="p-name">Product Name</label>
+                <input type="text" id="p-name" class="inp" placeholder="Blue Running Shoes" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="p-cat">Category</label>
+                <input type="text" id="p-cat" class="inp" placeholder="Footwear" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r3">
+              <div class="fld">
+                <label class="lbl" for="p-price">Price</label>
+                <input type="text" id="p-price" class="inp" placeholder="29.99" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="p-currency">Currency</label>
+                <select id="p-currency" class="inp" onchange="autoGenerate()">
+                  <option value="INR">INR ₹</option>
+                  <option value="USD">USD $</option>
+                  <option value="EUR">EUR €</option>
+                  <option value="GBP">GBP £</option>
+                </select>
+              </div>
+              <div class="fld">
+                <label class="lbl" for="p-qty">Qty / Stock</label>
+                <input type="number" id="p-qty" class="inp" placeholder="100" min="0" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="p-url">Product URL <span style="font-weight:400">(optional)</span></label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔗</span>
+                <input type="url" id="p-url" class="inp has-icon" placeholder="https://yourstore.com/product/blue-shoes" oninput="autoGenerate()">
+              </div>
+              <span class="hint">If provided, scanning opens the product page instead of plain text data.</span>
+            </div>
+          </div>
+
+          <!-- SERIAL NUMBER -->
+          <div id="form-serial" style="display:none">
+            <div class="fld">
+              <label class="lbl lbl-req" for="s-serial">Serial Number</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔢</span>
+                <input type="text" id="s-serial" class="inp has-icon mono" placeholder="SN-2025-XXXXXXXX" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="s-model">Model / Part No.</label>
+                <input type="text" id="s-model" class="inp mono" placeholder="MDL-XR-2025" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="s-mfg">Manufacture Date</label>
+                <input type="date" id="s-mfg" class="inp" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="s-mfr">Manufacturer</label>
+                <input type="text" id="s-mfr" class="inp" placeholder="Acme Corp" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="s-warranty">Warranty (months)</label>
+                <input type="number" id="s-warranty" class="inp" placeholder="24" min="0" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- ASSET -->
+          <div id="form-asset" style="display:none">
+            <div class="fld">
+              <label class="lbl lbl-req" for="a-id">Asset ID / Tag Number</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔧</span>
+                <input type="text" id="a-id" class="inp has-icon mono" placeholder="ASSET-2025-001" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="a-name">Asset Name</label>
+                <input type="text" id="a-name" class="inp" placeholder="Dell Laptop 15" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="a-dept">Department</label>
+                <input type="text" id="a-dept" class="inp" placeholder="Finance" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="a-owner">Assigned To</label>
+                <input type="text" id="a-owner" class="inp" placeholder="John Smith" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="a-next-service">Next Service Date</label>
+                <input type="date" id="a-next-service" class="inp" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="a-loc">Location</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📍</span>
+                <input type="text" id="a-loc" class="inp has-icon" placeholder="Building A, Floor 3, Desk 12" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- BATCH/LOT -->
+          <div id="form-batch" style="display:none">
+            <div class="fld">
+              <label class="lbl lbl-req" for="b-lot">Batch / Lot Number</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏭</span>
+                <input type="text" id="b-lot" class="inp has-icon mono" placeholder="LOT-2025-A001" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="b-prod">Product / SKU</label>
+                <input type="text" id="b-prod" class="inp mono" placeholder="SKU-00123" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="b-qty">Batch Quantity</label>
+                <input type="number" id="b-qty" class="inp" placeholder="500" min="1" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="b-mfg-date">Manufacture Date</label>
+                <input type="date" id="b-mfg-date" class="inp" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="b-exp-date">Expiry Date</label>
+                <input type="date" id="b-exp-date" class="inp" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="b-facility">Facility / Plant</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏭</span>
+                <input type="text" id="b-facility" class="inp has-icon" placeholder="Plant A, Line 3" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- LOCATION -->
+          <div id="form-location" style="display:none">
+            <div class="fld">
+              <label class="lbl lbl-req" for="l-id">Location Code</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📍</span>
+                <input type="text" id="l-id" class="inp has-icon mono" placeholder="WH-A-R05-S03-B2" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+              <span class="hint">E.g. Warehouse A, Row 5, Shelf 3, Bay 2</span>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="l-name">Location Name</label>
+                <input type="text" id="l-name" class="inp" placeholder="Cold Storage Unit 3" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="l-zone">Zone / Area</label>
+                <input type="text" id="l-zone" class="inp" placeholder="Zone A — Electronics" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="l-capacity">Capacity (units)</label>
+                <input type="number" id="l-capacity" class="inp" placeholder="200" min="0" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="l-temp">Temp. Requirement</label>
+                <input type="text" id="l-temp" class="inp" placeholder="-18°C to 0°C" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- CUSTOM -->
+          <div id="form-custom" style="display:none">
+            <div class="info-box">
+              <strong>Custom mode:</strong> Type any text, code, JSON, or structured data to encode directly into the 2D barcode.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="c-data">Custom Barcode Data</label>
+              <textarea id="c-data" class="inp mono" rows="5" placeholder='{"id":"PROD-001","sku":"SKU-123","batch":"LOT-A","qty":100}' oninput="autoGenerate()" autocomplete="off" spellcheck="false"></textarea>
+              <span class="hint">Encode text, JSON, CSV rows, or any structured data. Max ~2900 chars for reliable scanning.</span>
+            </div>
+          </div>
+
+          <!-- DATA PREVIEW -->
+          <div class="data-preview" id="data-preview">
+            <div class="dp-label">Encoded Data</div>
+            <div class="dp-val" id="dp-val"></div>
+            <div class="dp-bytes" id="dp-bytes"></div>
+          </div>
+
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate 2D Barcode QR Code">⚡ Generate 2D Barcode</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise Barcode</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="Hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#f59e0b','#1c1400');autoGenerate()"><span class="pr-dot" style="background:#f59e0b"></span>Amber</button>
+              <button class="pr-btn" onclick="preset('#3b82f6','#001433');autoGenerate()"><span class="pr-dot" style="background:#3b82f6"></span>Blue</button>
+              <button class="pr-btn" onclick="preset('#16a34a','#001a00');autoGenerate()"><span class="pr-dot" style="background:#16a34a"></span>Green</button>
+              <button class="pr-btn" onclick="preset('#dc2626','#1a0000');autoGenerate()"><span class="pr-dot" style="background:#dc2626"></span>Red</button>
+              <button class="pr-btn" onclick="preset('#f0f2f5','#060708');autoGenerate()"><span class="pr-dot" style="background:#060708;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size"></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Brand Mark (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-card" role="region" aria-label="2D Barcode Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">▦</span><span class="qr-ph-txt">2D barcode appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">2D Barcode QR</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Label printing tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Minimum label size: 2×2 cm for reliable scanning</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for any print size — scales perfectly</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level Q or H for dusty/dirty environments</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">High contrast label colours are essential for fast scanning</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan with your actual scanner before bulk printing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box section-block">
+    <h3>📊 2D Barcode & QR Code Industry Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">40×</div><div class="stat-label">more data than a 1D barcode — QR codes hold up to 7,089 digits or 4,296 characters</div></div>
+      <div class="stat-item"><div class="stat-num">94%</div><div class="stat-label">of global warehouses now use 2D barcodes for inventory and asset tracking</div></div>
+      <div class="stat-item"><div class="stat-num">360°</div><div class="stat-label">omnidirectional scanning — QR codes scan from any angle, unlike 1D barcodes</div></div>
+      <div class="stat-item"><div class="stat-num">30%</div><div class="stat-label">damage tolerance — QR can still be scanned even with up to 30% of the code obscured</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section-block" aria-label="How to create a 2D barcode">
+    <h2 class="section-hd">📖 How to Create a <span>2D Barcode QR Code</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num" aria-hidden="true">01</div><div class="step-title">Choose Data Type</div><div class="step-desc">Select Product, Serial Number, Asset, Batch/Lot, Location, or Custom. The form fields update to match your specific use case with the right fields.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">02</div><div class="step-title">Enter Barcode Data</div><div class="step-desc">Fill in your product ID, serial number, batch code, or asset tag. For products, optionally add a URL that takes scanners to the product page online.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">03</div><div class="step-title">Preview Encoded Data</div><div class="step-desc">The "Encoded Data" preview shows exactly what will be embedded in the 2D barcode. Review it to confirm all fields are correct before printing.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">04</div><div class="step-title">Set Error Correction</div><div class="step-desc">Choose Level Q or H for industrial/warehouse labels where barcodes may get dirty, scratched, or partially damaged. Higher levels = more reliable scanning.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">05</div><div class="step-title">Generate & Download</div><div class="step-desc">Click Generate — your 2D barcode appears instantly. Download as SVG for any print size (sticker to pallet label) or PNG for digital systems.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">06</div><div class="step-title">Test & Deploy</div><div class="step-desc">Test scan with your handheld scanner or smartphone before bulk printing. Confirm your inventory system reads all encoded fields correctly.</div></div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-block" aria-label="Use cases for 2D barcode QR codes">
+    <h2 class="section-hd">🏭 <span>8 Industries</span> Using 2D Barcode QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📦</span><div class="uc-title">Warehouse Inventory</div><div class="uc-desc">Label shelves and bins with location QR codes. Staff scan to update inventory counts, locate items, and manage stock levels without manual entry errors.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏪</span><div class="uc-title">Retail Product Labels</div><div class="uc-desc">Encode SKU, price, category, and product URL. Point-of-sale systems scan 2D barcodes for checkout, price checks, and product lookups.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏭</span><div class="uc-title">Manufacturing & Production</div><div class="uc-desc">Batch and lot tracking from production line to delivery. Encode manufacture date, expiry, facility, and quantity for full traceability.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🚚</span><div class="uc-title">Logistics & Shipping</div><div class="uc-desc">Replace fragile 1D barcodes on shipping labels. 2D QR barcodes encode destination, weight, tracking ID, and handling instructions in one code.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🔧</span><div class="uc-title">IT Asset Management</div><div class="uc-desc">Track laptops, monitors, and equipment with asset QR tags. Encode asset ID, owner, location, and service date for instant audit access.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏥</span><div class="uc-title">Healthcare & Pharma</div><div class="uc-desc">Medication batch tracking with lot number, expiry date, and manufacturer. Comply with GS1 traceability requirements using structured QR data.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🍽️</span><div class="uc-title">Food & Beverage</div><div class="uc-desc">Batch and expiry tracking for food safety compliance. Encode lot number, manufacture date, and storage requirements on packaging labels.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏗️</span><div class="uc-title">Construction & Facilities</div><div class="uc-desc">Asset tags on tools, equipment, and building components. Scan to view maintenance history, location, and next service schedule on mobile.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-block" aria-label="Benefits of 2D barcode QR codes">
+    <h2 class="section-hd">🚀 <span>6 Advantages</span> of 2D Barcodes Over 1D</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💾</span><div class="bn-title">40× More Data Capacity</div><div class="bn-desc">A 1D barcode holds 20-25 characters. A QR code holds up to 4,296 alphanumeric characters — enough for product name, SKU, serial, batch, date, price, and URL in a single code.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📱</span><div class="bn-title">No Dedicated Scanner Needed</div><div class="bn-desc">Every modern smartphone reads QR codes without any app. Reduce hardware costs — field teams and customers can scan with their own phones.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔄</span><div class="bn-title">360° Omnidirectional Scan</div><div class="bn-desc">Unlike 1D barcodes that require precise alignment, QR codes scan from any angle and direction. Faster throughput at checkout and in warehouse operations.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🛡️</span><div class="bn-title">30% Damage Tolerance</div><div class="bn-desc">QR codes have built-in error correction — Level H tolerates 30% damage or obstruction while still scanning perfectly. Critical for industrial environments.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔗</span><div class="bn-title">Link + Data in One Code</div><div class="bn-desc">Encode both structured data (for your inventory system) and a URL (for customer-facing product information) — one 2D barcode serves both purposes.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💰</span><div class="bn-title">Free Generation — No Limits</div><div class="bn-desc">Generate unlimited 2D barcode QR codes for free. No per-barcode fees, no monthly subscription, no quantity limits. Download SVG for professional label printing.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-block" aria-label="Related QR code tools">
+    <h2 class="section-hd">🔗 <span>Related</span> QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-custom-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">Custom URL QR</div><div class="rel-desc">UTM tracking & params</div></div></a>
+      <a href="qr-logo-qr.html" class="rel-card"><span class="rel-icon">🎨</span><div class="rel-info"><div class="rel-title">Logo QR Code</div><div class="rel-desc">Branded QR with logo</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🌐</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Accept payments</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share network access</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Collect 5-star reviews</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-google-sheets.html" class="rel-card"><span class="rel-icon">📊</span><div class="rel-info"><div class="rel-title">Google Sheets QR</div><div class="rel-desc">Share spreadsheets</div></div></a>
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR</div><div class="rel-desc">Pre-filled text</div></div></a>
+      <a href="qr-location.html" class="rel-card"><span class="rel-icon">📍</span><div class="rel-info"><div class="rel-title">Location QR</div><div class="rel-desc">Maps & directions</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article section-block">
+    <h2>📖 2D Barcodes vs 1D Barcodes: Complete Guide</h2>
+    <p>Traditional 1D barcodes (the parallel lines found on most retail products) have served commerce well for decades — but they have serious limitations. A 1D barcode can only hold 20-25 characters, requires precise horizontal alignment to scan, and provides no error correction. A single scratch can render it unreadable. 2D barcodes — of which QR codes are the most widely supported format — solve all of these problems.</p>
+    <h3>What Data Should You Encode in a 2D Barcode?</h3>
+    <p>For <strong>product labels</strong>: SKU, product name, category, and price for your POS system. Optionally encode a product page URL so customers can scan with their phones for detailed specifications, reviews, or reorder links.</p>
+    <p>For <strong>inventory and warehouse</strong>: Location codes in a structured format (e.g. WH-A-R05-S03 for Warehouse A, Row 5, Shelf 3). Scanning a shelf location updates the inventory system with minimal manual entry.</p>
+    <p>For <strong>manufacturing and batch tracking</strong>: Lot number, manufacture date, expiry date, facility, and line number. This enables full traceability from production to end customer — essential for food, pharma, and regulated industries.</p>
+    <p>For <strong>asset management</strong>: Asset ID, assigned user, department, and next service date. IT departments scan assets during audits rather than manually comparing spreadsheets — a massive time saving.</p>
+    <h3>Choosing Error Correction for Industrial Use</h3>
+    <p>In clean office environments, Level M (15% error tolerance) is sufficient. For warehouse, manufacturing, or outdoor use — where labels may be partially obscured by grease, dust, scratches, or moisture — use Level Q (25%) or Level H (30%). The QR code will be slightly denser, but will remain scannable even under tough conditions.</p>
+    <h3>Label Size Recommendations</h3>
+    <ul>
+      <li><strong>Minimum: 2×2 cm</strong> — for small item labels scanned at close range with handheld scanners.</li>
+      <li><strong>Standard: 3×3 cm to 5×5 cm</strong> — for shelf labels, product packaging, and asset tags. Reliable at arm's length.</li>
+      <li><strong>Large: 10×10 cm+</strong> — for pallet labels, floor markers, or signage that needs to be scanned from a distance.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="section-block faq-sec" aria-label="Frequently asked questions">
+    <h2 class="section-hd">Frequently Asked <span>Questions</span></h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What is a 2D barcode and how does it differ from a 1D barcode?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">A 1D (linear) barcode encodes data as vertical lines and can hold 20-25 characters. A 2D barcode encodes data in both horizontal and vertical directions, holding thousands of characters. QR codes are the most common 2D barcode and scan from any angle without precise alignment.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I scan these 2D barcodes with a handheld scanner?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Standard 2D barcode scanners from Zebra, Honeywell, Datalogic, and others read QR codes. Ensure your scanner is set to 2D mode (some entry-level scanners only read 1D codes). Every modern smartphone also reads QR codes natively without any app.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What's the maximum data I can encode?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">QR codes hold up to 4,296 alphanumeric characters, 7,089 numeric digits, or 2,953 binary bytes. For product and inventory labels, this is far more than sufficient for all practical data. Very long strings make the QR denser — keep data under 300 characters for best scan reliability.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Which error correction level should I use for warehouse labels?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Use Level Q (25%) or Level H (30%) for warehouse, manufacturing, and industrial labels where damage, grease, or partial obstruction is possible. Level H is recommended if you plan to add a logo overlay to the barcode.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What's the minimum print size for a scannable 2D barcode?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Minimum 2×2 cm for close-range handheld scanning. For labels that need to be scanned at arm's length (30-40 cm), use 3×3 cm or larger. Download as SVG for any print size — it scales without pixelation.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my barcode data stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your product IDs, serial numbers, batch codes, and barcode data never leave your device and are never stored on our servers.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I use JSON or structured data in the Custom mode?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Custom mode encodes any text — JSON objects, CSV rows, pipe-delimited data, or plain text. Your scanning system reads whatever you encode. Use JSON if your inventory system is set up to parse it: {"sku":"SKU-001","batch":"LOT-A","qty":100}.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">▦</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">▦ Barcode QR Codes</div><ul class="fl">
+      <li><a href="qr-2d-barcode.html">▦ 2D Barcode QR</a></li>
+      <li><a href="qr-custom-url.html">🔗 Custom URL QR</a></li>
+      <li><a href="qr-logo-qr.html">🎨 Logo QR Code</a></li>
+      <li><a href="qr-ticket.html">🎟️ Ticket QR Code</a></li>
+      <li><a href="qr-url.html">🌐 URL QR Code</a></li>
+    </ul></div>
+    <div><div class="fct">💳 Payment QR Codes</div><ul class="fl">
+      <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+      <li><a href="qr-paypal.html">🅿️ PayPal QR</a></li>
+      <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+      <li><a href="qr-crypto.html">₿ Crypto QR</a></li>
+      <li><a href="qr-payment.html">💰 All Payments</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+      <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC='Q', currentLogoBase64=null, genTimer=null, DTYPE='product';
+
+/* ── DATA TYPE ── */
+function setDataType(btn) {
+  document.querySelectorAll('.dt-btn').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  DTYPE=btn.dataset.type;
+  ['product','serial','asset','batch','location','custom'].forEach(id=>{
+    document.getElementById('form-'+id).style.display=id===DTYPE?'':'none';
+  });
+  hideErr(); autoGenerate();
+}
+
+/* ── BUILD DATA ── */
+function buildData() {
+  const fields=[];
+
+  if(DTYPE==='product') {
+    const sku=document.getElementById('p-sku').value.trim();
+    if(!sku) throw new Error('Please enter a Product SKU / Item Code.');
+    const name=document.getElementById('p-name').value.trim();
+    const cat=document.getElementById('p-cat').value.trim();
+    const price=document.getElementById('p-price').value.trim();
+    const cur=document.getElementById('p-currency').value;
+    const qty=document.getElementById('p-qty').value.trim();
+    const url=document.getElementById('p-url').value.trim();
+    if(url && /^https?:\/\//i.test(url)) return url; // URL mode — opens product page
+    fields.push('SKU:'+sku);
+    if(name) fields.push('ITEM:'+name);
+    if(cat) fields.push('CAT:'+cat);
+    if(price) fields.push('PRICE:'+price+' '+cur);
+    if(qty) fields.push('QTY:'+qty);
+  }
+
+  else if(DTYPE==='serial') {
+    const sn=document.getElementById('s-serial').value.trim();
+    if(!sn) throw new Error('Please enter a Serial Number.');
+    const model=document.getElementById('s-model').value.trim();
+    const mfg=document.getElementById('s-mfg').value;
+    const mfr=document.getElementById('s-mfr').value.trim();
+    const wty=document.getElementById('s-warranty').value.trim();
+    fields.push('SN:'+sn);
+    if(model) fields.push('MODEL:'+model);
+    if(mfr) fields.push('MFR:'+mfr);
+    if(mfg) fields.push('MFG:'+mfg);
+    if(wty) fields.push('WARRANTY:'+wty+'M');
+  }
+
+  else if(DTYPE==='asset') {
+    const id=document.getElementById('a-id').value.trim();
+    if(!id) throw new Error('Please enter an Asset ID / Tag Number.');
+    const name=document.getElementById('a-name').value.trim();
+    const dept=document.getElementById('a-dept').value.trim();
+    const owner=document.getElementById('a-owner').value.trim();
+    const svc=document.getElementById('a-next-service').value;
+    const loc=document.getElementById('a-loc').value.trim();
+    fields.push('ASSET:'+id);
+    if(name) fields.push('NAME:'+name);
+    if(dept) fields.push('DEPT:'+dept);
+    if(owner) fields.push('OWNER:'+owner);
+    if(loc) fields.push('LOC:'+loc);
+    if(svc) fields.push('SVC:'+svc);
+  }
+
+  else if(DTYPE==='batch') {
+    const lot=document.getElementById('b-lot').value.trim();
+    if(!lot) throw new Error('Please enter a Batch / Lot Number.');
+    const prod=document.getElementById('b-prod').value.trim();
+    const qty=document.getElementById('b-qty').value.trim();
+    const mfg=document.getElementById('b-mfg-date').value;
+    const exp=document.getElementById('b-exp-date').value;
+    const fac=document.getElementById('b-facility').value.trim();
+    fields.push('LOT:'+lot);
+    if(prod) fields.push('SKU:'+prod);
+    if(qty) fields.push('QTY:'+qty);
+    if(mfg) fields.push('MFG:'+mfg);
+    if(exp) fields.push('EXP:'+exp);
+    if(fac) fields.push('FAC:'+fac);
+  }
+
+  else if(DTYPE==='location') {
+    const id=document.getElementById('l-id').value.trim();
+    if(!id) throw new Error('Please enter a Location Code.');
+    const name=document.getElementById('l-name').value.trim();
+    const zone=document.getElementById('l-zone').value.trim();
+    const cap=document.getElementById('l-capacity').value.trim();
+    const temp=document.getElementById('l-temp').value.trim();
+    fields.push('LOC:'+id);
+    if(name) fields.push('NAME:'+name);
+    if(zone) fields.push('ZONE:'+zone);
+    if(cap) fields.push('CAP:'+cap);
+    if(temp) fields.push('TEMP:'+temp);
+  }
+
+  else if(DTYPE==='custom') {
+    const data=document.getElementById('c-data').value.trim();
+    if(!data) throw new Error('Please enter custom barcode data.');
+    if(data.length>2900) throw new Error('Data is too long (max ~2900 chars for reliable scanning). Reduce content.');
+    return data;
+  }
+
+  if(fields.length===0) throw new Error('Please fill in at least one field.');
+  return fields.join('|');
+}
+
+/* ── PREVIEW ── */
+function updateDataPreview() {
+  try{
+    const data=buildData();
+    const el=document.getElementById('data-preview');
+    el.style.display='';
+    document.getElementById('dp-val').textContent=data.slice(0,300)+(data.length>300?'…':'');
+    document.getElementById('dp-bytes').textContent=data.length+' characters encoded';
+  }catch(e){
+    document.getElementById('data-preview').style.display='none';
+  }
+}
+
+/* ── GENERATE ── */
+async function generateQR() {
+  hideErr();
+  let data; try{data=buildData();}catch(e){showErr(e.message);return;}
+  updateDataPreview();
+  const size=parseInt(document.getElementById('sz-range').value)||300;
+  const fg=document.getElementById('fg-col').value;
+  const bg=document.getElementById('bg-col').value;
+  const container=document.getElementById('qr-out'); container.innerHTML='';
+  try {
+    const canvas=document.createElement('canvas');
+    await QRCode.toCanvas(canvas,data,{width:size,margin:2,color:{dark:fg,light:bg},errorCorrectionLevel:EC});
+    if(currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const labels={product:'Product Barcode QR',serial:'Serial No. Barcode QR',asset:'Asset Barcode QR',batch:'Batch/Lot Barcode QR',location:'Location Barcode QR',custom:'Custom 2D Barcode'};
+    document.getElementById('qm-type').textContent=labels[DTYPE];
+    document.getElementById('qm-info').textContent=size+'×'+size+' · EC:'+EC+' · '+data.length+'ch';
+    document.getElementById('qm-ready').textContent='✓ 2D Barcode ready — scan to verify';
+    flashEffect();
+  }catch(e){showErr('Barcode generation failed: '+e.message);}
+}
+
+function overlayLogo(canvas){
+  return new Promise(resolve=>{
+    if(!currentLogoBase64) return resolve();
+    const ctx=canvas.getContext('2d'); const ms=Math.floor(canvas.width*0.2);
+    const img=new Image();
+    img.onload=()=>{
+      let w=ms,h=ms; const r=img.width/img.height;
+      if(r>1)h=ms/r; else if(r<1)w=ms*r;
+      const x=(canvas.width-w)/2,y=(canvas.height-h)/2,pad=6;
+      ctx.fillStyle='#ffffff'; ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x-pad,y-pad,w+pad*2,h+pad*2,8);
+      else ctx.fillRect(x-pad,y-pad,w+pad*2,h+pad*2);
+      ctx.fill(); ctx.drawImage(img,x,y,w,h); resolve();
+    }; img.onerror=()=>resolve(); img.src=currentLogoBase64;
+  });
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};}
+
+function autoGenerate(){updateDataPreview();clearTimeout(genTimer);genTimer=setTimeout(()=>{try{buildData();generateQR();}catch(e){}},400);}
+function flashEffect(){const fl=document.getElementById('qr-flash');fl.style.opacity='1';setTimeout(()=>fl.style.opacity='0',500);}
+function getCanvas(){return document.querySelector('#qr-out canvas');}
+function dlPNG(){const c=getCanvas();if(!c){showErr('Generate a barcode first.');return;}const a=document.createElement('a');a.download='2d-barcode-qr-toolsbox.png';a.href=c.toDataURL('image/png');a.click();}
+function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a barcode first.');return;}const sz=parseInt(document.getElementById('sz-range').value)||300;const d=c.toDataURL('image/png');const svg=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}">\n<title>2D Barcode QR Code — ToolsBox</title>\n<image x="0" y="0" width="${sz}" height="${sz}" xlink:href="${d}"/>\n</svg>`;const blob=new Blob([svg],{type:'image/svg+xml'});const a=document.createElement('a');a.download='2d-barcode-qr-toolsbox.svg';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a barcode first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the barcode → Copy Image.');}}
+function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
+async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a barcode first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'2d-barcode-qr.png',{type:'image/png'});await navigator.share({title:'2D Barcode QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a barcode first.');return;}const win=window.open('','_blank');win.document.write(`<html><head><title>2D Barcode QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">2D Barcode QR Code · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function resetAll(){['p-sku','p-name','p-cat','p-price','p-qty','p-url','s-serial','s-model','s-mfg','s-mfr','s-warranty','a-id','a-name','a-dept','a-owner','a-next-service','a-loc','b-lot','b-prod','b-qty','b-mfg-date','b-exp-date','b-facility','l-id','l-name','l-zone','l-capacity','l-temp','c-data'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">▦</span><span class="qr-ph-txt">2D barcode appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('data-preview').style.display='none';rmLogo();}
+function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
+function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
+function syncCol(hid,cid){const v=document.getElementById(hid).value;if(/^#[0-9a-fA-F]{6}$/.test(v))document.getElementById(cid).value=v;}
+function updSize(){document.getElementById('sz-label').textContent=document.getElementById('sz-range').value+'×'+document.getElementById('sz-range').value;}
+function setEC(ec,btn){EC=ec;document.querySelectorAll('.ec-p').forEach(p=>{p.classList.remove('on');p.setAttribute('aria-pressed','false');});btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+function preset(fg,bg){document.getElementById('fg-col').value=fg;document.getElementById('fg-hex').value=fg;document.getElementById('bg-col').value=bg;document.getElementById('bg-hex').value=bg;}
+function handleLogo(inp){const f=inp.files[0];if(!f)return;if(f.size>512000){showErr('Logo must be under 500 KB');return;}const reader=new FileReader();reader.onload=e=>{currentLogoBase64=e.target.result;document.getElementById('logo-img').src=currentLogoBase64;document.getElementById('logo-name').textContent=f.name;document.getElementById('logo-prev').style.display='flex';setEC('H',document.querySelector('.ec-p[data-ec="H"]'));autoGenerate();};reader.readAsDataURL(f);}
+function rmLogo(){currentLogoBase64=null;document.getElementById('logo-inp').value='';document.getElementById('logo-prev').style.display='none';document.getElementById('logo-img').src='';autoGenerate();}
+function showErr(m){const e=document.getElementById('err-box');e.textContent='⚠️ '+m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
+function hideErr(){document.getElementById('err-box').classList.remove('show');}
+function faq(el){const p=el.parentElement;const open=p.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('open');x.querySelector('.fq').setAttribute('aria-expanded','false');});if(!open){p.classList.add('open');el.setAttribute('aria-expanded','true');}}
+(function(){const h=document.getElementById('ham'),m=document.getElementById('mob-menu');h.addEventListener('click',()=>{const o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}});})();
+(function(){const drop=document.getElementById('logo-drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag-over');}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag-over');}));drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);document.getElementById('logo-inp').files=dt.files;handleLogo(document.getElementById('logo-inp'));}});drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('logo-inp').click();}});})();
+window.addEventListener('load',()=>{
+  document.getElementById('p-sku').value='SKU-00123';
+  document.getElementById('p-name').value='Blue Running Shoes';
+  document.getElementById('p-cat').value='Footwear';
+  document.getElementById('p-price').value='2999';
+  document.getElementById('p-qty').value='50';
+  autoGenerate();
+});
+</script>
+</body>
+</html>

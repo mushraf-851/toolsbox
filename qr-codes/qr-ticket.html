@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket QR Code Generator — Event Entry, Festival & Conference Tickets | ToolsBox</title>
+<meta name="description" content="Free ticket QR code generator. Create scannable event ticket QR codes for concerts, conferences, festivals, and more. Set ticket ID, event name, seat, and date. Download PNG & SVG. No sign-up.">
+<meta name="keywords" content="ticket QR code generator, event ticket QR code, concert ticket QR, festival ticket QR code, conference ticket QR, QR code for event entry, scan to enter event, free ticket QR generator, event management QR, event check-in QR code, ticket validation QR, barcode ticket QR, digital ticket QR code, event access QR code, VIP ticket QR code, venue entry QR code, theater ticket QR, sports ticket QR code, movie ticket QR code, workshop ticket QR code, event registration QR, attendee QR code, boarding pass QR, admission ticket QR, event organizer QR code tool, print ticket QR code, mobile ticket QR code, ticket scanning QR, event entry management, qr code for events, custom event ticket generator, ticket number QR, seat number QR code, gate entry QR code, event pass QR">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-ticket.html">
+<meta property="og:title" content="Ticket QR Code Generator — Event Entry & Festival Tickets | ToolsBox">
+<meta property="og:description" content="Create event ticket QR codes for concerts, conferences, and festivals. Set ticket ID, event details, seat, and date. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-ticket.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-ticket.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ticket QR Code Generator — Free Event Entry QR | ToolsBox">
+<meta name="twitter:description" content="Generate event ticket QR codes for entry, check-in, and validation. Free, no sign-up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Ticket QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-ticket.html","description":"Free ticket QR code generator. Create scannable event ticket QR codes for concerts, conferences, festivals and more.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a ticket QR code work?","acceptedAnswer":{"@type":"Answer","text":"A ticket QR code encodes event and ticket data — such as ticket ID, event name, seat number, and date — into a scannable image. When scanned with a QR reader or custom app, the attendee's ticket details are verified instantly for entry validation."}},{"@type":"Question","name":"What data can I encode in a ticket QR code?","acceptedAnswer":{"@type":"Answer","text":"You can encode ticket ID, event name, date and time, venue, section, row, seat number, ticket type (General, VIP, etc.), attendee name, and any custom notes or verification URLs."}},{"@type":"Question","name":"Can I create multiple ticket QR codes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Generate one QR code at a time by changing the ticket ID and attendee details for each ticket. For bulk ticket generation, you may want to integrate with a ticketing management system."}},{"@type":"Question","name":"Does the ticket QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. The QR code image itself never expires — the data is encoded directly inside it. However, for real event validation, your scanning system determines whether a ticket ID is valid."}},{"@type":"Question","name":"Can I use these QR codes for real events?","acceptedAnswer":{"@type":"Answer","text":"Yes. These QR codes are production-ready static images. For single-use scanning (to prevent ticket sharing), you'd pair them with a backend validation system that marks tickets as used. The QR image itself is a fully functional scannable code."}},{"@type":"Question","name":"What format should I download for printing?","acceptedAnswer":{"@type":"Answer","text":"Download SVG for professional printing at any size — it scales without pixelation. Use PNG for digital tickets sent by email or displayed on screens. For physical tickets, print at minimum 2×2 cm for reliable scanning."}},{"@type":"Question","name":"Is my ticket data stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your ticket information never leaves your device and is never stored on our servers."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;--bg3:#111418;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#f59e0b;--acc-dark:#d97706;--acc-dim:rgba(245,158,11,0.1);--acc-bdr:rgba(245,158,11,0.3);
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+/* NAV */
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#ef4444);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);transition:color .15s}.bc a:hover{color:var(--txt2)}
+/* HERO */
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.app-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.app-tag{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+/* TOOL */
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+/* CARD */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+/* TABS */
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+/* FORM */
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp.mono{font-family:var(--fm);font-size:12px}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.4}
+select.inp{cursor:pointer;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.hint{font-size:11px;color:var(--txt3);line-height:1.5}
+/* Ticket type selector */
+.ticket-type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.tt-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;transition:all .15s;font-family:var(--f)}
+.tt-btn:hover{border-color:var(--acc-bdr)}
+.tt-btn.on{border-color:var(--acc);background:var(--acc-dim);box-shadow:0 0 0 3px rgba(245,158,11,.1)}
+.tt-emoji{font-size:18px;line-height:1}
+.tt-label{font-size:10px;font-weight:700;color:var(--txt);text-align:center}
+/* URI preview */
+.uri-preview{font-family:var(--fm);font-size:10px;color:var(--txt3);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;word-break:break-all;max-height:72px;overflow-y:auto;display:none;line-height:1.7;border:1px solid var(--bdr)}
+/* Gen btn */
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#000;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(245,158,11,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,158,11,.4)}
+.gen-btn:active{transform:translateY(0)}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+/* Customise */
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-val{font-family:var(--fm);font-size:12px;font-weight:700;min-width:60px;text-align:right;color:var(--txt2)}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#000}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+/* PREVIEW */
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.18}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(52,168,83,.2);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block;min-height:16px}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#000}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* STATS */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:52px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+/* STEPS */
+.section-hd{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-hd span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#ef4444)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+/* USE CASES */
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+/* BENEFITS */
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+/* RELATED */
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+/* FAQ */
+.faq-sec{max-width:760px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+/* SEO */
+.seo-article{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+/* SECTION SPACING */
+.section-block{margin-top:52px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.ticket-type-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.r2{grid-template-columns:1fr}.r3{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}.ticket-type-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="lb" aria-hidden="true">T</div>
+      <span class="lt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Ticket QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">🎟️ Ticket QR Code Generator</div>
+    <h1>Instant <b>Event Tickets</b><br>With Scannable QR Codes</h1>
+    <p class="sub">Create professional event ticket QR codes for concerts, conferences, festivals, workshops, and more. Set ticket ID, event details, seat number, and attendee info — ready in seconds.</p>
+    <div class="app-strip" role="list" aria-label="Compatible event types">
+      <span class="app-tag" role="listitem">🎵 Concerts</span>
+      <span class="app-tag" role="listitem">🎪 Festivals</span>
+      <span class="app-tag" role="listitem">🏢 Conferences</span>
+      <span class="app-tag" role="listitem">🎭 Theater</span>
+      <span class="app-tag" role="listitem">⚽ Sports</span>
+      <span class="app-tag" role="listitem">🎓 Workshops</span>
+    </div>
+  </header>
+
+  <section aria-label="Ticket QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">🎟️ Ticket details</span>
+          <span class="ch-badge">EVENT TICKET</span>
+        </div>
+        <div class="card-body">
+          <!-- TICKET TYPE -->
+          <div style="margin-bottom:16px">
+            <label class="lbl" style="display:block;margin-bottom:10px">Ticket Type</label>
+            <div class="ticket-type-grid" id="ticket-type-grid">
+              <button class="tt-btn on" data-type="General" onclick="setTicketType(this)" aria-pressed="true"><span class="tt-emoji">🎟️</span><span class="tt-label">General</span></button>
+              <button class="tt-btn" data-type="VIP" onclick="setTicketType(this)" aria-pressed="false"><span class="tt-emoji">⭐</span><span class="tt-label">VIP</span></button>
+              <button class="tt-btn" data-type="VVIP" onclick="setTicketType(this)" aria-pressed="false"><span class="tt-emoji">👑</span><span class="tt-label">VVIP</span></button>
+              <button class="tt-btn" data-type="Early Bird" onclick="setTicketType(this)" aria-pressed="false"><span class="tt-emoji">🐦</span><span class="tt-label">Early Bird</span></button>
+              <button class="tt-btn" data-type="Student" onclick="setTicketType(this)" aria-pressed="false"><span class="tt-emoji">🎓</span><span class="tt-label">Student</span></button>
+              <button class="tt-btn" data-type="Backstage" onclick="setTicketType(this)" aria-pressed="false"><span class="tt-emoji">🎸</span><span class="tt-label">Backstage</span></button>
+            </div>
+          </div>
+
+          <div class="section-div">Event Information</div>
+
+          <div class="fld">
+            <label class="lbl lbl-req" for="tk-event">Event Name</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">🎪</span>
+              <input type="text" id="tk-event" class="inp has-icon" placeholder="Summer Music Festival 2025" oninput="autoGenerate()" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="r2">
+            <div class="fld">
+              <label class="lbl" for="tk-date">Date</label>
+              <input type="date" id="tk-date" class="inp" oninput="autoGenerate()">
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tk-time">Time</label>
+              <input type="time" id="tk-time" class="inp" oninput="autoGenerate()">
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl" for="tk-venue">Venue</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">📍</span>
+              <input type="text" id="tk-venue" class="inp has-icon" placeholder="Madison Square Garden, New York" oninput="autoGenerate()">
+            </div>
+          </div>
+
+          <div class="section-div">Ticket Details</div>
+
+          <div class="r2">
+            <div class="fld">
+              <label class="lbl lbl-req" for="tk-id">Ticket ID</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔢</span>
+                <input type="text" id="tk-id" class="inp has-icon mono" placeholder="TKT-2025-00001" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tk-order">Order ID</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📋</span>
+                <input type="text" id="tk-order" class="inp has-icon mono" placeholder="ORD-20250001" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+          </div>
+
+          <div class="r3">
+            <div class="fld">
+              <label class="lbl" for="tk-section">Section</label>
+              <input type="text" id="tk-section" class="inp" placeholder="A" oninput="autoGenerate()">
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tk-row">Row</label>
+              <input type="text" id="tk-row" class="inp" placeholder="12" oninput="autoGenerate()">
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tk-seat">Seat</label>
+              <input type="text" id="tk-seat" class="inp" placeholder="5" oninput="autoGenerate()">
+            </div>
+          </div>
+
+          <div class="section-div">Attendee Information</div>
+
+          <div class="r2">
+            <div class="fld">
+              <label class="lbl" for="tk-name">Attendee Name</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">👤</span>
+                <input type="text" id="tk-name" class="inp has-icon" placeholder="John Smith" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tk-email">Email</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">✉️</span>
+                <input type="email" id="tk-email" class="inp has-icon" placeholder="john@email.com" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <div class="section-div">Validation Mode</div>
+          <div class="mode-tabs" role="tablist" aria-label="Encoded data format">
+            <button class="mtab on" id="tab-structured" onclick="setMode('structured')" role="tab" aria-selected="true">📋 Structured Data</button>
+            <button class="mtab" id="tab-url" onclick="setMode('url')" role="tab" aria-selected="false">🔗 Validation URL</button>
+            <button class="mtab" id="tab-simple" onclick="setMode('simple')" role="tab" aria-selected="false">🎟️ Ticket ID Only</button>
+          </div>
+
+          <div id="form-url" style="display:none">
+            <div class="fld">
+              <label class="lbl" for="tk-baseurl">Base Validation URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🌐</span>
+                <input type="url" id="tk-baseurl" class="inp has-icon" placeholder="https://yourapp.com/validate?ticket=" oninput="autoGenerate()">
+              </div>
+              <span class="hint" style="margin-top:4px">The ticket ID will be appended to this URL for your backend validation system.</span>
+            </div>
+          </div>
+
+          <div class="uri-preview" id="uri-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Ticket QR Code">⚡ Generate Ticket QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="Hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="QR background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#f59e0b','#1c1400');autoGenerate()"><span class="pr-dot" style="background:#f59e0b"></span>Gold</button>
+              <button class="pr-btn" onclick="preset('#ef4444','#1c0000');autoGenerate()"><span class="pr-dot" style="background:#ef4444"></span>Red</button>
+              <button class="pr-btn" onclick="preset('#3b82f6','#001433');autoGenerate()"><span class="pr-dot" style="background:#3b82f6"></span>Blue</button>
+              <button class="pr-btn" onclick="preset('#8b5cf6','#0d0018');autoGenerate()"><span class="pr-dot" style="background:#8b5cf6"></span>Purple</button>
+              <button class="pr-btn" onclick="preset('#f0f2f5','#060708');autoGenerate()"><span class="pr-dot" style="background:#060708;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR size"></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview">
+              <span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out">
+          <div class="qr-ph" aria-hidden="true">
+            <span class="qr-ph-icon">🎟️</span>
+            <span class="qr-ph-txt">QR code appears here</span>
+          </div>
+        </div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">Event Ticket QR</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download as PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download as SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Best practices</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use unique Ticket IDs for each attendee to prevent sharing</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Validation URL mode integrates with your backend system</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — scales to any size perfectly</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan before printing bulk tickets</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box section-block" aria-label="Event industry statistics">
+    <h3>📊 Why QR Code Tickets Are the Industry Standard</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">87%</div><div class="stat-label">of event organisers now use QR codes for ticket validation</div></div>
+      <div class="stat-item"><div class="stat-num">3s</div><div class="stat-label">average scan and entry time vs 45s for manual ticket checking</div></div>
+      <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-label">scan reliability of QR codes under standard lighting conditions</div></div>
+      <div class="stat-item"><div class="stat-num">60%</div><div class="stat-label">reduction in entry queue times with QR ticket scanning</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section-block" aria-label="How to create a ticket QR code">
+    <h2 class="section-hd">📖 How to Create an Event <span>Ticket QR Code</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-title">Choose Ticket Type</div>
+        <div class="step-desc">Select the ticket category — General, VIP, VVIP, Early Bird, Student, or Backstage. This is encoded in the QR data to help your scanning system differentiate tiers.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-title">Enter Event Details</div>
+        <div class="step-desc">Add your event name, date, time, and venue. This information is embedded in the QR for display when scanned by your validation app.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-title">Set Ticket & Seat Info</div>
+        <div class="step-desc">Enter a unique Ticket ID and optional Order ID for each ticket. Add section, row, and seat for seated events to direct attendees automatically.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-title">Choose Validation Mode</div>
+        <div class="step-desc">Structured Data embeds all ticket info. URL mode appends the ticket ID to your validation endpoint for backend check-in. Simple mode encodes only the ticket ID.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">05</div>
+        <div class="step-title">Customise Design</div>
+        <div class="step-desc">Match colours to your event branding. Add your event logo in the centre. Download SVG for print at any size — perfect for physical tickets or lanyards.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">06</div>
+        <div class="step-title">Distribute & Validate</div>
+        <div class="step-desc">Send tickets digitally via email, embed in PDF tickets, or print on physical stock. Use any QR scanner app at the gate to validate entry.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-block" aria-label="Use cases">
+    <h2 class="section-hd">🎪 <span>Event Types</span> That Use Ticket QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎵</span><div class="uc-title">Concerts & Music Festivals</div><div class="uc-desc">Handle thousands of simultaneous entries. Scan-based validation eliminates paper queues and ticket fraud.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏢</span><div class="uc-title">Conferences & Summits</div><div class="uc-desc">Check in registered attendees instantly. Different QR formats for speaker passes, VIP access, and general admission.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎭</span><div class="uc-title">Theater & Performing Arts</div><div class="uc-desc">Reserved seating QR codes show section, row, and seat so ushers can direct attendees without manual checking.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">⚽</span><div class="uc-title">Sports Events</div><div class="uc-desc">Gate-specific QR codes direct fans to the right entrance while validating their ticket tier and seat location.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎓</span><div class="uc-title">Workshops & Training</div><div class="uc-desc">Track attendance automatically. Students scan in and the system logs participation for certification purposes.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🍷</span><div class="uc-title">Food & Drink Festivals</div><div class="uc-desc">Session-based entries with time slots. QR codes enforce capacity limits and track which sessions have been used.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">💒</span><div class="uc-title">Weddings & Private Events</div><div class="uc-desc">Guest list management — only invited guests with valid QR codes gain entry. Elegant and fraud-proof.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏋️</span><div class="uc-title">Fitness Classes & Gyms</div><div class="uc-desc">Class booking QR codes validate paid attendees. Instructors scan at the door for instant check-in.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-block" aria-label="Benefits">
+    <h2 class="section-hd">🚀 6 Benefits of <span>QR Code Tickets</span></h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">⚡</span><div class="bn-title">Lightning-Fast Entry</div><div class="bn-desc">A QR scan takes under 3 seconds vs 45+ seconds for manual ticket inspection. Handle large crowds with small staff teams.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔒</span><div class="bn-title">Fraud Prevention</div><div class="bn-desc">Unique ticket IDs prevent photocopied or shared tickets. Backend validation marks each code as used on first scan.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📱</span><div class="bn-title">Paperless Option</div><div class="bn-desc">Send tickets via email — attendees show QR on their phone screen. No printing cost, no lost tickets, eco-friendly.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📊</span><div class="bn-title">Real-Time Attendance Tracking</div><div class="bn-desc">Each scan is logged with timestamp. Know exactly how many people have entered, and identify no-shows instantly.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎨</span><div class="bn-title">Fully Branded</div><div class="bn-desc">Customise colours to match your event branding. Add your event logo in the QR centre for a professional, recognisable ticket.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💰</span><div class="bn-title">Zero Cost</div><div class="bn-desc">Generate unlimited ticket QR codes for free. No per-ticket fees, no platform subscription — just download and use.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-block" aria-label="Related QR tools">
+    <h2 class="section-hd">🔗 <span>Related</span> QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Link to any website</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Collect 5-star reviews</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Event chat & support</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled emails</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Venue WiFi access</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Accept payments</div></div></a>
+      <a href="qr-location.html" class="rel-card"><span class="rel-icon">📍</span><div class="rel-info"><div class="rel-title">Location QR</div><div class="rel-desc">Venue directions</div></div></a>
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR</div><div class="rel-desc">Pre-filled text</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Event social media</div></div></a>
+      <a href="qr-youtube.html" class="rel-card"><span class="rel-icon">▶️</span><div class="rel-info"><div class="rel-title">YouTube QR</div><div class="rel-desc">Event highlight reel</div></div></a>
+      <a href="qr-payment.html" class="rel-card"><span class="rel-icon">💰</span><div class="rel-info"><div class="rel-title">Payment QR Hub</div><div class="rel-desc">All payment QR tools</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article section-block">
+    <h2>📖 Complete Guide to Event Ticket QR Codes</h2>
+    <p>Event ticket QR codes have become the industry standard for managing event entry because they solve three major problems simultaneously: speed, fraud prevention, and attendee data collection. A single staff member with a smartphone scanner can process hundreds of attendees per hour — far faster than any manual check-in system.</p>
+    <h3>Choosing the Right Validation Mode</h3>
+    <p>This generator offers three modes. <strong>Structured Data</strong> embeds all ticket information (event name, date, seat, attendee) into the QR code itself — ideal when you don't have a backend system and just need staff to visually confirm ticket details. <strong>URL Mode</strong> appends the ticket ID to your own validation endpoint (e.g. https://yourvenue.com/validate?ticket=TKT-001) so your server marks the ticket as used on first scan — the best way to prevent ticket sharing. <strong>Simple Mode</strong> encodes only the ticket ID for use with third-party ticketing systems that handle the lookup themselves.</p>
+    <h3>Preventing Ticket Fraud</h3>
+    <p>The most important anti-fraud measure is using unique Ticket IDs for each attendee. Combined with a backend validation system (URL mode), each QR code can only be scanned once. The server marks the ticket as used after the first scan and rejects duplicates at the gate. Without a backend system, duplicate detection isn't possible — this is fine for low-stakes events where fraud isn't a concern.</p>
+    <h3>Pro Tips for Event Organisers</h3>
+    <ul>
+      <li><strong>Pre-event testing:</strong> Scan all ticket QR codes before the event to ensure they all read correctly — test under event lighting conditions.</li>
+      <li><strong>Offline backup:</strong> Download a master list of ticket IDs. If your scanner app loses connectivity, staff can manually verify against the list.</li>
+      <li><strong>Multiple entry gates:</strong> For large events, create gate-specific QR codes (e.g. add a gate field) so your system knows which entrance processed each ticket.</li>
+      <li><strong>Print quality:</strong> For physical tickets, print at minimum 2×2 cm. A minimum 300 DPI print resolution is required for reliable scanning in all conditions.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="section-block faq-sec" aria-label="Frequently asked questions">
+    <h2 class="section-hd">Frequently Asked <span>Questions</span></h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How does a ticket QR code work?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">A ticket QR code encodes event and attendee data into a scannable image. When scanned with a QR reader or your event app, the encoded data is read — either displaying the ticket details for visual validation, or triggering a backend call to mark the ticket as used.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What's the best mode for a real paid event?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Use URL Validation mode. Enter your validation endpoint URL (e.g. https://yourapp.com/validate?ticket=) and your backend marks each ticket ID as used on first scan. This prevents the same QR code from being scanned twice and is the gold standard for anti-fraud.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I create QR codes for 1000 attendees?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">This tool generates one QR code at a time. For bulk generation across thousands of unique tickets, you'd need to integrate the QR logic with your ticketing platform, or use a spreadsheet + mail merge approach for physical tickets.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What format should I download for printing?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Download SVG for physical ticket printing — it scales to any size without pixelation, from a small wristband code to a large venue poster. Use PNG for digital tickets sent by email or displayed on screens. Minimum print size is 2×2 cm for reliable scanning.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my attendee data stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your ticket data, attendee names, and email addresses never leave your device and are never stored on our servers.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. The QR image never expires. For real event validation, your backend system determines whether a ticket ID is valid or has already been used — the QR image itself works forever.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I add my event logo to the ticket QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Expand the Customise section, upload your event logo (PNG, JPG, or SVG up to 500 KB), and it will be centred in the QR code. We automatically switch to Level H error correction when a logo is added to ensure reliable scanning despite the logo overlay.</div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+        <div class="lb" aria-hidden="true">T</div>
+        <span class="lt">Tools<em>Box</em></span>
+      </a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div>
+      <div class="fct">🎟️ Event QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-ticket.html">🎟️ Ticket QR Code</a></li>
+        <li><a href="qr-google-review.html">⭐ Google Review QR</a></li>
+        <li><a href="qr-url.html">🔗 URL QR Code</a></li>
+        <li><a href="qr-location.html">📍 Location QR Code</a></li>
+        <li><a href="qr-wifi.html">📶 WiFi QR Code</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">💳 Payment QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+        <li><a href="qr-paypal.html">🅿️ PayPal QR</a></li>
+        <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+        <li><a href="qr-crypto.html">₿ Crypto QR</a></li>
+        <li><a href="qr-payment.html">💰 All Payments</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🧮 Calculators</div>
+      <ul class="fl">
+        <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+        <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC='Q', currentLogoBase64=null, genTimer=null, MODE='structured', currentTicketType='General';
+
+/* ── TICKET TYPE ── */
+function setTicketType(btn) {
+  document.querySelectorAll('.tt-btn').forEach(b=>{ b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  currentTicketType = btn.dataset.type;
+  autoGenerate();
+}
+
+/* ── VALIDATION MODE ── */
+function setMode(m) {
+  MODE = m;
+  ['structured','url','simple'].forEach(id=>{
+    document.getElementById('tab-'+id).classList.toggle('on',id===m);
+    document.getElementById('tab-'+id).setAttribute('aria-selected',id===m);
+  });
+  const urlForm = document.getElementById('form-url');
+  if(urlForm) urlForm.style.display = m==='url'?'':'none';
+  hideErr(); autoGenerate();
+}
+
+/* ── BUILD DATA ── */
+function buildData() {
+  const event = document.getElementById('tk-event').value.trim();
+  const date  = document.getElementById('tk-date').value;
+  const time  = document.getElementById('tk-time').value;
+  const venue = document.getElementById('tk-venue').value.trim();
+  const id    = document.getElementById('tk-id').value.trim();
+  const order = document.getElementById('tk-order').value.trim();
+  const sec   = document.getElementById('tk-section').value.trim();
+  const row   = document.getElementById('tk-row').value.trim();
+  const seat  = document.getElementById('tk-seat').value.trim();
+  const name  = document.getElementById('tk-name').value.trim();
+  const email = document.getElementById('tk-email').value.trim();
+
+  if (!event && !id) throw new Error('Please enter at least the Event Name or Ticket ID.');
+
+  if (MODE === 'simple') {
+    if (!id) throw new Error('Ticket ID is required for Simple mode.');
+    return id;
+  }
+
+  if (MODE === 'url') {
+    const base = document.getElementById('tk-baseurl').value.trim();
+    if (!base) throw new Error('Please enter a Base Validation URL.');
+    if (!id) throw new Error('Ticket ID is required for URL Validation mode.');
+    return base + encodeURIComponent(id);
+  }
+
+  // Structured data — build a clean, parseable string
+  const parts = [];
+  if (currentTicketType) parts.push('TYPE:'+currentTicketType);
+  if (id)    parts.push('ID:'+id);
+  if (order) parts.push('ORDER:'+order);
+  if (event) parts.push('EVENT:'+event);
+  if (date)  parts.push('DATE:'+date);
+  if (time)  parts.push('TIME:'+time);
+  if (venue) parts.push('VENUE:'+venue);
+  if (sec)   parts.push('SEC:'+sec);
+  if (row)   parts.push('ROW:'+row);
+  if (seat)  parts.push('SEAT:'+seat);
+  if (name)  parts.push('NAME:'+name);
+  if (email) parts.push('EMAIL:'+email);
+  if (parts.length === 0) throw new Error('Please fill in at least one ticket field.');
+  return parts.join('|');
+}
+
+/* ── LIVE PREVIEW ── */
+function livePreview() {
+  try {
+    const d = buildData();
+    const el = document.getElementById('uri-preview');
+    el.style.display = 'block';
+    el.textContent = d;
+  } catch(e) { document.getElementById('uri-preview').style.display='none'; }
+}
+
+/* ── GENERATE ── */
+async function generateQR() {
+  hideErr();
+  let data; try { data=buildData(); } catch(e) { showErr(e.message); return; }
+  const size=parseInt(document.getElementById('sz-range').value)||300;
+  const fg=document.getElementById('fg-col').value;
+  const bg=document.getElementById('bg-col').value;
+  const container=document.getElementById('qr-out'); container.innerHTML='';
+  try {
+    const canvas=document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width:size, margin:2, color:{dark:fg,light:bg}, errorCorrectionLevel:EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const event=document.getElementById('tk-event').value.trim();
+    const id=document.getElementById('tk-id').value.trim();
+    document.getElementById('qm-type').textContent = currentTicketType+' Ticket QR';
+    document.getElementById('qm-info').textContent = size+'×'+size+' · EC:'+EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready'+(event?' — '+event:'')+(id?' · '+id:'');
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: '+e.message); }
+}
+
+/* ── LOGO OVERLAY ── */
+function overlayLogo(canvas) {
+  return new Promise(resolve=>{
+    if(!currentLogoBase64) return resolve();
+    const ctx=canvas.getContext('2d'); const ms=Math.floor(canvas.width*0.22);
+    const img=new Image();
+    img.onload=()=>{
+      let w=ms,h=ms; const r=img.width/img.height;
+      if(r>1)h=ms/r; else if(r<1)w=ms*r;
+      const x=(canvas.width-w)/2,y=(canvas.height-h)/2,pad=6;
+      ctx.fillStyle='#ffffff'; ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x-pad,y-pad,w+pad*2,h+pad*2,8);
+      else ctx.fillRect(x-pad,y-pad,w+pad*2,h+pad*2);
+      ctx.fill(); ctx.drawImage(img,x,y,w,h); resolve();
+    }; img.onerror=()=>resolve(); img.src=currentLogoBase64;
+  });
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};}
+
+function autoGenerate() { livePreview(); clearTimeout(genTimer); genTimer=setTimeout(()=>{ try{buildData();generateQR();}catch(e){} },400); }
+function flashEffect(){const fl=document.getElementById('qr-flash');fl.style.opacity='1';setTimeout(()=>fl.style.opacity='0',500);}
+function getCanvas(){return document.querySelector('#qr-out canvas');}
+function dlPNG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const a=document.createElement('a');a.download='ticket-qr-toolsbox.png';a.href=c.toDataURL('image/png');a.click();}
+function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const sz=parseInt(document.getElementById('sz-range').value)||300;const d=c.toDataURL('image/png');const svg=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}">\n<title>Event Ticket QR Code — ToolsBox</title>\n<image x="0" y="0" width="${sz}" height="${sz}" xlink:href="${d}"/>\n</svg>`;const blob=new Blob([svg],{type:'image/svg+xml'});const a=document.createElement('a');a.download='ticket-qr-toolsbox.svg';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the QR code → Copy Image.');}}
+function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
+async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'ticket-qr.png',{type:'image/png'});await navigator.share({title:'Event Ticket QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const ev=document.getElementById('tk-event').value||'Event';const win=window.open('','_blank');win.document.write(`<html><head><title>Ticket QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">${ev} · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function resetAll(){['tk-event','tk-date','tk-time','tk-venue','tk-id','tk-order','tk-section','tk-row','tk-seat','tk-name','tk-email','tk-baseurl'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🎟️</span><span class="qr-ph-txt">QR code appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('uri-preview').style.display='none';rmLogo();}
+function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
+function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
+function syncCol(hid,cid){const v=document.getElementById(hid).value;if(/^#[0-9a-fA-F]{6}$/.test(v))document.getElementById(cid).value=v;}
+function updSize(){const v=document.getElementById('sz-range').value;document.getElementById('sz-label').textContent=v+'×'+v;}
+function setEC(ec,btn){EC=ec;document.querySelectorAll('.ec-p').forEach(p=>{p.classList.remove('on');p.setAttribute('aria-pressed','false');});btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+function preset(fg,bg){document.getElementById('fg-col').value=fg;document.getElementById('fg-hex').value=fg;document.getElementById('bg-col').value=bg;document.getElementById('bg-hex').value=bg;}
+function handleLogo(inp){const f=inp.files[0];if(!f)return;if(f.size>512000){showErr('Logo must be under 500 KB');return;}const reader=new FileReader();reader.onload=e=>{currentLogoBase64=e.target.result;document.getElementById('logo-img').src=currentLogoBase64;document.getElementById('logo-name').textContent=f.name;document.getElementById('logo-prev').style.display='flex';setEC('H',document.querySelector('.ec-p[data-ec="H"]'));autoGenerate();};reader.readAsDataURL(f);}
+function rmLogo(){currentLogoBase64=null;document.getElementById('logo-inp').value='';document.getElementById('logo-prev').style.display='none';document.getElementById('logo-img').src='';autoGenerate();}
+function showErr(m){const e=document.getElementById('err-box');e.textContent='⚠️ '+m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
+function hideErr(){document.getElementById('err-box').classList.remove('show');}
+function faq(el){const p=el.parentElement;const open=p.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('open');x.querySelector('.fq').setAttribute('aria-expanded','false');});if(!open){p.classList.add('open');el.setAttribute('aria-expanded','true');}}
+(function(){const h=document.getElementById('ham'),m=document.getElementById('mob-menu');h.addEventListener('click',()=>{const o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}});})();
+(function(){const drop=document.getElementById('logo-drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag-over');}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag-over');}));drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);document.getElementById('logo-inp').files=dt.files;handleLogo(document.getElementById('logo-inp'));}});drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('logo-inp').click();}});})();
+window.addEventListener('load',()=>{
+  document.getElementById('tk-event').value='Summer Music Festival 2025';
+  document.getElementById('tk-id').value='TKT-2025-00001';
+  document.getElementById('tk-date').value='2025-08-15';
+  document.getElementById('tk-venue').value='Central Park, New York';
+  document.getElementById('tk-seat').value='A12';
+  document.getElementById('tk-name').value='Jane Smith';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

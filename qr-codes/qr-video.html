@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video QR Code Generator — Share Videos Instantly With One Scan | ToolsBox</title>
+<meta name="description" content="Free video QR code generator. Create a scannable QR code linking to YouTube, Vimeo, Instagram Reels, TikTok, or any video URL. Download PNG & SVG. No sign-up required.">
+<meta name="keywords" content="video QR code generator, YouTube QR code, Vimeo QR code, TikTok QR code, Instagram video QR, QR code for video, scan to watch video, free video QR generator, video link QR code, share video via QR, QR code video marketing, product demo video QR, tutorial video QR code, event video QR code, video business card QR, QR code YouTube video, promotional video QR, explainer video QR code, video testimonial QR, video QR for print, restaurant video menu QR, hotel room video QR, conference video QR code, real estate video tour QR, training video QR code, video resume QR code, video portfolio QR, educational video QR, YouTube channel QR code, video content QR, scan video QR, QR code video link, video sharing QR, wedding video QR code, property video QR">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-video.html">
+<meta property="og:title" content="Video QR Code Generator — Share Any Video With One Scan | ToolsBox">
+<meta property="og:description" content="Create a QR code linking to any video — YouTube, Vimeo, TikTok, or custom URL. Scan to watch instantly. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-video.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-video.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Video QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code for any video. Scan to play on YouTube, Vimeo, TikTok, or any URL. Free, no sign-up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Video QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-video.html","description":"Free video QR code generator. Create a scannable QR code linking to YouTube, Vimeo, TikTok, Instagram, or any video URL.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a QR code for a video?","acceptedAnswer":{"@type":"Answer","text":"Select your video platform (YouTube, Vimeo, TikTok, etc.), paste the video URL, optionally add a title, then click Generate. Download as PNG or SVG. Anyone who scans opens the video instantly."}},{"@type":"Question","name":"Which video platforms does this work with?","acceptedAnswer":{"@type":"Answer","text":"This generator works with any video URL including YouTube, Vimeo, TikTok, Instagram Reels, Facebook Video, Dailymotion, Wistia, Loom, Streamable, and any direct video link hosted anywhere on the web."}},{"@type":"Question","name":"Does the video QR code work without internet?","acceptedAnswer":{"@type":"Answer","text":"The QR code itself works offline, but the video requires an internet connection to play since it links to an online streaming platform. For offline video playback, host the video file on a local server."}},{"@type":"Question","name":"Can I link to a specific timestamp in a YouTube video?","acceptedAnswer":{"@type":"Answer","text":"Yes. On YouTube, click Share below the video, check the 'Start at' box and set your timestamp, then copy the link — it will include ?t=XXs. Paste this timestamped link into the generator."}},{"@type":"Question","name":"Does the video QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. The QR code image never expires. However, if the video is deleted or made private on the hosting platform, the link will no longer work. Use a permanent, public video link for printed QR codes."}},{"@type":"Question","name":"Can I use this for a private video?","acceptedAnswer":{"@type":"Answer","text":"If your video is set to private, only users with permission can view it after scanning. For printed QR codes that anyone should scan, ensure the video is set to public or unlisted."}},{"@type":"Question","name":"Is my video URL stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your video URL never leaves your device and is never stored on our servers."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#ff0000;--acc-dark:#cc0000;--acc-dim:rgba(255,0,0,0.1);--acc-bdr:rgba(255,0,0,0.3);
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,#ff0000,#cc0000);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.app-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.app-tag{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+/* Platform grid */
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.pl-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;transition:all .15s;font-family:var(--f)}
+.pl-btn:hover{border-color:var(--acc-bdr)}
+.pl-btn.on{border-color:var(--acc);background:var(--acc-dim)}
+.pl-emoji{font-size:20px}
+.pl-label{font-size:10px;font-weight:700;color:var(--txt);text-align:center}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.4}
+.hint{font-size:11px;color:var(--txt3);line-height:1.5}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+.link-preview-text{font-family:var(--fm);font-size:10px;color:var(--txt3);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;box-shadow:0 4px 20px rgba(255,0,0,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,0,0,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.18}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(255,0,0,.15);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block;min-height:16px}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:52px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-hd{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-hd span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ff0000,#ff6b6b)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-sec{max-width:760px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.platform-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.r2{grid-template-columns:1fr}.platform-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}.platform-grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">▶</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Video QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">▶️ Video QR Code Generator</div>
+    <h1>Share Any <b>Video</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code that opens any video instantly when scanned — YouTube, Vimeo, TikTok, Instagram Reels, or any video URL. Perfect for product demos, tutorials, event highlights, and marketing campaigns.</p>
+    <div class="app-strip" role="list" aria-label="Compatible platforms">
+      <span class="app-tag" role="listitem">▶️ YouTube</span>
+      <span class="app-tag" role="listitem">🎬 Vimeo</span>
+      <span class="app-tag" role="listitem">🎵 TikTok</span>
+      <span class="app-tag" role="listitem">📸 Instagram</span>
+      <span class="app-tag" role="listitem">📘 Facebook</span>
+      <span class="app-tag" role="listitem">🌐 Any URL</span>
+    </div>
+  </header>
+
+  <section aria-label="Video QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">▶️ Video details</span>
+          <span class="ch-badge">VIDEO QR</span>
+        </div>
+        <div class="card-body">
+          <label class="lbl" style="display:block;margin-bottom:10px">Video Platform</label>
+          <div class="platform-grid" id="platform-grid">
+            <button class="pl-btn on" data-platform="youtube" onclick="setPlatform(this)" aria-pressed="true"><span class="pl-emoji">▶️</span><span class="pl-label">YouTube</span></button>
+            <button class="pl-btn" data-platform="vimeo" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🎬</span><span class="pl-label">Vimeo</span></button>
+            <button class="pl-btn" data-platform="tiktok" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🎵</span><span class="pl-label">TikTok</span></button>
+            <button class="pl-btn" data-platform="instagram" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">📸</span><span class="pl-label">Instagram</span></button>
+            <button class="pl-btn" data-platform="facebook" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">📘</span><span class="pl-label">Facebook</span></button>
+            <button class="pl-btn" data-platform="loom" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🎥</span><span class="pl-label">Loom</span></button>
+            <button class="pl-btn" data-platform="dailymotion" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">📺</span><span class="pl-label">Dailymotion</span></button>
+            <button class="pl-btn" data-platform="other" onclick="setPlatform(this)" aria-pressed="false"><span class="pl-emoji">🌐</span><span class="pl-label">Other URL</span></button>
+          </div>
+
+          <div id="platform-hint" class="info-box" style="margin-bottom:14px">
+            <strong>YouTube tip:</strong> Copy the video URL from your browser or use the Share button below the video. For a specific start time, use Share → check "Start at" → copy.
+          </div>
+
+          <div class="fld">
+            <label class="lbl lbl-req" for="vid-url">Video URL</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">▶️</span>
+              <input type="url" id="vid-url" class="inp has-icon" placeholder="https://www.youtube.com/watch?v=..." oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="vid-url-hint">
+            </div>
+            <span id="vid-url-hint" class="hint">Paste the full video URL. Works with any public video link.</span>
+          </div>
+
+          <div class="section-div">Optional Details</div>
+          <div class="r2">
+            <div class="fld">
+              <label class="lbl" for="vid-title">Video Title</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="vid-title" class="inp has-icon" placeholder="Product Demo — Summer 2025" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="vid-creator">Creator / Channel</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">👤</span>
+                <input type="text" id="vid-creator" class="inp has-icon" placeholder="ToolsBox Official" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Video QR Code">⚡ Generate Video QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="Hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#ff0000','#fff0f0');autoGenerate()"><span class="pr-dot" style="background:#ff0000"></span>YouTube Red</button>
+              <button class="pr-btn" onclick="preset('#1ab7ea','#e8faff');autoGenerate()"><span class="pr-dot" style="background:#1ab7ea"></span>Vimeo Blue</button>
+              <button class="pr-btn" onclick="preset('#ee1d52','#fff0f3');autoGenerate()"><span class="pr-dot" style="background:#ee1d52"></span>TikTok Pink</button>
+              <button class="pr-btn" onclick="preset('#e1306c','#fff0f5');autoGenerate()"><span class="pr-dot" style="background:#e1306c"></span>Instagram</button>
+              <button class="pr-btn" onclick="preset('#f0f2f5','#060708');autoGenerate()"><span class="pr-dot" style="background:#060708;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size"></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">▶️</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">Video QR Code</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Best practices</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use public or unlisted videos for printed QR codes</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">YouTube short URLs (youtu.be) work perfectly</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — scales to any size</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test on both iOS and Android before printing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box section-block">
+    <h3>📊 Video & QR Code Marketing Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">500h</div><div class="stat-label">of video uploaded to YouTube every minute — video is the dominant content format</div></div>
+      <div class="stat-item"><div class="stat-num">89%</div><div class="stat-label">of marketers say video gives them a positive ROI on their marketing spend</div></div>
+      <div class="stat-item"><div class="stat-num">4×</div><div class="stat-label">more consumers prefer watching a product video to reading a product description</div></div>
+      <div class="stat-item"><div class="stat-num">2.5×</div><div class="stat-label">higher engagement on QR codes when paired with visual content like video thumbnails</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section-block" aria-label="How to create a video QR code">
+    <h2 class="section-hd">📖 How to Create a <span>Video QR Code</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num" aria-hidden="true">01</div><div class="step-title">Choose Your Platform</div><div class="step-desc">Select YouTube, Vimeo, TikTok, Instagram, Facebook, Loom, Dailymotion, or any other video platform. The placeholder and hints update automatically.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">02</div><div class="step-title">Copy the Video URL</div><div class="step-desc">On YouTube: click Share under the video and copy the link. On other platforms: copy the URL from your browser address bar or the share/copy link option.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">03</div><div class="step-title">Paste & Add Details</div><div class="step-desc">Paste the video URL and optionally add a title and creator name for reference. The QR generates instantly as you type.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">04</div><div class="step-title">Customise Design</div><div class="step-desc">Apply platform colours — YouTube Red, Vimeo Blue, TikTok Pink — or your own brand colours. Add your channel logo in the centre.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">05</div><div class="step-title">Download & Test</div><div class="step-desc">Download PNG for digital use or SVG for print. Scan with both iPhone and Android to confirm the video plays correctly before going to print.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">06</div><div class="step-title">Place & Promote</div><div class="step-desc">Print on packaging, posters, flyers, business cards, menus, or conference materials. Anywhere physical that benefits from a video experience.</div></div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-block" aria-label="Use cases for video QR codes">
+    <h2 class="section-hd">🎬 <span>8 Ways</span> to Use Video QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📦</span><div class="uc-title">Product Packaging</div><div class="uc-desc">Print a QR code on packaging linking to an assembly, usage, or unboxing video. Customers scan to get instant visual guidance.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏠</span><div class="uc-title">Real Estate Tours</div><div class="uc-desc">Add QR codes to property listings and for-sale signs linking to video walkthroughs. Prospective buyers scan for an immersive tour.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🍽️</span><div class="uc-title">Restaurant Menus</div><div class="uc-desc">Link dishes on the menu to short cooking or ingredient videos. Diners scan to see exactly what they're ordering.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎓</span><div class="uc-title">Education & Training</div><div class="uc-desc">Add QR codes to textbooks, handouts, and workbooks linking to supplementary lecture or tutorial videos.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎪</span><div class="uc-title">Event Highlights</div><div class="uc-desc">Print QR codes on event programmes, lanyards, or post-event mailers linking to highlight reels and speaker recordings.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">💒</span><div class="uc-title">Weddings & Celebrations</div><div class="uc-desc">Include QR codes in invitations or table cards linking to a couple's story video or event day highlights reel.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏢</span><div class="uc-title">Business Presentations</div><div class="uc-desc">Add QR codes to slide decks or printed briefs linking to product demo videos, testimonials, or case study interviews.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎨</span><div class="uc-title">Art & Museum Exhibits</div><div class="uc-desc">Place QR codes beside artworks or exhibits linking to artist interviews, behind-the-scenes creation videos, or documentary clips.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-block" aria-label="Benefits of video QR codes">
+    <h2 class="section-hd">🚀 <span>6 Benefits</span> of Video QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">⚡</span><div class="bn-title">Instant Playback</div><div class="bn-desc">One scan opens the video immediately — no typing a URL, no searching. The viewer goes from physical print to playing video in under 3 seconds.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🌍</span><div class="bn-title">Works on Any Device</div><div class="bn-desc">Any smartphone with a camera can scan the QR code. YouTube, Vimeo, and most platforms are optimised for mobile playback — no app required.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📈</span><div class="bn-title">Boost Engagement</div><div class="bn-desc">Video content achieves significantly higher engagement than text. A QR code bridges print and digital, dramatically increasing time-on-content.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔄</span><div class="bn-title">Always Current</div><div class="bn-desc">Update the video on the hosting platform and the QR code still works. Replace your YouTube video to update the content without reprinting.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎨</span><div class="bn-title">Fully Branded</div><div class="bn-desc">Match QR colours to your platform or brand identity. Add your channel or company logo in the centre for instant recognition.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💰</span><div class="bn-title">Zero Cost</div><div class="bn-desc">Generate unlimited video QR codes for free. No per-code fees, no subscription, no watermarks — ever.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-block" aria-label="Related QR code tools">
+    <h2 class="section-hd">🔗 <span>Related</span> QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-audio.html" class="rel-card"><span class="rel-icon">🎵</span><div class="rel-info"><div class="rel-title">Audio QR Code</div><div class="rel-desc">Link to music & podcasts</div></div></a>
+      <a href="qr-youtube.html" class="rel-card"><span class="rel-icon">▶️</span><div class="rel-info"><div class="rel-title">YouTube QR</div><div class="rel-desc">Channel & video links</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Profile & Reels</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Collect 5-star reviews</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share network access</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Accept payments</div></div></a>
+      <a href="qr-linkedin.html" class="rel-card"><span class="rel-icon">💼</span><div class="rel-info"><div class="rel-title">LinkedIn QR</div><div class="rel-desc">Professional profile</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article section-block">
+    <h2>📖 Complete Guide to Video QR Codes</h2>
+    <p>Video QR codes bridge the gap between physical print and digital video content. Instead of directing someone to type a URL or search for a video, a single scan opens the video immediately on their phone. This removes friction entirely and dramatically increases the chance someone actually watches your content.</p>
+    <h3>Choosing the Right Platform</h3>
+    <p><strong>YouTube</strong> is the best choice for most use cases — it's free, reliable, and works on every device without an app. Use unlisted videos if you want to share privately without your video appearing in search. <strong>Vimeo</strong> is the professional choice — no ads, better privacy controls, and a cleaner player experience. <strong>Loom</strong> is ideal for business videos like product demos, screen recordings, and onboarding walkthroughs. <strong>TikTok and Instagram Reels</strong> are best for short-form social content targeting younger audiences.</p>
+    <h3>YouTube Timestamp Links</h3>
+    <p>If you want the video to start at a specific point — for example, a key moment in a product demo or a specific section of a tutorial — use YouTube's Share feature. Click Share under the video, check "Start at", enter your timestamp, then copy the link. The URL will include ?t=Xs where X is the number of seconds.</p>
+    <h3>Pro Tips for Video QR Marketing</h3>
+    <ul>
+      <li><strong>Keep it short:</strong> Aim for videos under 3 minutes for print-triggered scans. Viewers scan impulsively — longer videos lose them.</li>
+      <li><strong>Add a call-to-action:</strong> Tell people why to scan: "Scan to watch a 60-second demo" or "See it in action — scan here".</li>
+      <li><strong>Optimise for mobile:</strong> Videos should be formatted for vertical or square viewing since most scans happen on phones.</li>
+      <li><strong>Track performance:</strong> Use YouTube Analytics or Vimeo Stats to see how many people watch after scanning. Compare views to QR scan location to measure effectiveness.</li>
+      <li><strong>Use unlisted for private sharing:</strong> An unlisted YouTube video won't appear in search but is still accessible to anyone with the link or QR code.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="section-block faq-sec" aria-label="Frequently asked questions">
+    <h2 class="section-hd">Frequently Asked <span>Questions</span></h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I create a QR code for a YouTube video?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Click Share under the YouTube video, copy the link (e.g. youtu.be/XXXXXXXX), paste it into the generator, select YouTube as the platform, and click Generate. Download as PNG or SVG.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I link to a specific timestamp in a video?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. On YouTube, click Share → check "Start at" → set your time → copy link. The URL will include ?t=Xs. Paste this timestamped URL into the generator — the video will start at that exact point when scanned.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Which video platforms work with this generator?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Any video platform that provides a shareable URL — YouTube, Vimeo, TikTok, Instagram Reels, Facebook Video, Loom, Dailymotion, Wistia, Streamable, Rumble, or a direct .mp4 file link.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the video QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. The QR code image never expires. The link will stop working only if the video is deleted or made private on the hosting platform. Use a permanent, public or unlisted video for printed QR codes.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I use an unlisted YouTube video?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Unlisted videos are not searchable on YouTube but are accessible to anyone with the link. This is perfect for private sharing via QR code — only people who scan can access the video.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my video URL stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your video URL never leaves your device and is never stored on our servers.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What size should I print a video QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Minimum 2×2 cm for reliable scanning. For poster or display use, 5×5 cm or larger. Download SVG for any print size — it scales without pixelation. Always test scan at the intended print size before going to bulk print.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">▶</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">🎬 Media QR Codes</div><ul class="fl">
+      <li><a href="qr-video.html">▶️ Video QR Code</a></li>
+      <li><a href="qr-audio.html">🎵 Audio QR Code</a></li>
+      <li><a href="qr-youtube.html">▶️ YouTube QR</a></li>
+      <li><a href="qr-instagram.html">📸 Instagram QR</a></li>
+      <li><a href="qr-url.html">🔗 URL QR Code</a></li>
+    </ul></div>
+    <div><div class="fct">💳 Payment QR Codes</div><ul class="fl">
+      <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+      <li><a href="qr-paypal.html">🅿️ PayPal QR</a></li>
+      <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+      <li><a href="qr-crypto.html">₿ Crypto QR</a></li>
+      <li><a href="qr-payment.html">💰 All Payments</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+      <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC='Q', currentLogoBase64=null, genTimer=null, currentPlatform='youtube';
+
+const PLATFORM_DATA = {
+  youtube:     { hint:'<strong>YouTube tip:</strong> Copy the video URL from your browser or use the Share button. For a timestamp, Share → check "Start at" → copy.', placeholder:'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label:'YouTube Video QR' },
+  vimeo:       { hint:'<strong>Vimeo tip:</strong> Click Share on the video page and copy the link. For private videos, use the privacy settings link.', placeholder:'https://vimeo.com/123456789', label:'Vimeo Video QR' },
+  tiktok:      { hint:'<strong>TikTok tip:</strong> Tap Share on the video → Copy Link. Make sure the account is public for the QR to work for anyone.', placeholder:'https://www.tiktok.com/@username/video/123...', label:'TikTok Video QR' },
+  instagram:   { hint:'<strong>Instagram tip:</strong> Copy the Reel or video post URL from the browser. Tap the three dots on a post → Copy Link.', placeholder:'https://www.instagram.com/reel/XXXXXXX/', label:'Instagram Reel QR' },
+  facebook:    { hint:'<strong>Facebook tip:</strong> Click the three dots on the video post → Copy link to post. Ensure the post is set to Public.', placeholder:'https://www.facebook.com/watch?v=123456789', label:'Facebook Video QR' },
+  loom:        { hint:'<strong>Loom tip:</strong> Open your Loom recording → click Share → copy the link shown in the share dialog.', placeholder:'https://www.loom.com/share/XXXXXXXXX', label:'Loom Video QR' },
+  dailymotion: { hint:'<strong>Dailymotion tip:</strong> Copy the video URL from your browser address bar or use the Share button below the video.', placeholder:'https://www.dailymotion.com/video/XXXXXXX', label:'Dailymotion Video QR' },
+  other:       { hint:'<strong>Any video URL:</strong> Paste a direct link to any publicly accessible video — Streamable, Wistia, Rumble, or a direct .mp4 file URL.', placeholder:'https://your-video-platform.com/watch/XXXXX', label:'Video QR Code' }
+};
+
+function setPlatform(btn) {
+  document.querySelectorAll('.pl-btn').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  currentPlatform=btn.dataset.platform;
+  const d=PLATFORM_DATA[currentPlatform];
+  document.getElementById('platform-hint').innerHTML=d.hint;
+  document.getElementById('vid-url').placeholder=d.placeholder;
+  hideErr(); autoGenerate();
+}
+
+function buildURL() {
+  const url=document.getElementById('vid-url').value.trim();
+  if(!url) throw new Error('Please paste your video URL.');
+  if(!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+  // Platform-specific validation
+  if(currentPlatform==='youtube' && !/youtu\.be|youtube\.com/i.test(url)) throw new Error('Please enter a valid YouTube URL (youtube.com or youtu.be).');
+  if(currentPlatform==='vimeo' && !/vimeo\.com/i.test(url)) throw new Error('Please enter a valid Vimeo URL (vimeo.com).');
+  if(currentPlatform==='tiktok' && !/tiktok\.com/i.test(url)) throw new Error('Please enter a valid TikTok URL (tiktok.com).');
+  if(currentPlatform==='instagram' && !/instagram\.com/i.test(url)) throw new Error('Please enter a valid Instagram URL (instagram.com).');
+  if(currentPlatform==='loom' && !/loom\.com/i.test(url)) throw new Error('Please enter a valid Loom URL (loom.com).');
+  return url;
+}
+
+function livePreview() {
+  try{
+    const url=buildURL();
+    const el=document.getElementById('link-preview');
+    el.style.display='block';
+    el.innerHTML='Will link to: <strong>'+escHtml(url)+'</strong>';
+  }catch(e){document.getElementById('link-preview').style.display='none';}
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try{data=buildURL();}catch(e){showErr(e.message);return;}
+  const size=parseInt(document.getElementById('sz-range').value)||300;
+  const fg=document.getElementById('fg-col').value;
+  const bg=document.getElementById('bg-col').value;
+  const container=document.getElementById('qr-out'); container.innerHTML='';
+  try {
+    const canvas=document.createElement('canvas');
+    await QRCode.toCanvas(canvas,data,{width:size,margin:2,color:{dark:fg,light:bg},errorCorrectionLevel:EC});
+    if(currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const title=document.getElementById('vid-title').value.trim();
+    document.getElementById('qm-type').textContent=PLATFORM_DATA[currentPlatform].label;
+    document.getElementById('qm-info').textContent=size+'×'+size+' · EC:'+EC;
+    document.getElementById('qm-ready').textContent='✓ Ready'+(title?' — '+title:'')+' — scan to play';
+    flashEffect();
+  }catch(e){showErr('QR generation failed: '+e.message);}
+}
+
+function overlayLogo(canvas){
+  return new Promise(resolve=>{
+    if(!currentLogoBase64) return resolve();
+    const ctx=canvas.getContext('2d'); const ms=Math.floor(canvas.width*0.22);
+    const img=new Image();
+    img.onload=()=>{
+      let w=ms,h=ms; const r=img.width/img.height;
+      if(r>1)h=ms/r; else if(r<1)w=ms*r;
+      const x=(canvas.width-w)/2,y=(canvas.height-h)/2,pad=6;
+      ctx.fillStyle='#ffffff'; ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x-pad,y-pad,w+pad*2,h+pad*2,8);
+      else ctx.fillRect(x-pad,y-pad,w+pad*2,h+pad*2);
+      ctx.fill(); ctx.drawImage(img,x,y,w,h); resolve();
+    }; img.onerror=()=>resolve(); img.src=currentLogoBase64;
+  });
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};}
+
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function autoGenerate(){livePreview();clearTimeout(genTimer);genTimer=setTimeout(()=>{try{buildURL();generateQR();}catch(e){}},400);}
+function flashEffect(){const fl=document.getElementById('qr-flash');fl.style.opacity='1';setTimeout(()=>fl.style.opacity='0',500);}
+function getCanvas(){return document.querySelector('#qr-out canvas');}
+function dlPNG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const a=document.createElement('a');a.download='video-qr-toolsbox.png';a.href=c.toDataURL('image/png');a.click();}
+function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const sz=parseInt(document.getElementById('sz-range').value)||300;const d=c.toDataURL('image/png');const svg=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}">\n<title>Video QR Code — ToolsBox</title>\n<image x="0" y="0" width="${sz}" height="${sz}" xlink:href="${d}"/>\n</svg>`;const blob=new Blob([svg],{type:'image/svg+xml'});const a=document.createElement('a');a.download='video-qr-toolsbox.svg';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the QR code → Copy Image.');}}
+function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
+async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'video-qr.png',{type:'image/png'});await navigator.share({title:'Video QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const title=document.getElementById('vid-title').value||'Video';const win=window.open('','_blank');win.document.write(`<html><head><title>Video QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">${title} · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function resetAll(){['vid-url','vid-title','vid-creator'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">▶️</span><span class="qr-ph-txt">QR code appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('link-preview').style.display='none';rmLogo();}
+function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
+function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
+function syncCol(hid,cid){const v=document.getElementById(hid).value;if(/^#[0-9a-fA-F]{6}$/.test(v))document.getElementById(cid).value=v;}
+function updSize(){document.getElementById('sz-label').textContent=document.getElementById('sz-range').value+'×'+document.getElementById('sz-range').value;}
+function setEC(ec,btn){EC=ec;document.querySelectorAll('.ec-p').forEach(p=>{p.classList.remove('on');p.setAttribute('aria-pressed','false');});btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+function preset(fg,bg){document.getElementById('fg-col').value=fg;document.getElementById('fg-hex').value=fg;document.getElementById('bg-col').value=bg;document.getElementById('bg-hex').value=bg;}
+function handleLogo(inp){const f=inp.files[0];if(!f)return;if(f.size>512000){showErr('Logo must be under 500 KB');return;}const reader=new FileReader();reader.onload=e=>{currentLogoBase64=e.target.result;document.getElementById('logo-img').src=currentLogoBase64;document.getElementById('logo-name').textContent=f.name;document.getElementById('logo-prev').style.display='flex';setEC('H',document.querySelector('.ec-p[data-ec="H"]'));autoGenerate();};reader.readAsDataURL(f);}
+function rmLogo(){currentLogoBase64=null;document.getElementById('logo-inp').value='';document.getElementById('logo-prev').style.display='none';document.getElementById('logo-img').src='';autoGenerate();}
+function showErr(m){const e=document.getElementById('err-box');e.textContent='⚠️ '+m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
+function hideErr(){document.getElementById('err-box').classList.remove('show');}
+function faq(el){const p=el.parentElement;const open=p.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('open');x.querySelector('.fq').setAttribute('aria-expanded','false');});if(!open){p.classList.add('open');el.setAttribute('aria-expanded','true');}}
+(function(){const h=document.getElementById('ham'),m=document.getElementById('mob-menu');h.addEventListener('click',()=>{const o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}});})();
+(function(){const drop=document.getElementById('logo-drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag-over');}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag-over');}));drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);document.getElementById('logo-inp').files=dt.files;handleLogo(document.getElementById('logo-inp'));}});drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('logo-inp').click();}});})();
+window.addEventListener('load',()=>{
+  document.getElementById('vid-url').value='https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+  document.getElementById('vid-title').value='Product Demo Video';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

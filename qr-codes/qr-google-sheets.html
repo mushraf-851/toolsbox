@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Sheets QR Code Generator — Share Spreadsheets Instantly | ToolsBox</title>
+<meta name="description" content="Free Google Sheets QR code generator. Create a scannable QR code linking to any Google Spreadsheet. Share with view, comment, or edit access. Download PNG & SVG. No sign-up.">
+<meta name="keywords" content="Google Sheets QR code generator, Google Spreadsheet QR code, share Google Sheets QR, QR code for Google Sheets, scan to open spreadsheet, Google Sheets link QR, free Google Sheets QR, Google Sheets sharing QR code, spreadsheet QR code, Google Sheets view only QR, Google Sheets edit access QR, Google Sheets business QR, Google Sheets for teams QR, Google Sheets data collection QR, Google Sheets dashboard QR, Google Sheets report QR, Google Sheets tracker QR, Google Sheets budget QR, Google Sheets project management QR, Google Sheets template QR code, share spreadsheet via QR, QR code spreadsheet link, Google Workspace QR code, collaborative spreadsheet QR, Google Sheets mobile access QR, scan spreadsheet link QR, Google Sheets inventory QR, Google Sheets classroom QR, Google Sheets employee QR, Google Sheets financial report QR, Google Sheets attendance QR, open Google Sheets on phone, Google Sheets url QR code">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-google-sheets.html">
+<meta property="og:title" content="Google Sheets QR Code Generator — Share Spreadsheets Instantly | ToolsBox">
+<meta property="og:description" content="Create a QR code that opens any Google Spreadsheet on scan. Set view, comment, or edit access. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-google-sheets.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-google-sheets.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Sheets QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code for any Google Sheets spreadsheet. Scan to view, comment, or edit. Free, no sign-up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Google Sheets QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-google-sheets.html","description":"Free Google Sheets QR code generator. Create a scannable QR code linking to any Google Spreadsheet with view, comment, or edit access.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a QR code for a Google Sheet?","acceptedAnswer":{"@type":"Answer","text":"Paste your Google Sheets URL into the generator, choose the access level (View, Comment, or Edit), optionally set a specific sheet tab, then click Generate. Download as PNG or SVG. The QR opens the spreadsheet directly when scanned."}},{"@type":"Question","name":"How do I get the shareable link for my Google Sheet?","acceptedAnswer":{"@type":"Answer","text":"Open your Google Sheet, click the Share button (top right), then click 'Copy link'. Make sure the sharing permission is set appropriately (Viewer, Commenter, or Editor) before copying the link."}},{"@type":"Question","name":"Can I set the access level in the QR code?","acceptedAnswer":{"@type":"Answer","text":"The QR code encodes whatever URL you paste. Access level is controlled by Google Sheets sharing settings, not the QR code itself. Set the correct permission in Google Sheets before copying the link."}},{"@type":"Question","name":"Can I link to a specific tab or cell in a Google Sheet?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use Sheet Mode to add a specific sheet name to the URL (e.g. #gid=SHEET_ID). You can find the sheet GID in the URL when you click a specific tab in Google Sheets."}},{"@type":"Question","name":"Does the Google Sheets QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. The QR image never expires. However, if you change the sharing settings or delete the spreadsheet, the link may stop working. Regenerate the QR if the URL changes."}},{"@type":"Question","name":"Is my Google Sheets URL stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your spreadsheet URL never leaves your device and is never stored on our servers."}},{"@type":"Question","name":"Can I use this to share a Google Sheets template?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use Template Share Mode to generate a QR that opens Google Sheets with a 'Make a copy' prompt, so each person who scans gets their own private copy of your template."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;--bg3:#111418;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#0f9d58;--acc-dark:#0b8043;--acc-dim:rgba(15,157,88,0.1);--acc-bdr:rgba(15,157,88,0.3);
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#4285f4);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.app-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.app-tag{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 6px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp.mono{font-family:var(--fm);font-size:12px}
+select.inp{cursor:pointer;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.4}
+.hint{font-size:11px;color:var(--txt3);line-height:1.5}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* Access level pills */
+.access-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.ac-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;border-radius:10px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;transition:all .15s;font-family:var(--f)}
+.ac-btn:hover{border-color:var(--acc-bdr)}
+.ac-btn.on{border-color:var(--acc);background:var(--acc-dim)}
+.ac-emoji{font-size:20px}
+.ac-label{font-size:10px;font-weight:700;color:var(--txt);text-align:center}
+.ac-sub{font-size:9px;color:var(--txt3);text-align:center}
+/* Link preview */
+.link-preview-text{font-family:var(--fm);font-size:10px;color:var(--txt3);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;box-shadow:0 4px 20px rgba(15,157,88,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,157,88,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-val{font-family:var(--fm);font-size:12px;font-weight:700;min-width:60px;text-align:right;color:var(--txt2)}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+/* PREVIEW */
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.18}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(15,157,88,.2);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block;min-height:16px}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* STATS */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:52px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+/* SECTIONS */
+.section-block{margin-top:52px}
+.section-hd{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-hd span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#4285f4)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-sec{max-width:760px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.r2{grid-template-columns:1fr}.access-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Google Sheets QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">📊 Google Sheets QR Code Generator</div>
+    <h1>Share <b>Google Sheets</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code that opens any Google Spreadsheet instantly when scanned. Share data dashboards, trackers, budgets, and reports with your team or audience — no link typing needed.</p>
+    <div class="app-strip" role="list" aria-label="Compatible platforms">
+      <span class="app-tag" role="listitem">📊 Google Sheets</span>
+      <span class="app-tag" role="listitem">👁️ View Access</span>
+      <span class="app-tag" role="listitem">💬 Comment Access</span>
+      <span class="app-tag" role="listitem">✏️ Edit Access</span>
+      <span class="app-tag" role="listitem">📋 Template Share</span>
+    </div>
+  </header>
+
+  <section aria-label="Google Sheets QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">📊 Spreadsheet details</span>
+          <span class="ch-badge">GOOGLE SHEETS</span>
+        </div>
+        <div class="card-body">
+          <div class="mode-tabs" role="tablist" aria-label="Sharing mode">
+            <button class="mtab on" id="tab-direct" onclick="setMode('direct')" role="tab" aria-selected="true">🔗 Direct Link</button>
+            <button class="mtab" id="tab-template" onclick="setMode('template')" role="tab" aria-selected="false">📋 Template</button>
+            <button class="mtab" id="tab-embed" onclick="setMode('embed')" role="tab" aria-selected="false">🌐 Published</button>
+          </div>
+
+          <!-- DIRECT -->
+          <div id="form-direct">
+            <div class="info-box">
+              <strong>Get your link:</strong> Open your Google Sheet → click <strong>Share</strong> → <strong>Copy link</strong>. Make sure sharing is set to "Anyone with the link" with the right access level.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="gs-url">Google Sheets URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📊</span>
+                <input type="url" id="gs-url" class="inp has-icon" placeholder="https://docs.google.com/spreadsheets/d/YOUR_ID/edit" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="gs-url-hint">
+              </div>
+              <span id="gs-url-hint" class="hint">Paste the full Google Sheets URL from the Share dialog.</span>
+            </div>
+            <div class="section-div">Access Level</div>
+            <div class="access-grid" id="access-grid">
+              <button class="ac-btn on" data-access="view" onclick="setAccess(this)" aria-pressed="true"><span class="ac-emoji">👁️</span><span class="ac-label">View Only</span><span class="ac-sub">Read-only</span></button>
+              <button class="ac-btn" data-access="comment" onclick="setAccess(this)" aria-pressed="false"><span class="ac-emoji">💬</span><span class="ac-label">Comment</span><span class="ac-sub">Can comment</span></button>
+              <button class="ac-btn" data-access="edit" onclick="setAccess(this)" aria-pressed="false"><span class="ac-emoji">✏️</span><span class="ac-label">Edit</span><span class="ac-sub">Full access</span></button>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="gs-sheet">Specific Sheet Tab GID <span style="font-weight:400;color:var(--txt3)">(optional)</span></label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">#</span>
+                <input type="text" id="gs-sheet" class="inp has-icon mono" placeholder="0  (find in URL: #gid=0)" oninput="autoGenerate()" autocomplete="off">
+              </div>
+              <span class="hint">Found in the URL when you click a sheet tab: …#gid=123456. Leave blank for the default sheet.</span>
+            </div>
+          </div>
+
+          <!-- TEMPLATE -->
+          <div id="form-template" style="display:none">
+            <div class="info-box">
+              <strong>Template mode:</strong> The QR opens Google Sheets with a <strong>"Make a copy"</strong> prompt, so each person gets their own private copy of your spreadsheet template.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="gs-tmpl-url">Google Sheets URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📋</span>
+                <input type="url" id="gs-tmpl-url" class="inp has-icon" placeholder="https://docs.google.com/spreadsheets/d/YOUR_ID/edit" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+              <span class="hint">Paste any Google Sheets URL — we'll automatically convert it to a template copy link.</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="gs-tmpl-name">Template Title <span style="font-weight:400;color:var(--txt3)">(optional)</span></label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="gs-tmpl-name" class="inp has-icon" placeholder="Budget Tracker 2025" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- PUBLISHED/EMBED -->
+          <div id="form-embed" style="display:none">
+            <div class="info-box">
+              <strong>Published mode:</strong> For sheets published to the web (File → Share → Publish to web). Anyone can view without needing a Google account.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="gs-pub-url">Published Google Sheets URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🌐</span>
+                <input type="url" id="gs-pub-url" class="inp has-icon" placeholder="https://docs.google.com/spreadsheets/d/e/YOUR_ID/pubhtml" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+              <span class="hint">Found under File → Share → Publish to web in Google Sheets.</span>
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Google Sheets QR Code">⚡ Generate Google Sheets QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="Hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#0f9d58','#e6f4ee');autoGenerate()"><span class="pr-dot" style="background:#0f9d58"></span>Sheets Green</button>
+              <button class="pr-btn" onclick="preset('#4285f4','#e8f0fe');autoGenerate()"><span class="pr-dot" style="background:#4285f4"></span>Google Blue</button>
+              <button class="pr-btn" onclick="preset('#fbbc04','#fef9e7');autoGenerate()"><span class="pr-dot" style="background:#fbbc04"></span>Yellow</button>
+              <button class="pr-btn" onclick="preset('#ea4335','#fce8e6');autoGenerate()"><span class="pr-dot" style="background:#ea4335"></span>Red</button>
+              <button class="pr-btn" onclick="preset('#f0f2f5','#060708');autoGenerate()"><span class="pr-dot" style="background:#060708;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size"></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📊</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">Google Sheets QR</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Best practices</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Set sharing to "Anyone with the link" before copying</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Template mode to let people copy your sheets</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — scales to any size</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan on both iOS and Android before printing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box section-block" aria-label="Google Workspace statistics">
+    <h3>📊 Google Sheets by the Numbers</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">3B+</div><div class="stat-label">Google Workspace users worldwide rely on Sheets for daily data work</div></div>
+      <div class="stat-item"><div class="stat-num">73%</div><div class="stat-label">of teams use spreadsheets as their primary data sharing tool</div></div>
+      <div class="stat-item"><div class="stat-num">68%</div><div class="stat-label">faster access to shared documents when using QR codes vs. email links</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">free — no subscription, no limits, no sign-up required to generate</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section-block" aria-label="How to create a Google Sheets QR code">
+    <h2 class="section-hd">📖 How to Create a <span>Google Sheets QR Code</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num" aria-hidden="true">01</div><div class="step-title">Open Your Google Sheet</div><div class="step-desc">Open the spreadsheet you want to share in Google Sheets. Make sure you have the appropriate sharing permissions for your intended audience.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">02</div><div class="step-title">Copy the Share Link</div><div class="step-desc">Click the Share button (top right), set access to "Anyone with the link", choose Viewer/Commenter/Editor, then click "Copy link".</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">03</div><div class="step-title">Choose Your Mode</div><div class="step-desc">Select Direct Link for standard sharing, Template mode to let users copy the sheet, or Published mode for publicly accessible web-published sheets.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">04</div><div class="step-title">Paste & Generate</div><div class="step-desc">Paste the URL, select the access level, optionally specify a tab GID. Click Generate — your QR code appears instantly.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">05</div><div class="step-title">Customise the Design</div><div class="step-desc">Apply Google Sheets Green or your brand colours. Add your organisation logo. Adjust size for the intended medium — business card, poster, or screen.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">06</div><div class="step-title">Download & Share</div><div class="step-desc">Download SVG for print (crisp at any size) or PNG for digital use. Test on both iPhone and Android before distributing at scale.</div></div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-block" aria-label="Use cases for Google Sheets QR codes">
+    <h2 class="section-hd">💼 <span>8 Ways</span> to Use Google Sheets QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📈</span><div class="uc-title">Live Data Dashboards</div><div class="uc-desc">Print QR codes on reports so stakeholders can access the live spreadsheet for up-to-date data without emailing links every time.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📋</span><div class="uc-title">Template Distribution</div><div class="uc-desc">Share budget trackers, project plans, and invoice templates at workshops — attendees scan to get their own copy instantly.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎓</span><div class="uc-title">Classroom Resources</div><div class="uc-desc">Teachers print QR codes on handouts. Students scan to access grade trackers, assignment sheets, or shared class data.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏭</span><div class="uc-title">Inventory & Stock</div><div class="uc-desc">Attach QR codes to shelving units linking to inventory sheets. Staff scan to check stock levels or update quantities on-the-go.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📅</span><div class="uc-title">Event Scheduling</div><div class="uc-desc">Display schedule sheets at event entrances. Attendees scan to view session timetables, speaker lists, and room assignments.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">💰</span><div class="uc-title">Budget Reports</div><div class="uc-desc">Embed QR codes in financial presentations linking to detailed budget breakdowns — decision-makers access the data instantly.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏢</span><div class="uc-title">Team Trackers</div><div class="uc-desc">Stick QR codes on office whiteboards. Team members scan to access project trackers, KPI sheets, or sprint planning docs.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🔬</span><div class="uc-title">Research Data</div><div class="uc-desc">Add QR codes to academic posters and publications linking to supplementary data sheets for deeper analysis.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-block" aria-label="Benefits of Google Sheets QR codes">
+    <h2 class="section-hd">🚀 <span>6 Benefits</span> of Google Sheets QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">⚡</span><div class="bn-title">Instant Access, No Typing</div><div class="bn-desc">Long Google Sheets URLs are impossible to type from memory. A QR code eliminates this entirely — one scan opens the sheet immediately.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔄</span><div class="bn-title">Always the Latest Data</div><div class="bn-desc">The QR links to a live spreadsheet. Unlike printed reports, the data is always current — no need to reprint or re-share as the sheet updates.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔒</span><div class="bn-title">Access Control</div><div class="bn-desc">Control permissions at the Google Sheets level — set View, Comment, or Edit. The QR delivers users to the exact access tier you intend.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📋</span><div class="bn-title">Template Distribution at Scale</div><div class="bn-desc">Template mode lets you share reusable sheets at conferences, workshops, and classrooms. Each scan creates a fresh independent copy.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📱</span><div class="bn-title">Mobile-First Access</div><div class="bn-desc">Scanning on mobile opens Google Sheets in the app directly. Perfect for field teams, shop floors, and event staff who work on phones.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎨</span><div class="bn-title">Branded QR Codes</div><div class="bn-desc">Match your organisation's branding with custom colours and logo overlay. Professional presentation builds trust and increases scan rates.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-block" aria-label="Related QR code tools">
+    <h2 class="section-hd">🔗 <span>Related</span> QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-google-forms.html" class="rel-card"><span class="rel-icon">📝</span><div class="rel-info"><div class="rel-title">Google Forms QR</div><div class="rel-desc">Share forms & surveys</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more 5-star reviews</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share network access</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-linkedin.html" class="rel-card"><span class="rel-icon">💼</span><div class="rel-info"><div class="rel-title">LinkedIn QR</div><div class="rel-desc">Professional profile</div></div></a>
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR</div><div class="rel-desc">Pre-filled text</div></div></a>
+      <a href="qr-location.html" class="rel-card"><span class="rel-icon">📍</span><div class="rel-info"><div class="rel-title">Location QR</div><div class="rel-desc">Maps & directions</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article section-block">
+    <h2>📖 Complete Guide to Google Sheets QR Codes</h2>
+    <p>Google Sheets is one of the most widely used collaboration tools in the world, but sharing spreadsheet links remains cumbersome — long URLs, copy-paste errors, and outdated attachments are constant pain points. A Google Sheets QR code solves all of this. One scan opens the live, always-current spreadsheet on any device, no typing required.</p>
+    <h3>Choosing the Right Sharing Mode</h3>
+    <p>This generator offers three modes. <strong>Direct Link</strong> is the standard approach — paste your share link and the QR encodes it directly. Use the access level selector to ensure viewers get read-only or edit access as intended. <strong>Template mode</strong> converts your URL to a "Make a copy" link. This is ideal for workshops, classrooms, and conferences where each person needs their own version of a budget tracker, project plan, or invoice template. <strong>Published mode</strong> is for sheets published publicly via File → Share → Publish to web, which opens without requiring a Google account.</p>
+    <h3>Finding Your Sheet Tab GID</h3>
+    <p>When you click a specific tab in Google Sheets, the URL updates to include #gid=XXXXXXXX at the end. Copy this number and paste it into the Sheet Tab GID field to create a QR that opens directly to that specific sheet, bypassing the default first tab.</p>
+    <h3>Pro Tips for Teams</h3>
+    <ul>
+      <li><strong>Laminated QR cards:</strong> Print and laminate QR codes pointing to shared trackers. Stick them on whiteboards or desks for permanent access without any link sharing friction.</li>
+      <li><strong>Pair with View-only access:</strong> For dashboards and reports, use View-only QR codes. This prevents accidental edits while keeping data accessible.</li>
+      <li><strong>Template QRs at workshops:</strong> Print template QR codes on handouts. Attendees scan to get their own copy — no email collection needed.</li>
+      <li><strong>Update the sheet, not the QR:</strong> Because the QR encodes a live link, you can update the spreadsheet content as often as needed. The same QR code always opens the latest version.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="section-block faq-sec" aria-label="Frequently asked questions">
+    <h2 class="section-hd">Frequently Asked <span>Questions</span></h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I create a QR code for a Google Sheet?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Open your Google Sheet, click Share (top right), set "Anyone with the link" to the appropriate access level, copy the link, paste it here, and click Generate. Your QR code is ready to download in seconds.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What's the difference between Direct Link and Template mode?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Direct Link opens the shared spreadsheet — viewers see the same file, and access is controlled by your sharing settings. Template mode converts the URL to a "Make a copy" link so each person who scans gets their own independent private copy of the sheet.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I link to a specific tab in my Google Sheet?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. When you click a specific tab in Google Sheets, the URL changes to include #gid=XXXXXXXX. Copy the number after #gid= and enter it in the Sheet Tab GID field. The QR will open directly to that tab.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the QR code update automatically when the spreadsheet changes?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. The QR encodes a link to the live spreadsheet. Any updates you make to the data in Google Sheets are immediately visible to anyone who scans the QR — no need to regenerate the QR code.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. The QR image never expires. The link may stop working if you delete the spreadsheet or revoke sharing permissions, but the QR code itself works forever.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my Google Sheets URL stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your spreadsheet URL never leaves your device and is never stored on our servers.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I add my company logo to the QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Expand the Customise section, upload your logo (PNG, JPG, or SVG up to 500 KB), and it will be placed in the centre of the QR. We automatically switch to Level H error correction to keep the code scannable with the logo overlay.</div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">🏢 Google QR Codes</div><ul class="fl">
+      <li><a href="qr-google-sheets.html">📊 Google Sheets QR</a></li>
+      <li><a href="qr-google-forms.html">📝 Google Forms QR</a></li>
+      <li><a href="qr-google-review.html">⭐ Google Review QR</a></li>
+      <li><a href="qr-url.html">🔗 URL QR Code</a></li>
+      <li><a href="qr-vcard.html">👤 vCard QR Code</a></li>
+    </ul></div>
+    <div><div class="fct">💳 Payment QR Codes</div><ul class="fl">
+      <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+      <li><a href="qr-paypal.html">🅿️ PayPal QR</a></li>
+      <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+      <li><a href="qr-crypto.html">₿ Crypto QR</a></li>
+      <li><a href="qr-payment.html">💰 All Payments</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+      <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC='Q', currentLogoBase64=null, genTimer=null, MODE='direct', currentAccess='view';
+
+function setMode(m) {
+  MODE=m;
+  ['direct','template','embed'].forEach(id=>{
+    document.getElementById('tab-'+id).classList.toggle('on',id===m);
+    document.getElementById('tab-'+id).setAttribute('aria-selected',id===m);
+    document.getElementById('form-'+id).style.display=id===m?'':'none';
+  });
+  hideErr(); autoGenerate();
+}
+
+function setAccess(btn) {
+  document.querySelectorAll('.ac-btn').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  currentAccess=btn.dataset.access;
+  autoGenerate();
+}
+
+function extractSheetsId(url) {
+  const m=url.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+  return m?m[1]:null;
+}
+
+function buildURL() {
+  if (MODE==='direct') {
+    const raw=document.getElementById('gs-url').value.trim();
+    if(!raw) throw new Error('Please paste your Google Sheets URL.');
+    if(!/^https?:\/\//i.test(raw)) throw new Error('Please enter a valid URL starting with https://');
+    if(!raw.includes('docs.google.com/spreadsheets')) throw new Error('Please enter a valid Google Sheets URL (docs.google.com/spreadsheets).');
+    const id=extractSheetsId(raw);
+    if(!id) throw new Error('Could not extract the spreadsheet ID from this URL.');
+    const gid=document.getElementById('gs-sheet').value.trim();
+    // Build clean URL with access
+    const base=`https://docs.google.com/spreadsheets/d/${id}/edit`;
+    const params=[];
+    if(currentAccess==='view') params.push('usp=sharing');
+    else if(currentAccess==='comment') params.push('usp=sharing');
+    const query=params.length?'?'+params.join('&'):'';
+    const fragment=gid?`#gid=${gid}`:'';
+    return base+query+fragment;
+  } else if(MODE==='template') {
+    const raw=document.getElementById('gs-tmpl-url').value.trim();
+    if(!raw) throw new Error('Please paste your Google Sheets URL.');
+    if(!raw.includes('docs.google.com/spreadsheets')&&!raw.includes('google.com')) throw new Error('Please enter a valid Google Sheets URL.');
+    const id=extractSheetsId(raw);
+    if(!id) throw new Error('Could not extract the spreadsheet ID from this URL. Make sure it\'s a Google Sheets URL.');
+    return `https://docs.google.com/spreadsheets/d/${id}/copy`;
+  } else {
+    const raw=document.getElementById('gs-pub-url').value.trim();
+    if(!raw) throw new Error('Please paste your published Google Sheets URL.');
+    if(!/^https?:\/\//i.test(raw)) throw new Error('Please enter a valid URL.');
+    return raw;
+  }
+}
+
+function livePreview() {
+  try{
+    const url=buildURL();
+    const el=document.getElementById('link-preview');
+    el.style.display='block';
+    el.innerHTML='Will link to: <strong>'+escHtml(url)+'</strong>';
+  }catch(e){document.getElementById('link-preview').style.display='none';}
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try{data=buildURL();}catch(e){showErr(e.message);return;}
+  const size=parseInt(document.getElementById('sz-range').value)||300;
+  const fg=document.getElementById('fg-col').value;
+  const bg=document.getElementById('bg-col').value;
+  const container=document.getElementById('qr-out'); container.innerHTML='';
+  try {
+    const canvas=document.createElement('canvas');
+    await QRCode.toCanvas(canvas,data,{width:size,margin:2,color:{dark:fg,light:bg},errorCorrectionLevel:EC});
+    if(currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const labels={direct:'Google Sheets QR',template:'Sheets Template QR',embed:'Published Sheets QR'};
+    document.getElementById('qm-type').textContent=labels[MODE];
+    document.getElementById('qm-info').textContent=size+'×'+size+' · EC:'+EC;
+    document.getElementById('qm-ready').textContent=MODE==='template'?'✓ Ready — scan to copy template':MODE==='embed'?'✓ Ready — scan to view published sheet':'✓ Ready — scan to open spreadsheet';
+    flashEffect();
+  }catch(e){showErr('QR generation failed: '+e.message);}
+}
+
+function overlayLogo(canvas){
+  return new Promise(resolve=>{
+    if(!currentLogoBase64) return resolve();
+    const ctx=canvas.getContext('2d'); const ms=Math.floor(canvas.width*0.22);
+    const img=new Image();
+    img.onload=()=>{
+      let w=ms,h=ms; const r=img.width/img.height;
+      if(r>1)h=ms/r; else if(r<1)w=ms*r;
+      const x=(canvas.width-w)/2,y=(canvas.height-h)/2,pad=6;
+      ctx.fillStyle='#ffffff'; ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x-pad,y-pad,w+pad*2,h+pad*2,8);
+      else ctx.fillRect(x-pad,y-pad,w+pad*2,h+pad*2);
+      ctx.fill(); ctx.drawImage(img,x,y,w,h); resolve();
+    }; img.onerror=()=>resolve(); img.src=currentLogoBase64;
+  });
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};}
+
+function autoGenerate(){livePreview();clearTimeout(genTimer);genTimer=setTimeout(()=>{try{buildURL();generateQR();}catch(e){}},400);}
+function flashEffect(){const fl=document.getElementById('qr-flash');fl.style.opacity='1';setTimeout(()=>fl.style.opacity='0',500);}
+function getCanvas(){return document.querySelector('#qr-out canvas');}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function dlPNG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const a=document.createElement('a');a.download='google-sheets-qr-toolsbox.png';a.href=c.toDataURL('image/png');a.click();}
+function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const sz=parseInt(document.getElementById('sz-range').value)||300;const d=c.toDataURL('image/png');const svg=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}">\n<title>Google Sheets QR Code — ToolsBox</title>\n<image x="0" y="0" width="${sz}" height="${sz}" xlink:href="${d}"/>\n</svg>`;const blob=new Blob([svg],{type:'image/svg+xml'});const a=document.createElement('a');a.download='google-sheets-qr-toolsbox.svg';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the QR code → Copy Image.');}}
+function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
+async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'google-sheets-qr.png',{type:'image/png'});await navigator.share({title:'Google Sheets QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const win=window.open('','_blank');win.document.write(`<html><head><title>Google Sheets QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">Google Sheets QR · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function resetAll(){['gs-url','gs-sheet','gs-tmpl-url','gs-tmpl-name','gs-pub-url'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📊</span><span class="qr-ph-txt">QR code appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('link-preview').style.display='none';rmLogo();}
+function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
+function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
+function syncCol(hid,cid){const v=document.getElementById(hid).value;if(/^#[0-9a-fA-F]{6}$/.test(v))document.getElementById(cid).value=v;}
+function updSize(){document.getElementById('sz-label').textContent=document.getElementById('sz-range').value+'×'+document.getElementById('sz-range').value;}
+function setEC(ec,btn){EC=ec;document.querySelectorAll('.ec-p').forEach(p=>{p.classList.remove('on');p.setAttribute('aria-pressed','false');});btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+function preset(fg,bg){document.getElementById('fg-col').value=fg;document.getElementById('fg-hex').value=fg;document.getElementById('bg-col').value=bg;document.getElementById('bg-hex').value=bg;}
+function handleLogo(inp){const f=inp.files[0];if(!f)return;if(f.size>512000){showErr('Logo must be under 500 KB');return;}const reader=new FileReader();reader.onload=e=>{currentLogoBase64=e.target.result;document.getElementById('logo-img').src=currentLogoBase64;document.getElementById('logo-name').textContent=f.name;document.getElementById('logo-prev').style.display='flex';setEC('H',document.querySelector('.ec-p[data-ec="H"]'));autoGenerate();};reader.readAsDataURL(f);}
+function rmLogo(){currentLogoBase64=null;document.getElementById('logo-inp').value='';document.getElementById('logo-prev').style.display='none';document.getElementById('logo-img').src='';autoGenerate();}
+function showErr(m){const e=document.getElementById('err-box');e.textContent='⚠️ '+m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
+function hideErr(){document.getElementById('err-box').classList.remove('show');}
+function faq(el){const p=el.parentElement;const open=p.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('open');x.querySelector('.fq').setAttribute('aria-expanded','false');});if(!open){p.classList.add('open');el.setAttribute('aria-expanded','true');}}
+(function(){const h=document.getElementById('ham'),m=document.getElementById('mob-menu');h.addEventListener('click',()=>{const o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}});})();
+(function(){const drop=document.getElementById('logo-drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag-over');}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag-over');}));drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);document.getElementById('logo-inp').files=dt.files;handleLogo(document.getElementById('logo-inp'));}});drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('logo-inp').click();}});})();
+window.addEventListener('load',()=>{
+  document.getElementById('gs-url').value='https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/edit';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

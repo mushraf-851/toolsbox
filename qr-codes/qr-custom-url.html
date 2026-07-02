@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom URL QR Code Generator — UTM Tracking, Short Links & More | ToolsBox</title>
+<meta name="description" content="Free custom URL QR code generator. Add UTM parameters, URL fragments, custom slugs, and query strings. Track campaigns, create smart links. Download PNG & SVG. No sign-up.">
+<meta name="keywords" content="custom URL QR code generator, UTM QR code, QR code with UTM parameters, custom URL QR, campaign tracking QR code, URL QR code with parameters, QR code marketing tracker, UTM link QR code, custom slug QR code, QR code URL builder, QR code with query string, URL shortener QR code, trackable QR code URL, QR code campaign URL, marketing QR code generator, Google Analytics QR code, custom landing page QR, QR code for campaigns, digital marketing QR code, QR code URL tracking, free UTM QR generator, custom link QR code, QR code with custom parameters, QR code URL parameter, campaign QR code builder, QR code social media campaign, email campaign QR code, paid ads QR code, print campaign QR code, QR code affiliate link, custom redirect QR code, QR code with anchor link, URL fragment QR code, QR code for A/B testing">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-custom-url.html">
+<meta property="og:title" content="Custom URL QR Code Generator — UTM Tracking & Smart Links | ToolsBox">
+<meta property="og:description" content="Build QR codes with custom URLs, UTM parameters, anchors, and query strings. Track every scan. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-custom-url.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-custom-url.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Custom URL QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate QR codes with custom URLs, UTM params, and query strings. Track every campaign scan. Free, no sign-up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Custom URL QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-custom-url.html","description":"Free custom URL QR code generator with UTM parameter builder, URL fragment support, and query string customisation.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a custom URL QR code?","acceptedAnswer":{"@type":"Answer","text":"A custom URL QR code encodes a fully customised web address including the base URL, query parameters, UTM tracking parameters, and URL fragments (anchors). It lets you create trackable, campaign-specific QR codes that tell you exactly where scans come from."}},{"@type":"Question","name":"What are UTM parameters and why add them to a QR code?","acceptedAnswer":{"@type":"Answer","text":"UTM parameters are tags added to a URL that Google Analytics and other tools use to track where traffic comes from. Adding UTM source, medium, campaign, term, and content to your QR code URL lets you see exactly how many people scanned your QR code and where it was displayed."}},{"@type":"Question","name":"How do I track QR code scans with Google Analytics?","acceptedAnswer":{"@type":"Answer","text":"Add UTM parameters to your QR code URL: utm_source (e.g. print_flyer), utm_medium (e.g. qr_code), utm_campaign (e.g. summer_sale). When someone scans the QR code and visits your site, Google Analytics logs this as a campaign visit with those exact labels."}},{"@type":"Question","name":"What is a URL fragment or anchor?","acceptedAnswer":{"@type":"Answer","text":"A URL fragment (the #section part of a URL) tells the browser to scroll to a specific section of a page. Adding #pricing to a URL takes the scanner directly to the pricing section. Use the Anchor field to add this without typing the # symbol."}},{"@type":"Question","name":"Can I add custom query parameters beyond UTM?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Custom Parameters section to add any key=value pairs to the URL — affiliate IDs, referral codes, product variants, A/B test flags, or any parameters your website or tracking system uses."}},{"@type":"Question","name":"Does the custom URL QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. The QR code image never expires. The URL it encodes will work as long as the destination page exists. For campaign QR codes in printed materials, ensure the destination URL remains live for the duration of the campaign."}},{"@type":"Question","name":"Is my URL and tracking data stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All URL building and QR code generation happens entirely in your browser. Your URL, UTM parameters, and custom data never leave your device."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#0891b2;--acc-dark:#0e7490;--acc-dim:rgba(8,145,178,0.1);--acc-bdr:rgba(8,145,178,0.3);
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --orange:#f59e0b;--orange-dim:rgba(245,158,11,0.1);--orange-bdr:rgba(245,158,11,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#0e7490);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.app-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.app-tag{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 6px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp.mono{font-family:var(--fm);font-size:12px;word-break:break-all}
+select.inp{cursor:pointer;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.4}
+.hint{font-size:11px;color:var(--txt3);line-height:1.5}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+.warn-box{background:var(--orange-dim);border:1px solid var(--orange-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.warn-box strong{color:var(--orange)}
+/* Built URL preview */
+.url-preview{background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:12px 14px;margin-top:4px;margin-bottom:14px;display:none}
+.url-preview-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);margin-bottom:6px}
+.url-preview-val{font-family:var(--fm);font-size:11px;color:var(--txt2);word-break:break-all;line-height:1.7}
+.url-preview-val .url-base{color:var(--txt)}
+.url-preview-val .url-param{color:var(--acc)}
+.url-preview-val .url-utm{color:#a3e635}
+.url-preview-val .url-anchor{color:var(--orange)}
+/* Copy URL button */
+.copy-url-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf3);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s}
+.copy-url-btn:hover{background:var(--surf2);color:var(--txt)}
+/* custom param rows */
+.param-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.param-key{flex:1}
+.param-val{flex:2}
+.param-del{width:36px;height:36px;border-radius:8px;border:1px solid var(--bdr2);background:var(--surf2);color:var(--red);font-size:16px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.param-del:hover{background:var(--red-dim)}
+.add-param-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;border:1.5px dashed var(--bdr2);background:transparent;color:var(--txt3);font-size:12px;font-weight:700;cursor:pointer;width:100%;justify-content:center;transition:all .15s}
+.add-param-btn:hover{border-color:var(--acc-bdr);color:var(--acc);background:var(--acc-dim)}
+/* gen btn */
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;box-shadow:0 4px 20px rgba(8,145,178,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(8,145,178,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+/* Customise */
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+/* Preview */
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.18}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(8,145,178,.18);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block;min-height:16px}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* Content sections */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:52px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-hd{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-hd span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#06b6d4)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-sec{max-width:760px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.r2{grid-template-columns:1fr}.r3{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}.r3{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">🔗</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Custom URL QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">🔗 Custom URL QR Code Generator</div>
+    <h1>QR Codes With <b>Custom URLs</b><br>UTM Tracking & More</h1>
+    <p class="sub">Build QR codes with fully custom URLs — add UTM campaign parameters, URL anchors, query strings, and affiliate tags. Track every scan in Google Analytics and make data-driven marketing decisions.</p>
+    <div class="app-strip" role="list" aria-label="Compatible with">
+      <span class="app-tag" role="listitem">📊 Google Analytics</span>
+      <span class="app-tag" role="listitem">📈 UTM Tracking</span>
+      <span class="app-tag" role="listitem">#️⃣ URL Anchors</span>
+      <span class="app-tag" role="listitem">🔑 Custom Params</span>
+      <span class="app-tag" role="listitem">📋 Any URL</span>
+    </div>
+  </header>
+
+  <section aria-label="Custom URL QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">🔗 URL Builder</span>
+          <span class="ch-badge">CUSTOM URL QR</span>
+        </div>
+        <div class="card-body">
+          <div class="mode-tabs" role="tablist" aria-label="URL building mode">
+            <button class="mtab on" id="tab-builder" onclick="setMode('builder')" role="tab" aria-selected="true">🛠️ URL Builder</button>
+            <button class="mtab" id="tab-utm" onclick="setMode('utm')" role="tab" aria-selected="false">📊 UTM Tracker</button>
+            <button class="mtab" id="tab-raw" onclick="setMode('raw')" role="tab" aria-selected="false">⌨️ Raw URL</button>
+          </div>
+
+          <!-- BUILDER MODE -->
+          <div id="form-builder">
+            <div class="fld">
+              <label class="lbl lbl-req" for="b-base">Base URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🌐</span>
+                <input type="url" id="b-base" class="inp has-icon" placeholder="https://yourwebsite.com/page" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="b-anchor">Anchor / Section</label>
+                <div class="inp-wrap">
+                  <span class="inp-icon" aria-hidden="true">#</span>
+                  <input type="text" id="b-anchor" class="inp has-icon" placeholder="pricing" oninput="autoGenerate()" autocomplete="off">
+                </div>
+                <span class="hint">Scroll to this section. No # needed.</span>
+              </div>
+              <div class="fld">
+                <label class="lbl" for="b-label">QR Label</label>
+                <div class="inp-wrap">
+                  <span class="inp-icon" aria-hidden="true">🏷️</span>
+                  <input type="text" id="b-label" class="inp has-icon" placeholder="Summer Sale QR" oninput="updatePreview()">
+                </div>
+              </div>
+            </div>
+            <div class="section-div">Custom Query Parameters</div>
+            <div id="params-container"></div>
+            <button class="add-param-btn" onclick="addParam()" aria-label="Add custom parameter">+ Add Parameter</button>
+          </div>
+
+          <!-- UTM TRACKER MODE -->
+          <div id="form-utm" style="display:none">
+            <div class="info-box">
+              <strong>UTM tracking</strong> lets you see QR code scan data in Google Analytics under Acquisition → Campaigns.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="u-base">Destination URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🌐</span>
+                <input type="url" id="u-base" class="inp has-icon" placeholder="https://yourwebsite.com/landing-page" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl lbl-req" for="u-source">utm_source</label>
+                <select id="u-source-preset" class="inp" onchange="applySourcePreset()" style="margin-bottom:6px">
+                  <option value="">— Quick select —</option>
+                  <option value="print_flyer">print_flyer</option>
+                  <option value="business_card">business_card</option>
+                  <option value="product_packaging">product_packaging</option>
+                  <option value="poster">poster</option>
+                  <option value="magazine">magazine</option>
+                  <option value="email_footer">email_footer</option>
+                  <option value="instagram">instagram</option>
+                  <option value="facebook">facebook</option>
+                  <option value="event_badge">event_badge</option>
+                </select>
+                <input type="text" id="u-source" class="inp" placeholder="print_flyer" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl lbl-req" for="u-medium">utm_medium</label>
+                <select id="u-medium-preset" class="inp" onchange="applyMediumPreset()" style="margin-bottom:6px">
+                  <option value="">— Quick select —</option>
+                  <option value="qr_code">qr_code</option>
+                  <option value="print">print</option>
+                  <option value="offline">offline</option>
+                  <option value="email">email</option>
+                  <option value="social">social</option>
+                  <option value="display">display</option>
+                </select>
+                <input type="text" id="u-medium" class="inp" placeholder="qr_code" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="u-campaign">utm_campaign</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🎯</span>
+                <input type="text" id="u-campaign" class="inp has-icon" placeholder="summer_sale_2025" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="u-term">utm_term <span style="font-weight:400">(optional)</span></label>
+                <input type="text" id="u-term" class="inp" placeholder="running_shoes" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="u-content">utm_content <span style="font-weight:400">(optional)</span></label>
+                <input type="text" id="u-content" class="inp" placeholder="hero_banner" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="u-anchor">Anchor / Section <span style="font-weight:400">(optional)</span></label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">#</span>
+                <input type="text" id="u-anchor" class="inp has-icon" placeholder="pricing" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- RAW URL MODE -->
+          <div id="form-raw" style="display:none">
+            <div class="info-box">
+              <strong>Paste any complete URL</strong> — including all parameters, UTM tags, and fragments already in place.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="r-url">Full URL (with all parameters)</label>
+              <textarea id="r-url" class="inp mono" rows="4" placeholder="https://yourwebsite.com/page?utm_source=flyer&utm_medium=qr_code&utm_campaign=summer_sale#pricing" oninput="autoGenerate()" autocomplete="off" spellcheck="false"></textarea>
+            </div>
+          </div>
+
+          <!-- URL PREVIEW -->
+          <div class="url-preview" id="url-preview">
+            <div class="url-preview-label">Built URL</div>
+            <div class="url-preview-val" id="url-preview-val"></div>
+            <button class="copy-url-btn" onclick="copyBuiltURL()" id="copy-url-btn" aria-label="Copy built URL">📋 Copy URL</button>
+          </div>
+
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Custom URL QR Code">⚡ Generate Custom URL QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="Hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#0891b2','#e0f7fa');autoGenerate()"><span class="pr-dot" style="background:#0891b2"></span>Cyan</button>
+              <button class="pr-btn" onclick="preset('#4285f4','#e8f0fe');autoGenerate()"><span class="pr-dot" style="background:#4285f4"></span>Google Blue</button>
+              <button class="pr-btn" onclick="preset('#16a34a','#f0fdf4');autoGenerate()"><span class="pr-dot" style="background:#16a34a"></span>Green</button>
+              <button class="pr-btn" onclick="preset('#7c3aed','#f5f3ff');autoGenerate()"><span class="pr-dot" style="background:#7c3aed"></span>Purple</button>
+              <button class="pr-btn" onclick="preset('#f0f2f5','#060708');autoGenerate()"><span class="pr-dot" style="background:#060708;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size"></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🔗</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">Custom URL QR</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Tracking tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use utm_source=print, utm_medium=qr_code for offline QR codes</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Each print location gets a unique utm_content value</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H with logo overlay for branded codes</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for any print size — scales perfectly</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan before printing to confirm tracking works</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box section-block">
+    <h3>📊 QR Code Campaign Tracking by the Numbers</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">94%</div><div class="stat-label">of marketers say campaign tracking is essential to justify marketing spend</div></div>
+      <div class="stat-item"><div class="stat-num">11B+</div><div class="stat-label">QR code scans projected globally in 2025 — growing 40% year on year</div></div>
+      <div class="stat-item"><div class="stat-num">3×</div><div class="stat-label">more campaign insight when UTM-tracked QR codes are used vs. plain QR</div></div>
+      <div class="stat-item"><div class="stat-num">67%</div><div class="stat-label">of marketers report improved ROI measurement after adding UTM QR codes</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section-block" aria-label="How to create a custom URL QR code">
+    <h2 class="section-hd">📖 How to Create a <span>Custom URL QR Code</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num" aria-hidden="true">01</div><div class="step-title">Choose Your Mode</div><div class="step-desc">Select URL Builder for custom parameters, UTM Tracker for Google Analytics campaign tracking, or Raw URL if you already have a complete URL ready to encode.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">02</div><div class="step-title">Enter Base URL</div><div class="step-desc">Paste your destination URL — your landing page, product page, or any website. Make sure it's a live, publicly accessible page before printing.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">03</div><div class="step-title">Add Parameters</div><div class="step-desc">In UTM mode: fill in source, medium, and campaign. In Builder mode: add custom key=value pairs and an optional anchor to scroll to a specific section.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">04</div><div class="step-title">Preview the Full URL</div><div class="step-desc">The "Built URL" preview shows exactly what will be encoded. Review it before generating — this is what Google Analytics will receive when someone scans.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">05</div><div class="step-title">Customise & Generate</div><div class="step-desc">Apply brand colours, add your logo, set QR size. Click Generate — your custom URL QR code is ready instantly.</div></div>
+      <div class="step-card"><div class="step-num" aria-hidden="true">06</div><div class="step-title">Deploy & Track</div><div class="step-desc">Download SVG for print or PNG for digital. Deploy and track results in Google Analytics → Acquisition → Campaigns to see exactly which QR placement drives the most scans.</div></div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-block" aria-label="Use cases">
+    <h2 class="section-hd">🎯 <span>8 Campaign Uses</span> for Custom URL QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🖨️</span><div class="uc-title">Print Ad Tracking</div><div class="uc-desc">Give each print ad placement (magazine A, magazine B, flyer, poster) a unique utm_content. Know exactly which publication drives the most web traffic.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📦</span><div class="uc-title">Product Packaging</div><div class="uc-desc">Track which product SKU drives the most website visits. Use utm_content=sku_001 vs sku_002 to see which packaging's QR gets scanned more.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎪</span><div class="uc-title">Event Campaigns</div><div class="uc-desc">Each event gets a unique UTM campaign. Compare scan volume from conference_a vs conference_b to prioritise future event sponsorships.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📧</span><div class="uc-title">Email Campaign QRs</div><div class="uc-desc">Embed QR codes in email newsletters. utm_source=email_newsletter + utm_medium=qr_code tracks email-to-scan conversions in Analytics.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏪</span><div class="uc-title">In-Store vs Online</div><div class="uc-desc">Use separate utm_source values for in-store QRs (utm_source=store_ny) vs online (utm_source=instagram). Measure offline-to-digital conversion.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🔗</span><div class="uc-title">Deep Link to Page Section</div><div class="uc-desc">Add an anchor (#pricing, #contact, #menu) to take scanners directly to the most relevant section of your page — reducing bounce rates.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🤝</span><div class="uc-title">Affiliate & Partner QRs</div><div class="uc-desc">Add affiliate_id=XXXXX as a custom parameter. Each partner or affiliate gets a unique QR that automatically attributes traffic and sales.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🧪</span><div class="uc-title">A/B Test QR Placements</div><div class="uc-desc">Test two different QR placements (table_left vs table_right) with separate utm_content values. Find the highest-scan placement data-driven.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-block" aria-label="Benefits">
+    <h2 class="section-hd">🚀 <span>6 Benefits</span> of Custom URL QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📊</span><div class="bn-title">Full Campaign Visibility</div><div class="bn-desc">UTM parameters let Google Analytics show you exactly how many people scanned your QR code, where the code was placed, and which campaign it belonged to.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎯</span><div class="bn-title">Deep-Link Precision</div><div class="bn-desc">URL anchors take scanners directly to the most relevant section of your page — pricing, contact form, specific product — reducing drop-off from irrelevant landing pages.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔑</span><div class="bn-title">Affiliate & Partner Tracking</div><div class="bn-desc">Custom query parameters encode affiliate IDs, referral codes, and partner tags — making QR-driven affiliate attribution automatic and accurate.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🧪</span><div class="bn-title">A/B Test QR Placements</div><div class="bn-desc">Generate two QR codes with different utm_content values for two placements. Measure which location drives more scans and higher conversion.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔄</span><div class="bn-title">Reusable Across Campaigns</div><div class="bn-desc">Change UTM values for each campaign cycle while keeping the same base URL. The tool lets you build new tracked URLs instantly without starting from scratch.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💰</span><div class="bn-title">Prove Print ROI</div><div class="bn-desc">The perennial challenge: proving print advertising works. UTM QR codes give you hard data on scans, sessions, and conversions from every printed piece.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section-block" aria-label="Related QR code tools">
+    <h2 class="section-hd">🔗 <span>Related</span> QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Simple URL QR</div></div></a>
+      <a href="qr-logo-qr.html" class="rel-card"><span class="rel-icon">🎨</span><div class="rel-info"><div class="rel-title">Logo QR Code</div><div class="rel-desc">Branded QR with logo</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Collect 5-star reviews</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Accept payments</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share network access</div></div></a>
+      <a href="qr-video.html" class="rel-card"><span class="rel-icon">▶️</span><div class="rel-info"><div class="rel-title">Video QR</div><div class="rel-desc">Link to any video</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Grow followers</div></div></a>
+      <a href="qr-google-sheets.html" class="rel-card"><span class="rel-icon">📊</span><div class="rel-info"><div class="rel-title">Google Sheets QR</div><div class="rel-desc">Share spreadsheets</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article section-block">
+    <h2>📖 Complete Guide to Custom URL QR Codes</h2>
+    <p>A custom URL QR code goes beyond simply encoding a web address. By embedding UTM parameters, URL anchors, affiliate tags, and custom query strings, a custom URL QR code becomes a powerful analytics tool that tells you exactly where your traffic comes from, what campaigns are working, and which physical placements drive the most engagement.</p>
+    <h3>Understanding UTM Parameters for QR Codes</h3>
+    <p>UTM parameters are five tags you can append to any URL: <strong>utm_source</strong> (where the traffic comes from, e.g. "print_flyer"), <strong>utm_medium</strong> (the channel, e.g. "qr_code"), <strong>utm_campaign</strong> (the campaign name, e.g. "summer_sale_2025"), <strong>utm_term</strong> (keyword tracking, less relevant for QR), and <strong>utm_content</strong> (differentiates between two versions, e.g. "table_left" vs "table_right"). When someone scans the QR code and visits your site, Google Analytics logs all of these tags — you can see exactly how many sessions came from each QR placement.</p>
+    <h3>URL Anchors for Deep Linking</h3>
+    <p>A URL anchor (the #section at the end of a URL) tells the browser to scroll directly to a specific section of a page. If you're linking to a long landing page, adding #pricing sends the scanner straight to the pricing section, #contact straight to the contact form, and #menu straight to the restaurant menu. This dramatically reduces bounce rate for QR-driven traffic because visitors immediately see the most relevant content.</p>
+    <h3>Custom Parameters for Affiliate and Partner Tracking</h3>
+    <p>Beyond UTM parameters, any key=value pair can be added to a URL. Common uses: affiliate_id=123 for affiliate tracking, ref=partner_name for referral attribution, variant=blue for product configuration, lang=en for language preference, or any parameter your website, CRM, or e-commerce platform recognises. Use the Custom Parameters section to add as many parameters as needed.</p>
+    <h3>Pro Tips for UTM QR Campaigns</h3>
+    <ul>
+      <li><strong>Consistent naming convention:</strong> Use underscores, not spaces. Lowercase always. Establish a naming guide your whole team follows — e.g. utm_source=print_[publication], utm_medium=qr_code, utm_campaign=[season]_[year].</li>
+      <li><strong>One QR per placement:</strong> Each physical location (counter, receipt, menu, flyer) should have its own QR code with a unique utm_content. This lets you compare placement performance.</li>
+      <li><strong>Short base URLs:</strong> UTM parameters make URLs very long. Use a short base URL to keep the QR code less dense and more scannable. Avoid 300+ character URLs in QR codes.</li>
+      <li><strong>Test in Google Analytics before printing:</strong> Scan the QR on your phone and check Google Analytics Realtime → Traffic sources to confirm the UTM data appears correctly before bulk printing.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="section-block faq-sec" aria-label="Frequently asked questions">
+    <h2 class="section-hd">Frequently Asked <span>Questions</span></h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What are UTM parameters and why use them in QR codes?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">UTM parameters are tags (utm_source, utm_medium, utm_campaign, utm_content, utm_term) appended to a URL. When someone scans the QR code and visits your site, Google Analytics records these tags as campaign data. This lets you see exactly how many sessions came from each QR code, which campaign it belonged to, and which placement performed best.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I see QR scan data in Google Analytics?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">In GA4: Reports → Acquisition → Traffic acquisition → filter by Session source/medium containing "qr_code". In Universal Analytics: Acquisition → Campaigns → All campaigns. You'll see sessions, bounce rate, and conversions from each UTM-tagged QR code.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What's the difference between URL Builder and UTM Tracker mode?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">UTM Tracker mode has pre-built fields specifically for the five standard UTM parameters, plus quick-select dropdowns for common values. URL Builder mode lets you add any custom key=value parameters (affiliate IDs, referral codes, product variants) plus an anchor. Use UTM Tracker for Google Analytics campaigns, URL Builder for custom parameters.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What is a URL anchor and how does it help?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">A URL anchor (the #section part) makes the browser scroll to a specific named section of a page. For example, yourdomain.com/about#team scrolls directly to the team section. This is valuable for QR codes — instead of dropping scanners at the top of a long page, send them directly to the most relevant content.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. The QR code image never expires — it works as long as the destination URL remains live. If you need to change the landing page after printing, use a URL shortener as the QR destination, then update the redirect. The same QR code always points wherever the redirect sends it.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my URL or tracking data stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All URL building, parameter encoding, and QR code generation happens entirely in your browser. Your URLs, UTM parameters, and custom data never leave your device and are never stored on our servers.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I use this for affiliate or referral tracking?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. In URL Builder mode, add your affiliate parameter as a custom key=value pair (e.g. key: affiliate_id, value: your_code). The generator appends this to the URL — when scanned, your affiliate platform registers the referral automatically.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">🔗</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">🔗 URL QR Codes</div><ul class="fl">
+      <li><a href="qr-custom-url.html">🔗 Custom URL QR</a></li>
+      <li><a href="qr-url.html">🌐 URL QR Code</a></li>
+      <li><a href="qr-logo-qr.html">🎨 Logo QR Code</a></li>
+      <li><a href="qr-google-review.html">⭐ Google Review QR</a></li>
+      <li><a href="qr-vcard.html">👤 vCard QR Code</a></li>
+    </ul></div>
+    <div><div class="fct">💳 Payment QR Codes</div><ul class="fl">
+      <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+      <li><a href="qr-paypal.html">🅿️ PayPal QR</a></li>
+      <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+      <li><a href="qr-crypto.html">₿ Crypto QR</a></li>
+      <li><a href="qr-payment.html">💰 All Payments</a></li>
+    </ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl">
+      <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+      <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+      <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC='Q', currentLogoBase64=null, genTimer=null, MODE='builder';
+let paramCount=0;
+
+/* ── MODE ── */
+function setMode(m) {
+  MODE=m;
+  ['builder','utm','raw'].forEach(id=>{
+    document.getElementById('tab-'+id).classList.toggle('on',id===m);
+    document.getElementById('tab-'+id).setAttribute('aria-selected',id===m);
+    document.getElementById('form-'+id).style.display=id===m?'':'none';
+  });
+  hideErr(); autoGenerate();
+}
+
+/* ── PARAM ROWS ── */
+function addParam() {
+  paramCount++;
+  const id=paramCount;
+  const row=document.createElement('div');
+  row.className='param-row'; row.id='param-row-'+id;
+  row.innerHTML=`<input type="text" class="inp param-key" id="pk-${id}" placeholder="key" oninput="autoGenerate()" aria-label="Parameter key ${id}"><input type="text" class="inp param-val" id="pv-${id}" placeholder="value" oninput="autoGenerate()" aria-label="Parameter value ${id}"><button class="param-del" onclick="removeParam(${id})" aria-label="Remove parameter ${id}">✕</button>`;
+  document.getElementById('params-container').appendChild(row);
+}
+function removeParam(id) {
+  const r=document.getElementById('param-row-'+id);
+  if(r) r.remove();
+  autoGenerate();
+}
+function getCustomParams() {
+  const params={};
+  document.querySelectorAll('.param-row').forEach(row=>{
+    const id=row.id.replace('param-row-','');
+    const k=document.getElementById('pk-'+id)?.value.trim();
+    const v=document.getElementById('pv-'+id)?.value.trim();
+    if(k) params[k]=v||'';
+  });
+  return params;
+}
+
+/* ── UTM PRESETS ── */
+function applySourcePreset(){const v=document.getElementById('u-source-preset').value;if(v)document.getElementById('u-source').value=v;autoGenerate();}
+function applyMediumPreset(){const v=document.getElementById('u-medium-preset').value;if(v)document.getElementById('u-medium').value=v;autoGenerate();}
+
+/* ── BUILD URL ── */
+function buildURL() {
+  if (MODE==='raw') {
+    const v=document.getElementById('r-url').value.trim();
+    if(!v) throw new Error('Please enter a URL.');
+    if(!/^https?:\/\//i.test(v)) throw new Error('URL must start with https://');
+    return v;
+  }
+
+  if (MODE==='builder') {
+    const base=document.getElementById('b-base').value.trim();
+    if(!base) throw new Error('Please enter a Base URL.');
+    if(!/^https?:\/\//i.test(base)) throw new Error('URL must start with https://');
+    const anchor=document.getElementById('b-anchor').value.trim();
+    const custom=getCustomParams();
+    let url=base;
+    const pairs=Object.entries(custom).filter(([k])=>k);
+    if(pairs.length>0) {
+      const sep=url.includes('?')?'&':'?';
+      url+=sep+pairs.map(([k,v])=>encodeURIComponent(k)+(v?'='+encodeURIComponent(v):'')).join('&');
+    }
+    if(anchor) url+='#'+encodeURIComponent(anchor);
+    return url;
+  }
+
+  if (MODE==='utm') {
+    const base=document.getElementById('u-base').value.trim();
+    if(!base) throw new Error('Please enter a Destination URL.');
+    if(!/^https?:\/\//i.test(base)) throw new Error('URL must start with https://');
+    const src=document.getElementById('u-source').value.trim();
+    const med=document.getElementById('u-medium').value.trim();
+    const cam=document.getElementById('u-campaign').value.trim();
+    if(!src) throw new Error('utm_source is required.');
+    if(!med) throw new Error('utm_medium is required.');
+    if(!cam) throw new Error('utm_campaign is required.');
+    const term=document.getElementById('u-term').value.trim();
+    const content=document.getElementById('u-content').value.trim();
+    const anchor=document.getElementById('u-anchor').value.trim();
+    const sep=base.includes('?')?'&':'?';
+    let url=base+sep+'utm_source='+encodeURIComponent(src)+'&utm_medium='+encodeURIComponent(med)+'&utm_campaign='+encodeURIComponent(cam);
+    if(term) url+='&utm_term='+encodeURIComponent(term);
+    if(content) url+='&utm_content='+encodeURIComponent(content);
+    if(anchor) url+='#'+encodeURIComponent(anchor);
+    return url;
+  }
+
+  throw new Error('Please fill in the required fields.');
+}
+
+/* ── URL PREVIEW DISPLAY ── */
+function updatePreview() {
+  try {
+    const url=buildURL();
+    const el=document.getElementById('url-preview');
+    const val=document.getElementById('url-preview-val');
+    el.style.display='';
+    // Colour-code the parts
+    let display=url;
+    try {
+      const u=new URL(url);
+      let base=u.origin+u.pathname;
+      let params=''; let anchor='';
+      if(u.search){
+        params=u.search.slice(1).split('&').map(p=>{
+          if(p.startsWith('utm_')) return `<span class="url-utm">${escHtml(p)}</span>`;
+          return `<span class="url-param">${escHtml(p)}</span>`;
+        }).join('<span style="color:var(--txt3)">&amp;</span>');
+        params='<span style="color:var(--txt3)">?</span>'+params;
+      }
+      if(u.hash) anchor=`<span class="url-anchor">${escHtml(u.hash)}</span>`;
+      display=`<span class="url-base">${escHtml(base)}</span>${params}${anchor}`;
+    } catch(e){ display=escHtml(url.slice(0,200))+(url.length>200?'…':''); }
+    val.innerHTML=display;
+  } catch(e){
+    document.getElementById('url-preview').style.display='none';
+  }
+}
+
+/* ── COPY URL ── */
+function copyBuiltURL(){
+  try{
+    const url=buildURL();
+    navigator.clipboard.writeText(url).then(()=>{
+      const btn=document.getElementById('copy-url-btn');
+      const orig=btn.textContent; btn.textContent='✓ Copied!';
+      setTimeout(()=>btn.textContent=orig,2000);
+    });
+  }catch(e){}
+}
+
+/* ── GENERATE ── */
+async function generateQR() {
+  hideErr();
+  let data; try{data=buildURL();}catch(e){showErr(e.message);return;}
+  updatePreview();
+  const size=parseInt(document.getElementById('sz-range').value)||300;
+  const fg=document.getElementById('fg-col').value;
+  const bg=document.getElementById('bg-col').value;
+  const container=document.getElementById('qr-out'); container.innerHTML='';
+  try {
+    const canvas=document.createElement('canvas');
+    await QRCode.toCanvas(canvas,data,{width:size,margin:2,color:{dark:fg,light:bg},errorCorrectionLevel:EC});
+    if(currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const modeLabel={builder:'Custom URL QR',utm:'UTM Tracking QR',raw:'Custom URL QR'};
+    document.getElementById('qm-type').textContent=modeLabel[MODE];
+    document.getElementById('qm-info').textContent=size+'×'+size+' · EC:'+EC;
+    const label=MODE==='builder'?document.getElementById('b-label').value.trim():'';
+    document.getElementById('qm-ready').textContent='✓ Ready'+(label?' — '+label:'')+(MODE==='utm'?' — UTM tracked':'');
+    flashEffect();
+  }catch(e){showErr('QR generation failed: '+e.message);}
+}
+
+function overlayLogo(canvas){
+  return new Promise(resolve=>{
+    if(!currentLogoBase64) return resolve();
+    const ctx=canvas.getContext('2d'); const ms=Math.floor(canvas.width*0.22);
+    const img=new Image();
+    img.onload=()=>{
+      let w=ms,h=ms; const r=img.width/img.height;
+      if(r>1)h=ms/r; else if(r<1)w=ms*r;
+      const x=(canvas.width-w)/2,y=(canvas.height-h)/2,pad=6;
+      ctx.fillStyle='#ffffff'; ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x-pad,y-pad,w+pad*2,h+pad*2,8);
+      else ctx.fillRect(x-pad,y-pad,w+pad*2,h+pad*2);
+      ctx.fill(); ctx.drawImage(img,x,y,w,h); resolve();
+    }; img.onerror=()=>resolve(); img.src=currentLogoBase64;
+  });
+}
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};}
+
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function autoGenerate(){updatePreview();clearTimeout(genTimer);genTimer=setTimeout(()=>{try{buildURL();generateQR();}catch(e){}},400);}
+function flashEffect(){const fl=document.getElementById('qr-flash');fl.style.opacity='1';setTimeout(()=>fl.style.opacity='0',500);}
+function getCanvas(){return document.querySelector('#qr-out canvas');}
+function dlPNG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const a=document.createElement('a');a.download='custom-url-qr-toolsbox.png';a.href=c.toDataURL('image/png');a.click();}
+function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const sz=parseInt(document.getElementById('sz-range').value)||300;const d=c.toDataURL('image/png');const svg=`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}">\n<title>Custom URL QR Code — ToolsBox</title>\n<image x="0" y="0" width="${sz}" height="${sz}" xlink:href="${d}"/>\n</svg>`;const blob=new Blob([svg],{type:'image/svg+xml'});const a=document.createElement('a');a.download='custom-url-qr-toolsbox.svg';a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);}
+async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the QR code → Copy Image.');}}
+function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
+async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'custom-url-qr.png',{type:'image/png'});await navigator.share({title:'Custom URL QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const label=MODE==='builder'?document.getElementById('b-label').value:'Custom URL QR';const win=window.open('','_blank');win.document.write(`<html><head><title>Custom URL QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">${label||'Custom URL QR Code'} · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function resetAll(){['b-base','b-anchor','b-label','u-base','u-source','u-medium','u-campaign','u-term','u-content','u-anchor','r-url'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('params-container').innerHTML='';document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🔗</span><span class="qr-ph-txt">QR code appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('url-preview').style.display='none';rmLogo();}
+function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
+function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
+function syncCol(hid,cid){const v=document.getElementById(hid).value;if(/^#[0-9a-fA-F]{6}$/.test(v))document.getElementById(cid).value=v;}
+function updSize(){document.getElementById('sz-label').textContent=document.getElementById('sz-range').value+'×'+document.getElementById('sz-range').value;}
+function setEC(ec,btn){EC=ec;document.querySelectorAll('.ec-p').forEach(p=>{p.classList.remove('on');p.setAttribute('aria-pressed','false');});btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+function preset(fg,bg){document.getElementById('fg-col').value=fg;document.getElementById('fg-hex').value=fg;document.getElementById('bg-col').value=bg;document.getElementById('bg-hex').value=bg;}
+function handleLogo(inp){const f=inp.files[0];if(!f)return;if(f.size>512000){showErr('Logo must be under 500 KB');return;}const reader=new FileReader();reader.onload=e=>{currentLogoBase64=e.target.result;document.getElementById('logo-img').src=currentLogoBase64;document.getElementById('logo-name').textContent=f.name;document.getElementById('logo-prev').style.display='flex';setEC('H',document.querySelector('.ec-p[data-ec="H"]'));autoGenerate();};reader.readAsDataURL(f);}
+function rmLogo(){currentLogoBase64=null;document.getElementById('logo-inp').value='';document.getElementById('logo-prev').style.display='none';document.getElementById('logo-img').src='';autoGenerate();}
+function showErr(m){const e=document.getElementById('err-box');e.textContent='⚠️ '+m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
+function hideErr(){document.getElementById('err-box').classList.remove('show');}
+function faq(el){const p=el.parentElement;const open=p.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('open');x.querySelector('.fq').setAttribute('aria-expanded','false');});if(!open){p.classList.add('open');el.setAttribute('aria-expanded','true');}}
+(function(){const h=document.getElementById('ham'),m=document.getElementById('mob-menu');h.addEventListener('click',()=>{const o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false');h.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';})}});})();
+(function(){const drop=document.getElementById('logo-drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag-over');}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag-over');}));drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);document.getElementById('logo-inp').files=dt.files;handleLogo(document.getElementById('logo-inp'));}});drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('logo-inp').click();}});})();
+window.addEventListener('load',()=>{
+  document.getElementById('b-base').value='https://mytoolsbox.org';
+  document.getElementById('b-label').value='Marketing Campaign QR';
+  addParam(); // start with one param row
+  document.getElementById('pk-1').value='ref';
+  document.getElementById('pv-1').value='summer_print';
+  updatePreview(); generateQR();
+});
+</script>
+</body>
+</html>

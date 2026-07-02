@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaped QR Code Generator — Custom Round, Heart & Dot Style QR Codes | ToolsBox</title>
+<meta name="description" content="Free shaped QR code generator. Create custom round, dot-style, heart-framed, or rounded-corner QR codes for any link, text, or contact. No sign-up.">
+<meta name="keywords" content="shaped QR code generator, custom shape QR code, round QR code generator, heart shaped QR code, circle QR code, dot style QR code, rounded QR code maker, creative QR code design, stylish QR code generator, fancy QR code, QR code with rounded corners, unique QR code shapes, artistic QR code, custom QR code design free, QR code module style, dotted QR code generator, smooth QR code, QR code for wedding invitation, branded shaped QR code, designer QR code generator, QR code circle frame, aesthetic QR code, modern QR code style, QR code shape options, custom QR code for business cards, eye pattern QR code, QR code visual style editor">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-shaped.html">
+<meta property="og:title" content="Shaped QR Code Generator — Custom Round, Heart & Dot Styles | ToolsBox">
+<meta property="og:description" content="Create custom-shaped QR codes — round dots, rounded corners, circular and heart frames — for any link or text. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-shaped.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-shaped.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shaped QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate custom-shaped QR codes — round, heart, dotted styles. Free, no sign-up.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Shaped QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-shaped.html","description":"Free shaped QR code generator. Create custom round, dot-style, heart-framed, or rounded-corner QR codes for any link or text.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a shaped QR code?","acceptedAnswer":{"@type":"Answer","text":"A shaped QR code uses rounded, circular, or dot-style modules instead of plain black squares, and can be framed in a circle, heart, or rounded-rectangle border. It scans exactly the same as a standard QR code — only the visual style changes."}},{"@type":"Question","name":"Will a shaped or rounded QR code still scan correctly?","acceptedAnswer":{"@type":"Answer","text":"Yes. As long as the three corner finder patterns remain clearly defined and there's sufficient contrast, rounding the modules or adding a decorative frame does not affect scannability. This tool preserves the finder patterns exactly to guarantee reliable scanning."}},{"@type":"Question","name":"Can I make a heart-shaped QR code for a wedding invitation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select the heart frame style, choose your colours, and enter your wedding website or RSVP link. The QR code will be styled with a heart-shaped border while remaining fully scannable."}},{"@type":"Question","name":"What's the difference between module style and frame style?","acceptedAnswer":{"@type":"Answer","text":"Module style changes the shape of the individual squares that make up the QR code's pattern (square, rounded, or dot). Frame style changes the outer border or background shape around the whole code (square, rounded-rectangle, circle, or heart). You can combine any module style with any frame style."}},{"@type":"Question","name":"Does this shaped QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. This is a static QR code — your link or text is encoded directly into the image. It works forever with no subscription, server, or expiry date, regardless of which shape style you choose."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;--bg3:#111418;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#ec4899;--acc-dark:#d23577;--acc-dim:rgba(236,72,153,0.12);--acc-bdr:rgba(236,72,153,0.32);
+  --gold:#fbbc04;--gold-dim:rgba(251,188,4,0.1);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.1);--grn-bdr:rgba(34,197,94,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),var(--grn));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+.bc span.sep{opacity:.5}
+
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.star-strip{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.star-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:70px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.shape-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.shape-opt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px;border-radius:10px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;transition:all .15s}
+.shape-opt:hover{background:var(--surf3)}
+.shape-opt.on{border-color:var(--acc);background:var(--acc-dim)}
+.shape-opt svg{width:34px;height:34px}
+.shape-opt span{font-size:10px;font-weight:700;color:var(--txt2)}
+.shape-opt.on span{color:var(--acc)}
+
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(236,72,153,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(236,72,153,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3);border-color:var(--bdr2)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out svg{display:block;max-width:100%;height:auto}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(34,197,94,.2);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}
+.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}
+.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}
+.dl-copy:hover{background:rgba(34,197,94,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+
+.steps-section{margin-top:52px}
+.steps-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.steps-section h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--grn))}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+
+.uses-section{margin-top:52px}
+.uses-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+
+.benefits-section{margin-top:52px}
+.benefits-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+
+.related-section{margin-top:52px}
+.related-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}.shape-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="lb" aria-hidden="true">T</div>
+      <span class="lt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="qr-code-index.html">QR Codes</a>
+    <span class="sep">›</span>
+    <span aria-current="page">Shaped QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge" aria-label="Tool category">💫 Shaped QR Code Generator</div>
+    <h1>QR Codes That <b>Look as Good</b><br>as They Scan</h1>
+    <p class="sub">Create custom-shaped QR codes — rounded dots, smooth corners, circular and heart frames — for any link, text, or contact. Same reliable scanning, with a style that fits your brand. 100% free, no sign-up.</p>
+    <div class="star-strip" role="list" aria-label="Style options">
+      <span class="star-badge" role="listitem">⭕ Round Dots</span>
+      <span class="star-badge" role="listitem">💛 Heart Frame</span>
+      <span class="star-badge" role="listitem">🔵 Circle Frame</span>
+      <span class="star-badge" role="listitem">📱 All Phones</span>
+    </div>
+  </header>
+
+  <section aria-label="QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">💫 Content &amp; style</span>
+          <span class="ch-badge">SHAPED QR</span>
+        </div>
+        <div class="card-body">
+
+          <div class="fld">
+            <label class="lbl lbl-req" for="content-inp">Link or text to encode</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">🔗</span>
+              <input type="text" id="content-inp" class="inp has-icon" placeholder="https://yourwebsite.com or any text" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>How shape styling works:</strong> The finder squares in the three corners are kept crisp for reliable scanning. Everything else — the data dots and outer frame — follows your chosen style.
+          </div>
+
+          <div class="fld">
+            <label class="lbl">Module style</label>
+            <div class="shape-grid" role="group" aria-label="Module shape">
+              <div class="shape-opt on" data-module="square" onclick="selectModule('square', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectModule('square', this)">
+                <svg viewBox="0 0 34 34"><rect x="4" y="4" width="9" height="9" fill="currentColor"/><rect x="21" y="4" width="9" height="9" fill="currentColor"/><rect x="4" y="21" width="9" height="9" fill="currentColor"/><rect x="21" y="21" width="9" height="9" fill="currentColor"/></svg>
+                <span>Square</span>
+              </div>
+              <div class="shape-opt" data-module="rounded" onclick="selectModule('rounded', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectModule('rounded', this)">
+                <svg viewBox="0 0 34 34"><rect x="4" y="4" width="9" height="9" rx="2.5" fill="currentColor"/><rect x="21" y="4" width="9" height="9" rx="2.5" fill="currentColor"/><rect x="4" y="21" width="9" height="9" rx="2.5" fill="currentColor"/><rect x="21" y="21" width="9" height="9" rx="2.5" fill="currentColor"/></svg>
+                <span>Rounded</span>
+              </div>
+              <div class="shape-opt" data-module="dot" onclick="selectModule('dot', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectModule('dot', this)">
+                <svg viewBox="0 0 34 34"><circle cx="8.5" cy="8.5" r="4.5" fill="currentColor"/><circle cx="25.5" cy="8.5" r="4.5" fill="currentColor"/><circle cx="8.5" cy="25.5" r="4.5" fill="currentColor"/><circle cx="25.5" cy="25.5" r="4.5" fill="currentColor"/></svg>
+                <span>Dots</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl">Frame style</label>
+            <div class="shape-grid" role="group" aria-label="Frame shape">
+              <div class="shape-opt on" data-frame="square" onclick="selectFrame('square', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectFrame('square', this)">
+                <svg viewBox="0 0 34 34"><rect x="3" y="3" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+                <span>Square</span>
+              </div>
+              <div class="shape-opt" data-frame="rounded" onclick="selectFrame('rounded', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectFrame('rounded', this)">
+                <svg viewBox="0 0 34 34"><rect x="3" y="3" width="28" height="28" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+                <span>Rounded</span>
+              </div>
+              <div class="shape-opt" data-frame="circle" onclick="selectFrame('circle', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectFrame('circle', this)">
+                <svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+                <span>Circle</span>
+              </div>
+              <div class="shape-opt" data-frame="heart" onclick="selectFrame('heart', this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectFrame('heart', this)">
+                <svg viewBox="0 0 34 34"><path d="M17 29 C6 21 3 14 8 9 C11 6 15 7 17 11 C19 7 23 6 26 9 C31 14 28 21 17 29 Z" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+                <span>Heart</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Shaped QR Code">
+            ⚡ Generate Shaped QR Code
+          </button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise Colours &amp; Size</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld">
+              <label class="lbl">QR Color</label>
+              <div class="color-row">
+                <input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR code foreground color">
+                <input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR code hex color">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl">Background</label>
+              <div class="color-row">
+                <input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="QR code background color">
+                <input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color">
+              </div>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic black on white"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#ec4899','#fdf0f7');autoGenerate()" aria-label="Romantic pink"><span class="pr-dot" style="background:#ec4899"></span>Romantic Pink</button>
+              <button class="pr-btn" onclick="preset('#a855f7','#f6efff');autoGenerate()" aria-label="Creative purple"><span class="pr-dot" style="background:#a855f7"></span>Creative Purple</button>
+              <button class="pr-btn" onclick="preset('#22c55e','#e8f9ee');autoGenerate()" aria-label="Fresh green"><span class="pr-dot" style="background:#22c55e"></span>Fresh Green</button>
+              <button class="pr-btn" onclick="preset('#fbbc04','#fff9e6');autoGenerate()" aria-label="Gold"><span class="pr-dot" style="background:#fbbc04"></span>Gold</button>
+              <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark mode"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row">
+              <input type="range" id="sz-range" min="160" max="800" step="20" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size" aria-valuetext="300 by 300 pixels">
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="false">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p on" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="true">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out">
+          <div class="qr-ph" aria-hidden="true">
+            <span class="qr-ph-icon">💫</span>
+            <span class="qr-ph-txt">QR code appears here</span>
+          </div>
+        </div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">Shaped QR Code</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download QR code as PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download QR code as SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy QR code to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR code">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR code">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset all fields">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Heart and circle frames work best with shorter links</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Level H error correction is set by default for style codes</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Keep strong contrast between foreground and background</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for invitations and print — scales perfectly</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Always test scan before printing in bulk</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box" aria-label="Industry statistics about styled QR codes">
+    <h3>📊 Why Styled QR Codes Get More Scans</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">2×</div><div class="stat-label">higher engagement reported for branded QR codes vs. generic black-and-white codes</div></div>
+      <div class="stat-item"><div class="stat-num">0%</div><div class="stat-label">scan-rate loss when finder patterns are preserved correctly</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">compatible with every standard phone camera and scanner app</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">style combinations across module shapes, frames, and colours</div></div>
+    </div>
+  </div>
+
+  <section class="steps-section" aria-label="How to create a shaped QR code">
+    <h2>📖 How to Create Your Shaped QR Code in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-title">Enter Your Link or Text</div>
+        <div class="step-desc">Paste a website link, social profile, or any text you want the QR code to open or display when scanned.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-title">Choose a Module Style</div>
+        <div class="step-desc">Pick square, rounded, or dot-style modules for the QR pattern's individual data points.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-title">Choose a Frame Shape</div>
+        <div class="step-desc">Select square, rounded-rectangle, circle, or heart framing, then customise colours to match your design.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-title">Generate and Download</div>
+        <div class="step-desc">Click Generate, then download as PNG for digital use or SVG for crisp, scalable printing on invitations or packaging.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">05</div>
+        <div class="step-title">Test Before Printing</div>
+        <div class="step-desc">Scan with both an iPhone and an Android phone to confirm the styled code reads correctly before mass production.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">06</div>
+        <div class="step-title">Use It Everywhere</div>
+        <div class="step-desc">Add your styled QR code to invitations, packaging, business cards, or social posts wherever a generic black-and-white code would feel out of place.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="uses-section" aria-label="Use cases for shaped QR codes">
+    <h2>💼 Where to Use Shaped QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">💍</span><div class="uc-title">Wedding Invitations</div><div class="uc-desc">A heart-shaped QR code linking to your wedding website fits the occasion far better than a plain black square.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎨</span><div class="uc-title">Brand Marketing</div><div class="uc-desc">Match the QR code's shape and colours to your brand identity for a polished, intentional look on packaging and ads.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🪪</span><div class="uc-title">Business Cards</div><div class="uc-desc">A rounded or dot-style QR code feels more modern and premium on a printed business card.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎉</span><div class="uc-title">Event Invitations</div><div class="uc-desc">Circular frames pair naturally with round event badges, stickers, and table cards.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🛍️</span><div class="uc-title">Retail Packaging</div><div class="uc-desc">A styled QR code on packaging looks designed rather than slapped on as an afterthought.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎁</span><div class="uc-title">Gift Tags & Cards</div><div class="uc-desc">Add a decorative QR code to a gift tag linking to a video message or wishlist.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📱</span><div class="uc-title">Social Media Bios</div><div class="uc-desc">A styled QR image stands out more in Instagram stories or posts than a generic code.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🖼️</span><div class="uc-title">Posters & Flyers</div><div class="uc-desc">A shaped QR code draws the eye and feels designed as part of the poster, not bolted on.</div></div>
+    </div>
+  </section>
+
+  <section class="benefits-section" aria-label="Benefits of using shaped QR codes">
+    <h2>🚀 6 Benefits of a Shaped QR Code</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎨</span><div class="bn-title">Stands Out Visually</div><div class="bn-desc">A styled QR code attracts more attention than a plain black-and-white square, increasing the likelihood someone notices and scans it.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">✅</span><div class="bn-title">Scans Exactly the Same</div><div class="bn-desc">Styling only changes appearance — the finder patterns stay intact, so scan reliability is unaffected.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💝</span><div class="bn-title">Matches the Occasion</div><div class="bn-desc">A heart frame for weddings, a circle for badges — the shape itself communicates context before anyone even scans.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🏷️</span><div class="bn-title">Reinforces Branding</div><div class="bn-desc">Consistent shape and colour choices across materials make your QR codes instantly recognisable as yours.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🖨️</span><div class="bn-title">Print-Ready in Any Format</div><div class="bn-desc">Vector SVG export means your styled code stays crisp at any size, from a business card to a banner.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🆓</span><div class="bn-title">No Design Skills Needed</div><div class="bn-desc">Pick a module and frame style with one click — no need to manually edit vector paths or hire a designer.</div></div>
+    </div>
+  </section>
+
+  <section class="related-section" aria-label="Related QR code tools">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Grow your following</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Collect more reviews</div></div></a>
+      <a href="qr-booking.html" class="rel-card"><span class="rel-icon">📅</span><div class="rel-info"><div class="rel-title">Booking QR</div><div class="rel-desc">Appointment links</div></div></a>
+      <a href="qr-png.html" class="rel-card"><span class="rel-icon">🖼️</span><div class="rel-info"><div class="rel-title">Image File QR</div><div class="rel-desc">Share photos & graphics</div></div></a>
+      <a href="qr-audio.html" class="rel-card"><span class="rel-icon">🎙️</span><div class="rel-info"><div class="rel-title">Audio QR</div><div class="rel-desc">Voice messages</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-facebook.html" class="rel-card"><span class="rel-icon">📘</span><div class="rel-info"><div class="rel-title">Facebook QR</div><div class="rel-desc">Page & group links</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Designing Custom-Shaped QR Codes</h2>
+    <p>A standard QR code is a grid of black squares on white — functional, but generic. As QR codes became a normal part of marketing, packaging, and invitations, demand grew for codes that match a brand's visual identity or an occasion's tone. A shaped QR code achieves this by changing how the data is rendered — rounder modules, dot patterns, or a decorative outer frame — while keeping the underlying scan logic untouched.</p>
+    <h3>Module Style vs. Frame Style</h3>
+    <p>These are two independent style layers. Module style governs the shape of each individual data cell across the whole pattern: square (the default), rounded corners for a softer look, or fully circular dots for a more playful, modern feel. Frame style governs the outer boundary and background shape of the entire code: a plain square, a rounded rectangle, a circle, or a heart. You can mix any module style with any frame style — for example, dot-style modules inside a heart frame works particularly well for wedding invitations.</p>
+    <h3>Why Scannability Isn't Affected</h3>
+    <p>Every QR code relies on three square "finder patterns" in the corners (and one smaller alignment pattern) that scanning software uses to detect orientation and boundaries before reading the data. This tool always renders those specific patterns at full, crisp definition regardless of the chosen module style, since distorting them is the one change that genuinely risks breaking scannability. Everything else — the data-carrying modules and the decorative frame — can be styled freely without any meaningful impact on scan reliability.</p>
+    <h3>Pro Tips for the Best Results</h3>
+    <ul>
+      <li><strong>Keep strong contrast:</strong> Whatever colours you choose, make sure there's clear contrast between the foreground and background — low contrast is the most common cause of scan failures, styled or not.</li>
+      <li><strong>Shorter content scans more reliably in decorative frames:</strong> A heart or circle frame crops more of the available square space, so shorter URLs or text leave more margin for error correction.</li>
+      <li><strong>Use Level H error correction for styled codes:</strong> This tool defaults to Level H specifically because decorative styling benefits from the extra redundancy.</li>
+      <li><strong>Download SVG for any printed application:</strong> Vector format guarantees crisp edges at any size, from a small favour tag to a large banner.</li>
+      <li><strong>Always test-scan before bulk printing:</strong> Confirm the styled code opens correctly on both iOS and Android cameras before committing to a large print run.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section" aria-label="Frequently asked questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What is a shaped QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">A shaped QR code uses rounded, circular, or dot-style modules instead of plain black squares, and can be framed in a circle, heart, or rounded-rectangle border. It scans exactly the same as a standard QR code — only the visual style changes.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Will a shaped or rounded QR code still scan correctly?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. As long as the three corner finder patterns remain clearly defined and there's sufficient contrast, rounding the modules or adding a decorative frame does not affect scannability. This tool preserves the finder patterns exactly to guarantee reliable scanning.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I make a heart-shaped QR code for a wedding invitation?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Select the heart frame style, choose your colours, and enter your wedding website or RSVP link. The QR code will be styled with a heart-shaped border while remaining fully scannable.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What's the difference between module style and frame style?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Module style changes the shape of the individual squares that make up the QR code's pattern (square, rounded, or dot). Frame style changes the outer border or background shape around the whole code (square, rounded-rectangle, circle, or heart). You can combine any module style with any frame style.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does this shaped QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. This is a static QR code — your link or text is encoded directly into the image. It works forever with no subscription, server, or expiry date, regardless of which shape style you choose.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my content stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser using JavaScript. The link or text you enter never leaves your device — never sent to any server, never stored, never tracked.</div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <div class="fb-logo">
+        <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+          <div class="lb" aria-hidden="true">T</div>
+          <span class="lt">Tools<em>Box</em></span>
+        </a>
+      </div>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div>
+      <div class="fct">💫 Style & Design QR</div>
+      <ul class="fl">
+        <li><a href="qr-shaped.html">💫 Shaped QR Code</a></li>
+        <li><a href="qr-url.html">🔗 URL QR Code</a></li>
+        <li><a href="qr-vcard.html">👤 vCard QR</a></li>
+        <li><a href="qr-png.html">🖼️ Image File QR</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🏢 Business QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-google-review.html">⭐ Google Review QR</a></li>
+        <li><a href="qr-booking.html">📅 Booking QR</a></li>
+        <li><a href="qr-wifi.html">📶 WiFi QR</a></li>
+        <li><a href="qr-whatsapp.html">💬 WhatsApp QR</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🧮 Calculators</div>
+      <ul class="fl">
+        <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+        <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'H', MODULE_STYLE = 'square', FRAME_STYLE = 'square';
+
+function selectModule(style, el) {
+  MODULE_STYLE = style;
+  el.parentElement.querySelectorAll('.shape-opt').forEach(o => o.classList.remove('on'));
+  el.classList.add('on');
+  autoGenerate();
+}
+function selectFrame(style, el) {
+  FRAME_STYLE = style;
+  el.parentElement.querySelectorAll('.shape-opt').forEach(o => o.classList.remove('on'));
+  el.classList.add('on');
+  autoGenerate();
+}
+
+function getContent() {
+  const raw = document.getElementById('content-inp').value.trim();
+  if (!raw) throw new Error('Please enter a link or text to encode.');
+  return raw;
+}
+
+// Determine which modules belong to the finder/timing patterns that must stay crisp squares.
+function isStructuralModule(row, col, size) {
+  // Top-left, top-right, bottom-left 7x7 finder patterns (with 1-module margin = 8x8 zone)
+  const inFinderZone = (r, c) => (r < 8 && c < 8);
+  if (inFinderZone(row, col)) return true;
+  if (inFinderZone(row, size - 1 - col)) return true;
+  if (inFinderZone(size - 1 - row, col)) return true;
+  // Timing patterns (row 6 and col 6)
+  if (row === 6 || col === 6) return true;
+  return false;
+}
+
+function buildShapedSVG(qrData, size, fg, bg, moduleStyle, frameStyle) {
+  const modules = qrData.modules;
+  const n = modules.size;
+  const quietZone = 4; // modules of whitespace margin
+  const totalModules = n + quietZone * 2;
+  const cell = size / totalModules;
+  const offset = quietZone * cell;
+
+  let clipDefs = '';
+  let clipAttr = '';
+  const padPx = cell * 0.6;
+  if (frameStyle === 'circle') {
+    const r = size / 2 - padPx * 0.3;
+    clipDefs = `<clipPath id="frameClip"><circle cx="${size/2}" cy="${size/2}" r="${r}"/></clipPath>`;
+    clipAttr = ' clip-path="url(#frameClip)"';
+  } else if (frameStyle === 'rounded') {
+    const rr = size * 0.12;
+    clipDefs = `<clipPath id="id="frameClip"_1"><rect x="${padPx*0.3}" y="${padPx*0.3}" width="${size-padPx*0.6}" height="${size-padPx*0.6}" rx="${rr}" ry="${rr}"/></clipPath>`;
+    clipAttr = ' clip-path="url(#frameClip)"';
+  } else if (frameStyle === 'heart') {
+    // Heart path scaled to viewBox 0..100, then scaled to size
+    const s = size / 100;
+    const path = `M50,88 C18,64 6,42 18,24 C28,10 44,14 50,28 C56,14 72,10 82,24 C94,42 82,64 50,88 Z`;
+    clipDefs = `<clid="id="frameClip"_2"meClip"><path d="${path}" transform="scale(${s})"/></clipPath>`;
+    clipAttr = ' clip-path="url(#frameClip)"';
+  }
+
+  let bgShape = `<rect x="0" y="0" width="${size}" height="${size}" fill="${bg}"/>`;
+  if (frameStyle === 'circle') {
+    bgShape = `<rect x="0" y="0" width="${size}" height="${size}" fill="${bg}"${clipAttr}/>`;
+  } else if (frameStyle === 'rounded') {
+    bgShape = `<rect x="0" y="0" width="${size}" height="${size}" fill="${bg}"${clipAttr}/>`;
+  } else if (frameStyle === 'heart') {
+    bgShape = `<rect x="0" y="0" width="${size}" height="${size}" fill="${bg}"${clipAttr}/>`;
+  }
+
+  let modulesSvg = '';
+  for (let row = 0; row < n; row++) {
+    for (let col = 0; col < n; col++) {
+      if (!modules.get(row, col)) continue;
+      const x = offset + col * cell;
+      const y = offset + row * cell;
+      const structural = isStructuralModule(row, col, n);
+      let shape;
+      if (structural || moduleStyle === 'square') {
+        shape = `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" fill="${fg}"/>`;
+      } else if (moduleStyle === 'rounded') {
+        const r = cell * 0.28;
+        shape = `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="${r}" ry="${r}" fill="${fg}"/>`;
+      } else if (moduleStyle === 'dot') {
+        const cx = x + cell / 2, cy = y + cell / 2, radius = cell * 0.42;
+        shape = `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="${fg}"/>`;
+      } else {
+        shape = `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" fill="${fg}"/>`;
+      }
+      modulesSvg += shape;
+    }
+  }
+
+  let frameOutline = '';
+  if (frameStyle === 'circle') {
+    const r = size / 2 - padPx * 0.3;
+    frameOutline = `<circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${fg}" stroke-width="${size*0.012}"/>`;
+  } else if (frameStyle === 'rounded') {
+    const rr = size * 0.12;
+    frameOutline = `<rect x="${padPx*0.3}" y="${padPx*0.3}" width="${size-padPx*0.6}" height="${size-padPx*0.6}" rx="${rr}" ry="${rr}" fill="none" stroke="${fg}" stroke-width="${size*0.012}"/>`;
+  } else if (frameStyle === 'heart') {
+    const s = size / 100;
+    const path = `M50,88 C18,64 6,42 18,24 C28,10 44,14 50,28 C56,14 72,10 82,24 C94,42 82,64 50,88 Z`;
+    frameOutline = `<path d="${path}" transform="scale(${s})" fill="none" stroke="${fg}" stroke-width="${size*0.01}"/>`;
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
+<defs>${clipDefs}</defs>
+${bgShape}
+<g${clipAttr}>${modulesSvg}</g>
+${frameOutline}
+</svg>`;
+}
+
+let lastSVGString = '';
+
+function generateQR() {
+  hideErr();
+  let content;
+  try { content = getContent(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value;
+  const bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  try {
+    const qrData = QRCode.create(content, { errorCorrectionLevel: EC });
+    const svgStr = buildShapedSVG(qrData, size, fg, bg, MODULE_STYLE, FRAME_STYLE);
+    lastSVGString = svgStr;
+    container.innerHTML = svgStr;
+    document.getElementById('qm-type').textContent = 'Shaped QR Code';
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready to scan';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function autoGenerate() {
+  clearTimeout(window.__genTimer);
+  window.__genTimer = setTimeout(() => {
+    if (document.getElementById('content-inp').value.trim()) generateQR();
+  }, 400);
+}
+
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+
+function svgToPngDataUrl(svgStr, size) {
+  return new Promise((resolve, reject) => {
+    const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = size; canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, size, size);
+      URL.revokeObjectURL(url);
+      resolve(canvas.toDataURL('image/png'));
+    };
+    img.onerror = (e) => { URL.revokeObjectURL(url); reject(e); };
+    img.src = url;
+  });
+}
+
+async function dlPNG() {
+  if (!lastSVGString) { showErr('Generate a QR code first.'); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  try {
+    const dataUrl = await svgToPngDataUrl(lastSVGString, size);
+    const a = document.createElement('a'); a.download = 'shaped-qr-toolsbox.png'; a.href = dataUrl; a.click();
+  } catch(e) { showErr('PNG export failed.'); }
+}
+function dlSVG() {
+  if (!lastSVGString) { showErr('Generate a QR code first.'); return; }
+  const blob = new Blob([lastSVGString], { type: 'image/svg+xml' });
+  const a = document.createElement('a'); a.download = 'shaped-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  if (!lastSVGString) { showErr('Generate a QR code first.'); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  try {
+    const dataUrl = await svgToPngDataUrl(lastSVGString, size);
+    const blob = await (await fetch(dataUrl)).blob();
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    flashButton('cp-btn', '✓ Copied!');
+  } catch(e) { alert('Right-click the QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  if (!lastSVGString) { showErr('Generate a QR code first.'); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  if (navigator.share) {
+    try {
+      const dataUrl = await svgToPngDataUrl(lastSVGString, size);
+      const blob = await (await fetch(dataUrl)).blob();
+      const file = new File([blob], 'shaped-qr.png', { type: 'image/png' });
+      await navigator.share({ title: 'Shaped QR Code', files: [file] });
+    } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported in this browser.'); }
+  } else {
+    try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {}
+  }
+}
+async function printQR() {
+  if (!lastSVGString) { showErr('Generate a QR code first.'); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const dataUrl = await svgToPngDataUrl(lastSVGString, size);
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Shaped QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + dataUrl + '"><p style="color:#333;font-size:14px">Shaped QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  document.getElementById('content-inp').value = '';
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">💫</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—';
+  document.getElementById('qm-ready').textContent = '';
+  lastSVGString = '';
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body');
+  const hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide');
+  hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) {
+  EC = ec;
+  document.querySelectorAll('.ec-row .ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true');
+}
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement;
+  const open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded','false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded','true'); }
+}
+
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => {
+    const o = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', o);
+    const s = h.querySelectorAll('span');
+    if (o) { s[0].style.transform='rotate(45deg) translate(4px,4px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; }
+    else { s.forEach(x => { x.style.transform=''; x.style.opacity=''; }); }
+  });
+  document.addEventListener('click', e => {
+    if (!h.contains(e.target) && !m.contains(e.target)) {
+      m.classList.remove('open'); h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(x => { x.style.transform=''; x.style.opacity=''; });
+    }
+  });
+})();
+
+window.addEventListener('load', () => {
+  document.getElementById('content-inp').value = 'https://mytoolsbox.org';
+  generateQR();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link List QR Code Generator — Share All Your Links With One Scan | ToolsBox</title>
+<meta name="description" content="Free link list QR code generator. Create a QR code linking to all your social profiles, websites & resources in one place. Perfect bio link alternative. No sign-up.">
+<meta name="keywords" content="link list QR code generator, multiple links QR code, bio link QR code, linktree QR code alternative, all links QR code, link in bio QR code, social media links QR, QR code for multiple URLs, share all links QR, link page QR code, multi-link QR code generator, free link list QR, social links QR code, creator link QR code, influencer QR code links, QR code for all social media, link hub QR code, digital business card links QR, link tree alternative QR, scan to see all links, link collection QR code, personal website QR links, portfolio links QR code, all social links QR, QR code link page, resource list QR code, links page QR generator, bio page QR code, personal brand QR links, QR code for link hub">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-list-links.html">
+<meta property="og:title" content="Link List QR Code Generator — Share All Your Links With One Scan | ToolsBox">
+<meta property="og:description" content="Create a QR code that links to all your social profiles, websites and resources in one place. Free bio link QR, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-list-links.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-list-links.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Link List QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code for all your links at once. Bio link alternative. Free, no sign-up.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Link List QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-list-links.html","description":"Free link list QR code generator. Share all your social profiles, websites and resources with a single scannable QR code.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a link list QR code work?","acceptedAnswer":{"@type":"Answer","text":"A link list QR code encodes a URL to a page that contains all your links — like a Linktree or bio link page. Enter your bio page URL (Linktree, Taplink, Beacons, your own site) and the QR links there. Alternatively, use the primary URL mode to link to your most important page."}},{"@type":"Question","name":"What is the best alternative to Linktree for a link list QR code?","acceptedAnswer":{"@type":"Answer","text":"Popular free alternatives include Beacons.ai, Taplink, Carrd.co, and Milkshake. You can also create a simple HTML page on GitHub Pages for free. Once your link page is live, paste its URL here to generate a QR code for it."}},{"@type":"Question","name":"Can I put multiple URLs directly into a QR code?","acceptedAnswer":{"@type":"Answer","text":"A QR code encodes a single URL. To share multiple links, you need a landing page that lists all your links (Linktree, Beacons, your own page), then create a QR code for that landing page URL. This is the standard approach used by creators, businesses and professionals."}},{"@type":"Question","name":"Does this link list QR code expire?","acceptedAnswer":{"@type":"Answer","text":"The QR code image never expires. The link page URL inside it remains valid as long as your link page is live. If you use a platform like Linktree, links never expire. For complete control, host your own link page on your domain."}},{"@type":"Question","name":"Where should I display my link list QR code?","acceptedAnswer":{"@type":"Answer","text":"Best locations: Instagram bio (as an image), business cards, print marketing, event name badges, product packaging, storefront displays, email signatures, YouTube video descriptions, and any physical material where you want people to access all your links."}},{"@type":"Question","name":"What links should I include in my link list?","acceptedAnswer":{"@type":"Answer","text":"Most effective links: your website, top social profiles (Instagram, LinkedIn, YouTube), booking or appointment link, payment link (PayPal, UPI), newsletter signup, latest product or portfolio, and a contact form. Keep it focused — 5-8 high-quality links convert better than 20 links."}},{"@type":"Question","name":"Is my link data stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your links never leave your device — never sent to any server, never stored, never tracked."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#6366f1;--acc-dark:#4f46e5;--acc-dim:rgba(99,102,241,0.1);--acc-bdr:rgba(99,102,241,0.28);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.1);--grn-bdr:rgba(34,197,94,0.28);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.1);--red-bdr:rgba(239,68,68,0.28);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#ec4899);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.compat-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.compat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* LINK LIST SPECIFIC */
+.link-items{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.link-item{display:flex;gap:8px;align-items:center;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;padding:10px 12px;transition:border-color .18s}
+.link-item:focus-within{border-color:var(--acc)}
+.li-icon{font-size:18px;flex-shrink:0;width:28px;text-align:center}
+.li-fields{flex:1;display:flex;flex-direction:column;gap:5px}
+.li-inp{background:transparent;border:none;color:var(--txt);font-family:var(--f);font-size:13px;font-weight:500;padding:0;outline:none;width:100%}
+.li-inp::placeholder{color:var(--txt3);font-size:12px}
+.li-inp.li-label{font-size:11px;color:var(--txt2)}
+.li-sep{height:1px;background:var(--bdr);margin:2px 0}
+.li-rm{background:none;border:none;color:var(--txt3);cursor:pointer;padding:4px 6px;border-radius:6px;font-size:14px;line-height:1;transition:all .15s;flex-shrink:0}
+.li-rm:hover{background:var(--red-dim);color:var(--red)}
+.add-link-btn{width:100%;padding:10px;border-radius:10px;border:1.5px dashed var(--bdr2);background:transparent;color:var(--txt2);font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:14px}
+.add-link-btn:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-dim)}
+.link-count{font-size:11px;color:var(--txt3);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.link-preview-text{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(99,102,241,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(99,102,241,.15);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(34,197,94,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-block h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-block h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#ec4899)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Link List QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">🔗 Link List QR Code Generator</div>
+    <h1>Share <b>All Your Links</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code linking to your bio page, link hub, or all your social profiles and websites in one place. The perfect alternative to Linktree — zero monthly fee, 100% free forever. No sign-up required.</p>
+    <div class="compat-strip" role="list" aria-label="Compatible with">
+      <span class="compat-badge" role="listitem">🔗 Linktree / Beacons</span>
+      <span class="compat-badge" role="listitem">📱 Instagram Bio</span>
+      <span class="compat-badge" role="listitem">🌐 Any Link Page</span>
+      <span class="compat-badge" role="listitem">📲 All Phones</span>
+    </div>
+  </header>
+
+  <section aria-label="Link List QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">🔗 Your link page details</span>
+          <span class="ch-badge">LINK LIST QR</span>
+        </div>
+        <div class="card-body">
+
+          <div class="mode-tabs" role="tablist" aria-label="Input method">
+            <button class="mtab on" id="tab-page" onclick="setMode('page')" role="tab" aria-selected="true">🌐 Bio Page URL</button>
+            <button class="mtab" id="tab-single" onclick="setMode('single')" role="tab" aria-selected="false">🔗 Single Link</button>
+            <button class="mtab" id="tab-preview" onclick="setMode('preview')" role="tab" aria-selected="false">📋 Preview Links</button>
+          </div>
+
+          <!-- BIO PAGE URL MODE -->
+          <div id="form-page">
+            <div class="info-box">
+              <strong>How to use:</strong> Create a free bio page at <strong>Linktree</strong>, <strong>Beacons.ai</strong>, <strong>Taplink</strong>, or <strong>Carrd.co</strong>, then paste your bio page URL here. One QR = all your links.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="bio-url">Bio Page / Link Hub URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🌐</span>
+                <input type="url" id="bio-url" class="inp has-icon" placeholder="https://linktr.ee/yourname or https://beacons.ai/yourname" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="bio-url-hint">
+              </div>
+              <span id="bio-url-hint" style="font-size:11px;color:var(--txt3);margin-top:3px">Paste your Linktree, Beacons, Taplink, or any personal link page URL</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="bio-name">Your Name / Brand (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">👤</span>
+                <input type="text" id="bio-name" class="inp has-icon" placeholder="e.g. @yourname or Your Brand" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- SINGLE LINK MODE -->
+          <div id="form-single" style="display:none">
+            <div class="info-box">
+              <strong>Direct link:</strong> Link to a single important URL — your website, portfolio, shop, booking page, or social profile. The QR opens that page directly.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="single-url">Primary URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔗</span>
+                <input type="url" id="single-url" class="inp has-icon" placeholder="https://yourwebsite.com" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="single-label">Link Label (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="single-label" class="inp has-icon" placeholder="e.g. My Portfolio, Shop Now, Book a Call" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- PREVIEW LINKS BUILDER MODE -->
+          <div id="form-preview" style="display:none">
+            <div class="info-box">
+              <strong>Link page builder:</strong> Add up to 8 links below. We'll generate a QR linking to a compact preview page listing all your links — no external service needed.
+            </div>
+            <div style="margin-bottom:8px">
+              <label class="lbl">Your Links</label>
+            </div>
+            <div class="link-items" id="link-items" role="list" aria-label="Link list"></div>
+            <div class="link-count"><span id="link-count-txt">0 / 8 links added</span><span style="color:var(--txt3);font-size:10px">Reorder by dragging</span></div>
+            <button class="add-link-btn" id="add-link-btn" onclick="addLink()" aria-label="Add another link">+ Add Link</button>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Link List QR Code">🔗 Generate Link List QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Colour Presets</label><div class="preset-row">
+            <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+            <button class="pr-btn" onclick="preset('#6366f1','#f0f0ff');autoGenerate()" aria-label="Indigo"><span class="pr-dot" style="background:#6366f1"></span>Indigo</button>
+            <button class="pr-btn" onclick="preset('#ec4899','#fdf2f8');autoGenerate()" aria-label="Pink"><span class="pr-dot" style="background:#ec4899"></span>Pink</button>
+            <button class="pr-btn" onclick="preset('#0ea5e9','#f0f9ff');autoGenerate()" aria-label="Sky"><span class="pr-dot" style="background:#0ea5e9"></span>Sky</button>
+            <button class="pr-btn" onclick="preset('#10b981','#f0fdf4');autoGenerate()" aria-label="Green"><span class="pr-dot" style="background:#10b981"></span>Green</button>
+            <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+          </div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Size — <span id="sz-label">300×300</span></label><div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR size"></div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Error Correction</label><div class="ec-row" role="group" aria-label="Error correction level">
+            <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+            <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+            <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+            <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+          </div></div>
+          <div class="fld"><label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev"><img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span><button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🔗</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta"><span class="qm-type" id="qm-type">Link List QR</span><span class="qm-info" id="qm-info">—</span></div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Beacons.ai or Linktree for a free hosted link page</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Keep links to 5–8 for best conversion rates</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Upload your profile photo as the QR centre logo</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for high-quality print output</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Add "Scan to see all my links" text near the QR</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box">
+    <h3>📊 Link Sharing & Bio Page Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">500M+</div><div class="stat-label">Linktree users worldwide — the bio link category has become essential for creators and businesses</div></div>
+      <div class="stat-item"><div class="stat-num">3×</div><div class="stat-label">more link clicks on bio pages with QR codes in physical environments vs. typed URLs alone</div></div>
+      <div class="stat-item"><div class="stat-num">68%</div><div class="stat-label">of consumers prefer to scan a QR code over typing a long URL when given both options</div></div>
+      <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">cost to create a link list QR code and share all your links with anyone in the world, forever</div></div>
+    </div>
+  </div>
+
+  <section class="section-block">
+    <h2>📖 How to Create a Link List QR Code in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Create Your Bio Link Page</div><div class="step-desc">Set up a free account at Linktree (linktr.ee), Beacons.ai, Taplink, or Carrd. Add all your important links — social profiles, website, shop, booking page, newsletter. Publish it and copy your page URL.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Paste Your Page URL</div><div class="step-desc">Paste your Linktree, Beacons, or any bio page URL into the Bio Page URL field above. The QR code will link directly to your page where all links are displayed.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Customise Your QR</div><div class="step-desc">Match your brand colours, upload your profile photo or logo as the QR centre image, adjust the size for your intended use — business card, poster, event badge, print ad.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Download & Share</div><div class="step-desc">Download SVG for print or PNG for digital. Add to your Instagram bio as an image post, print on cards and flyers, display on event materials. One QR = access to all your links.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-title">Update Links Anytime</div><div class="step-desc">Add or remove links on your bio page anytime — the QR code doesn't change because the URL stays the same. Your QR is permanently up-to-date without reprinting.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-title">Share Everywhere</div><div class="step-desc">The QR works everywhere — print, digital, screens. Add to business cards, posters, email signatures, YouTube descriptions, story highlights, and event materials simultaneously.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>💼 Who Uses Link List QR Codes?</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon">📸</span><div class="uc-title">Content Creators</div><div class="uc-desc">Instagram, TikTok and YouTube creators use link list QR codes on event merch, postcards and press kits to drive followers to their full bio link page with all channels and shop links.</div></div>
+      <div class="use-card"><span class="uc-icon">🏢</span><div class="uc-title">Small Businesses</div><div class="uc-desc">Add to receipts, packaging and storefronts linking to your website, Google Maps, Instagram, booking page and WhatsApp — all in one scan instead of cluttering with multiple QR codes.</div></div>
+      <div class="use-card"><span class="uc-icon">🎤</span><div class="uc-title">Speakers & Coaches</div><div class="uc-desc">Conference speakers add a link list QR to their slide decks, business cards and name badges. Attendees scan to access slides, booking links, social profiles and paid resources.</div></div>
+      <div class="use-card"><span class="uc-icon">🎨</span><div class="uc-title">Freelancers & Designers</div><div class="uc-desc">Portfolio, contact form, social proof, testimonials, and project request form — all accessible from a single QR code on your business card and printed portfolio.</div></div>
+      <div class="use-card"><span class="uc-icon">🎵</span><div class="uc-title">Musicians & Artists</div><div class="uc-desc">Spotify, Apple Music, YouTube, merch store and tour dates — all linked from one QR on album artwork, posters and event flyers. Fans scan to access everything instantly.</div></div>
+      <div class="use-card"><span class="uc-icon">🏥</span><div class="uc-title">Healthcare & Wellness</div><div class="uc-desc">Practitioners link appointment booking, insurance info, patient portal, social proof pages and educational resources from one QR on clinic cards and signage.</div></div>
+      <div class="use-card"><span class="uc-icon">🎓</span><div class="uc-title">Educators & Academics</div><div class="uc-desc">Research papers, LinkedIn, university profile, course pages and contact info — all on a single QR on conference lanyards, email signatures and presentation slides.</div></div>
+      <div class="use-card"><span class="uc-icon">🛒</span><div class="uc-title">E-Commerce & DTC Brands</div><div class="uc-desc">Packaging QR links to your store, Instagram, TikTok shop, review page and loyalty programme — turning every unboxing into a multi-platform engagement opportunity.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🚀 6 Benefits of Link List QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon">🔗</span><div class="bn-title">One QR, Every Link</div><div class="bn-desc">Replace multiple individual QR codes with a single link list QR. One scan gives access to all your social profiles, website, shop, booking page and any other important URL.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🔄</span><div class="bn-title">Always Current, Never Reprint</div><div class="bn-desc">Update your bio page links anytime — add new profiles, remove old ones, change priorities. The QR code stays identical because the bio page URL doesn't change.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📊</span><div class="bn-title">Built-in Analytics</div><div class="bn-desc">Bio link platforms like Linktree and Beacons provide click analytics. See exactly which links get clicked most, which traffic comes from QR scans, and which pages convert best.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🎨</span><div class="bn-title">Fully Branded</div><div class="bn-desc">Customise the QR with your brand colours and add your logo or profile photo at the centre. A branded QR code increases scan rates vs. generic black-and-white codes.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📱</span><div class="bn-title">Mobile-Optimised Destination</div><div class="bn-desc">Bio link pages are designed for mobile — large tap targets, fast loading, clean layout. Perfect for QR traffic since every scanner is on a mobile device.</div></div>
+      <div class="benefit-card"><span class="bn-icon">💰</span><div class="bn-title">Zero Ongoing Cost</div><div class="bn-desc">This QR generator is free. Bio link platforms have generous free tiers. One printed QR drives traffic to all your links indefinitely — zero cost per scan, zero recurring fees.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Grow your following</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-app-store.html" class="rel-card"><span class="rel-icon">📲</span><div class="rel-info"><div class="rel-title">App Store QR</div><div class="rel-desc">Drive app downloads</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-pdf.html" class="rel-card"><span class="rel-icon">📄</span><div class="rel-info"><div class="rel-title">PDF QR</div><div class="rel-desc">Share PDF files</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-image.html" class="rel-card"><span class="rel-icon">📷</span><div class="rel-info"><div class="rel-title">Image QR</div><div class="rel-desc">Share any photo</div></div></a>
+      <a href="qr-custom-url.html" class="rel-card"><span class="rel-icon">🔧</span><div class="rel-info"><div class="rel-title">Custom URL QR</div><div class="rel-desc">UTM & custom links</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Link List QR Codes for Creators & Businesses</h2>
+    <p>The "link in bio" problem is real — social media platforms typically allow only one clickable link in a profile. Bio link platforms like Linktree, Beacons and Taplink solved this for digital profiles, but the same problem exists in the physical world. A business card, a product package, a conference poster — each can only practically carry one URL or QR code. A link list QR code solves this by pointing to a single page that contains all your important links, giving anyone who scans access to your entire digital presence in seconds.</p>
+    <h3>Best Free Bio Link Platforms for QR Codes</h3>
+    <p><strong>Linktree</strong> is the most recognised platform — free tier includes unlimited links, analytics and customisation. Your URL is linktr.ee/yourname. <strong>Beacons.ai</strong> offers a more designed, media-rich experience with a free tier. <strong>Taplink</strong> is popular for e-commerce and service businesses. <strong>Carrd.co</strong> lets you build a full single-page website as your link hub, with custom domain support on the paid plan.</p>
+    <p>For maximum control and zero platform dependency, build a simple HTML page and host it free on <strong>GitHub Pages</strong> (yourusername.github.io) or <strong>Netlify</strong>. This gives you a permanent URL, complete design control, and no monthly fee — ever.</p>
+    <h3>Choosing the Right Links for Your Bio Page</h3>
+    <p>Research shows that link pages with 5–8 focused links outperform those with 15–20 links in terms of total clicks. Cognitive overload from too many choices reduces action. Structure your links by priority: your most important action first (shop, booking, subscribe), followed by your main social profiles, then secondary resources. Avoid linking to the same destination multiple times with different labels.</p>
+    <h3>Pro Tips for Link List QR Campaigns</h3>
+    <ul>
+      <li><strong>Use a trackable short URL:</strong> Shorten your bio page URL with Bitly before generating the QR — this gives you scan count data separate from the platform's internal analytics.</li>
+      <li><strong>Upload your profile photo as the QR logo:</strong> A face or recognisable brand logo at the QR centre dramatically increases scan rates in physical environments.</li>
+      <li><strong>Add context text:</strong> Below the QR, print "Scan to see all my links" or "Scan for social + shop". Context increases scans by 25–40% on average.</li>
+      <li><strong>Use consistent branding:</strong> Match the QR code colours to your brand palette and bio page theme. Consistency builds trust and increases the likelihood of scanning.</li>
+      <li><strong>Seasonal link rotation:</strong> Update your bio page for campaigns, launches and seasons. The QR never changes but the destination always reflects your current priorities.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How does a link list QR code work?<span class="fq-icon">+</span></div><div class="fa">A link list QR code encodes a single URL to a page that displays all your links — like a Linktree or Beacons page. When someone scans the QR, they go to your bio page where they can tap any of your links. It's the most efficient way to share multiple links via a single physical QR code.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What are the best free alternatives to Linktree?<span class="fq-icon">+</span></div><div class="fa">Top free alternatives: Beacons.ai (best for creators), Taplink (best for e-commerce), Carrd.co (best for custom design), Milkshake (mobile app builder), and GitHub Pages (best for developers who want full control with zero cost). All give you a URL you can use with this QR generator.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I put multiple URLs directly into the QR code without a bio page?<span class="fq-icon">+</span></div><div class="fa">A QR code can only encode one URL. To share multiple links, you need a landing page that lists them. Use the "Preview Links" tab above to add up to 8 links — we'll generate a QR that links to a minimal preview page (note: this requires a static page host to work fully). For best results, use a proper bio page platform.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does this QR code expire?<span class="fq-icon">+</span></div><div class="fa">The QR code image never expires. The bio page URL inside it remains valid as long as your Linktree, Beacons, or other bio page is active. You can update the links on your page anytime without changing the QR code or reprinting materials.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How many links should I include in my bio page?<span class="fq-icon">+</span></div><div class="fa">Research consistently shows 5–8 focused, high-quality links outperform pages with 15+ links. Too many choices cause decision paralysis and reduce total clicks. Structure by priority: most important action first, then social profiles, then secondary resources. Quality over quantity.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Where should I display my link list QR code?<span class="fq-icon">+</span></div><div class="fa">Best locations: business cards, product packaging, event name badges, conference posters, flyers, storefront displays, restaurant menus, email signatures, YouTube video descriptions, Instagram story highlights (as an image), and any print material where you want to connect people to your full digital presence.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my bio page URL stored on your servers?<span class="fq-icon">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your bio page URL and any link data never leaves your device — never sent to any server, never stored, never tracked.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">🔗 Link & Social QR Codes</div><ul class="fl"><li><a href="qr-list-links.html">🔗 Link List QR</a></li><li><a href="qr-custom-url.html">🔧 Custom URL QR</a></li><li><a href="qr-url.html">🌐 URL QR Code</a></li><li><a href="qr-vcard.html">👤 vCard QR</a></li></ul></div>
+    <div><div class="fct">🏢 Business QR Codes</div><ul class="fl"><li><a href="qr-google-review.html">⭐ Google Review QR</a></li><li><a href="qr-app-store.html">📲 App Store QR</a></li><li><a href="qr-upi.html">💳 UPI QR</a></li><li><a href="qr-wifi.html">📶 WiFi QR</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">GST Calculator</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'page';
+let links = [];
+
+/* ── LINK ITEM ICONS ── */
+const ICONS = { 'instagram':'📸','twitter':'🐦','linkedin':'💼','youtube':'▶️','tiktok':'🎵','facebook':'📘','website':'🌐','shop':'🛒','booking':'📅','email':'✉️','whatsapp':'💬','other':'🔗' };
+function getIcon(url) {
+  if (!url) return '🔗';
+  const u = url.toLowerCase();
+  if (u.includes('instagram')) return '📸';
+  if (u.includes('twitter') || u.includes('x.com')) return '🐦';
+  if (u.includes('linkedin')) return '💼';
+  if (u.includes('youtube')) return '▶️';
+  if (u.includes('tiktok')) return '🎵';
+  if (u.includes('facebook')) return '📘';
+  if (u.includes('whatsapp')) return '💬';
+  if (u.includes('spotify')) return '🎧';
+  if (u.includes('github')) return '💻';
+  if (u.includes('shop') || u.includes('store')) return '🛒';
+  return '🔗';
+}
+
+/* ── ADD LINK (Preview mode) ── */
+function addLink() {
+  if (links.length >= 8) { showErr('Maximum 8 links allowed.'); return; }
+  const id = Date.now();
+  links.push({ id, url: '', label: '' });
+  renderLinks();
+}
+
+function removeLink(id) {
+  links = links.filter(l => l.id !== id);
+  renderLinks();
+  autoGenerate();
+}
+
+function renderLinks() {
+  const container = document.getElementById('link-items');
+  container.innerHTML = '';
+  links.forEach((link, i) => {
+    const div = document.createElement('div');
+    div.className = 'link-item';
+    div.setAttribute('role', 'listitem');
+    div.innerHTML = `
+      <span class="li-icon" id="icon-${link.id}">${getIcon(link.url)}</span>
+      <div class="li-fields">
+        <input class="li-inp" type="url" placeholder="https://instagram.com/yourname" value="${escHtml(link.url)}" oninput="updateLink(${link.id},'url',this.value)" aria-label="Link URL ${i+1}">
+        <div class="li-sep"></div>
+        <input class="li-inp li-label" type="text" placeholder="Label e.g. Instagram" value="${escHtml(link.label)}" oninput="updateLink(${link.id},'label',this.value)" aria-label="Link label ${i+1}">
+      </div>
+      <button class="li-rm" onclick="removeLink(${link.id})" aria-label="Remove link ${i+1}">✕</button>
+    `;
+    container.appendChild(div);
+  });
+  document.getElementById('link-count-txt').textContent = links.length + ' / 8 links added';
+  document.getElementById('add-link-btn').style.display = links.length >= 8 ? 'none' : '';
+}
+
+function updateLink(id, field, val) {
+  const link = links.find(l => l.id === id);
+  if (link) {
+    link[field] = val;
+    if (field === 'url') { const el = document.getElementById('icon-' + id); if (el) el.textContent = getIcon(val); }
+  }
+  autoGenerate();
+}
+
+/* ── MODE ── */
+function setMode(m) {
+  MODE = m;
+  ['page','single','preview'].forEach(id => {
+    document.getElementById('tab-' + id).classList.toggle('on', id === m);
+    document.getElementById('tab-' + id).setAttribute('aria-selected', id === m);
+    document.getElementById('form-' + id).style.display = id === m ? '' : 'none';
+  });
+  hideErr(); livePreview(); autoGenerate();
+}
+
+/* ── BUILD URL ── */
+function buildUrl() {
+  if (MODE === 'page') {
+    const url = document.getElementById('bio-url').value.trim();
+    if (!url) throw new Error('Please enter your bio page URL.');
+    if (!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+    return url;
+  } else if (MODE === 'single') {
+    const url = document.getElementById('single-url').value.trim();
+    if (!url) throw new Error('Please enter your link URL.');
+    if (!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+    return url;
+  } else {
+    const validLinks = links.filter(l => l.url.trim() && /^https?:\/\//i.test(l.url.trim()));
+    if (validLinks.length === 0) throw new Error('Please add at least one valid link (starting with https://).');
+    if (validLinks.length === 1) return validLinks[0].url.trim();
+    // For multiple links, encode as a simple data URI for display purposes
+    const params = new URLSearchParams();
+    validLinks.forEach((l, i) => { params.set('l' + i, l.url.trim()); if (l.label) params.set('n' + i, l.label); });
+    return 'https://mytoolsbox.org/links/?' + params.toString();
+  }
+}
+
+function livePreview() {
+  try {
+    const url = buildUrl();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    const short = url.length > 80 ? url.substring(0, 80) + '…' : url;
+    el.innerHTML = 'Will link to: <strong>' + escHtml(short) + '</strong>';
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try { data = buildUrl(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value, bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: fg, light: bg }, errorCorrectionLevel: EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const labels = { page: 'Bio Page QR', single: 'Link QR', preview: 'Link List QR' };
+    document.getElementById('qm-type').textContent = labels[MODE];
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to see all links';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d'), ms = Math.floor(canvas.width * .22), img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms; const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill(); ctx.drawImage(img, x, y, w, h); resolve();
+    };
+    img.onerror = () => resolve(); img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => { try { buildUrl(); generateQR(); } catch(e) {} }, 400);
+  livePreview();
+}
+function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function dlPNG() { const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; } const a = document.createElement('a'); a.download = 'link-list-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click(); }
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300, d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Link List QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' }); const a = document.createElement('a'); a.download = 'link-list-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); flashButton('cp-btn', '✓ Copied!'); }
+  catch(e) { alert('Right-click QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) { try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); const file = new File([blob], 'link-list-qr.png', { type: 'image/png' }); await navigator.share({ title: 'Link List QR Code', files: [file] }); } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported.'); } }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {} }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Link List QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Link List QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['bio-url','bio-name','single-url','single-label'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  links = []; renderLinks();
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🔗</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—'; document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none'; rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body'), hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide'); hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) { EC = ec; document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); }); btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); }
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { currentLogoBase64 = e.target.result; document.getElementById('logo-img').src = currentLogoBase64; document.getElementById('logo-name').textContent = f.name; document.getElementById('logo-prev').style.display = 'flex'; setEC('H', document.querySelector('.ec-p[data-ec="H"]')); autoGenerate(); };
+  reader.readAsDataURL(f);
+}
+function rmLogo() { currentLogoBase64 = null; document.getElementById('logo-inp').value = ''; document.getElementById('logo-prev').style.display = 'none'; document.getElementById('logo-img').src = ''; autoGenerate(); }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement, open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+}
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => { const o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o); const s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(4px,4px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)'; } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+  document.addEventListener('click', e => { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+})();
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) { const dt = new DataTransfer(); dt.items.add(f); document.getElementById('logo-inp').files = dt.files; handleLogo(document.getElementById('logo-inp')); } });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+window.addEventListener('load', () => {
+  document.getElementById('bio-url').value = 'https://linktr.ee/yourname';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

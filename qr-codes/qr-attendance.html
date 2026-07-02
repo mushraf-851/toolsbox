@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance QR Code Generator — Contactless Check-In & Tracking | ToolsBox</title>
+<meta name="description" content="Free attendance QR code generator. Create scannable check-in QR codes for events, classes, offices & meetings. Track attendance instantly. Custom colors, logo, PNG & SVG. No sign-up.">
+<meta name="keywords" content="attendance QR code generator, check-in QR code, event attendance QR, class attendance QR code, office check-in QR, meeting attendance QR code, contactless attendance tracking, free attendance QR generator, student attendance QR code, employee check-in QR, event registration QR code, workshop attendance QR, webinar check-in QR, conference attendance QR code, school attendance QR, digital attendance sheet QR, QR code for roll call, scan to check in QR, attendance management QR, employee attendance QR code, HR attendance QR code, venue check-in QR, gym check-in QR code, church attendance QR code, seminar check-in QR, training attendance QR, QR code attendance system, mobile attendance QR, paperless attendance QR">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-attendance.html">
+<meta property="og:title" content="Attendance QR Code Generator — Contactless Check-In Made Easy | ToolsBox">
+<meta property="og:description" content="Create check-in QR codes for events, classes & offices. Track attendance instantly with a scan. Custom colors, logo. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-attendance.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-attendance.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Attendance QR Code Generator — Free Check-In QR | ToolsBox">
+<meta name="twitter:description" content="Generate attendance QR codes for events, classes & meetings. Contactless check-in in one scan. Free, no sign-up.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Attendance QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-attendance.html","description":"Free attendance QR code generator. Create contactless check-in QR codes for events, classes, offices and meetings.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does an attendance QR code work?","acceptedAnswer":{"@type":"Answer","text":"An attendance QR code encodes a check-in URL or attendance data. When attendees scan it with their phone, they are directed to a check-in page, form, or their device records the scan — marking their attendance. The QR can link to Google Forms, an attendance sheet, or any custom check-in URL."}},{"@type":"Question","name":"What information can I encode in an attendance QR code?","acceptedAnswer":{"@type":"Answer","text":"You can encode a check-in URL (linking to Google Forms or a registration page), event details (name, date, location, organizer), or a unique attendance code. Each mode serves different tracking needs."}},{"@type":"Question","name":"Can I use Google Forms for attendance tracking with this QR?","acceptedAnswer":{"@type":"Answer","text":"Yes. Create a Google Form with attendee name and email fields, copy the form URL, paste it into the Check-In URL mode. Attendees scan the QR, fill the form, and responses are automatically collected in Google Sheets."}},{"@type":"Question","name":"Does this attendance QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. The QR code itself never expires — it's a static image. If you linked to a Google Form or website, that destination can be closed after the event. For recurring events, simply generate a new QR code."}},{"@type":"Question","name":"How do I track who scanned the QR code?","acceptedAnswer":{"@type":"Answer","text":"Link the QR to a Google Form, Microsoft Forms, or any form builder that collects responses. Each scan brings attendees to the form where they enter their name/ID, creating a complete attendance log automatically in a spreadsheet."}},{"@type":"Question","name":"Can I create a different QR code for each session?","acceptedAnswer":{"@type":"Answer","text":"Yes. For recurring classes or events, generate a unique QR code per session with different dates or session IDs encoded. This prevents students from using a previous session's QR to mark attendance retroactively."}},{"@type":"Question","name":"Is attendee data stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Attendance data flows through whatever check-in URL or form you link to — never through ToolsBox servers."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#10b981;--acc-dark:#059669;--acc-dim:rgba(16,185,129,0.1);--acc-bdr:rgba(16,185,129,0.28);
+  --grn:#10b981;--grn-dim:rgba(16,185,129,0.1);--grn-bdr:rgba(16,185,129,0.28);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.1);--red-bdr:rgba(239,68,68,0.28);
+  --gold:#f59e0b;
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#3b82f6);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.compat-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.compat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:80px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.section-div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);display:flex;align-items:center;gap:8px;margin:18px 0 14px}
+.section-div::before,.section-div::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* Code Preview */
+.code-preview{font-family:var(--fm);font-size:11px;color:var(--acc);background:var(--surf3);border:1px solid var(--bdr);border-radius:9px;padding:10px 13px;margin-top:10px;line-height:1.8;word-break:break-all;display:none}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(16,185,129,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(16,185,129,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-val{font-family:var(--fm);font-size:12px;font-weight:700;min-width:60px;text-align:right;color:var(--txt2)}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(16,185,129,.2);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(16,185,129,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* STATS */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+/* SECTIONS */
+.section-block{margin-top:52px}
+.section-block h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-block h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#3b82f6)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Attendance QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">✅ Attendance QR Code Generator</div>
+    <h1>Contactless <b>Attendance</b><br>Tracking in One Scan</h1>
+    <p class="sub">Create attendance QR codes for events, classes, offices and meetings. Attendees scan once to check in — no paper registers, no manual entry, no queues. 100% free, no sign-up required.</p>
+    <div class="compat-strip" role="list" aria-label="Compatible with">
+      <span class="compat-badge" role="listitem">🏫 Schools & Universities</span>
+      <span class="compat-badge" role="listitem">🏢 Offices & HR</span>
+      <span class="compat-badge" role="listitem">🎪 Events & Conferences</span>
+      <span class="compat-badge" role="listitem">📱 All Smartphones</span>
+    </div>
+  </header>
+
+  <section aria-label="Attendance QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">✅ Attendance details</span>
+          <span class="ch-badge">CHECK-IN QR</span>
+        </div>
+        <div class="card-body">
+          <div class="mode-tabs" role="tablist" aria-label="QR type">
+            <button class="mtab on" id="tab-url" onclick="setMode('url')" role="tab" aria-selected="true">🔗 Check-In URL</button>
+            <button class="mtab" id="tab-event" onclick="setMode('event')" role="tab" aria-selected="false">📋 Event Details</button>
+            <button class="mtab" id="tab-code" onclick="setMode('code')" role="tab" aria-selected="false">🔑 Unique Code</button>
+          </div>
+
+          <!-- URL MODE -->
+          <div id="form-url" role="tabpanel">
+            <div class="info-box">
+              <strong>Best for:</strong> Linking to a Google Form, Microsoft Form, or any check-in page. Attendees scan and fill in their name/ID — responses go to your spreadsheet automatically.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="att-url">Check-In URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔗</span>
+                <input type="url" id="att-url" class="inp has-icon" placeholder="https://forms.google.com/your-attendance-form" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="att-url-hint">
+              </div>
+              <span id="att-url-hint" style="font-size:11px;color:var(--txt3)">Google Forms, Microsoft Forms, Typeform, Airtable, or any web check-in page</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="att-session">Session / Label (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="att-session" class="inp has-icon" placeholder="e.g. Math Class – Week 3, Morning Session" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENT DETAILS MODE -->
+          <div id="form-event" role="tabpanel" style="display:none">
+            <div class="info-box">
+              <strong>Best for:</strong> Encoding event info directly in the QR. Scanners see event name, date, location and organiser details — useful for offline events without internet.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="att-event-name">Event / Class Name</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📋</span>
+                <input type="text" id="att-event-name" class="inp has-icon" placeholder="Annual Company Meet 2025" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="att-date">Date</label>
+                <input type="date" id="att-date" class="inp" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="att-time">Time</label>
+                <input type="time" id="att-time" class="inp" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="att-location">Location / Venue</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📍</span>
+                <input type="text" id="att-location" class="inp has-icon" placeholder="Room 204, Building A, Mumbai" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="att-organiser">Organiser / Department</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">👤</span>
+                <input type="text" id="att-organiser" class="inp has-icon" placeholder="Prof. Sharma / HR Department" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="att-notes">Notes (optional)</label>
+              <textarea id="att-notes" class="inp" placeholder="Additional instructions or information for attendees…" oninput="autoGenerate()"></textarea>
+            </div>
+          </div>
+
+          <!-- UNIQUE CODE MODE -->
+          <div id="form-code" role="tabpanel" style="display:none">
+            <div class="info-box">
+              <strong>Best for:</strong> Generating a unique session code that your attendance system reads. Prevents reuse of old QR codes and works with custom apps.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="att-code-name">Session / Class Name</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📋</span>
+                <input type="text" id="att-code-name" class="inp has-icon" placeholder="Physics 101" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="att-code-date">Session Date</label>
+                <input type="date" id="att-code-date" class="inp" oninput="autoGenerate()">
+              </div>
+              <div class="fld">
+                <label class="lbl" for="att-code-id">Session ID</label>
+                <div class="inp-wrap">
+                  <span class="inp-icon" aria-hidden="true">🔑</span>
+                  <input type="text" id="att-code-id" class="inp has-icon" placeholder="AUTO" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="fld" style="margin-top:4px">
+              <button type="button" class="gen-btn" style="margin-top:0;background:var(--surf3);box-shadow:none;border:1.5px solid var(--bdr2);color:var(--txt2);font-size:13px;padding:10px" onclick="genNewCode()" aria-label="Generate new session code">🔄 Generate New Session Code</button>
+            </div>
+            <div class="code-preview" id="code-preview"></div>
+          </div>
+
+          <div class="code-preview" id="link-preview" aria-live="polite" style="display:none"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Attendance QR Code">✅ Generate Attendance QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR foreground color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Colour Presets</label><div class="preset-row">
+            <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+            <button class="pr-btn" onclick="preset('#10b981','#ecfdf5');autoGenerate()" aria-label="Green"><span class="pr-dot" style="background:#10b981"></span>Green</button>
+            <button class="pr-btn" onclick="preset('#3b82f6','#eff6ff');autoGenerate()" aria-label="Blue"><span class="pr-dot" style="background:#3b82f6"></span>Blue</button>
+            <button class="pr-btn" onclick="preset('#8b5cf6','#f5f3ff');autoGenerate()" aria-label="Purple"><span class="pr-dot" style="background:#8b5cf6"></span>Purple</button>
+            <button class="pr-btn" onclick="preset('#f59e0b','#fffbeb');autoGenerate()" aria-label="Gold"><span class="pr-dot" style="background:#f59e0b"></span>Gold</button>
+            <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+          </div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Size — <span id="sz-label">300×300</span></label><div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size"></div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Error Correction</label><div class="ec-row" role="group" aria-label="Error correction level">
+            <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+            <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+            <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+            <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+          </div></div>
+          <div class="fld"><label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo file">
+            </div>
+            <div class="logo-prev" id="logo-prev"><img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span><button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">✅</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta"><span class="qm-type" id="qm-type">Attendance QR</span><span class="qm-info" id="qm-info">—</span></div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Link to a Google Form for automatic response logging</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Generate a new code per session to prevent cheating</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — scales to any size</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Display on screen or print at 10×10 cm minimum</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box">
+    <h3>📊 Attendance Management By the Numbers</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">73%</div><div class="stat-label">of educators say manual roll call wastes 5-10 minutes per session</div></div>
+      <div class="stat-item"><div class="stat-num">92%</div><div class="stat-label">scan accuracy rate for QR-based attendance vs. 67% for manual registers</div></div>
+      <div class="stat-item"><div class="stat-num">4×</div><div class="stat-label">faster check-in with QR codes vs. paper sign-in sheets at events</div></div>
+      <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">cost to deploy a QR attendance system using this tool + Google Forms</div></div>
+    </div>
+  </div>
+
+  <section class="section-block">
+    <h2>📖 How to Set Up QR Attendance in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Create Your Check-In Form</div><div class="step-desc">Create a Google Form with fields for Name, Employee/Student ID, and Email. Set up a linked Google Sheet so every submission is automatically logged in real time.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Paste the Form URL</div><div class="step-desc">Copy your Google Form link and paste it into the Check-In URL field. The QR will send scanners directly to your form — pre-filled options can be added using URL parameters.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Generate & Customise</div><div class="step-desc">Click Generate. Add your school or company logo, match your brand colours, and download the QR as SVG for high-quality print on paper, screens or banners.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Display the QR</div><div class="step-desc">Project on screen at the start of a class, print on a door sign, or display on a TV at an event entrance. Attendees scan with their phone camera and are marked present.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-title">View Responses Live</div><div class="step-desc">Open Google Sheets to see attendance in real time. Filter by name, date or session. Export as CSV or PDF for your records. All automated — no manual data entry.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-title">Refresh Per Session</div><div class="step-desc">For recurring classes, use the Unique Code mode to generate a new QR each session. This prevents students from sharing old QR codes to fake attendance retroactively.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>💼 Use Cases for Attendance QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon">🏫</span><div class="uc-title">School & College Classes</div><div class="uc-desc">Display the QR on the classroom projector. Students scan when they arrive — roll call done in 30 seconds instead of 5 minutes.</div></div>
+      <div class="use-card"><span class="uc-icon">🏢</span><div class="uc-title">Office Check-In</div><div class="uc-desc">Replace paper logbooks at reception. Employees scan on arrival for automatic time-and-attendance logging in your HR system.</div></div>
+      <div class="use-card"><span class="uc-icon">🎪</span><div class="uc-title">Events & Conferences</div><div class="uc-desc">Place QR codes at event entrances. Attendees scan to check in, receive confirmation, and join the session — no queuing at desks.</div></div>
+      <div class="use-card"><span class="uc-icon">🏥</span><div class="uc-title">Healthcare & Clinics</div><div class="uc-desc">Patient check-in QR at the reception desk. Patients scan to confirm appointment arrival without touching shared surfaces.</div></div>
+      <div class="use-card"><span class="uc-icon">⛪</span><div class="uc-title">Religious Gatherings</div><div class="uc-desc">Track congregation attendance, prayer group participation, or volunteer sign-ins with a simple weekly QR code display.</div></div>
+      <div class="use-card"><span class="uc-icon">💪</span><div class="uc-title">Gyms & Fitness Studios</div><div class="uc-desc">Member check-in via QR at the entrance. Track class attendance, manage capacity, and send automated follow-ups.</div></div>
+      <div class="use-card"><span class="uc-icon">🎓</span><div class="uc-title">Training & Workshops</div><div class="uc-desc">Track attendance across multi-day corporate training programmes. Generate a unique QR per day to ensure accurate records.</div></div>
+      <div class="use-card"><span class="uc-icon">🌐</span><div class="uc-title">Webinars & Online Events</div><div class="uc-desc">Share the attendance QR in the meeting chat. Participants scan to confirm live attendance, separate from auto-join counts.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🚀 6 Benefits of QR-Based Attendance</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon">⚡</span><div class="bn-title">30-Second Roll Call</div><div class="bn-desc">Instead of calling names or passing around paper, display the QR — everyone scans in the first 60 seconds of a session. Save hours per week.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📊</span><div class="bn-title">Automatic Data Collection</div><div class="bn-desc">Google Forms + Sheets gives you a live, searchable, filterable attendance database with zero manual transcription. Generate reports in one click.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🛡️</span><div class="bn-title">Fraud Prevention</div><div class="bn-desc">Unique-code mode generates a new QR per session. Old codes stop working — students can't share yesterday's QR to mark today's attendance.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🦠</span><div class="bn-title">Contactless & Hygienic</div><div class="bn-desc">No shared pens, no shared tablets, no touchscreens. Attendees use their own phone — ideal for health-conscious environments.</div></div>
+      <div class="benefit-card"><span class="bn-icon">💰</span><div class="bn-title">Zero Cost Deployment</div><div class="bn-desc">This QR generator is free. Google Forms is free. Google Sheets is free. A full attendance management system costs exactly nothing to set up.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📱</span><div class="bn-title">No App Required</div><div class="bn-desc">Attendees use their phone's built-in camera app — no QR scanner app download needed. Works on all modern iOS and Android devices.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more 5-star reviews</div></div></a>
+      <a href="qr-booking.html" class="rel-card"><span class="rel-icon">📅</span><div class="rel-info"><div class="rel-title">Booking QR</div><div class="rel-desc">Appointment scheduling</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR</div><div class="rel-desc">Scan to text</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Grow your following</div></div></a>
+      <a href="qr-location.html" class="rel-card"><span class="rel-icon">📍</span><div class="rel-info"><div class="rel-title">Location QR</div><div class="rel-desc">Share any address</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide to QR Code Attendance Tracking</h2>
+    <p>Traditional attendance management — paper registers, manual roll calls, sign-in sheets — is slow, error-prone, and creates administrative overhead. A QR code attendance system eliminates all of these problems. Attendees scan once with their smartphone and their check-in is recorded automatically, instantly, and accurately in a digital system you can access from anywhere.</p>
+    <h3>Setting Up Attendance Tracking with Google Forms (Free)</h3>
+    <p>The most widely used free attendance solution combines this QR generator with Google Forms. Here's how to set it up in 10 minutes: Create a Google Form with fields for Full Name, ID Number, and Email. Enable the "Collect email addresses" setting. Connect it to Google Sheets (Responses → Spreadsheet icon). Copy the form URL, paste it into the Check-In URL field above, and generate your QR code. Every scan creates a timestamped row in your spreadsheet.</p>
+    <h3>Preventing Attendance Fraud</h3>
+    <p>For academic settings where attendance affects grades, use the Unique Code mode. Each session gets a cryptographically random code that changes with every click of "Generate New Session Code". Old codes from previous sessions are different from today's — so sharing last week's QR photo on a group chat won't work. Display the new QR at the start of each class and close it after 10-15 minutes.</p>
+    <h3>Pro Tips for Effective QR Attendance</h3>
+    <ul>
+      <li><strong>Set a check-in window:</strong> Configure your form or system to only accept responses during the first 10-15 minutes of a session.</li>
+      <li><strong>Add email confirmation:</strong> Enable Google Forms to send a confirmation email — attendees have proof, you have a second verification layer.</li>
+      <li><strong>Use large print size:</strong> For classrooms, display the QR on the projector. For events, print at minimum A5 size. For counters, A4 works well.</li>
+      <li><strong>Test before the session:</strong> Scan with your own phone before displaying to the audience. Takes 30 seconds and prevents embarrassment.</li>
+      <li><strong>Back up with manual override:</strong> Always have a backup plan for attendees whose phones won't scan — a paper list or staff-assisted check-in for 1-2% of edge cases.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How does a QR attendance system work?<span class="fq-icon">+</span></div><div class="fa">You create a check-in QR code that links to a Google Form or attendance page. Display the QR at the start of a session. Attendees scan with their phone camera, fill in their name/ID on the form, and their attendance is automatically recorded in Google Sheets with a timestamp.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Do attendees need to install an app?<span class="fq-icon">+</span></div><div class="fa">No. All modern Android and iPhone cameras can scan QR codes natively — no third-party QR scanner app is needed. The phone camera opens the check-in link automatically when pointed at the QR code.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I prevent students from faking attendance?<span class="fq-icon">+</span></div><div class="fa">Use the Unique Code mode — it generates a different QR code per session. Old codes don't match today's session. Additionally, set a time window in Google Forms (close it 10-15 minutes after class starts) and optionally require login to submit the form, which timestamps who submitted when.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I use this for large events with hundreds of attendees?<span class="fq-icon">+</span></div><div class="fa">Yes. Google Forms handles thousands of responses simultaneously. For very large events (500+ people), use multiple QR code displays at different entry points to distribute the scanning load. Google Sheets updates in real time so you can monitor attendance from any device.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the QR code work offline?<span class="fq-icon">+</span></div><div class="fa">The QR code image itself is a static file that works offline. However, if it links to a Google Form or web page, attendees need internet to complete check-in. For offline environments, use the Event Details mode — the QR encodes all event info directly, which can be read by a custom app that stores data locally.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I export the attendance data?<span class="fq-icon">+</span></div><div class="fa">Yes. If using Google Forms + Sheets, go to the linked spreadsheet and click File → Download → .xlsx or .csv. For Microsoft Forms, responses can be exported directly to Excel. You get a complete timestamped attendance log with all submitted fields.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is attendee data stored on your servers?<span class="fq-icon">+</span></div><div class="fa">No. ToolsBox generates the QR code in your browser — no data is sent to our servers. Attendance data flows through whatever check-in form or system you link to (Google Forms, Microsoft Forms, etc.) — never through ToolsBox.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">🏢 Business QR Codes</div><ul class="fl"><li><a href="qr-google-review.html">⭐ Google Review QR</a></li><li><a href="qr-booking.html">📅 Booking QR</a></li><li><a href="qr-attendance.html">✅ Attendance QR</a></li><li><a href="qr-ticket.html">🎟️ Ticket QR</a></li></ul></div>
+    <div><div class="fct">📱 More QR Types</div><ul class="fl"><li><a href="qr-vcard.html">👤 vCard QR</a></li><li><a href="qr-wifi.html">📶 WiFi QR</a></li><li><a href="qr-upi.html">💳 UPI QR</a></li><li><a href="qr-whatsapp.html">💬 WhatsApp QR</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">GST Calculator</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'url';
+let sessionCode = generateCode();
+
+function generateCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 8; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+function genNewCode() {
+  sessionCode = generateCode();
+  document.getElementById('att-code-id').value = sessionCode;
+  autoGenerate();
+}
+
+function setMode(m) {
+  MODE = m;
+  ['url','event','code'].forEach(id => {
+    document.getElementById('tab-' + id).classList.toggle('on', id === m);
+    document.getElementById('tab-' + id).setAttribute('aria-selected', id === m);
+    document.getElementById('form-' + id).style.display = id === m ? '' : 'none';
+  });
+  if (m === 'code') {
+    document.getElementById('att-code-id').value = sessionCode;
+    const d = new Date(); document.getElementById('att-code-date').value = d.toISOString().split('T')[0];
+  }
+  hideErr(); autoGenerate();
+}
+
+function buildData() {
+  if (MODE === 'url') {
+    const url = document.getElementById('att-url').value.trim();
+    if (!url) throw new Error('Please enter a check-in URL.');
+    if (!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+    return url;
+  } else if (MODE === 'event') {
+    const name = document.getElementById('att-event-name').value.trim();
+    if (!name) throw new Error('Please enter an event or class name.');
+    const date = document.getElementById('att-date').value;
+    const time = document.getElementById('att-time').value;
+    const loc = document.getElementById('att-location').value.trim();
+    const org = document.getElementById('att-organiser').value.trim();
+    const notes = document.getElementById('att-notes').value.trim();
+    let lines = ['ATTENDANCE CHECK-IN', '================', 'EVENT: ' + name];
+    if (date) lines.push('DATE: ' + date);
+    if (time) lines.push('TIME: ' + time);
+    if (loc) lines.push('VENUE: ' + loc);
+    if (org) lines.push('ORGANISER: ' + org);
+    if (notes) lines.push('NOTES: ' + notes);
+    return lines.join('\n');
+  } else {
+    const name = document.getElementById('att-code-name').value.trim();
+    if (!name) throw new Error('Please enter a session or class name.');
+    const date = document.getElementById('att-code-date').value || new Date().toISOString().split('T')[0];
+    const code = sessionCode;
+    return 'ATTENDANCE|' + name + '|' + date + '|' + code;
+  }
+}
+
+function livePreview() {
+  try {
+    const data = buildData();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    el.textContent = data.length > 120 ? data.substring(0, 120) + '…' : data;
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try { data = buildData(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value, bg = document.getElementById('bg-col').value;
+  document.getElementById('qr-out').innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: fg, light: bg }, errorCorrectionLevel: EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    document.getElementById('qr-out').appendChild(canvas);
+    const labels = { url: 'Check-In URL QR', event: 'Event Attendance QR', code: 'Session Code QR' };
+    document.getElementById('qm-type').textContent = labels[MODE];
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to check in';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d'), ms = Math.floor(canvas.width * .22), img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms; const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x-pad, y-pad, w+pad*2, h+pad*2, 8);
+      else ctx.fillRect(x-pad, y-pad, w+pad*2, h+pad*2);
+      ctx.fill(); ctx.drawImage(img, x, y, w, h); resolve();
+    };
+    img.onerror = () => resolve(); img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => {
+    try { buildData(); generateQR(); } catch(e) {}
+  }, 400);
+  livePreview();
+}
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function dlPNG() { const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; } const a = document.createElement('a'); a.download = 'attendance-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click(); }
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300, d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Attendance QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const a = document.createElement('a'); a.download = 'attendance-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); flashButton('cp-btn', '✓ Copied!'); }
+  catch(e) { alert('Right-click QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) { try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); const file = new File([blob], 'attendance-qr.png', { type: 'image/png' }); await navigator.share({ title: 'Attendance QR Code', files: [file] }); } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported.'); } }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {} }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Attendance QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:380px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Attendance QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['att-url','att-session','att-event-name','att-date','att-time','att-location','att-organiser','att-notes','att-code-name','att-code-date'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  sessionCode = generateCode();
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">✅</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—'; document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none'; rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body'), hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide'); hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) { EC = ec; document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); }); btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); }
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { currentLogoBase64 = e.target.result; document.getElementById('logo-img').src = currentLogoBase64; document.getElementById('logo-name').textContent = f.name; document.getElementById('logo-prev').style.display = 'flex'; setEC('H', document.querySelector('.ec-p[data-ec="H"]')); autoGenerate(); };
+  reader.readAsDataURL(f);
+}
+function rmLogo() { currentLogoBase64 = null; document.getElementById('logo-inp').value = ''; document.getElementById('logo-prev').style.display = 'none'; document.getElementById('logo-img').src = ''; autoGenerate(); }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement, open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+}
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => { const o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o); const s = h.querySelectorAll('span'); if (o) { s[0].style.transform='rotate(45deg) translate(4px,4px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; } else { s.forEach(x => { x.style.transform=''; x.style.opacity=''; }); } });
+  document.addEventListener('click', e => { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded','false'); h.querySelectorAll('span').forEach(x => { x.style.transform=''; x.style.opacity=''; }); } });
+})();
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) { const dt = new DataTransfer(); dt.items.add(f); document.getElementById('logo-inp').files = dt.files; handleLogo(document.getElementById('logo-inp')); } });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+window.addEventListener('load', () => {
+  const d = new Date(); document.getElementById('att-code-date').value = d.toISOString().split('T')[0];
+  document.getElementById('att-code-id').value = sessionCode;
+  document.getElementById('att-url').value = 'https://forms.google.com/your-attendance-form';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

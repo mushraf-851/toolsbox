@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image QR Code Generator — Share Any Photo or Graphic Instantly | ToolsBox</title>
+<meta name="description" content="Free image QR code generator. Create a scannable QR code linking to any photo, PNG, JPG, WebP or GIF. Share images instantly via scan. Custom colors, logo. No sign-up.">
+<meta name="keywords" content="image QR code generator, photo QR code generator, QR code for image, share image QR code, scan to view image, picture QR code generator, free image QR code, QR code image link, photo sharing QR code, QR code for photo, image URL QR code, scan to see photo, product image QR code, JPG QR code generator, PNG QR code generator, WebP QR code, GIF QR code, digital photo QR code, portfolio QR code image, social media photo QR, event photo QR code, wedding photo QR code, art image QR code, gallery QR code, photography QR code generator, Instagram photo QR code, image sharing QR free, QR code for pictures, visual content QR code, printable photo QR code">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-image.html">
+<meta property="og:title" content="Image QR Code Generator — Share Any Photo Instantly | ToolsBox">
+<meta property="og:description" content="Create a QR code for any image — PNG, JPG, WebP, GIF. Scan to view photos, product images & graphics instantly. Free, custom colors, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-image.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image QR Code Generator — Free Photo Sharing | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code for any image URL. Scan to view photos instantly. Supports PNG, JPG, WebP, GIF. Free, no sign-up.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Image QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-image.html","description":"Free image QR code generator. Create scannable QR codes linking to any photo or graphic — PNG, JPG, WebP, GIF, SVG — and share images instantly.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a QR code for an image?","acceptedAnswer":{"@type":"Answer","text":"Upload your image to any image hosting service (Imgur, Google Photos, Cloudinary), copy the direct image URL, paste it into this generator, click Generate, and download as PNG or SVG. Works for PNG, JPG, WebP, GIF and SVG formats."}},{"@type":"Question","name":"What image formats does this QR code generator support?","acceptedAnswer":{"@type":"Answer","text":"This generator supports QR codes linking to any publicly accessible image URL, regardless of format. The most common formats are PNG, JPG/JPEG, WebP, GIF (including animated GIFs), SVG, and BMP. The QR code encodes the image URL — the format depends on your hosting."}},{"@type":"Question","name":"Where is the best place to host my image for a QR code?","acceptedAnswer":{"@type":"Answer","text":"Top free options: Imgur (no account needed, permanent links), Google Photos (share → create link), Cloudinary (free CDN hosting), AWS S3 public bucket, GitHub raw files, or your own website. Use a service that gives you a permanent direct image URL."}},{"@type":"Question","name":"Can I use this for a wedding or event photo QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is one of the most popular use cases. Upload your wedding or event photo to Google Photos or Imgur, generate a QR code, and print it on invitations, table cards, or a welcome sign. Guests scan to instantly view and save the photo on their phones."}},{"@type":"Question","name":"Does the image QR code expire?","acceptedAnswer":{"@type":"Answer","text":"The QR code image itself never expires. The image link inside it expires only if the hosting service removes the image. Imgur links are permanent. For long-term use, host on your own server or a reliable CDN."}},{"@type":"Question","name":"Can I scan the QR code to download the image?","acceptedAnswer":{"@type":"Answer","text":"Yes. When users scan the QR code, the image opens in their phone browser. They can long-press the image (iOS and Android) to save it to their camera roll, or use the Share button. For automatic download, append ?download=1 to the image URL if your host supports it."}},{"@type":"Question","name":"Is my image stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. This tool only encodes the image URL into a QR code — it never accesses, reads, or stores your image. The live preview loads the image directly from your hosting service to your browser. No data passes through ToolsBox servers."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#f59e0b;--acc-dark:#d97706;--acc-dim:rgba(245,158,11,0.1);--acc-bdr:rgba(245,158,11,0.28);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.1);--grn-bdr:rgba(34,197,94,0.28);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.1);--red-bdr:rgba(239,68,68,0.28);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#f97316);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.compat-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.compat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+/* FORMAT PILLS */
+.format-pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.fmt-pill{padding:5px 12px;border-radius:100px;font-size:11px;font-weight:700;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt3);cursor:pointer;transition:all .15s}
+.fmt-pill.on{border-color:var(--acc);background:var(--acc-dim);color:var(--acc)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:72px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* Image Preview */
+.img-preview-box{display:none;border-radius:12px;overflow:hidden;border:1px solid var(--bdr2);background:var(--surf3);margin-top:10px}
+.img-preview-box img{width:100%;max-height:180px;object-fit:contain;display:block;background:#111}
+.img-preview-label{font-size:10px;color:var(--txt3);padding:6px 10px;text-align:center;display:flex;align-items:center;justify-content:space-between}
+.img-preview-fmt{font-size:9px;font-weight:700;padding:2px 7px;border-radius:5px;background:var(--acc-dim);color:var(--acc);letter-spacing:.05em;text-transform:uppercase}
+.link-preview-text{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(245,158,11,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,158,11,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(245,158,11,.15);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(34,197,94,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-block h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-block h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#f97316)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Image QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">📷 Image QR Code Generator</div>
+    <h1>Share Any <b>Photo or Image</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code linking to any image online — PNG, JPG, WebP, GIF or SVG. Scan to view product photos, event pictures, portfolios, logos and more on any device. 100% free, no sign-up required.</p>
+    <div class="compat-strip" role="list" aria-label="Supported formats">
+      <span class="compat-badge" role="listitem">🖼️ PNG</span>
+      <span class="compat-badge" role="listitem">📸 JPG / JPEG</span>
+      <span class="compat-badge" role="listitem">🌐 WebP</span>
+      <span class="compat-badge" role="listitem">🎞️ GIF</span>
+      <span class="compat-badge" role="listitem">📱 All Devices</span>
+    </div>
+  </header>
+
+  <section aria-label="Image QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">📷 Image link details</span>
+          <span class="ch-badge">IMAGE QR</span>
+        </div>
+        <div class="card-body">
+
+          <div class="mode-tabs" role="tablist" aria-label="Input method">
+            <button class="mtab on" id="tab-url" onclick="setMode('url')" role="tab" aria-selected="true">🔗 Image URL</button>
+            <button class="mtab" id="tab-imgur" onclick="setMode('imgur')" role="tab" aria-selected="false">🖼️ Imgur</button>
+            <button class="mtab" id="tab-gphoto" onclick="setMode('gphoto')" role="tab" aria-selected="false">📸 Google Photos</button>
+          </div>
+
+          <!-- URL MODE -->
+          <div id="form-url" role="tabpanel">
+            <div class="info-box">
+              <strong>Supported formats:</strong> PNG, JPG, JPEG, WebP, GIF (including animated), SVG, AVIF, BMP. Paste the <strong>direct image URL</strong> — not a webpage that displays the image.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="img-url">Image URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔗</span>
+                <input type="url" id="img-url" class="inp has-icon" placeholder="https://example.com/photo.jpg" oninput="autoGenerate();previewImg()" autocomplete="off" spellcheck="false" aria-describedby="img-url-hint">
+              </div>
+              <span id="img-url-hint" style="font-size:11px;color:var(--txt3);margin-top:3px">Direct URL to your image file — must be publicly accessible online</span>
+            </div>
+            <div class="img-preview-box" id="img-preview-main">
+              <img id="img-preview-main-img" src="" alt="Image preview" loading="lazy" onerror="document.getElementById('img-preview-main').style.display='none'">
+              <div class="img-preview-label"><span>Preview — this is what users will see when they scan</span><span class="img-preview-fmt" id="img-fmt-label">IMG</span></div>
+            </div>
+            <div class="fld" style="margin-top:12px">
+              <label class="lbl" for="img-caption">Image Caption (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="img-caption" class="inp has-icon" placeholder="e.g. Wedding Photo, Product Shot, Company Logo" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- IMGUR MODE -->
+          <div id="form-imgur" role="tabpanel" style="display:none">
+            <div class="info-box">
+              <strong>How to get an Imgur image link:</strong><br>
+              1. Go to <strong>imgur.com</strong> → New Post → upload your image<br>
+              2. Right-click the image → <strong>"Copy image address"</strong><br>
+              3. Paste the .jpg / .png URL below — not the page URL
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="img-imgur">Imgur Direct Image URL</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🖼️</span>
+                <input type="url" id="img-imgur" class="inp has-icon" placeholder="https://i.imgur.com/XXXXXXX.jpg" oninput="autoGenerate();previewImgImgur()" autocomplete="off" spellcheck="false">
+              </div>
+              <span style="font-size:11px;color:var(--txt3);margin-top:3px">URL must start with i.imgur.com and end with the image extension</span>
+            </div>
+            <div class="img-preview-box" id="img-preview-imgur">
+              <img id="img-preview-imgur-img" src="" alt="Imgur preview" loading="lazy" onerror="document.getElementById('img-preview-imgur').style.display='none'">
+              <div class="img-preview-label"><span>Imgur image preview</span><span class="img-preview-fmt">IMGUR</span></div>
+            </div>
+          </div>
+
+          <!-- GOOGLE PHOTOS MODE -->
+          <div id="form-gphoto" role="tabpanel" style="display:none">
+            <div class="info-box">
+              <strong>How to share from Google Photos:</strong><br>
+              1. Open Google Photos → select your photo<br>
+              2. Click Share → <strong>Create link</strong> → Copy<br>
+              3. Paste the link below — viewers must be signed in to see the photo
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="img-gphoto">Google Photos Share Link</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📸</span>
+                <input type="url" id="img-gphoto" class="inp has-icon" placeholder="https://photos.app.goo.gl/XXXXXXXXXX" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+              <span style="font-size:11px;color:var(--txt3);margin-top:3px">For public access without sign-in, use Imgur or your own server instead</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="gphoto-caption">Photo Caption (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="gphoto-caption" class="inp has-icon" placeholder="e.g. Family Reunion 2025, Team Photo" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Image QR Code">📷 Generate Image QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Colour Presets</label><div class="preset-row">
+            <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+            <button class="pr-btn" onclick="preset('#f59e0b','#fffbeb');autoGenerate()" aria-label="Gold"><span class="pr-dot" style="background:#f59e0b"></span>Gold</button>
+            <button class="pr-btn" onclick="preset('#f97316','#fff7ed');autoGenerate()" aria-label="Orange"><span class="pr-dot" style="background:#f97316"></span>Orange</button>
+            <button class="pr-btn" onclick="preset('#0ea5e9','#f0f9ff');autoGenerate()" aria-label="Sky"><span class="pr-dot" style="background:#0ea5e9"></span>Sky</button>
+            <button class="pr-btn" onclick="preset('#ec4899','#fdf2f8');autoGenerate()" aria-label="Pink"><span class="pr-dot" style="background:#ec4899"></span>Pink</button>
+            <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+          </div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Size — <span id="sz-label">300×300</span></label><div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR size"></div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Error Correction</label><div class="ec-row" role="group" aria-label="Error correction level">
+            <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+            <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+            <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+            <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+          </div></div>
+          <div class="fld"><label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev"><img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span><button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📷</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta"><span class="qm-type" id="qm-type">Image QR Code</span><span class="qm-info" id="qm-info">—</span></div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download QR as PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download QR as SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy QR to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use a direct image URL (not a page that shows the image)</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Imgur is the easiest free host — no account needed</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with a logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — perfect at any size</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test on iPhone and Android before bulk printing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box">
+    <h3>📊 Visual Content & Image Sharing Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">3.2B</div><div class="stat-label">images are shared online every single day across all platforms and messaging apps</div></div>
+      <div class="stat-item"><div class="stat-num">65%</div><div class="stat-label">of people are visual learners — images are processed 60,000× faster than text by the brain</div></div>
+      <div class="stat-item"><div class="stat-num">6×</div><div class="stat-label">higher engagement for content with images compared to text-only content across all platforms</div></div>
+      <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">cost to create an image QR code and share any photo with anyone in the world, forever</div></div>
+    </div>
+  </div>
+
+  <section class="section-block">
+    <h2>📖 How to Create an Image QR Code in <span>5 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Choose Your Image Host</div><div class="step-desc">Upload your image to Imgur (easiest, free, no account), Google Photos, Cloudinary, your own website, or any image CDN. The image must be publicly accessible online.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Get the Direct Image URL</div><div class="step-desc">On Imgur: right-click the image → "Copy image address". The URL ends with .jpg, .png, or similar. Do NOT copy the webpage URL — you need the raw image URL only.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Paste URL & Verify Preview</div><div class="step-desc">Paste the direct image URL into the Image URL field. The live preview loads your image below the field — if you see the image, the URL is correct and the QR will work.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Customise Your QR Code</div><div class="step-desc">Add your brand colours, upload a logo (auto-enables Level H error correction), adjust the size for your use case — business card, poster, packaging or screen display.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-title">Download & Distribute</div><div class="step-desc">Download SVG for print materials or PNG for digital. Print on packaging, business cards, menus, event signage. Anyone who scans sees your image instantly on their phone.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-title">Update Image Without Reprinting</div><div class="step-desc">Replace the image at the same URL — the QR code shows the new image without any reprinting. Perfect for product photos, event materials and seasonal promotions.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>💼 Best Use Cases for Image QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon">💒</span><div class="uc-title">Wedding & Events</div><div class="uc-desc">Print a QR on invitations linking to a wedding photo or event image. Guests scan to see and save the photo instantly — no group chat sharing needed.</div></div>
+      <div class="use-card"><span class="uc-icon">📦</span><div class="uc-title">Product Packaging</div><div class="uc-desc">QR code on packaging linking to detailed product photos, usage instructions as images, or a photo gallery of the product in use.</div></div>
+      <div class="use-card"><span class="uc-icon">🎨</span><div class="uc-title">Art & Photography</div><div class="uc-desc">Display QR codes next to physical artworks or in galleries. Visitors scan to see a high-resolution version of the artwork or the artist's full photo portfolio.</div></div>
+      <div class="use-card"><span class="uc-icon">🍽️</span><div class="uc-title">Restaurant Food Photos</div><div class="uc-desc">Add image QR codes to printed menus. Customers scan to see a full-color photo of the dish — dramatically increases order rates for high-margin items.</div></div>
+      <div class="use-card"><span class="uc-icon">🏠</span><div class="uc-title">Real Estate</div><div class="uc-desc">Print image QR codes on "For Sale" signs and brochures. Prospective buyers scan to view full-resolution property photos before booking a viewing.</div></div>
+      <div class="use-card"><span class="uc-icon">🎓</span><div class="uc-title">Education & Textbooks</div><div class="uc-desc">Embed image QR codes in printed educational materials linking to detailed diagrams, scientific illustrations or historical photographs at full resolution.</div></div>
+      <div class="use-card"><span class="uc-icon">🏢</span><div class="uc-title">Corporate Identity</div><div class="uc-desc">Create a QR code linking to your official company logo PNG. Brand partners and vendors scan to download the correct, current version in high resolution.</div></div>
+      <div class="use-card"><span class="uc-icon">🧵</span><div class="uc-title">Fashion & Retail</div><div class="uc-desc">Attach QR codes to clothing tags or shelf displays. Shoppers scan to see the item in multiple colors, styling inspiration shots or size guide images.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🚀 6 Benefits of Image QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon">⚡</span><div class="bn-title">Instant Visual Access</div><div class="bn-desc">No email attachments, no downloading apps, no messaging groups — one scan and the image opens directly in any phone's browser. The fastest way to share any image.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📐</span><div class="bn-title">Original Quality Preserved</div><div class="bn-desc">Messaging apps compress images by up to 70%. A QR code links to the original hosted file — viewers always see the full-resolution, uncompressed version.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🔄</span><div class="bn-title">Update Without Reprinting</div><div class="bn-desc">Replace the image at the same URL and the QR automatically shows the updated photo. Change product shots, update team photos, or refresh seasonal images any time.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🌐</span><div class="bn-title">Works on Any Device</div><div class="bn-desc">All modern phones — iPhone, Android, Samsung, Xiaomi — can scan QR codes natively and display images in the browser. No app download, no compatibility issues.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📏</span><div class="bn-title">Any Image Size</div><div class="bn-desc">The QR encodes only the URL — not the image itself. Share tiny icons or massive 50 MB RAW photographs. The QR code stays the same size regardless.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🎨</span><div class="bn-title">Branded & Trustworthy</div><div class="bn-desc">Customise with your colours and logo. A branded image QR builds instant recognition — people scan with confidence when they see a familiar brand on the QR.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-png.html" class="rel-card"><span class="rel-icon">🖼️</span><div class="rel-info"><div class="rel-title">PNG QR Code</div><div class="rel-desc">Share PNG images</div></div></a>
+      <a href="qr-pdf.html" class="rel-card"><span class="rel-icon">📄</span><div class="rel-info"><div class="rel-title">PDF QR Code</div><div class="rel-desc">Share PDF files</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-google-doc.html" class="rel-card"><span class="rel-icon">📝</span><div class="rel-info"><div class="rel-title">Google Doc QR</div><div class="rel-desc">Share documents</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Share your profile</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-attendance.html" class="rel-card"><span class="rel-icon">✅</span><div class="rel-info"><div class="rel-title">Attendance QR</div><div class="rel-desc">Check-in tracking</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Creating Image QR Codes for Every Use Case</h2>
+    <p>Images are the most engaging form of content on the internet — yet sharing them in physical environments is still frustratingly slow. Printing photos is expensive and becomes outdated. Sharing via WhatsApp compresses quality. Emailing to groups requires managing distribution lists. A photo or image QR code solves all of this: one printed QR code links to any image online, and anyone who scans it sees the full-resolution photo instantly on their phone.</p>
+    <h3>Choosing the Right Image Host</h3>
+    <p><strong>Imgur</strong> is the best choice for most users. Upload without an account, get a permanent direct image URL (i.imgur.com/XXXXX.jpg), and the image stays online indefinitely. Right-click the displayed image and select "Copy image address" — this is the URL to use.</p>
+    <p><strong>Cloudinary</strong> is ideal for businesses and developers. The free tier includes 25 GB storage with CDN delivery, meaning your images load fast from anywhere. Cloudinary URLs are permanent, support format conversion, and allow image manipulation via URL parameters.</p>
+    <p><strong>Your own website or server</strong> is the most reliable option for professional use. A URL like yoursite.com/product-image.jpg never expires, never gets removed by a third-party service, and can be tracked with analytics.</p>
+    <h3>Direct URL vs. Page URL — The Critical Difference</h3>
+    <p>The most common mistake when creating image QR codes is using the webpage URL instead of the direct image URL. For example, https://imgur.com/XXXXX is the page — wrong. https://i.imgur.com/XXXXX.jpg is the direct image — correct. When you paste the correct URL into this generator, the live preview shows your image below the field. If the preview is blank, you have the wrong URL.</p>
+    <h3>Image QR Codes for Businesses — Pro Tips</h3>
+    <ul>
+      <li><strong>Use for restaurant menus:</strong> Add image QR codes next to menu items. Customers scan to see a full-color photo of the dish. Research shows photo menus increase sales of featured items by 25-30%.</li>
+      <li><strong>Event photography sharing:</strong> At weddings, conferences, or corporate events, display a QR code linking to the official event photo. 100% of guests can access and save it without a group chat being set up.</li>
+      <li><strong>Product detail images:</strong> Link to additional product angles, size comparison photos, or in-use lifestyle images that can't fit on printed packaging. Customers scan to see everything before purchase.</li>
+      <li><strong>Compress large images first:</strong> Tools like Squoosh, TinyPNG or Cloudinary's automatic optimization reduce image file sizes by 60-80% with no visible quality loss — making them load faster on mobile data.</li>
+      <li><strong>Always include a call to action:</strong> "Scan to see the full image", "Scan for product photo", "Scan to view menu item" — printed context next to the QR dramatically increases scan rates.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I create a QR code for an image?<span class="fq-icon">+</span></div><div class="fa">Upload your image to Imgur (or any image host), right-click the image and copy the direct image address (ending in .jpg, .png, etc.), paste it into the Image URL field above. A preview confirms the URL is correct. Click Generate and download your QR code.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What image formats are supported?<span class="fq-icon">+</span></div><div class="fa">Any publicly accessible image URL works — PNG, JPG/JPEG, WebP, GIF (including animated GIFs), SVG, AVIF, BMP. The format depends on your image host. When users scan the QR, the image opens in their phone's browser which supports all modern image formats.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Why is my image preview not showing?<span class="fq-icon">+</span></div><div class="fa">You likely have the webpage URL, not the direct image URL. On Imgur, right-click the image itself → "Copy image address" (not "Copy link"). The correct URL ends in .jpg, .png, .webp etc. and starts with i.imgur.com, not imgur.com.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can users save the image after scanning?<span class="fq-icon">+</span></div><div class="fa">Yes. When the image opens in the phone browser, users can long-press (on both iOS and Android) to see a "Save Image" option, or tap Share to send it. On iOS, they can tap the Share button and select "Save to Photos". On Android, tap and hold → "Download image".</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the image QR code expire?<span class="fq-icon">+</span></div><div class="fa">The QR code never expires — it's a static image file. The photo link inside it expires only if the hosting service removes the image. Imgur links are permanent. For critical business use, host on your own server for complete control.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Will my animated GIF play when scanned?<span class="fq-icon">+</span></div><div class="fa">Yes. If you link to a direct .gif URL, the animated GIF will play when opened in the phone's browser — both iOS Safari and Android Chrome support animated GIFs natively. For Imgur, make sure the direct URL ends in .gif (not .gifv or .mp4).</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my image stored on your servers?<span class="fq-icon">+</span></div><div class="fa">No. This tool only encodes the image URL into a QR code. It never uploads, accesses, or stores your image. The preview in the generator loads directly from your image host to your browser — no data passes through ToolsBox servers.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">📷 Media QR Codes</div><ul class="fl"><li><a href="qr-image.html">📷 Image QR Code</a></li><li><a href="qr-png.html">🖼️ PNG QR Code</a></li><li><a href="qr-pdf.html">📄 PDF QR Code</a></li><li><a href="qr-url.html">🔗 URL QR Code</a></li></ul></div>
+    <div><div class="fct">🏢 Business QR Codes</div><ul class="fl"><li><a href="qr-google-review.html">⭐ Google Review QR</a></li><li><a href="qr-vcard.html">👤 vCard QR</a></li><li><a href="qr-booking.html">📅 Booking QR</a></li><li><a href="qr-upi.html">💳 UPI QR</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">GST Calculator</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'url';
+
+function setMode(m) {
+  MODE = m;
+  ['url','imgur','gphoto'].forEach(id => {
+    document.getElementById('tab-' + id).classList.toggle('on', id === m);
+    document.getElementById('tab-' + id).setAttribute('aria-selected', id === m);
+    document.getElementById('form-' + id).style.display = id === m ? '' : 'none';
+  });
+  hideErr(); livePreview(); autoGenerate();
+}
+
+function getUrl() {
+  if (MODE === 'url') return document.getElementById('img-url').value.trim();
+  if (MODE === 'imgur') return document.getElementById('img-imgur').value.trim();
+  return document.getElementById('img-gphoto').value.trim();
+}
+
+function detectFmt(url) {
+  const m = url.match(/\.(png|jpe?g|gif|webp|svg|avif|bmp)(\?|$)/i);
+  return m ? m[1].toUpperCase() : 'IMG';
+}
+
+function buildUrl() {
+  const url = getUrl();
+  if (!url) throw new Error('Please enter an image URL.');
+  if (!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+  return url;
+}
+
+function previewImg() {
+  const url = document.getElementById('img-url').value.trim();
+  const box = document.getElementById('img-preview-main');
+  const img = document.getElementById('img-preview-main-img');
+  const fmt = document.getElementById('img-fmt-label');
+  if (url && /^https?:\/\//i.test(url)) {
+    box.style.display = 'block'; img.src = url;
+    fmt.textContent = detectFmt(url);
+  } else { box.style.display = 'none'; }
+}
+
+function previewImgImgur() {
+  const url = document.getElementById('img-imgur').value.trim();
+  const box = document.getElementById('img-preview-imgur');
+  const img = document.getElementById('img-preview-imgur-img');
+  if (url && /^https?:\/\//i.test(url)) { box.style.display = 'block'; img.src = url; }
+  else { box.style.display = 'none'; }
+}
+
+function livePreview() {
+  try {
+    const url = buildUrl();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    const short = url.length > 80 ? url.substring(0, 80) + '…' : url;
+    el.innerHTML = 'Will link to: <strong>' + escHtml(short) + '</strong>';
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try { data = buildUrl(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value, bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: fg, light: bg }, errorCorrectionLevel: EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const fmt = detectFmt(data);
+    const labels = { url: fmt + ' Image QR', imgur: 'Imgur Image QR', gphoto: 'Google Photos QR' };
+    document.getElementById('qm-type').textContent = labels[MODE];
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to view image';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d'), ms = Math.floor(canvas.width * .22), img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms; const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill(); ctx.drawImage(img, x, y, w, h); resolve();
+    };
+    img.onerror = () => resolve(); img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => { try { buildUrl(); generateQR(); } catch(e) {} }, 400);
+  livePreview();
+}
+function escHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function dlPNG() { const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; } const a = document.createElement('a'); a.download = 'image-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click(); }
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300, d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Image QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' }); const a = document.createElement('a'); a.download = 'image-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); flashButton('cp-btn', '✓ Copied!'); }
+  catch(e) { alert('Right-click QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) { try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); const file = new File([blob], 'image-qr.png', { type: 'image/png' }); await navigator.share({ title: 'Image QR Code', files: [file] }); } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported.'); } }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {} }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Image QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Image QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['img-url','img-caption','img-imgur','img-gphoto','gphoto-caption'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  ['img-preview-main','img-preview-imgur'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📷</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—'; document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none'; rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body'), hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide'); hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) { EC = ec; document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); }); btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); }
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { currentLogoBase64 = e.target.result; document.getElementById('logo-img').src = currentLogoBase64; document.getElementById('logo-name').textContent = f.name; document.getElementById('logo-prev').style.display = 'flex'; setEC('H', document.querySelector('.ec-p[data-ec="H"]')); autoGenerate(); };
+  reader.readAsDataURL(f);
+}
+function rmLogo() { currentLogoBase64 = null; document.getElementById('logo-inp').value = ''; document.getElementById('logo-prev').style.display = 'none'; document.getElementById('logo-img').src = ''; autoGenerate(); }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement, open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+}
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => { const o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o); const s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(4px,4px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)'; } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+  document.addEventListener('click', e => { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+})();
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) { const dt = new DataTransfer(); dt.items.add(f); document.getElementById('logo-inp').files = dt.files; handleLogo(document.getElementById('logo-inp')); } });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+window.addEventListener('load', () => {
+  document.getElementById('img-url').value = 'https://i.imgur.com/sample-image.jpg';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto QR Code Generator — Bitcoin, Ethereum & Solana Wallet QR | ToolsBox</title>
+<meta name="description" content="Free crypto QR code generator for Bitcoin, Ethereum, Solana, USDT & more. Create a scannable wallet QR with address, amount and label in seconds. No sign-up.">
+<meta name="keywords" content="crypto QR code generator, bitcoin QR code generator, ethereum QR code generator, solana QR code generator, crypto wallet QR code, BTC QR code, ETH QR code, USDT QR code, generate bitcoin payment QR, crypto donation QR code, crypto address QR code, free crypto QR generator, scan to pay crypto, crypto QR for freelancers, crypto QR for business, crypto invoice QR code, bitcoin payment request QR, crypto tip jar QR, crypto wallet address scanner, BIP21 QR code, ethereum payment URI QR, litecoin QR code generator, dogecoin QR code generator, crypto checkout QR, NFT artist crypto QR, crypto QR code with logo, custom bitcoin QR code, crypto QR code for events, crypto QR code for ecommerce, web3 wallet QR code, USDT TRC20 QR code">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-crypto.html">
+<meta property="og:title" content="Crypto QR Code Generator — Bitcoin, Ethereum & Solana Wallets | ToolsBox">
+<meta property="og:description" content="Create a crypto wallet QR code with address, amount and label. Supports BTC, ETH, SOL, USDT & more. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-crypto.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-crypto.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crypto QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate a Bitcoin, Ethereum or Solana wallet QR code instantly. Free, no sign-up, works offline in your browser.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Crypto QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-crypto.html","description":"Free crypto QR code generator for Bitcoin, Ethereum, Solana, USDT and other wallets. Create a scannable payment QR with address, amount and label.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a crypto wallet QR code?","acceptedAnswer":{"@type":"Answer","text":"Select your network (Bitcoin, Ethereum, Solana, etc.), paste your wallet address, optionally add an amount and label, then click Generate. Download the QR as PNG or SVG and share it anywhere."}},{"@type":"Question","name":"What is a BIP21 URI?","acceptedAnswer":{"@type":"Answer","text":"BIP21 is the standard Bitcoin payment URI format: bitcoin:ADDRESS?amount=X&label=Y. Most Bitcoin wallets read this format automatically when scanning a QR code, pre-filling the recipient and amount."}},{"@type":"Question","name":"Does the QR code include a fixed amount?","acceptedAnswer":{"@type":"Answer","text":"Only if you enter one. Leave the amount field blank to create an address-only QR code that lets the sender choose any amount, which is common for donations and tip jars."}},{"@type":"Question","name":"Which cryptocurrencies are supported?","acceptedAnswer":{"@type":"Answer","text":"This generator supports Bitcoin (BTC), Ethereum (ETH), Solana (SOL), Litecoin (LTC), Dogecoin (DOGE), and USDT on the TRC20 network, with the correct URI scheme automatically applied for each."}},{"@type":"Question","name":"Is my wallet address sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All QR generation happens locally in your browser using JavaScript. Your wallet address, amount and label never leave your device and are never stored or transmitted."}},{"@type":"Question","name":"Can I add my logo to a crypto QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload a logo image in the Customise panel — it will be placed in the centre of the QR code with automatic high error-correction so the code still scans reliably."}},{"@type":"Question","name":"Will scanning this QR code move funds automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Scanning only opens the sender's wallet app with the address (and amount, if set) pre-filled. The sender must still review and confirm the transaction themselves."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;--bg3:#111418;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#f7931a;--acc-dark:#d97c0c;--acc-dim:rgba(247,147,26,0.12);--acc-bdr:rgba(247,147,26,0.3);
+  --gold:#fbbc04;
+  --grn:#34a853;--grn-dim:rgba(52,168,83,0.1);--grn-bdr:rgba(52,168,83,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),var(--grn));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+.bc span.sep{opacity:.5}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.star-strip{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.star-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr);flex-wrap:wrap}
+.mtab{flex:1;min-width:70px;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+select.inp{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23b8bcc0'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px;cursor:pointer}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(247,147,26,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(247,147,26,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3);border-color:var(--bdr2)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(52,168,83,.2);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}
+.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}
+.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}
+.dl-copy:hover{background:rgba(52,168,83,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.steps-section{margin-top:52px}
+.steps-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.steps-section h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--grn))}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-section{margin-top:52px}
+.uses-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-section{margin-top:52px}
+.benefits-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-section{margin-top:52px}
+.related-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+.link-preview-text{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fb-logo{margin-bottom:10px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="lb" aria-hidden="true">T</div>
+      <span class="lt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="qr-code-index.html">QR Codes</a>
+    <span class="sep">›</span>
+    <span aria-current="page">Crypto QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge" aria-label="Tool category">₿ Crypto QR Code Generator</div>
+    <h1>Get Paid in <b>Crypto</b><br>With One Scan</h1>
+    <p class="sub">Create a Bitcoin, Ethereum, Solana or USDT wallet QR code with address, amount and label baked in. Buyers scan, their wallet opens pre-filled, you get paid. 100% free, no sign-up, nothing leaves your browser.</p>
+    <div class="star-strip" role="list" aria-label="Supported networks">
+      <span class="star-badge" role="listitem">₿ Bitcoin</span>
+      <span class="star-badge" role="listitem">Ξ Ethereum</span>
+      <span class="star-badge" role="listitem">◎ Solana</span>
+      <span class="star-badge" role="listitem">₮ USDT</span>
+      <span class="star-badge" role="listitem">Ł Litecoin</span>
+    </div>
+  </header>
+
+  <section aria-label="QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">₿ Wallet details</span>
+          <span class="ch-badge" id="ch-badge-net">BITCOIN</span>
+        </div>
+        <div class="card-body">
+
+          <div class="fld">
+            <label class="lbl lbl-req" for="net-select">Network</label>
+            <select id="net-select" class="inp" onchange="netChange()" aria-label="Select cryptocurrency network">
+              <option value="bitcoin" data-scheme="bitcoin" data-sym="₿">Bitcoin (BTC)</option>
+              <option value="ethereum" data-scheme="ethereum" data-sym="Ξ">Ethereum (ETH)</option>
+              <option value="solana" data-scheme="solana" data-sym="◎">Solana (SOL)</option>
+              <option value="litecoin" data-scheme="litecoin" data-sym="Ł">Litecoin (LTC)</option>
+              <option value="dogecoin" data-scheme="dogecoin" data-sym="Ð">Dogecoin (DOGE)</option>
+              <option value="tron" data-scheme="tron" data-sym="₮">USDT (TRC20 / Tron)</option>
+            </select>
+          </div>
+
+          <div class="info-box" id="net-info">
+            <strong>Bitcoin URI:</strong> Encodes as <code>bitcoin:ADDRESS?amount=X&amp;label=Y</code> — the BIP21 standard most wallets understand.
+          </div>
+
+          <div class="fld">
+            <label class="lbl lbl-req" for="wallet-addr">Wallet Address</label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">🔑</span>
+              <input type="text" id="wallet-addr" class="inp has-icon" placeholder="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="addr-hint">
+            </div>
+            <span id="addr-hint" style="font-size:11px;color:var(--txt3);">Paste the exact public receiving address for the selected network</span>
+          </div>
+
+          <div class="r2">
+            <div class="fld">
+              <label class="lbl" for="wallet-amount">Amount <span style="text-transform:none;font-weight:500;color:var(--txt3)">(optional)</span></label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">💰</span>
+                <input type="number" id="wallet-amount" class="inp has-icon" placeholder="0.00" step="any" min="0" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="wallet-label">Label / Name <span style="text-transform:none;font-weight:500;color:var(--txt3)">(optional)</span></label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="wallet-label" class="inp has-icon" placeholder="My Store" oninput="autoGenerate()" maxlength="60">
+              </div>
+            </div>
+          </div>
+
+          <div class="fld">
+            <label class="lbl" for="wallet-msg">Message <span style="text-transform:none;font-weight:500;color:var(--txt3)">(optional)</span></label>
+            <div class="inp-wrap">
+              <span class="inp-icon" aria-hidden="true">💬</span>
+              <input type="text" id="wallet-msg" class="inp has-icon" placeholder="Invoice #1042" oninput="autoGenerate()" maxlength="80">
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Crypto Wallet QR Code">
+            ⚡ Generate Crypto QR Code
+          </button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld">
+              <label class="lbl">QR Color</label>
+              <div class="color-row">
+                <input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR code foreground color">
+                <input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR code hex color">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl">Background</label>
+              <div class="color-row">
+                <input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="QR code background color">
+                <input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color">
+              </div>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic black on white"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#f7931a','#fff8f0');autoGenerate()" aria-label="Bitcoin orange"><span class="pr-dot" style="background:#f7931a"></span>Bitcoin</button>
+              <button class="pr-btn" onclick="preset('#627eea','#eef0fd');autoGenerate()" aria-label="Ethereum blue"><span class="pr-dot" style="background:#627eea"></span>Ethereum</button>
+              <button class="pr-btn" onclick="preset('#14f195','#0d1117');autoGenerate()" aria-label="Solana green"><span class="pr-dot" style="background:#14f195"></span>Solana</button>
+              <button class="pr-btn" onclick="preset('#26a17b','#e8f7f1');autoGenerate()" aria-label="USDT teal"><span class="pr-dot" style="background:#26a17b"></span>USDT</button>
+              <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark mode"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row">
+              <input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size" aria-valuetext="300 by 300 pixels">
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR code center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo file">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview">
+              <span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out">
+          <div class="qr-ph" aria-hidden="true">
+            <span class="qr-ph-icon">₿</span>
+            <span class="qr-ph-txt">QR code appears here</span>
+          </div>
+        </div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">Crypto Wallet QR</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download QR code as PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download QR code as SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy QR code to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR code">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR code">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset all fields">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Double-check your address — crypto transactions can't be reversed</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Leave amount blank for donation/tip-jar style QR codes</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction when adding a logo</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test scan with your own wallet app before publishing</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for crisp printing on signage or cards</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box" aria-label="Industry statistics about crypto payments">
+    <h3>📊 Why Businesses Are Adding Crypto QR Payments</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">420M+</div><div class="stat-label">people worldwide own cryptocurrency and look for merchants who accept it</div></div>
+      <div class="stat-item"><div class="stat-num">0%</div><div class="stat-label">chargeback risk compared to card payments — transactions are final on-chain</div></div>
+      <div class="stat-item"><div class="stat-num">&lt;1min</div><div class="stat-label">average time for a buyer to scan, confirm and broadcast a crypto payment</div></div>
+      <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">crypto networks never close — accept payments any time, any timezone</div></div>
+    </div>
+  </div>
+
+  <section class="steps-section" aria-label="How to create a crypto QR code">
+    <h2>📖 How to Create Your Crypto Wallet QR Code in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-title">Pick Your Network</div>
+        <div class="step-desc">Choose Bitcoin, Ethereum, Solana, Litecoin, Dogecoin or USDT (TRC20) from the network dropdown — the correct URI scheme is applied automatically.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-title">Paste Your Address</div>
+        <div class="step-desc">Copy your public receiving address from your wallet app or exchange and paste it in. Triple-check it — crypto sent to a wrong address cannot be recovered.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-title">Add Amount & Label (Optional)</div>
+        <div class="step-desc">Pre-fill a fixed amount for invoices, or leave blank for open donations. Add a label so the sender's wallet shows your name or business automatically.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-title">Customise & Download</div>
+        <div class="step-desc">Match your brand colours, add a logo, choose a size, then download as PNG for digital use or SVG for sharp print at any scale.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">05</div>
+        <div class="step-title">Test the Scan</div>
+        <div class="step-desc">Scan with your own wallet app first to confirm it opens with the correct address, network and amount before sharing publicly.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">06</div>
+        <div class="step-title">Share Anywhere</div>
+        <div class="step-desc">Print on receipts, signage and packaging, or embed digitally on your website, invoices, and social media for instant crypto payments.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="uses-section" aria-label="Use cases for crypto QR codes">
+    <h2>💼 Where to Use a Crypto Wallet QR Code</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🧾</span><div class="uc-title">Invoices & Checkout</div><div class="uc-desc">Add a fixed-amount QR to invoices so freelance clients or customers can pay in BTC, ETH or USDT instantly.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">☕</span><div class="uc-title">Tip Jars & Donations</div><div class="uc-desc">Leave the amount blank to let supporters, streamers, or creators send whatever they like directly to your wallet.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎨</span><div class="uc-title">NFT Artists</div><div class="uc-desc">Share an Ethereum or Solana QR at exhibitions so collectors can tip or purchase artwork directly from your wallet.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏪</span><div class="uc-title">Retail Checkout Counters</div><div class="uc-desc">Display a printed crypto QR at the register for customers who prefer paying with digital assets.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎤</span><div class="uc-title">Events & Conferences</div><div class="uc-desc">Print a crypto QR on event badges or merch tables to accept payments without card terminals or fees.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🌐</span><div class="uc-title">Websites & Social Bios</div><div class="uc-desc">Embed the QR image in your link-in-bio page or website footer for an always-on crypto payment option.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🛍️</span><div class="uc-title">Pop-Up Shops</div><div class="uc-desc">No POS hardware needed — just print and display the QR at temporary market stalls or pop-up storefronts.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🤝</span><div class="uc-title">Freelancer Payments</div><div class="uc-desc">Share a wallet QR with international clients to skip slow bank transfers and high cross-border fees.</div></div>
+    </div>
+  </section>
+
+  <section class="benefits-section" aria-label="Benefits of using a crypto QR code">
+    <h2>🚀 6 Benefits of a Crypto Wallet QR Code</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">⚡</span><div class="bn-title">Eliminates Typos</div><div class="bn-desc">Wallet addresses are 26-62 characters long. A QR code removes the risk of a mistyped address sending funds to the wrong place.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💸</span><div class="bn-title">No Payment Processor Fees</div><div class="bn-desc">Crypto payments settle peer-to-peer on-chain — no card network or processor cut taken out of every transaction.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🌍</span><div class="bn-title">Borderless by Default</div><div class="bn-desc">Accept payment from anywhere in the world instantly, without currency conversion or international wire delays.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔒</span><div class="bn-title">No Chargebacks</div><div class="bn-desc">Once confirmed on-chain, crypto transactions are final — eliminating fraudulent chargeback disputes common with cards.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🧾</span><div class="bn-title">Pre-Filled Amounts</div><div class="bn-desc">BIP21-style URIs let you embed the exact amount due, so buyers don't need to manually enter figures and risk errors.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎨</span><div class="bn-title">Fully Branded</div><div class="bn-desc">Match your colours, add a logo overlay, and download print-ready SVG — a professional-looking payment QR in seconds.</div></div>
+    </div>
+  </section>
+
+  <section class="related-section" aria-label="Related QR code tools">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI Payment QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-paypal.html" class="rel-card"><span class="rel-icon">💙</span><div class="rel-info"><div class="rel-title">PayPal QR</div><div class="rel-desc">PayPal.me links</div></div></a>
+      <a href="qr-venmo.html" class="rel-card"><span class="rel-icon">💜</span><div class="rel-info"><div class="rel-title">Venmo QR</div><div class="rel-desc">Pay & request</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-etsy.html" class="rel-card"><span class="rel-icon">🛍️</span><div class="rel-info"><div class="rel-title">Etsy Shop QR</div><div class="rel-desc">Promote your shop</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Grow your following</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Accepting Crypto Payments with a QR Code</h2>
+    <p>Cryptocurrency adoption has grown far beyond trading and investing — it's now a real payment option for freelancers, online stores, content creators, and small businesses worldwide. The biggest barrier to accepting crypto isn't technology, it's friction: wallet addresses are long strings of random characters that are easy to mistype and impossible to remember. A QR code removes that friction entirely, letting a buyer simply open their wallet app, scan, and confirm.</p>
+    <h3>Understanding Payment URIs (BIP21 and Beyond)</h3>
+    <p>Most major cryptocurrencies support a standardized payment URI format that wallets can parse automatically. Bitcoin uses the BIP21 standard: <code>bitcoin:ADDRESS?amount=X&amp;label=Y&amp;message=Z</code>. Ethereum-based wallets use a similar <code>ethereum:ADDRESS@chainId?value=X</code> pattern, while Solana and other chains have their own equivalents. This generator automatically builds the correct URI for whichever network you select, so you don't need to memorise the syntax.</p>
+    <h3>Fixed Amount vs. Open Address QR Codes</h3>
+    <p>There are two common QR code styles. An invoice-style QR encodes a specific amount, ideal for one-time payments where you know exactly what's owed. A donation or tip-jar style QR encodes only the address, letting the sender choose any amount — popular with creators, open-source projects, and street vendors.</p>
+    <h3>Security Best Practices</h3>
+    <ul>
+      <li><strong>Verify the address character-by-character</strong> before publishing — crypto transactions cannot be reversed once confirmed.</li>
+      <li><strong>Use a receiving-only address</strong> from a wallet you control, never share a private key or seed phrase.</li>
+      <li><strong>Test scan with your own phone</strong> using a real wallet app to confirm the QR opens correctly before printing or publishing at scale.</li>
+      <li><strong>Regenerate a fresh address</strong> for each major campaign if your wallet supports HD address generation, for better privacy.</li>
+      <li><strong>Keep the QR static</strong> — since this tool runs entirely client-side, no expiry, subscription, or third-party server is involved.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section" aria-label="Frequently asked questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I create a crypto wallet QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Select your network (Bitcoin, Ethereum, Solana, etc.), paste your wallet address, optionally add an amount and label, then click Generate. Download the QR as PNG or SVG and share it anywhere.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What is a BIP21 URI?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">BIP21 is the standard Bitcoin payment URI format: bitcoin:ADDRESS?amount=X&label=Y. Most Bitcoin wallets read this format automatically when scanning a QR code, pre-filling the recipient and amount.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the QR code include a fixed amount?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Only if you enter one. Leave the amount field blank to create an address-only QR code that lets the sender choose any amount, which is common for donations and tip jars.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Which cryptocurrencies are supported?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">This generator supports Bitcoin (BTC), Ethereum (ETH), Solana (SOL), Litecoin (LTC), Dogecoin (DOGE), and USDT on the TRC20 network, with the correct URI scheme automatically applied for each.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my wallet address sent to a server?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR generation happens locally in your browser using JavaScript. Your wallet address, amount and label never leave your device and are never stored or transmitted.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I add my logo to a crypto QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Upload a logo image in the Customise panel — it will be placed in the centre of the QR code with automatic high error-correction so the code still scans reliably.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Will scanning this QR code move funds automatically?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. Scanning only opens the sender's wallet app with the address (and amount, if set) pre-filled. The sender must still review and confirm the transaction themselves.</div></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <div class="fb-logo">
+        <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+          <div class="lb" aria-hidden="true">T</div>
+          <span class="lt">Tools<em>Box</em></span>
+        </a>
+      </div>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div>
+      <div class="fct">💳 Payment QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-crypto.html">₿ Crypto QR Code</a></li>
+        <li><a href="qr-upi.html">💳 UPI QR Code</a></li>
+        <li><a href="qr-paypal.html">💙 PayPal QR</a></li>
+        <li><a href="qr-venmo.html">💜 Venmo QR</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🏢 Business QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-google-review.html">⭐ Google Review QR</a></li>
+        <li><a href="qr-etsy.html">🛍️ Etsy Shop QR</a></li>
+        <li><a href="qr-url.html">🔗 URL QR Code</a></li>
+        <li><a href="qr-vcard.html">👤 vCard QR</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🧮 Calculators</div>
+      <ul class="fl">
+        <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+        <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null;
+
+const NET_INFO = {
+  bitcoin:   { name:'Bitcoin',  badge:'BITCOIN',  icon:'₿', info:'<strong>Bitcoin URI:</strong> Encodes as <code>bitcoin:ADDRESS?amount=X&amp;label=Y</code> — the BIP21 standard most wallets understand.' },
+  ethereum:  { name:'Ethereum', badge:'ETHEREUM', icon:'Ξ', info:'<strong>Ethereum URI:</strong> Encodes as <code>ethereum:ADDRESS?value=X</code> — readable by MetaMask, Trust Wallet and most EVM wallets.' },
+  solana:    { name:'Solana',   badge:'SOLANA',   icon:'◎', info:'<strong>Solana URI:</strong> Encodes as <code>solana:ADDRESS?amount=X&amp;label=Y</code> — compatible with Phantom and Solflare.' },
+  litecoin:  { name:'Litecoin', badge:'LITECOIN', icon:'Ł', info:'<strong>Litecoin URI:</strong> Encodes as <code>litecoin:ADDRESS?amount=X&amp;label=Y</code> — BIP21-style, works with most LTC wallets.' },
+  dogecoin:  { name:'Dogecoin', badge:'DOGECOIN', icon:'Ð', info:'<strong>Dogecoin URI:</strong> Encodes as <code>dogecoin:ADDRESS?amount=X&amp;label=Y</code> — readable by major DOGE wallets.' },
+  tron:      { name:'USDT (TRC20)', badge:'USDT · TRON', icon:'₮', info:'<strong>Tron URI:</strong> Encodes as <code>tron:ADDRESS?amount=X</code> for USDT/TRX transfers on the Tron network.' }
+};
+
+function netChange() {
+  const sel = document.getElementById('net-select');
+  const k = sel.value;
+  const n = NET_INFO[k];
+  document.getElementById('ch-badge-net').textContent = n.badge;
+  document.getElementById('net-info').innerHTML = n.info;
+  document.getElementById('wallet-addr').placeholder = k==='bitcoin' ? 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh' : k==='ethereum' ? '0x71C7656EC7ab88b098defB751B7401B5f6d8976' : k==='solana' ? '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM' : k==='litecoin' ? 'ltc1qf8vh6...' : k==='dogecoin' ? 'D7Y55r6KqLW...' : 'TXYZab12...';
+  document.querySelector('.qr-ph-icon').textContent = n.icon;
+  hideErr(); livePreview(); autoGenerate();
+}
+
+function buildUrl() {
+  const k = document.getElementById('net-select').value;
+  const addr = document.getElementById('wallet-addr').value.trim();
+  if (!addr) throw new Error('Please enter a wallet address.');
+  if (addr.length < 10) throw new Error('That address looks too short — please double-check it.');
+  const amount = document.getElementById('wallet-amount').value.trim();
+  const label = document.getElementById('wallet-label').value.trim();
+  const msg = document.getElementById('wallet-msg').value.trim();
+  const scheme = NET_INFO[k] ? k : 'bitcoin';
+  let params = [];
+  if (amount) params.push((scheme==='ethereum'?'value':'amount') + '=' + encodeURIComponent(amount));
+  if (label) params.push('label=' + encodeURIComponent(label));
+  if (msg) params.push('message=' + encodeURIComponent(msg));
+  const qs = params.length ? '?' + params.join('&') : '';
+  return scheme + ':' + addr + qs;
+}
+
+function livePreview() {
+  try {
+    const url = buildUrl();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    el.innerHTML = 'Will encode: <strong>' + escHtml(url) + '</strong>';
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+async function generateQR() {
+  hideErr();
+  let data;
+  try { data = buildUrl(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value;
+  const bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, {
+      width: size, margin: 2,
+      color: { dark: fg, light: bg },
+      errorCorrectionLevel: EC
+    });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const k = document.getElementById('net-select').value;
+    document.getElementById('qm-type').textContent = NET_INFO[k].name + ' Wallet QR';
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to pay';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d');
+    const ms = Math.floor(canvas.width * 0.22);
+    const img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms;
+      const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill();
+      ctx.drawImage(img, x, y, w, h);
+      resolve();
+    };
+    img.onerror = () => resolve();
+    img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => {
+    if (document.getElementById('wallet-addr').value.trim()) generateQR();
+  }, 400);
+  livePreview();
+}
+
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function dlPNG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const a = document.createElement('a'); a.download = 'crypto-wallet-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click();
+}
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300;
+  const d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Crypto Wallet QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const a = document.createElement('a'); a.download = 'crypto-wallet-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try {
+    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    flashButton('cp-btn', '✓ Copied!');
+  } catch(e) { alert('Right-click the QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) {
+    try {
+      const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+      const file = new File([blob], 'crypto-qr.png', { type: 'image/png' });
+      await navigator.share({ title: 'Crypto Wallet QR Code', files: [file] });
+    } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported in this browser.'); }
+  } else {
+    try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {}
+  }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Crypto QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Crypto Wallet QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['wallet-addr','wallet-amount','wallet-label','wallet-msg'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">' + NET_INFO[document.getElementById('net-select').value].icon + '</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—';
+  document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none';
+  rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body');
+  const hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide');
+  hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; document.getElementById('sz-range').setAttribute('aria-valuetext', v + ' by ' + v + ' pixels'); }
+function setEC(ec, btn) {
+  EC = ec;
+  document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true');
+}
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    currentLogoBase64 = e.target.result;
+    document.getElementById('logo-img').src = currentLogoBase64;
+    document.getElementById('logo-name').textContent = f.name;
+    document.getElementById('logo-prev').style.display = 'flex';
+    setEC('H', document.querySelector('.ec-p[data-ec="H"]'));
+    autoGenerate();
+  };
+  reader.readAsDataURL(f);
+}
+function rmLogo() {
+  currentLogoBase64 = null;
+  document.getElementById('logo-inp').value = '';
+  document.getElementById('logo-prev').style.display = 'none';
+  document.getElementById('logo-img').src = '';
+  autoGenerate();
+}
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement;
+  const open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded','false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded','true'); }
+}
+
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => {
+    const o = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', o);
+    const s = h.querySelectorAll('span');
+    if (o) { s[0].style.transform='rotate(45deg) translate(4px,4px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; }
+    else { s.forEach(x => { x.style.transform=''; x.style.opacity=''; }); }
+  });
+  document.addEventListener('click', e => {
+    if (!h.contains(e.target) && !m.contains(e.target)) {
+      m.classList.remove('open'); h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(x => { x.style.transform=''; x.style.opacity=''; });
+    }
+  });
+})();
+
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => {
+    e.preventDefault();
+    const f = e.dataTransfer.files[0];
+    if (f && f.type.startsWith('image/')) {
+      const dt = new DataTransfer(); dt.items.add(f);
+      document.getElementById('logo-inp').files = dt.files;
+      handleLogo(document.getElementById('logo-inp'));
+    }
+  });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+
+window.addEventListener('load', () => {
+  document.getElementById('wallet-addr').value = 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh';
+  document.getElementById('wallet-label').value = 'My Store';
+  livePreview();
+  generateQR();
+});
+</script>
+</body>
+</html>

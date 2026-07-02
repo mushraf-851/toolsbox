@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Office 365 QR Code Generator — Share Word, Excel & SharePoint Files Instantly | ToolsBox</title>
+<meta name="description" content="Free Office 365 QR code generator. Share Word, Excel, PowerPoint, SharePoint & OneDrive links via scannable QR codes. Instant file access. Custom colors. No sign-up.">
+<meta name="keywords" content="Office 365 QR code generator, Microsoft 365 QR code, SharePoint QR code, OneDrive QR code, Word document QR code, Excel QR code, PowerPoint QR code, Teams QR code, share Office file QR, scan to open Word doc, Microsoft document QR code, Office 365 link QR, SharePoint document QR, free Office 365 QR generator, business document QR code, Microsoft 365 file sharing QR, OneDrive link QR code, scan to download Office file, Office 365 for business QR, meeting notes QR code, corporate document QR, Office 365 classroom QR, Microsoft Teams QR code, SharePoint intranet QR, OneDrive folder QR code, QR code for Office documents, Office 365 PDF QR code, Word file share QR, Excel spreadsheet QR code, PowerPoint presentation QR code">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-office365.html">
+<meta property="og:title" content="Office 365 QR Code Generator — Share Word, Excel & SharePoint Instantly | ToolsBox">
+<meta property="og:description" content="Create QR codes for any Office 365 file — Word, Excel, PowerPoint, SharePoint & OneDrive. Scan to open instantly. 100% free, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-office365.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-office365.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Office 365 QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate QR codes for Word, Excel, PowerPoint, SharePoint & OneDrive. Scan to open Office files instantly. Free, no sign-up.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Office 365 QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-office365.html","description":"Free Office 365 QR code generator. Create scannable QR codes for Word, Excel, PowerPoint, SharePoint and OneDrive files to share documents instantly.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a QR code for an Office 365 document?","acceptedAnswer":{"@type":"Answer","text":"Open your document in Word Online, Excel Online, or PowerPoint Online. Click Share (top right), set permissions to 'Anyone with the link can view', copy the link, paste it into this generator, click Generate, and download as PNG or SVG. Anyone who scans the QR opens the file instantly."}},{"@type":"Question","name":"How do I get a shareable link from SharePoint?","acceptedAnswer":{"@type":"Answer","text":"In SharePoint, navigate to the file, click the three-dot menu (…) next to it, select Share, choose 'Anyone with the link can view', and copy the link. Paste this into the Office 365 QR generator above."}},{"@type":"Question","name":"How do I share a OneDrive file via QR code?","acceptedAnswer":{"@type":"Answer","text":"Open OneDrive, right-click your file, select Share, set link access to 'Anyone with the link', click Copy, and paste the link into this generator. The QR code will open the file directly in the browser or the OneDrive app when scanned."}},{"@type":"Question","name":"Does the Office 365 QR code expire?","acceptedAnswer":{"@type":"Answer","text":"The QR code image itself never expires — it's a static file. However, the sharing link inside it may expire if you set an expiry date in SharePoint or OneDrive sharing settings. For permanent QR codes, set no expiry date when creating the sharing link."}},{"@type":"Question","name":"Can I create a QR code that makes people download the Office file?","acceptedAnswer":{"@type":"Answer","text":"Yes. For OneDrive files, you can modify the sharing link by replacing '?e=...' at the end with '?download=1' to trigger a direct download. For SharePoint files, append '?web=0' to the link URL to force a download rather than opening in the browser."}},{"@type":"Question","name":"Will the QR code work if I update the Office 365 document?","acceptedAnswer":{"@type":"Answer","text":"Yes. The QR code links to the live document URL — not a snapshot. Editing, updating and revising the Word, Excel, or PowerPoint file does not affect the QR code. Every scan always shows the latest version of the document."}},{"@type":"Question","name":"Is my document content stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. This tool only encodes the document sharing URL into a QR image. It never accesses, reads, or stores the content of your Office 365 files. All QR generation happens entirely in your browser."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#0078d4;--acc-dark:#005a9e;--acc-dim:rgba(0,120,212,0.12);--acc-bdr:rgba(0,120,212,0.3);
+  --grn:#107c10;--grn-dim:rgba(16,124,16,0.12);--grn-bdr:rgba(16,124,16,0.3);
+  --red:#d13438;--red-dim:rgba(209,52,56,0.1);--red-bdr:rgba(209,52,56,0.28);
+  --word:#2b579a;--excel:#217346;--ppt:#d24726;--teams:#6264a7;--sp:#0078d4;--od:#094ab2;
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),var(--teams));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.compat-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.compat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+/* APP SELECTOR */
+.app-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.app-btn{padding:10px 8px;border-radius:9px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-family:var(--f);font-size:11px;font-weight:700;color:var(--txt2);transition:all .18s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
+.app-btn:hover{background:var(--surf3);border-color:var(--bdr2)}
+.app-btn.on{border-color:var(--app-c);background:rgba(var(--app-rgb),0.12);color:var(--app-c)}
+.app-btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.app-icon{font-size:20px}
+.app-name{font-size:10px;font-weight:700;letter-spacing:.05em}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:72px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+.warn-box{background:rgba(209,52,56,.08);border:1px solid rgba(209,52,56,.3);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.warn-box strong{color:var(--red)}
+.link-preview-text{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(0,120,212,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,120,212,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(0,120,212,.18);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:#2ea043;font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:#2ea043}.dl-copy:hover{background:rgba(16,124,16,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:#2ea043;font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+/* STATS */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+/* SECTIONS */
+.section-block{margin-top:52px}
+.section-block h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-block h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--teams))}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.app-selector{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}.app-selector{grid-template-columns:repeat(2,1fr)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Office 365 QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">🔷 Office 365 QR Code Generator</div>
+    <h1>Share Any <b>Office 365</b> File<br>With a Single Scan</h1>
+    <p class="sub">Create QR codes for Word, Excel, PowerPoint, SharePoint, OneDrive and Teams files. Colleagues and clients scan once — the file opens instantly. No email chains. 100% free, no sign-up required.</p>
+    <div class="compat-strip" role="list" aria-label="Compatible apps">
+      <span class="compat-badge" role="listitem">📝 Word Online</span>
+      <span class="compat-badge" role="listitem">📊 Excel Online</span>
+      <span class="compat-badge" role="listitem">📑 PowerPoint</span>
+      <span class="compat-badge" role="listitem">🗂️ SharePoint</span>
+      <span class="compat-badge" role="listitem">☁️ OneDrive</span>
+    </div>
+  </header>
+
+  <section aria-label="Office 365 QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title" id="card-title">📝 Word document details</span>
+          <span class="ch-badge" id="card-badge">WORD</span>
+        </div>
+        <div class="card-body">
+
+          <!-- APP SELECTOR -->
+          <div style="margin-bottom:6px"><label class="lbl">Select Microsoft App</label></div>
+          <div class="app-selector" role="group" aria-label="Select Office app">
+            <button class="app-btn on" id="app-word" onclick="setApp('word',this)" style="--app-c:#2b579a;--app-rgb:43,87,154" aria-pressed="true"><span class="app-icon">📝</span><span class="app-name">Word</span></button>
+            <button class="app-btn" id="app-excel" onclick="setApp('excel',this)" style="--app-c:#217346;--app-rgb:33,115,70" aria-pressed="false"><span class="app-icon">📊</span><span class="app-name">Excel</span></button>
+            <button class="app-btn" id="app-ppt" onclick="setApp('ppt',this)" style="--app-c:#d24726;--app-rgb:210,71,38" aria-pressed="false"><span class="app-icon">📑</span><span class="app-name">PowerPoint</span></button>
+            <button class="app-btn" id="app-sharepoint" onclick="setApp('sharepoint',this)" style="--app-c:#0078d4;--app-rgb:0,120,212" aria-pressed="false"><span class="app-icon">🗂️</span><span class="app-name">SharePoint</span></button>
+            <button class="app-btn" id="app-onedrive" onclick="setApp('onedrive',this)" style="--app-c:#094ab2;--app-rgb:9,74,178" aria-pressed="false"><span class="app-icon">☁️</span><span class="app-name">OneDrive</span></button>
+            <button class="app-btn" id="app-teams" onclick="setApp('teams',this)" style="--app-c:#6264a7;--app-rgb:98,100,167" aria-pressed="false"><span class="app-icon">💬</span><span class="app-name">Teams</span></button>
+          </div>
+
+          <div class="mode-tabs" role="tablist" aria-label="Link type">
+            <button class="mtab on" id="tab-view" onclick="setMode('view')" role="tab" aria-selected="true">👁️ View</button>
+            <button class="mtab" id="tab-edit" onclick="setMode('edit')" role="tab" aria-selected="false">✏️ Edit</button>
+            <button class="mtab" id="tab-download" onclick="setMode('download')" role="tab" aria-selected="false">📥 Download</button>
+          </div>
+
+          <!-- VIEW -->
+          <div id="form-view" role="tabpanel">
+            <div class="info-box" id="info-view">
+              <strong>How to get your link:</strong> Open the file in <strong>Office Online</strong> → Click <strong>Share</strong> (top right) → Set to <strong>"Anyone with link can view"</strong> → Copy link.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="o365-url-view">Office 365 Sharing Link</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🔗</span>
+                <input type="url" id="o365-url-view" class="inp has-icon" placeholder="https://onedrive.live.com/..." oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+              <span style="font-size:11px;color:var(--txt3);margin-top:4px" id="view-hint">Copy the sharing link from your Office 365 app and paste it above</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="o365-title-view">Document Title (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="o365-title-view" class="inp has-icon" placeholder="e.g. Q4 Financial Report" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT -->
+          <div id="form-edit" role="tabpanel" style="display:none">
+            <div class="warn-box">
+              <strong>⚠ Caution:</strong> This QR grants <strong style="color:var(--red)">edit access</strong> to anyone who scans it. Only share with trusted colleagues. Set sharing to "Anyone with link can edit" in Office 365.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="o365-url-edit">Office 365 Edit Link</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">✏️</span>
+                <input type="url" id="o365-url-edit" class="inp has-icon" placeholder="https://1drv.ms/..." oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="o365-title-edit">Document Title (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="o365-title-edit" class="inp has-icon" placeholder="e.g. Team Budget 2025" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <!-- DOWNLOAD -->
+          <div id="form-download" role="tabpanel" style="display:none">
+            <div class="info-box">
+              <strong>Best for:</strong> Sharing files that recipients should save locally. Scanning triggers a <strong>direct download</strong> of the Office file to the user's device.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="o365-url-dl">OneDrive / SharePoint Download Link</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📥</span>
+                <input type="url" id="o365-url-dl" class="inp has-icon" placeholder="https://onedrive.live.com/download?..." oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+              <span style="font-size:11px;color:var(--txt3);margin-top:4px">For OneDrive: change the sharing link to end with <strong>?download=1</strong>. For SharePoint: append <strong>?web=0</strong> to the file URL.</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="o365-title-dl">File Name (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">🏷️</span>
+                <input type="text" id="o365-title-dl" class="inp has-icon" placeholder="e.g. Employee Handbook 2025.docx" oninput="autoGenerate()">
+              </div>
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" id="gen-btn" onclick="generateQR()" aria-label="Generate Office 365 QR Code">⚡ Generate Office 365 QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Colour Presets</label><div class="preset-row">
+            <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+            <button class="pr-btn" onclick="preset('#0078d4','#e8f2fc');autoGenerate()" aria-label="Microsoft Blue"><span class="pr-dot" style="background:#0078d4"></span>MS Blue</button>
+            <button class="pr-btn" onclick="preset('#2b579a','#e8eef7');autoGenerate()" aria-label="Word Blue"><span class="pr-dot" style="background:#2b579a"></span>Word</button>
+            <button class="pr-btn" onclick="preset('#217346','#e8f4ed');autoGenerate()" aria-label="Excel Green"><span class="pr-dot" style="background:#217346"></span>Excel</button>
+            <button class="pr-btn" onclick="preset('#d24726','#fceae6');autoGenerate()" aria-label="PowerPoint"><span class="pr-dot" style="background:#d24726"></span>PPT</button>
+            <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+          </div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Size — <span id="sz-label">300×300</span></label><div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR size"></div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Error Correction</label><div class="ec-row" role="group" aria-label="Error correction level">
+            <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+            <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+            <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+            <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+          </div></div>
+          <div class="fld"><label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev"><img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span><button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🔷</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta"><span class="qm-type" id="qm-type">Office 365 QR</span><span class="qm-info" id="qm-info">—</span></div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Set sharing to "Anyone with link" before generating</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Download mode for files recipients should save</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with a logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — scales to any size</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test on both iPhone and Android before distributing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box">
+    <h3>📊 Office 365 & Document Sharing By the Numbers</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">345M</div><div class="stat-label">monthly active Microsoft 365 users sharing documents across organisations</div></div>
+      <div class="stat-item"><div class="stat-num">68%</div><div class="stat-label">of employees struggle to find the right document version when it's shared via email</div></div>
+      <div class="stat-item"><div class="stat-num">5×</div><div class="stat-label">faster file access via QR code scan vs. email link sharing in meetings and events</div></div>
+      <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">cost to create an Office 365 QR code and share any file with anyone instantly</div></div>
+    </div>
+  </div>
+
+  <section class="section-block">
+    <h2>📖 How to Create an Office 365 QR Code in <span>5 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Open Your File in Office 365</div><div class="step-desc">Navigate to your Word, Excel, or PowerPoint file in OneDrive, SharePoint, or Teams. Open it in the browser (Office Online) — not just on your desktop app.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Create a Sharing Link</div><div class="step-desc">Click the Share button (top right corner). Set access to "Anyone with the link can view". Copy the sharing link that appears. For SharePoint: use the three-dot menu → Share.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Select App & Mode</div><div class="step-desc">Choose the Office app (Word, Excel, PowerPoint, SharePoint, OneDrive, or Teams) and the link mode (View, Edit, or Download) in the generator above. Paste your sharing link.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Generate & Customise</div><div class="step-desc">Click Generate. Customise colours to match your brand (use the app's brand colour preset for instant recognition), add your company logo, adjust the size for your use case.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-title">Download & Distribute</div><div class="step-desc">Download as SVG for print materials or PNG for digital. Add to presentation slides, handouts, meeting agendas, training materials, or display screens. Test scan before bulk printing.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-title">Update Content Anytime</div><div class="step-desc">The QR links to the live file URL — not a snapshot. Edit, update and revise the document in Office 365 at any time. The same QR always shows the latest file version.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>💼 Use Cases for Office 365 QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon">📢</span><div class="uc-title">Conference Presentations</div><div class="uc-desc">Display a QR on your last slide. Attendees scan to download the presentation, access speaker notes, or view supplementary Excel data directly on their device.</div></div>
+      <div class="use-card"><span class="uc-icon">🏢</span><div class="uc-title">Office Notice Boards</div><div class="uc-desc">Print QR codes linking to HR policies, office manuals, health & safety documents, or onboarding guides stored in SharePoint. Always shows the latest version.</div></div>
+      <div class="use-card"><span class="uc-icon">🎓</span><div class="uc-title">Corporate Training</div><div class="uc-desc">Give each training module a QR code linking to its materials. Participants scan to access Word guides, Excel workbooks, or PowerPoint slides without email distribution.</div></div>
+      <div class="use-card"><span class="uc-icon">🤝</span><div class="uc-title">Client Meetings</div><div class="uc-desc">Print a QR on your proposal cover page. Clients scan to access the full Excel pricing model or Word annexures on their phone while reviewing the printed summary.</div></div>
+      <div class="use-card"><span class="uc-icon">📦</span><div class="uc-title">Product Manuals</div><div class="uc-desc">Attach a QR sticker to products linking to Word setup guides or Excel specifications stored in SharePoint. No printing, no outdated paper docs, always current.</div></div>
+      <div class="use-card"><span class="uc-icon">🧾</span><div class="uc-title">Invoice Templates</div><div class="uc-desc">Create a QR linking to your Excel invoice template in OneDrive. Clients or vendors scan to download the correct template without emailing back and forth.</div></div>
+      <div class="use-card"><span class="uc-icon">💬</span><div class="uc-title">Teams Channels</div><div class="uc-desc">Generate a QR linking directly to a Teams channel. Print it in meeting rooms or shared spaces so team members can join the right channel with a single scan.</div></div>
+      <div class="use-card"><span class="uc-icon">🗂️</span><div class="uc-title">SharePoint Intranet</div><div class="uc-desc">Create QR codes for key SharePoint pages — department portals, project sites, document libraries. Display in offices for quick mobile access without typing long URLs.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🚀 6 Benefits of Office 365 QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon">🔄</span><div class="bn-title">Always Current Content</div><div class="bn-desc">The QR links to the live Office 365 file. Update the document — every scan shows the latest version automatically. No reprinting QR codes when content changes.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🌳</span><div class="bn-title">Paperless Distribution</div><div class="bn-desc">Replace printed handouts with a single QR code on screen or a cover sheet. Eliminate outdated distributed copies, printing costs, and version confusion.</div></div>
+      <div class="benefit-card"><span class="bn-icon">⚡</span><div class="bn-title">Instant File Access</div><div class="bn-desc">No email threading, no OneDrive navigation — one scan and the file opens on any device in the Office app or browser. Ideal for meetings and training sessions.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🎨</span><div class="bn-title">App-Branded QR Codes</div><div class="bn-desc">Use the Word blue, Excel green, or PowerPoint orange colour presets. Recipients instantly know what type of file they're scanning — before they even open it.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🔒</span><div class="bn-title">Microsoft Security</div><div class="bn-desc">All access is controlled through Microsoft 365's built-in security — expiry dates, conditional access, and permission scopes. Revoke access anytime without changing the QR code.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📱</span><div class="bn-title">Works on Any Device</div><div class="bn-desc">Recipients scan with their phone camera — no app download needed. The file opens in the browser or the Office mobile app if installed. Works on iOS and Android.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-google-doc.html" class="rel-card"><span class="rel-icon">📄</span><div class="rel-info"><div class="rel-title">Google Doc QR</div><div class="rel-desc">Share Google Docs</div></div></a>
+      <a href="qr-google-sheets.html" class="rel-card"><span class="rel-icon">📊</span><div class="rel-info"><div class="rel-title">Google Sheets QR</div><div class="rel-desc">Share spreadsheets</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-booking.html" class="rel-card"><span class="rel-icon">📅</span><div class="rel-info"><div class="rel-title">Booking QR</div><div class="rel-desc">Appointment links</div></div></a>
+      <a href="qr-attendance.html" class="rel-card"><span class="rel-icon">✅</span><div class="rel-info"><div class="rel-title">Attendance QR</div><div class="rel-desc">Check-in tracking</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-ticket.html" class="rel-card"><span class="rel-icon">🎟️</span><div class="rel-info"><div class="rel-title">Ticket QR</div><div class="rel-desc">Event entry codes</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide to Sharing Office 365 Files with QR Codes</h2>
+    <p>Microsoft Office 365 has become the default document platform for enterprises worldwide — Word for reports, Excel for data, PowerPoint for presentations, SharePoint for intranets, and OneDrive for personal storage. But sharing these files still often involves email chains, Teams messages, or lengthy SharePoint URLs that are impossible to type on mobile. A QR code eliminates all of that friction.</p>
+    <h3>Getting Sharing Links from Each Microsoft 365 App</h3>
+    <p><strong>OneDrive & Word/Excel/PowerPoint Online:</strong> Open the file, click Share (top right), select "Anyone with the link can view", and copy. This gives you a short 1drv.ms link that is ideal for QR codes — concise and reliable.</p>
+    <p><strong>SharePoint:</strong> Navigate to the file in your document library, click the three-dot (…) menu beside the filename, choose Share, set permission level, and copy the link. SharePoint links are longer but work perfectly in QR codes — the QR encoder handles any URL length.</p>
+    <p><strong>Microsoft Teams:</strong> In a channel, click the three-dot menu on a file, choose "Copy link" to get a direct link to the file in Teams. You can also share the channel link directly from the channel's ellipsis menu for a QR that joins a specific channel.</p>
+    <h3>Choosing the Right Mode for Your Use Case</h3>
+    <p>View mode is the safest and most broadly applicable. It opens the file in Office Online read-only — ideal for handouts, reference documents, policies, and presentations. Edit mode is for collaborative workflows — use it in team workshops or co-authoring sessions where everyone needs to contribute. Download mode forces the file onto the recipient's device — ideal for templates, forms, and certified documents that should be saved locally.</p>
+    <h3>Pro Tips for Office 365 QR Codes</h3>
+    <ul>
+      <li><strong>Use app brand colours:</strong> A Word-blue QR or Excel-green QR is instantly recognisable. Recipients know what they're scanning before they even open it. Use the colour presets in the Customise panel.</li>
+      <li><strong>Add expiry dates in SharePoint:</strong> For sensitive documents, set a link expiry date in SharePoint sharing settings. The QR code remains the same — but the link inside stops working after the expiry date automatically.</li>
+      <li><strong>Shorten SharePoint URLs first:</strong> SharePoint links can be very long. Use Microsoft's built-in shortener (the 1drv.ms format appears automatically when sharing from OneDrive) or a URL shortener before generating to keep the QR code simpler and more scannable.</li>
+      <li><strong>Test on both iOS and Android:</strong> Office 365 files behave slightly differently on iOS (opens in Office app if installed) vs. Android (may prompt for app or browser). Test your QR on both before distributing at a large event.</li>
+      <li><strong>Never share QR codes with edit access publicly:</strong> Treat edit-mode QR codes like an open door to your document. Only use them within a trusted team, and revoke access after the session if needed.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I create a QR code for an Office 365 file?<span class="fq-icon">+</span></div><div class="fa">Open the file in Office Online, click Share, set access to "Anyone with the link can view", copy the link, select the app and mode in this generator, paste the link, click Generate and download. Total time: under 60 seconds.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Will the QR code work if I edit the Office file?<span class="fq-icon">+</span></div><div class="fa">Yes. The QR encodes the file's URL — not its content. Edit, update and revise your Word, Excel or PowerPoint file as many times as you like. Every scan shows the latest saved version. The QR code never needs to be regenerated when content changes.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I get a download link from OneDrive?<span class="fq-icon">+</span></div><div class="fa">Right-click the file in OneDrive, select Share, copy the sharing link, then change the end of the URL from "?e=..." to "?download=1". This turns the sharing link into a direct download trigger. Paste the modified URL into the Download mode field above.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the Office 365 QR code expire?<span class="fq-icon">+</span></div><div class="fa">The QR image itself never expires. However, the sharing link inside it may expire if you set an expiry date in SharePoint or OneDrive sharing settings. For permanent QR codes, set "No expiry" when creating the sharing link. For temporary access, set a specific expiry date.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I revoke access without reprinting the QR code?<span class="fq-icon">+</span></div><div class="fa">Yes. Go to the file in OneDrive or SharePoint, click Share → Manage access, and remove or change the link permissions. Anyone who scans the QR after this change will see an access denied message. The QR image stays the same — only the server-side permission changes.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Will the file open in the Office app or the browser?<span class="fq-icon">+</span></div><div class="fa">It depends on the device. On iOS, if the Office app is installed and the link is from OneDrive or SharePoint, the file may open in the app. On Android, it typically opens in the browser (Office Online). For a consistent browser experience, use OneDrive/SharePoint sharing links — they open reliably in the browser across all devices.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my document content stored on your servers?<span class="fq-icon">+</span></div><div class="fa">No. This tool only encodes the document URL into a QR image. It never accesses, reads, or stores your Office 365 files. All QR generation happens entirely in your browser using JavaScript. Your data stays in Microsoft's cloud, not ours.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">🔷 Microsoft QR Codes</div><ul class="fl"><li><a href="qr-office365.html">🔷 Office 365 QR</a></li><li><a href="qr-google-doc.html">📄 Google Doc QR</a></li><li><a href="qr-google-sheets.html">📊 Google Sheets QR</a></li><li><a href="qr-url.html">🔗 URL QR Code</a></li></ul></div>
+    <div><div class="fct">🏢 Business QR Codes</div><ul class="fl"><li><a href="qr-google-review.html">⭐ Google Review QR</a></li><li><a href="qr-booking.html">📅 Booking QR</a></li><li><a href="qr-attendance.html">✅ Attendance QR</a></li><li><a href="qr-ticket.html">🎟️ Ticket QR</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">GST Calculator</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'view', APP = 'word';
+
+const APP_META = {
+  word:       { name: 'Word Document',      badge: 'WORD',       icon: '📝', color: '#2b579a' },
+  excel:      { name: 'Excel Spreadsheet',  badge: 'EXCEL',      icon: '📊', color: '#217346' },
+  ppt:        { name: 'PowerPoint',         badge: 'POWERPOINT', icon: '📑', color: '#d24726' },
+  sharepoint: { name: 'SharePoint Page',    badge: 'SHAREPOINT', icon: '🗂️', color: '#0078d4' },
+  onedrive:   { name: 'OneDrive File',      badge: 'ONEDRIVE',   icon: '☁️', color: '#094ab2' },
+  teams:      { name: 'Teams Channel',      badge: 'TEAMS',      icon: '💬', color: '#6264a7' }
+};
+
+const INFO_TEXTS = {
+  word:       'Open your <strong>Word Online</strong> document → <strong>Share</strong> → set to "Anyone with the link can view" → Copy link.',
+  excel:      'Open your <strong>Excel Online</strong> spreadsheet → <strong>Share</strong> → "Anyone with the link" → Copy link.',
+  ppt:        'Open your <strong>PowerPoint Online</strong> file → <strong>Share</strong> → "Anyone with the link can view" → Copy link.',
+  sharepoint: 'In <strong>SharePoint</strong>, click the (…) menu on the file → <strong>Share</strong> → "Anyone with the link" → Copy link.',
+  onedrive:   'In <strong>OneDrive</strong>, right-click the file → <strong>Share</strong> → "Anyone with the link can view" → Copy link.',
+  teams:      'In <strong>Teams</strong>, click (…) on a file → Copy Link, or copy the channel link from the channel ellipsis menu.'
+};
+
+const PLACEHOLDERS = {
+  word:       'https://1drv.ms/w/...',
+  excel:      'https://1drv.ms/x/...',
+  ppt:        'https://1drv.ms/p/...',
+  sharepoint: 'https://yourtenant.sharepoint.com/:f:/...',
+  onedrive:   'https://onedrive.live.com/?...',
+  teams:      'https://teams.microsoft.com/l/channel/...'
+};
+
+function setApp(app, btn) {
+  APP = app;
+  document.querySelectorAll('.app-btn').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true');
+  const meta = APP_META[app];
+  document.getElementById('card-title').textContent = meta.icon + ' ' + meta.name + ' details';
+  document.getElementById('card-badge').textContent = meta.badge;
+  if (document.getElementById('info-view')) {
+    document.getElementById('info-view').innerHTML = '<strong>How to get your link:</strong> ' + INFO_TEXTS[app];
+  }
+  ['view','edit','download'].forEach(m => {
+    const inp = document.getElementById('o365-url-' + (m === 'download' ? 'dl' : m));
+    if (inp) inp.placeholder = PLACEHOLDERS[app];
+  });
+  hideErr(); livePreview(); autoGenerate();
+}
+
+function setMode(m) {
+  MODE = m;
+  ['view','edit','download'].forEach(id => {
+    document.getElementById('tab-' + id).classList.toggle('on', id === m);
+    document.getElementById('tab-' + id).setAttribute('aria-selected', id === m);
+    document.getElementById('form-' + id).style.display = id === m ? '' : 'none';
+  });
+  hideErr(); livePreview(); autoGenerate();
+}
+
+function getInputId() {
+  if (MODE === 'view') return 'o365-url-view';
+  if (MODE === 'edit') return 'o365-url-edit';
+  return 'o365-url-dl';
+}
+
+function buildUrl() {
+  const url = document.getElementById(getInputId()).value.trim();
+  if (!url) throw new Error('Please paste your Office 365 sharing link.');
+  if (!/^https?:\/\//i.test(url)) throw new Error('Please enter a valid URL starting with https://');
+  return url;
+}
+
+function livePreview() {
+  try {
+    const url = buildUrl();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    const short = url.length > 80 ? url.substring(0, 80) + '…' : url;
+    el.innerHTML = 'Will link to: <strong>' + escHtml(short) + '</strong>';
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try { data = buildUrl(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value, bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: fg, light: bg }, errorCorrectionLevel: EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const meta = APP_META[APP];
+    const modeLabel = { view: 'View', edit: 'Edit', download: 'Download' }[MODE];
+    document.getElementById('qm-type').textContent = meta.icon + ' ' + meta.name + ' QR';
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to ' + modeLabel.toLowerCase() + ' file';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d'), ms = Math.floor(canvas.width * .22), img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms; const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill(); ctx.drawImage(img, x, y, w, h); resolve();
+    };
+    img.onerror = () => resolve(); img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => { if (document.getElementById(getInputId()).value.trim()) generateQR(); }, 400);
+  livePreview();
+}
+function escHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function dlPNG() { const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; } const a = document.createElement('a'); a.download = 'office365-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click(); }
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300, d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Office 365 QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' }); const a = document.createElement('a'); a.download = 'office365-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); flashButton('cp-btn', '✓ Copied!'); }
+  catch(e) { alert('Right-click QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) { try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); const file = new File([blob], 'office365-qr.png', { type: 'image/png' }); await navigator.share({ title: 'Office 365 QR Code', files: [file] }); } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported.'); } }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {} }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Office 365 QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Office 365 QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['o365-url-view','o365-title-view','o365-url-edit','o365-title-edit','o365-url-dl','o365-title-dl'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">🔷</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—'; document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none'; rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body'), hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide'); hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) { EC = ec; document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); }); btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); }
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { currentLogoBase64 = e.target.result; document.getElementById('logo-img').src = currentLogoBase64; document.getElementById('logo-name').textContent = f.name; document.getElementById('logo-prev').style.display = 'flex'; setEC('H', document.querySelector('.ec-p[data-ec="H"]')); autoGenerate(); };
+  reader.readAsDataURL(f);
+}
+function rmLogo() { currentLogoBase64 = null; document.getElementById('logo-inp').value = ''; document.getElementById('logo-prev').style.display = 'none'; document.getElementById('logo-img').src = ''; autoGenerate(); }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement, open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+}
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => { const o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o); const s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(4px,4px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)'; } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+  document.addEventListener('click', e => { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+})();
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) { const dt = new DataTransfer(); dt.items.add(f); document.getElementById('logo-inp').files = dt.files; handleLogo(document.getElementById('logo-inp')); } });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+window.addEventListener('load', () => {
+  document.getElementById('o365-url-view').value = 'https://1drv.ms/w/s!YOUR_WORD_DOC_SHARE_LINK';
+  livePreview(); generateQR();
+});
+</script>
+</body>
+</html>

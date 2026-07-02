@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email QR Code Generator — Send Pre-filled Emails With One Scan | ToolsBox</title>
+<meta name="description" content="Free email QR code generator. Create a QR code that opens a pre-filled email with To, Subject & Body. Scan to email instantly. Custom colors, logo. No sign-up required.">
+<meta name="keywords" content="email QR code generator, mailto QR code, scan to email QR code, pre-filled email QR, QR code for email, free email QR generator, email link QR code, scan to send email, QR code email template, business email QR code, contact email QR, QR code mailto link, email address QR code, support email QR code, customer service QR email, email marketing QR code, feedback email QR code, inquiry email QR, quote request email QR, job application QR email, newsletter signup QR, email opt-in QR code, scan to contact QR, email button QR code, pre-composed email QR, QR for email campaigns, email QR for business cards, email QR for flyers, event email QR code, QR code email shortcut">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-email.html">
+<meta property="og:title" content="Email QR Code Generator — Send Pre-filled Emails Instantly | ToolsBox">
+<meta property="og:description" content="Create a QR code that opens a pre-filled email with subject & body. Scan to email in one tap. Free, custom colors, no sign-up.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-email.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-email.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Email QR Code Generator — Free | ToolsBox">
+<meta name="twitter:description" content="Generate a QR code for pre-filled emails. Scan to send. Free, no sign-up required.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Email QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-email.html","description":"Free email QR code generator. Create scannable QR codes using the mailto URI scheme that open pre-filled emails with To, Subject and Body fields.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does an email QR code work?","acceptedAnswer":{"@type":"Answer","text":"An email QR code encodes a mailto: link with the recipient address, subject and body pre-filled. When someone scans the QR, their phone opens the default email app with all fields already populated. They just tap Send — no typing required."}},{"@type":"Question","name":"What email apps support mailto QR codes?","acceptedAnswer":{"@type":"Answer","text":"All major email apps support mailto: links including Apple Mail, Gmail (iOS and Android), Outlook, Samsung Email, Yahoo Mail and virtually every other email client. The phone's default email app opens automatically when the QR is scanned."}},{"@type":"Question","name":"Can I pre-fill the email body with the QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter your email body text in the Message Body field. When the QR is scanned, the email app opens with your body text pre-filled. The recipient can read and edit it before sending. This is ideal for feedback forms, inquiries, support requests and quotes."}},{"@type":"Question","name":"Can I add CC and BCC fields to the email QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. The advanced mode includes CC (carbon copy) and BCC (blind carbon copy) fields. These are encoded using the mailto: URI format: mailto:to@email.com?cc=cc@email.com&bcc=bcc@email.com&subject=Subject&body=Body."}},{"@type":"Question","name":"Does the email QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. The QR code image never expires. The mailto: link inside it is a standard protocol that works as long as email exists. No servers, no subscriptions, no expiry dates — just a static QR image that works forever."}},{"@type":"Question","name":"Where should I display my email QR code?","acceptedAnswer":{"@type":"Answer","text":"Best locations: business cards, printed marketing materials, product packaging, trade show displays, conference materials, posters, website contact pages, email signatures, and any physical touchpoint where you want people to quickly contact you via email."}},{"@type":"Question","name":"Is my email address stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser. Your email address, subject and body text never leave your device — never sent to any server, never stored, never tracked."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#ea580c;--acc-dark:#c2410c;--acc-dim:rgba(234,88,12,0.1);--acc-bdr:rgba(234,88,12,0.28);
+  --grn:#22c55e;--grn-dim:rgba(34,197,94,0.1);--grn-bdr:rgba(34,197,94,0.28);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.1);--red-bdr:rgba(239,68,68,0.28);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#db2777);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}.bc a:hover{color:var(--txt2)}
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.compat-strip{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.compat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:100px;line-height:1.6}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+.inp-icon.top{top:14px;transform:none}
+.char-count{font-size:10px;color:var(--txt3);text-align:right;margin-top:3px}
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+/* MAILTO PREVIEW */
+.mailto-preview{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.mailto-preview strong{color:var(--acc)}
+/* TEMPLATE PILLS */
+.tpl-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tpl-btn{padding:5px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.tpl-btn:hover{background:var(--surf3);color:var(--txt);border-color:var(--acc)}
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(234,88,12,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(234,88,12,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(234,88,12,.15);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}.dl-copy:hover{background:rgba(34,197,94,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+.section-block{margin-top:52px}
+.section-block h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.section-block h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),#db2777)}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px;margin-top:10px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5NYSSB79NH');
+</script>
+</head>
+<body>
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="qr-code-index.html">QR Codes</a><span>›</span>
+    <span aria-current="page">Email QR Code Generator</span>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">✉️ Email QR Code Generator</div>
+    <h1>Send <b>Pre-filled Emails</b><br>With One Scan</h1>
+    <p class="sub">Create a QR code that opens a pre-filled email with To, Subject and Body already typed. Customers scan and send in one tap — no typing, no address errors, no friction. 100% free, no sign-up required.</p>
+    <div class="compat-strip" role="list" aria-label="Compatible email apps">
+      <span class="compat-badge" role="listitem">📧 Gmail</span>
+      <span class="compat-badge" role="listitem">🍎 Apple Mail</span>
+      <span class="compat-badge" role="listitem">🪟 Outlook</span>
+      <span class="compat-badge" role="listitem">📱 All Email Apps</span>
+    </div>
+  </header>
+
+  <section aria-label="Email QR Code Generator Tool">
+  <div class="tool-grid">
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">✉️ Email details</span>
+          <span class="ch-badge">EMAIL QR</span>
+        </div>
+        <div class="card-body">
+
+          <div class="mode-tabs" role="tablist" aria-label="Email mode">
+            <button class="mtab on" id="tab-simple" onclick="setMode('simple')" role="tab" aria-selected="true">✉️ Simple</button>
+            <button class="mtab" id="tab-advanced" onclick="setMode('advanced')" role="tab" aria-selected="false">⚙️ Advanced</button>
+            <button class="mtab" id="tab-template" onclick="setMode('template')" role="tab" aria-selected="false">📋 Templates</button>
+          </div>
+
+          <!-- SIMPLE MODE -->
+          <div id="form-simple">
+            <div class="fld">
+              <label class="lbl lbl-req" for="email-to">To (Recipient Email)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📧</span>
+                <input type="email" id="email-to" class="inp has-icon" placeholder="contact@yourcompany.com" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="email-to-hint">
+              </div>
+              <span id="email-to-hint" style="font-size:11px;color:var(--txt3);margin-top:3px">The email address that will receive the email when scanned</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="email-subject">Subject Line (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📌</span>
+                <input type="text" id="email-subject" class="inp has-icon" placeholder="e.g. Enquiry, Support Request, Quote Request" oninput="autoGenerate()" maxlength="200">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="email-body">Message Body (optional)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon top" aria-hidden="true">📝</span>
+                <textarea id="email-body" class="inp has-icon" placeholder="Hi, I'd like to enquire about..." oninput="autoGenerate();updCount()" rows="4" maxlength="2000"></textarea>
+              </div>
+              <div class="char-count"><span id="body-count">0</span> / 2000 characters</div>
+            </div>
+          </div>
+
+          <!-- ADVANCED MODE -->
+          <div id="form-advanced" style="display:none">
+            <div class="info-box">
+              <strong>Advanced mode:</strong> Add CC and BCC recipients for team emails, support tickets or campaign monitoring. All fields are encoded in the mailto: URI.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="adv-to">To (Required)</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📧</span>
+                <input type="email" id="adv-to" class="inp has-icon" placeholder="contact@yourcompany.com" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="r2">
+              <div class="fld">
+                <label class="lbl" for="adv-cc">CC (optional)</label>
+                <div class="inp-wrap">
+                  <span class="inp-icon" aria-hidden="true">👤</span>
+                  <input type="email" id="adv-cc" class="inp has-icon" placeholder="cc@company.com" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+                </div>
+              </div>
+              <div class="fld">
+                <label class="lbl" for="adv-bcc">BCC (optional)</label>
+                <div class="inp-wrap">
+                  <span class="inp-icon" aria-hidden="true">🔒</span>
+                  <input type="email" id="adv-bcc" class="inp has-icon" placeholder="bcc@company.com" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+                </div>
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="adv-subject">Subject</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📌</span>
+                <input type="text" id="adv-subject" class="inp has-icon" placeholder="e.g. New Lead, Support Ticket, Feedback" oninput="autoGenerate()" maxlength="200">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="adv-body">Message Body</label>
+              <div class="inp-wrap">
+                <span class="inp-icon top" aria-hidden="true">📝</span>
+                <textarea id="adv-body" class="inp has-icon" placeholder="Pre-fill the email body for your customers..." oninput="autoGenerate();updCount()" rows="4" maxlength="2000"></textarea>
+              </div>
+              <div class="char-count"><span id="adv-body-count">0</span> / 2000 characters</div>
+            </div>
+          </div>
+
+          <!-- TEMPLATE MODE -->
+          <div id="form-template" style="display:none">
+            <div class="fld">
+              <label class="lbl lbl-req" for="tpl-to">To Email Address</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📧</span>
+                <input type="email" id="tpl-to" class="inp has-icon" placeholder="your@email.com" oninput="autoGenerate()" autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl">Quick Templates</label>
+              <div class="tpl-row">
+                <button class="tpl-btn" onclick="applyTemplate('enquiry')" aria-label="General enquiry template">📋 Enquiry</button>
+                <button class="tpl-btn" onclick="applyTemplate('support')" aria-label="Support request template">🆘 Support</button>
+                <button class="tpl-btn" onclick="applyTemplate('quote')" aria-label="Quote request template">💰 Quote</button>
+                <button class="tpl-btn" onclick="applyTemplate('feedback')" aria-label="Feedback template">⭐ Feedback</button>
+                <button class="tpl-btn" onclick="applyTemplate('callback')" aria-label="Call back request template">📞 Call Back</button>
+                <button class="tpl-btn" onclick="applyTemplate('job')" aria-label="Job application template">💼 Job Apply</button>
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tpl-subject">Subject</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📌</span>
+                <input type="text" id="tpl-subject" class="inp has-icon" placeholder="Subject will appear here after choosing a template" oninput="autoGenerate()">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="tpl-body">Message Body</label>
+              <div class="inp-wrap">
+                <span class="inp-icon top" aria-hidden="true">📝</span>
+                <textarea id="tpl-body" class="inp has-icon" placeholder="Template text will appear here after choosing a template above..." oninput="autoGenerate()" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="mailto-preview" id="mailto-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate Email QR Code">✉️ Generate Email QR Code</button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld"><label class="lbl">QR Color</label><div class="color-row"><input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR color"><input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR hex color"></div></div>
+            <div class="fld"><label class="lbl">Background</label><div class="color-row"><input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="Background color"><input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color"></div></div>
+          </div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Colour Presets</label><div class="preset-row">
+            <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+            <button class="pr-btn" onclick="preset('#ea4335','#fde8e7');autoGenerate()" aria-label="Gmail Red"><span class="pr-dot" style="background:#ea4335"></span>Gmail</button>
+            <button class="pr-btn" onclick="preset('#ea580c','#fff7ed');autoGenerate()" aria-label="Orange"><span class="pr-dot" style="background:#ea580c"></span>Orange</button>
+            <button class="pr-btn" onclick="preset('#0078d4','#e6f2fb');autoGenerate()" aria-label="Outlook Blue"><span class="pr-dot" style="background:#0078d4"></span>Outlook</button>
+            <button class="pr-btn" onclick="preset('#7c3aed','#f5f3ff');autoGenerate()" aria-label="Purple"><span class="pr-dot" style="background:#7c3aed"></span>Purple</button>
+            <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+          </div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Size — <span id="sz-label">300×300</span></label><div class="range-row"><input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR size"></div></div>
+          <div class="fld" style="margin-bottom:14px"><label class="lbl">Error Correction</label><div class="ec-row" role="group" aria-label="Error correction level">
+            <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+            <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+            <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+            <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+          </div></div>
+          <div class="fld"><label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo">
+            </div>
+            <div class="logo-prev" id="logo-prev"><img id="logo-img" src="" alt="Logo preview"><span id="logo-name"></span><button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out"><div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">✉️</span><span class="qr-ph-txt">QR code appears here</span></div></div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta"><span class="qm-type" id="qm-type">Email QR Code</span><span class="qm-info" id="qm-info">—</span></div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Keep the body short — long text makes larger QR codes</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Templates mode for common business email types</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Add your company logo at the QR centre</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for sharp, scalable print output</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test by scanning with your own phone first</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="stats-box">
+    <h3>📊 Email & Business Communication Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">4.7B</div><div class="stat-label">global email users — more people use email than any other communication platform</div></div>
+      <div class="stat-item"><div class="stat-num">347B</div><div class="stat-label">emails sent and received every single day across all users and platforms worldwide</div></div>
+      <div class="stat-item"><div class="stat-num">64%</div><div class="stat-label">of businesses use email as their primary customer communication channel in 2025</div></div>
+      <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">cost to create an email QR code and receive perfect, pre-formatted emails every time</div></div>
+    </div>
+  </div>
+
+  <section class="section-block">
+    <h2>📖 How to Create an Email QR Code in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Enter Your Email Address</div><div class="step-desc">Type the email address where you want to receive messages. This is the "To" field in the mailto: link — the email address that will receive every message scanned from this QR code.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Add Subject & Body</div><div class="step-desc">Enter a pre-filled subject line (e.g. "Product Enquiry") and optional body text. Customers see these pre-filled when their email app opens — they can edit or just tap Send.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">Customise Your QR</div><div class="step-desc">Match your brand colours, upload your company logo for the QR centre, and adjust the size. Download SVG for high-quality print or PNG for digital use.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Place on Materials</div><div class="step-desc">Add to business cards, brochures, posters, product packaging, and any print material. When someone scans, their email app opens with your pre-filled message ready to send.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-title">Receive Structured Emails</div><div class="step-desc">Every message arrives with the same subject and format — making emails easy to filter, label and action in your inbox. Far more organised than a generic "contact us" button.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-title">Update Without Reprinting</div><div class="step-desc">If your email address changes, regenerate the QR code with the new address. Use a short tracking link to your email (via a redirect) for maximum flexibility without reprinting.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>💼 Use Cases for Email QR Codes</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon">🪪</span><div class="uc-title">Business Cards</div><div class="uc-desc">Add an email QR to your business card. New contacts scan to send you an email with their details pre-formatted — no typing your long email address, no copy errors.</div></div>
+      <div class="use-card"><span class="uc-icon">🆘</span><div class="uc-title">Customer Support</div><div class="uc-desc">Print a support QR on packaging and manuals. Customers scan to open a support email with subject "Support Request" and their product name pre-filled. Reduces wrong-inbox queries.</div></div>
+      <div class="use-card"><span class="uc-icon">💰</span><div class="uc-title">Quote Requests</div><div class="uc-desc">Trade professionals and service businesses add a "Request Quote" email QR on flyers, vans and site boards. Prospects scan to send a pre-formatted quote request in seconds.</div></div>
+      <div class="use-card"><span class="uc-icon">⭐</span><div class="uc-title">Feedback Collection</div><div class="uc-desc">Restaurants, hotels and retailers add a feedback email QR on receipts and tables. Customers scan to send feedback directly — more private and thoughtful than a public review.</div></div>
+      <div class="use-card"><span class="uc-icon">📢</span><div class="uc-title">Marketing & Lead Gen</div><div class="uc-desc">Add to trade show materials and outdoor ads. Interested prospects scan to request a brochure or book a demo — the subject line tells you exactly where each lead came from.</div></div>
+      <div class="use-card"><span class="uc-icon">🎓</span><div class="uc-title">Academic & Education</div><div class="uc-desc">Lecturers add an email QR to course syllabi and notice boards. Students scan to email the professor directly with the course code pre-filled as subject — zero wrong-contact emails.</div></div>
+      <div class="use-card"><span class="uc-icon">💼</span><div class="uc-title">Job Applications</div><div class="uc-desc">Recruiters place email QR codes on job fair materials and posters. Candidates scan to send a pre-formatted application email with the job title and reference number pre-filled.</div></div>
+      <div class="use-card"><span class="uc-icon">🏥</span><div class="uc-title">Healthcare & Clinics</div><div class="uc-desc">Clinics add email QRs on appointment cards and waiting room displays. Patients scan to email reception with their query pre-formatted — cleaner than a phone call queue.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🚀 6 Benefits of Email QR Codes</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon">⚡</span><div class="bn-title">Zero Typing, Zero Errors</div><div class="bn-desc">Your email address, subject and body are pre-filled — no risk of typos, wrong addresses or unclear messages. Every email arrives perfectly formatted from the first scan.</div></div>
+      <div class="benefit-card"><span class="bn-icon">📊</span><div class="bn-title">Organised, Filterable Inbox</div><div class="bn-desc">Pre-set subject lines let you create Gmail/Outlook rules that auto-label, sort or route every QR-generated email. "Quote Request" emails go to Sales; "Support" goes to Help Desk.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🌐</span><div class="bn-title">Works on Every Device</div><div class="bn-desc">The mailto: protocol is supported by every smartphone, every email app, and every operating system. Gmail, Apple Mail, Outlook, Samsung Email — all open automatically when scanned.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🔒</span><div class="bn-title">Privacy-First Contact</div><div class="bn-desc">Unlike web contact forms, no data is collected, stored or processed by third parties. The email goes directly from the sender's email app to your inbox — completely private.</div></div>
+      <div class="benefit-card"><span class="bn-icon">🎨</span><div class="bn-title">Branded & Professional</div><div class="bn-desc">Customise the QR with your brand colours and add your company logo at the centre. A branded email QR on your materials signals professionalism and increases scan rates.</div></div>
+      <div class="benefit-card"><span class="bn-icon">💰</span><div class="bn-title">Free, Forever, No Platform</div><div class="bn-desc">No monthly fees, no third-party platforms, no data storage. The QR encodes a mailto: link directly — works as long as email exists, which is effectively forever.</div></div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR Code</div><div class="rel-desc">Scan to text</div></div></a>
+      <a href="qr-whatsapp.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">WhatsApp QR</div><div class="rel-desc">Chat & support</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-calendar.html" class="rel-card"><span class="rel-icon">📅</span><div class="rel-info"><div class="rel-title">Calendar QR</div><div class="rel-desc">Add events instantly</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR Code</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-list-links.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">Link List QR</div><div class="rel-desc">Share all your links</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-upi.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">UPI QR</div><div class="rel-desc">Receive payments</div></div></a>
+      <a href="qr-attendance.html" class="rel-card"><span class="rel-icon">✅</span><div class="rel-info"><div class="rel-title">Attendance QR</div><div class="rel-desc">Check-in tracking</div></div></a>
+      <a href="qr-app-store.html" class="rel-card"><span class="rel-icon">📲</span><div class="rel-info"><div class="rel-title">App Store QR</div><div class="rel-desc">Drive app downloads</div></div></a>
+      <a href="qr-custom-url.html" class="rel-card"><span class="rel-icon">🔧</span><div class="rel-info"><div class="rel-title">Custom URL QR</div><div class="rel-desc">UTM & custom links</div></div></a>
+    </div>
+  </section>
+
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Email QR Codes for Business & Marketing</h2>
+    <p>Email is still the most universally supported communication channel — more than social media, more than messaging apps. Email QR codes leverage this by encoding a mailto: link that opens any email app on any device, with your recipient address, subject and body pre-filled. Instead of asking someone to search for your email address or type it manually, they scan once and their email app opens with everything ready to send.</p>
+    <h3>Understanding the mailto: URI Scheme</h3>
+    <p>The mailto: URI is a standard web protocol supported by every email client and every operating system. The basic format is: <code>mailto:address@example.com?subject=Your%20Subject&body=Your%20Body</code>. This generator handles all the URL encoding automatically — you just type your email address and text in plain language.</p>
+    <p>Advanced mailto: URIs can include CC (carbon copy) and BCC (blind carbon copy) recipients using the format: <code>mailto:to@example.com?cc=cc@example.com&bcc=bcc@example.com&subject=Subject&body=Body</code>. Use the Advanced tab above to set CC and BCC fields.</p>
+    <h3>Keep Email Body Short for Better QR Codes</h3>
+    <p>Every character in the email body increases the QR code's data density, making the code more complex and slightly harder to scan from a distance. For the most reliable scan at all sizes, keep the pre-filled body under 200 characters. Use the subject line to convey the most important context — it's shorter and less likely to cause scanning issues on very small prints.</p>
+    <h3>Pro Tips for Email QR Code Campaigns</h3>
+    <ul>
+      <li><strong>Use source-specific subjects:</strong> Use different subjects for each placement — "Card Enquiry" for business cards, "Flyer Enquiry" for flyers — so you know exactly where each email came from.</li>
+      <li><strong>Add your company logo as the QR centre:</strong> Familiar branding at the QR centre builds trust. People are more likely to scan a QR with a recognisable company logo than a generic code.</li>
+      <li><strong>Add a call to action:</strong> Print "Scan to email us" or "Scan to request a quote" near the QR. Explicit instructions increase scan rates by 25–40%.</li>
+      <li><strong>Test before printing:</strong> Scan your QR on both an iPhone and an Android to confirm the email app opens correctly and all fields are populated as expected.</li>
+      <li><strong>Use Level Q error correction for logos:</strong> If adding your logo to the QR centre, use Q or H error correction to ensure the code remains scannable even with the logo covering part of the pattern.</li>
+    </ul>
+  </article>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How does an email QR code work?<span class="fq-icon">+</span></div><div class="fa">An email QR code encodes a mailto: link with your email address, subject and body pre-filled. When someone scans the QR, their phone opens the default email app with all fields populated. They review the message and tap Send — no typing required.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Which email apps support this QR code?<span class="fq-icon">+</span></div><div class="fa">All major email apps support mailto: links: Gmail (iOS and Android), Apple Mail, Microsoft Outlook, Samsung Email, Yahoo Mail, and virtually every other email client. The phone automatically opens the default email app when the QR is scanned.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I pre-fill the email body with the QR code?<span class="fq-icon">+</span></div><div class="fa">Yes. Enter your email body in the Message Body field. When the QR is scanned, the email app opens with your body text pre-filled. The sender can read and edit it before sending. Keep the body under 200 characters for best QR code readability when printed small.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I send to multiple recipients?<span class="fq-icon">+</span></div><div class="fa">Yes. Use the Advanced tab to add CC and BCC addresses. For multiple To addresses, separate them with a comma in the To field: contact@company.com,sales@company.com. Note that some email apps may handle multiple recipients differently.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the email QR code expire?<span class="fq-icon">+</span></div><div class="fa">No. The QR code image never expires. The mailto: link inside it is a standard protocol that works permanently. There are no servers, subscriptions or expiry dates — it's a static QR image that works as long as email exists.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Why is my QR code complex-looking with a long email body?<span class="fq-icon">+</span></div><div class="fa">Longer text = more data = more complex QR pattern. For print materials smaller than a business card, keep the body under 100 characters or leave it empty. Use the subject line for the most important context. Download SVG for print — it scales infinitely without quality loss.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my email address stored on your servers?<span class="fq-icon">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser. Your email address, subject and body never leave your device — never sent to any server, never stored, never tracked. The QR image is generated and downloaded locally.</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <a href="../index.html" class="logo" aria-label="ToolsBox Home"><div class="lb" aria-hidden="true">T</div><span class="lt">Tools<em>Box</em></span></a>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div><div class="fct">📧 Contact QR Codes</div><ul class="fl"><li><a href="qr-email.html">✉️ Email QR Code</a></li><li><a href="qr-sms.html">💬 SMS QR Code</a></li><li><a href="qr-whatsapp.html">💬 WhatsApp QR</a></li><li><a href="qr-vcard.html">👤 vCard QR</a></li></ul></div>
+    <div><div class="fct">🏢 Business QR Codes</div><ul class="fl"><li><a href="qr-google-review.html">⭐ Google Review QR</a></li><li><a href="qr-calendar.html">📅 Calendar QR</a></li><li><a href="qr-upi.html">💳 UPI QR</a></li><li><a href="qr-wifi.html">📶 WiFi QR</a></li></ul></div>
+    <div><div class="fct">🧮 Calculators</div><ul class="fl"><li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li><li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li><li><a href="../calculators/gst-calculator.html">GST Calculator</a></li></ul></div>
+  </div>
+  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span><span class="fc">Made with ❤️</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'simple';
+
+/* ── TEMPLATES ── */
+const TEMPLATES = {
+  enquiry: { subject: 'General Enquiry', body: 'Hi,\n\nI would like to enquire about your products/services. Please get in touch at your earliest convenience.\n\nThank you.' },
+  support: { subject: 'Support Request', body: 'Hi Support Team,\n\nI need assistance with the following issue:\n\n[Describe your issue here]\n\nThank you for your help.' },
+  quote:   { subject: 'Quote Request', body: 'Hi,\n\nI would like to request a quote for:\n\n[Describe what you need]\n\nPlease send me your pricing. Thank you.' },
+  feedback:{ subject: 'Feedback', body: 'Hi,\n\nI wanted to share some feedback:\n\n[Your feedback here]\n\nThank you.' },
+  callback:{ subject: 'Call Back Request', body: 'Hi,\n\nPlease call me back at your earliest convenience.\n\nMy number: [Your phone number]\nBest time to call: [Time]\n\nThank you.' },
+  job:     { subject: 'Job Application', body: 'Hi,\n\nI am writing to apply for the [Job Title] position. Please find my details below:\n\nName: [Your Name]\nLinkedIn: [Profile URL]\n\nI look forward to hearing from you.' }
+};
+
+function applyTemplate(key) {
+  const tpl = TEMPLATES[key];
+  if (!tpl) return;
+  document.getElementById('tpl-subject').value = tpl.subject;
+  document.getElementById('tpl-body').value = tpl.body;
+  autoGenerate();
+}
+
+/* ── MODE ── */
+function setMode(m) {
+  MODE = m;
+  ['simple','advanced','template'].forEach(id => {
+    document.getElementById('tab-' + id).classList.toggle('on', id === m);
+    document.getElementById('tab-' + id).setAttribute('aria-selected', id === m);
+    document.getElementById('form-' + id).style.display = id === m ? '' : 'none';
+  });
+  hideErr(); buildPreview(); autoGenerate();
+}
+
+/* ── GET FIELDS ── */
+function getFields() {
+  if (MODE === 'simple') return { to: document.getElementById('email-to').value.trim(), cc: '', bcc: '', subject: document.getElementById('email-subject').value.trim(), body: document.getElementById('email-body').value.trim() };
+  if (MODE === 'advanced') return { to: document.getElementById('adv-to').value.trim(), cc: document.getElementById('adv-cc').value.trim(), bcc: document.getElementById('adv-bcc').value.trim(), subject: document.getElementById('adv-subject').value.trim(), body: document.getElementById('adv-body').value.trim() };
+  return { to: document.getElementById('tpl-to').value.trim(), cc: '', bcc: '', subject: document.getElementById('tpl-subject').value.trim(), body: document.getElementById('tpl-body').value.trim() };
+}
+
+/* ── BUILD MAILTO ── */
+function buildMailto() {
+  const f = getFields();
+  if (!f.to) throw new Error('Please enter the recipient email address.');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.to)) throw new Error('Please enter a valid email address.');
+  let link = 'mailto:' + encodeURIComponent(f.to);
+  const params = [];
+  if (f.cc) params.push('cc=' + encodeURIComponent(f.cc));
+  if (f.bcc) params.push('bcc=' + encodeURIComponent(f.bcc));
+  if (f.subject) params.push('subject=' + encodeURIComponent(f.subject));
+  if (f.body) params.push('body=' + encodeURIComponent(f.body));
+  if (params.length) link += '?' + params.join('&');
+  return link;
+}
+
+function buildPreview() {
+  try {
+    const url = buildMailto();
+    const el = document.getElementById('mailto-preview');
+    el.style.display = 'block';
+    const short = url.length > 100 ? url.substring(0, 100) + '…' : url;
+    el.innerHTML = 'mailto: <strong>' + escHtml(short) + '</strong>';
+  } catch(e) { document.getElementById('mailto-preview').style.display = 'none'; }
+}
+
+function updCount() {
+  const body = document.getElementById('email-body');
+  const advBody = document.getElementById('adv-body');
+  if (body) document.getElementById('body-count').textContent = body.value.length;
+  if (advBody) document.getElementById('adv-body-count').textContent = advBody.value.length;
+}
+
+async function generateQR() {
+  hideErr();
+  let data; try { data = buildMailto(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value, bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: fg, light: bg }, errorCorrectionLevel: EC });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const labels = { simple: 'Email QR Code', advanced: 'Email QR (Advanced)', template: 'Email QR (Template)' };
+    document.getElementById('qm-type').textContent = labels[MODE];
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to open email';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d'), ms = Math.floor(canvas.width * .22), img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms; const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill(); ctx.drawImage(img, x, y, w, h); resolve();
+    };
+    img.onerror = () => resolve(); img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => { try { buildMailto(); generateQR(); } catch(e) {} }, 400);
+  buildPreview();
+}
+function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function dlPNG() { const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; } const a = document.createElement('a'); a.download = 'email-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click(); }
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300, d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>Email QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' }); const a = document.createElement('a'); a.download = 'email-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); flashButton('cp-btn', '✓ Copied!'); }
+  catch(e) { alert('Right-click QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) { try { const blob = await new Promise(r => c.toBlob(r, 'image/png')); const file = new File([blob], 'email-qr.png', { type: 'image/png' }); await navigator.share({ title: 'Email QR Code', files: [file] }); } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported.'); } }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {} }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Email QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">Email QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['email-to','email-subject','email-body','adv-to','adv-cc','adv-bcc','adv-subject','adv-body','tpl-to','tpl-subject','tpl-body'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('body-count').textContent = '0';
+  document.getElementById('adv-body-count').textContent = '0';
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">✉️</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—'; document.getElementById('qm-ready').textContent = '';
+  document.getElementById('mailto-preview').style.display = 'none'; rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body'), hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide'); hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() { const v = document.getElementById('sz-range').value; document.getElementById('sz-label').textContent = v + '×' + v; }
+function setEC(ec, btn) { EC = ec; document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); }); btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); }
+function preset(fg, bg) { document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg; document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg; }
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { currentLogoBase64 = e.target.result; document.getElementById('logo-img').src = currentLogoBase64; document.getElementById('logo-name').textContent = f.name; document.getElementById('logo-prev').style.display = 'flex'; setEC('H', document.querySelector('.ec-p[data-ec="H"]')); autoGenerate(); };
+  reader.readAsDataURL(f);
+}
+function rmLogo() { currentLogoBase64 = null; document.getElementById('logo-inp').value = ''; document.getElementById('logo-prev').style.display = 'none'; document.getElementById('logo-img').src = ''; autoGenerate(); }
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement, open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+}
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => { const o = m.classList.toggle('open'); h.setAttribute('aria-expanded', o); const s = h.querySelectorAll('span'); if (o) { s[0].style.transform = 'rotate(45deg) translate(4px,4px)'; s[1].style.opacity = '0'; s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)'; } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+  document.addEventListener('click', e => { if (!h.contains(e.target) && !m.contains(e.target)) { m.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); h.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = ''; }); } });
+})();
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && f.type.startsWith('image/')) { const dt = new DataTransfer(); dt.items.add(f); document.getElementById('logo-inp').files = dt.files; handleLogo(document.getElementById('logo-inp')); } });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+window.addEventListener('load', () => {
+  document.getElementById('email-to').value = 'contact@yourcompany.com';
+  document.getElementById('email-subject').value = 'Product Enquiry';
+  document.getElementById('email-body').value = 'Hi,\n\nI would like to enquire about your products. Please get in touch.\n\nThank you.';
+  updCount(); buildPreview(); generateQR();
+});
+</script>
+</body>
+</html>
