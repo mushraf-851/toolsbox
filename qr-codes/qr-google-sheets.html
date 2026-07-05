@@ -696,16 +696,7 @@ function dlSVG(){const c=getCanvas();if(!c){showErr('Generate a QR code first.')
 async function cpQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);flashButton('cp-btn','✓ Copied!');}catch(e){alert('Right-click the QR code → Copy Image.');}}
 function flashButton(id,txt){const b=document.getElementById(id);const o=b.textContent;b.textContent=txt;setTimeout(()=>b.textContent=o,2000);}
 async function shareQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}if(navigator.share){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'google-sheets-qr.png',{type:'image/png'});await navigator.share({title:'Google Sheets QR Code',files:[file]});}catch(e){if(e.name!=='AbortError')alert('Sharing not supported.');}}else{try{await navigator.clipboard.writeText(window.location.href);alert('Link copied!');}catch(e){}}}
-function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const win=window.open('','_blank');win.document.write(`<html><head><title>Google Sheets QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5NYSSB79NH');
-</script>
-</head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">Google Sheets QR · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
+function printQR(){const c=getCanvas();if(!c){showErr('Generate a QR code first.');return;}const win=window.open('','_blank');win.document.write(`<html><head><title>Google Sheets QR — ToolsBox</title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}</style></head><body><img src="${c.toDataURL()}"><p style="color:#333;font-size:14px">Google Sheets QR · ToolsBox.org</p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print</button></body></html>`);win.document.close();}
 function resetAll(){['gs-url','gs-sheet','gs-tmpl-url','gs-tmpl-name','gs-pub-url'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('qr-out').innerHTML='<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">📊</span><span class="qr-ph-txt">QR code appears here</span></div>';document.getElementById('qm-info').textContent='—';document.getElementById('qm-ready').textContent='';document.getElementById('link-preview').style.display='none';rmLogo();}
 function toggleCust(){const b=document.getElementById('cust-body');const hd=document.querySelector('.cust-hd');const h=b.classList.toggle('hide');hd.setAttribute('aria-expanded',!h);document.querySelector('.cust-arr').textContent=h?'▾':'▴';}
 function syncHex(cid,hid){document.getElementById(hid).value=document.getElementById(cid).value;}
