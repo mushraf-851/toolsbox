@@ -166,13 +166,27 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 @media(max-width:480px){.ctrl-grid{grid-template-columns:1fr}.preset-grid{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}.fi3{grid-column:1/-1}}
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5NYSSB79NH');
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5NYSSB79NH');
+    };
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+    window.addEventListener(evt, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 5000);
+})();
 </script>
 </head>
 <body>

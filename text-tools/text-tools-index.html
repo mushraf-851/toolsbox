@@ -24,8 +24,28 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these text tools really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, every tool on ToolsBox is completely free. No premium tiers, no hidden costs, no sign-up required. Use them as much as you like."}},{"@type":"Question","name":"Do I need to upload my text to your server?","acceptedAnswer":{"@type":"Answer","text":"No. All text processing happens directly in your browser using JavaScript. Your data never leaves your computer — it's 100% private."}},{"@type":"Question","name":"Can I use these tools on mobile?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. The interface is fully responsive and works seamlessly on smartphones and tablets."}},{"@type":"Question","name":"Which text tools are most popular?","acceptedAnswer":{"@type":"Answer","text":"The most popular tools are the Word Counter, Case Converter, Password Generator, JSON Formatter, and Base64 Encoder/Decoder."}},{"@type":"Question","name":"Is there a character or word limit?","acceptedAnswer":{"@type":"Answer","text":"No. All tools run entirely in your browser and can handle any amount of text your device's memory allows."}},{"@type":"Question","name":"How often are new tools added?","acceptedAnswer":{"@type":"Answer","text":"We add new text tools regularly based on user feedback. If you need a specific tool, contact us and we'll prioritise it."}}]}
 </script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5NYSSB79NH');</script>
+<script>
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5NYSSB79NH');
+    };
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+    window.addEventListener(evt, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 5000);
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bitter:wght@700;900&display=swap" rel="stylesheet">

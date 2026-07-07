@@ -234,13 +234,27 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 2
 @media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr}.platform-grid{grid-template-columns:repeat(4,1fr)}}
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5NYSSB79NH');
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5NYSSB79NH');
+    };
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+    window.addEventListener(evt, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 5000);
+})();
 </script>
 </head>
 <body>

@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Standard Deviation Calculator — Mean, Variance & Statistics | ToolsBox</title>
+<title>Standard Deviation Calculator â€” Mean, Variance & Statistics | ToolsBox</title>
 <meta name="description" content="Free standard deviation calculator. Calculate mean, median, mode, variance, standard deviation, range, and full statistics for any dataset. Supports sample and population SD. Instant results with histogram.">
 <meta name="keywords" content="standard deviation calculator, mean calculator, variance calculator, statistics calculator, population standard deviation, sample standard deviation, median calculator, mode calculator, statistics online">
 <meta name="robots" content="index, follow">
 <meta name="author" content="ToolsBox">
 <link rel="canonical" href="https://yourdomain.com/calculators/standard-deveation.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Standard Deviation Calculator — Mean, Variance & Statistics | ToolsBox">
+<meta property="og:title" content="Standard Deviation Calculator â€” Mean, Variance & Statistics | ToolsBox">
 <meta property="og:description" content="Calculate standard deviation, mean, median, mode, variance for any dataset. Sample and population. Free, instant.">
 <meta property="og:url" content="https://yourdomain.com/calculators/standard-deveation.html">
 <meta property="og:site_name" content="ToolsBox">
@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="Standard Deviation Calculator | ToolsBox">
 <meta name="twitter:description" content="Free standard deviation calculator. Mean, median, mode, variance, range. Sample and population.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Standard Deviation Calculator","url":"https://yourdomain.com/calculators/standard-deveation.html","description":"Free standard deviation calculator. Calculate mean, median, mode, variance, population and sample standard deviation for any dataset.","applicationCategory":"EducationApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://yourdomain.com"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is standard deviation?","acceptedAnswer":{"@type":"Answer","text":"Standard deviation measures how spread out numbers are from the mean. A low SD means values cluster close to the mean; a high SD means values are spread over a wider range. Formula: s = v(S(x-µ)²/N) for population, s = v(S(x-x¯)²/(N-1)) for sample."}},{"@type":"Question","name":"What is the difference between population and sample standard deviation?","acceptedAnswer":{"@type":"Answer","text":"Population SD (s) divides by N — used when you have data for the entire population. Sample SD (s) divides by N-1 (Bessel's correction) — used when your data is a sample of a larger population. For large N, the difference is negligible. Most real-world statistics use sample SD."}},{"@type":"Question","name":"How do I calculate standard deviation step by step?","acceptedAnswer":{"@type":"Answer","text":"1. Find the mean: µ = Sx/N. 2. Subtract mean from each value and square: (x-µ)². 3. Find the average of squared differences (variance): s² = S(x-µ)²/N. 4. Take square root for SD: s = v(s²). Use N-1 instead of N for sample SD."}},{"@type":"Question","name":"What is variance?","acceptedAnswer":{"@type":"Answer","text":"Variance is the square of standard deviation. It measures the average squared deviation from the mean. Population variance = s², Sample variance = s². Variance is useful in statistical analysis but standard deviation is more interpretable because it has the same units as the original data."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is standard deviation?","acceptedAnswer":{"@type":"Answer","text":"Standard deviation measures how spread out numbers are from the mean. A low SD means values cluster close to the mean; a high SD means values are spread over a wider range. Formula: s = v(S(x-Âµ)Â²/N) for population, s = v(S(x-xÂ¯)Â²/(N-1)) for sample."}},{"@type":"Question","name":"What is the difference between population and sample standard deviation?","acceptedAnswer":{"@type":"Answer","text":"Population SD (s) divides by N â€” used when you have data for the entire population. Sample SD (s) divides by N-1 (Bessel's correction) â€” used when your data is a sample of a larger population. For large N, the difference is negligible. Most real-world statistics use sample SD."}},{"@type":"Question","name":"How do I calculate standard deviation step by step?","acceptedAnswer":{"@type":"Answer","text":"1. Find the mean: Âµ = Sx/N. 2. Subtract mean from each value and square: (x-Âµ)Â². 3. Find the average of squared differences (variance): sÂ² = S(x-Âµ)Â²/N. 4. Take square root for SD: s = v(sÂ²). Use N-1 instead of N for sample SD."}},{"@type":"Question","name":"What is variance?","acceptedAnswer":{"@type":"Answer","text":"Variance is the square of standard deviation. It measures the average squared deviation from the mean. Population variance = sÂ², Sample variance = sÂ². Variance is useful in statistical analysis but standard deviation is more interpretable because it has the same units as the original data."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -169,13 +169,27 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 @media(max-width:400px){.rg{grid-template-columns:1fr 1fr}.fi3{grid-column:1/-1}}
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5NYSSB79NH');
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5NYSSB79NH');
+    };
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+    window.addEventListener(evt, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 5000);
+})();
 </script>
 </head>
 <body>
@@ -188,12 +202,12 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 </nav>
 <div class="mob" id="mob" role="navigation"><a href="../index.html" class="nl">?? Home</a><a href="../index.html" class="nl on">?? Calculators</a><a href="../text-tools/text-tools-index.html" class="nl">?? Text Tools</a>      <a href="../qr-codes/qr-code-index.html" class="nl">?? QR Codes</a>\n    </div>
 <main>
-  <nav class="bc" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="../index.html">Calculators</a> <span>›</span> <span aria-current="page" style="color:var(--txt2)">Standard Deviation Calculator</span></nav>
+  <nav class="bc" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>â€º</span> <a href="../index.html">Calculators</a> <span>â€º</span> <span aria-current="page" style="color:var(--txt2)">Standard Deviation Calculator</span></nav>
   <header class="ph">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     <div class="badge">s Statistics</div>
     <h1>Standard <em>Deviation</em> Calculator</h1>
-    <p class="sub">Enter your dataset and get full statistics — mean, median, mode, variance, SD, quartiles, and a histogram — instantly.</p>
+    <p class="sub">Enter your dataset and get full statistics â€” mean, median, mode, variance, SD, quartiles, and a histogram â€” instantly.</p>
   </header>
 
   <section class="card" aria-label="Standard Deviation Calculator">
@@ -226,30 +240,30 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <div class="res" id="res" aria-live="polite" style="margin-top:20px">
       <!-- MAIN STATS -->
       <div class="stats-main">
-        <div class="sm sm-sd"><span class="sm-tag" id="sd-tag">s Std Dev (Sample)</span><span class="sm-val" id="r-sd">—</span><span class="sm-sub" id="r-sd-sub">s</span></div>
-        <div class="sm sm-mean"><span class="sm-tag">µ Mean</span><span class="sm-val" id="r-mean">—</span><span class="sm-sub">average</span></div>
-        <div class="sm sm-var"><span class="sm-tag" id="var-tag">s² Variance</span><span class="sm-val" id="r-var">—</span><span class="sm-sub" id="r-var-sub">s²</span></div>
-        <div class="sm sm-range"><span class="sm-tag">? Range</span><span class="sm-val" id="r-range">—</span><span class="sm-sub">max - min</span></div>
+        <div class="sm sm-sd"><span class="sm-tag" id="sd-tag">s Std Dev (Sample)</span><span class="sm-val" id="r-sd">â€”</span><span class="sm-sub" id="r-sd-sub">s</span></div>
+        <div class="sm sm-mean"><span class="sm-tag">Âµ Mean</span><span class="sm-val" id="r-mean">â€”</span><span class="sm-sub">average</span></div>
+        <div class="sm sm-var"><span class="sm-tag" id="var-tag">sÂ² Variance</span><span class="sm-val" id="r-var">â€”</span><span class="sm-sub" id="r-var-sub">sÂ²</span></div>
+        <div class="sm sm-range"><span class="sm-tag">? Range</span><span class="sm-val" id="r-range">â€”</span><span class="sm-sub">max - min</span></div>
       </div>
 
       <!-- FULL STATS TABLE -->
       <div class="stats-table">
         <div class="st-title">Complete statistical summary</div>
-        <div class="st-row"><span class="st-lbl">Count (N)</span><span class="st-val acc" id="st-n">—</span></div>
-        <div class="st-row"><span class="st-lbl">Sum (Sx)</span><span class="st-val" id="st-sum">—</span></div>
-        <div class="st-row"><span class="st-lbl">Mean (x¯)</span><span class="st-val" id="st-mean">—</span></div>
-        <div class="st-row"><span class="st-lbl">Median (Q2)</span><span class="st-val" id="st-med">—</span></div>
-        <div class="st-row"><span class="st-lbl">Mode</span><span class="st-val" id="st-mode">—</span></div>
-        <div class="st-row"><span class="st-lbl">Minimum</span><span class="st-val" id="st-min">—</span></div>
-        <div class="st-row"><span class="st-lbl">Maximum</span><span class="st-val" id="st-max">—</span></div>
-        <div class="st-row"><span class="st-lbl">Range</span><span class="st-val" id="st-range">—</span></div>
-        <div class="st-row"><span class="st-lbl">Q1 (25th percentile)</span><span class="st-val" id="st-q1">—</span></div>
-        <div class="st-row"><span class="st-lbl">Q3 (75th percentile)</span><span class="st-val" id="st-q3">—</span></div>
-        <div class="st-row"><span class="st-lbl">IQR (Q3 - Q1)</span><span class="st-val" id="st-iqr">—</span></div>
-        <div class="st-row"><span class="st-lbl">Standard Deviation</span><span class="st-val acc" id="st-sd">—</span></div>
-        <div class="st-row"><span class="st-lbl">Variance</span><span class="st-val" id="st-var">—</span></div>
-        <div class="st-row"><span class="st-lbl">Coefficient of Variation</span><span class="st-val" id="st-cv">—</span></div>
-        <div class="st-row"><span class="st-lbl">Standard Error</span><span class="st-val" id="st-se">—</span></div>
+        <div class="st-row"><span class="st-lbl">Count (N)</span><span class="st-val acc" id="st-n">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Sum (Sx)</span><span class="st-val" id="st-sum">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Mean (xÂ¯)</span><span class="st-val" id="st-mean">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Median (Q2)</span><span class="st-val" id="st-med">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Mode</span><span class="st-val" id="st-mode">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Minimum</span><span class="st-val" id="st-min">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Maximum</span><span class="st-val" id="st-max">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Range</span><span class="st-val" id="st-range">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Q1 (25th percentile)</span><span class="st-val" id="st-q1">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Q3 (75th percentile)</span><span class="st-val" id="st-q3">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">IQR (Q3 - Q1)</span><span class="st-val" id="st-iqr">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Standard Deviation</span><span class="st-val acc" id="st-sd">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Variance</span><span class="st-val" id="st-var">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Coefficient of Variation</span><span class="st-val" id="st-cv">â€”</span></div>
+        <div class="st-row"><span class="st-lbl">Standard Error</span><span class="st-val" id="st-se">â€”</span></div>
       </div>
 
       <!-- HISTOGRAM -->
@@ -273,24 +287,24 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <h2 id="info-h">How standard deviation is calculated</h2>
     <p>Standard deviation (s or s) measures how spread out numbers are in a dataset. A small SD means values are clustered near the mean. A large SD means values are more dispersed.</p>
     <div class="formula-box">
-      <span>Mean</span>: µ = Sx / N<br>
-      <span>Population SD</span>: s = v(S(x-µ)² / N)<br>
-      <span>Sample SD</span>: s = v(S(x-x¯)² / (N-1))<br>
-      <span>Variance</span> = SD² &nbsp;|&nbsp; <span>CV</span> = (SD / Mean) × 100%
+      <span>Mean</span>: Âµ = Sx / N<br>
+      <span>Population SD</span>: s = v(S(x-Âµ)Â² / N)<br>
+      <span>Sample SD</span>: s = v(S(x-xÂ¯)Â² / (N-1))<br>
+      <span>Variance</span> = SDÂ² &nbsp;|&nbsp; <span>CV</span> = (SD / Mean) Ã— 100%
     </div>
     <div class="ig">
-      <div class="ic"><div class="ic-t">?? When to use sample SD</div><p>Use sample SD (÷N-1) when your data represents a subset of a larger population. The -1 correction (Bessel's correction) makes the estimate unbiased. This is the default in most statistics software.</p></div>
-      <div class="ic"><div class="ic-t">?? When to use population SD</div><p>Use population SD (÷N) only when you have data for the entire population — e.g. all students in one class, all scores in one game. If in doubt, use sample SD.</p></div>
-      <div class="ic"><div class="ic-t">?? Coefficient of Variation</div><p>CV = (SD/Mean)×100%. It expresses SD as a percentage of the mean, allowing comparison of variability between datasets with different units or scales.</p></div>
+      <div class="ic"><div class="ic-t">?? When to use sample SD</div><p>Use sample SD (Ã·N-1) when your data represents a subset of a larger population. The -1 correction (Bessel's correction) makes the estimate unbiased. This is the default in most statistics software.</p></div>
+      <div class="ic"><div class="ic-t">?? When to use population SD</div><p>Use population SD (Ã·N) only when you have data for the entire population â€” e.g. all students in one class, all scores in one game. If in doubt, use sample SD.</p></div>
+      <div class="ic"><div class="ic-t">?? Coefficient of Variation</div><p>CV = (SD/Mean)Ã—100%. It expresses SD as a percentage of the mean, allowing comparison of variability between datasets with different units or scales.</p></div>
       <div class="ic"><div class="ic-t">?? Standard Error</div><p>SE = SD/vN. It estimates how far the sample mean is likely to be from the true population mean. Smaller SE = more precise estimate of population mean.</p></div>
     </div>
   </section>
 
   <section class="faq" aria-labelledby="faq-h">
     <h2 id="faq-h">Frequently asked questions</h2>
-    <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is a good standard deviation?</div><div class="fa">There's no universal "good" SD — it depends on context. A low SD relative to the mean (low CV) indicates consistency. In finance, high SD means more risk. In manufacturing, low SD means higher precision. Use CV to compare relative spread across different datasets.</div></div>
-    <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is the 68-95-99.7 rule?</div><div class="fa">In a normal distribution: 68% of data falls within ±1 SD of the mean, 95% within ±2 SD, and 99.7% within ±3 SD. This is called the empirical rule. It's useful for identifying outliers — values beyond 3 SDs from the mean are extremely unusual.</div></div>
-    <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is the difference between variance and standard deviation?</div><div class="fa">Variance (s²) is the average squared deviation from the mean. Standard deviation (s) is the square root of variance. SD has the same units as the original data, making it more interpretable. Variance is used in mathematical derivations; SD is used for practical interpretation.</div></div>
+    <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is a good standard deviation?</div><div class="fa">There's no universal "good" SD â€” it depends on context. A low SD relative to the mean (low CV) indicates consistency. In finance, high SD means more risk. In manufacturing, low SD means higher precision. Use CV to compare relative spread across different datasets.</div></div>
+    <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is the 68-95-99.7 rule?</div><div class="fa">In a normal distribution: 68% of data falls within Â±1 SD of the mean, 95% within Â±2 SD, and 99.7% within Â±3 SD. This is called the empirical rule. It's useful for identifying outliers â€” values beyond 3 SDs from the mean are extremely unusual.</div></div>
+    <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is the difference between variance and standard deviation?</div><div class="fa">Variance (sÂ²) is the average squared deviation from the mean. Standard deviation (s) is the square root of variance. SD has the same units as the original data, making it more interpretable. Variance is used in mathematical derivations; SD is used for practical interpretation.</div></div>
     <div class="fi"><div class="fq" onclick="SD.faqToggle(this)" role="button" tabindex="0" aria-expanded="false">What is IQR and how is it different from range?</div><div class="fa">Range = max - min (affected by outliers). IQR = Q3 - Q1 (interquartile range) measures the middle 50% of data spread and is resistant to outliers. IQR is often preferred in descriptive statistics when outliers are present.</div></div>
   </section>
 
@@ -311,7 +325,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <div><div class="fct">?? Finance</div><ul class="fl"><li><a href="sip-calculator.html">?? SIP</a></li><li><a href="gst-calculator.html">?? GST</a></li><li><a href="income-tax-calculator.html">?? Income Tax</a></li></ul></div>
     <div><div class="fct">?? Quick Links</div><ul class="fl"><li><a href="../index.html">?? All Tools</a></li><li><a href="../index.html">?? Calculators</a></li><li><a href="../text-tools/text-tools-index.html">?? Text Tools</a></li></ul></div>
   </div>
-  <div class="fbot"><span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No sign-up</span><span class="fc">Made with ??</span></div>
+  <div class="fbot"><span class="fc">Â© <span id="yr"></span> ToolsBox â€” Free forever Â· No sign-up</span><span class="fc">Made with ??</span></div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -367,7 +381,7 @@ var SD = (function () {
     for (var i = 0; i < bins; i++) {
       var lo = min + i * binSize, hi = lo + binSize;
       var cnt = data.filter(function (v) { return i === bins - 1 ? v >= lo && v <= hi : v >= lo && v < hi; }).length;
-      result.push({ label: r4(lo) + '–' + r4(hi), count: cnt });
+      result.push({ label: r4(lo) + 'â€“' + r4(hi), count: cnt });
     }
     return result.filter(function (b) { return b.count > 0 || result.every(function (x) { return x.count === 0; }); });
   }
@@ -409,9 +423,9 @@ var SD = (function () {
 
       var isSample = _type === 'sample';
       document.getElementById('sd-tag').textContent  = isSample ? 's Std Dev (Sample)' : 's Std Dev (Population)';
-      document.getElementById('var-tag').textContent = isSample ? 's² Variance (Sample)' : 's² Variance (Pop)';
+      document.getElementById('var-tag').textContent = isSample ? 'sÂ² Variance (Sample)' : 'sÂ² Variance (Pop)';
       document.getElementById('r-sd-sub').textContent= isSample ? 'Sample (N-1)' : 'Population (N)';
-      document.getElementById('r-var-sub').textContent= isSample ? 's²' : 's²';
+      document.getElementById('r-var-sub').textContent= isSample ? 'sÂ²' : 'sÂ²';
 
       function fmt(v) { return isFinite(v) ? r6(v) : '8'; }
 
@@ -447,7 +461,7 @@ var SD = (function () {
         var wrap = document.createElement('div'); wrap.className = 'hist-bar-wrap';
         var bar  = document.createElement('div'); bar.className = 'hist-bar';
         bar.style.height = '0%'; bar.title = b.label + ': ' + b.count;
-        var lbl  = document.createElement('span'); lbl.className = 'hist-label'; lbl.textContent = r4(parseFloat(b.label.split('–')[0]));
+        var lbl  = document.createElement('span'); lbl.className = 'hist-label'; lbl.textContent = r4(parseFloat(b.label.split('â€“')[0]));
         wrap.appendChild(bar); wrap.appendChild(lbl); barsEl.appendChild(wrap);
         setTimeout(function () { bar.style.height = pct + '%'; }, 50);
       });

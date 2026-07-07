@@ -1227,14 +1227,28 @@
             }
         }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-5NYSSB79NH');
-    </script>
+(function(){
+  var loaded = false;
+  function loadGTM(){
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5NYSSB79NH');
+    };
+  }
+  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+    window.addEventListener(evt, loadGTM, {once:true, passive:true});
+  });
+  setTimeout(loadGTM, 5000);
+})();
+</script>
 </head>
 <body>
     <nav class="top" aria-label="Main navigation">
@@ -1502,7 +1516,7 @@
         <section class="feedback-section reveal" id="feedback">
             <h3>💬 Send Us <b>Feedback</b></h3>
             <p>We'd love to hear your thoughts, suggestions, or bug reports. Your input helps us improve and build better tools for everyone.</p>
-            <form class="feedback-form" action="mailto:mushrafali413@gmail.com" method="post" enctype="text/plain" onsubmit="return confirm('Your feedback will be sent via email. Continue?')">
+            <form class="feedback-form" onsubmit="return sendFeedbackViaEmail(event)">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="fb-name">Your Name</label>
@@ -1844,5 +1858,19 @@
                         x.style.opacity = ''; }); } });
         })();
     </script>
+<script>
+function sendFeedbackViaEmail(e) {
+  e.preventDefault();
+  if (!confirm('Your feedback will be sent via email. Continue?')) return false;
+  var name = document.getElementById('fb-name').value;
+  var email = document.getElementById('fb-email').value;
+  var subject = document.getElementById('fb-subject').value;
+  var message = document.getElementById('fb-message').value;
+  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+  var mailto = 'mailto:mushrafali413@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+  return false;
+}
+</script>
 </body>
 </html>
