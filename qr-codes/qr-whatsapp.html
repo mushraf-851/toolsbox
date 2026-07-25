@@ -1,27 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Coming Soon — ToolsBox</title><link rel="icon" href="/favicon.ico"><!-- Google tag (gtag.js) -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp QR Code Generator — Scan to Chat Instantly | ToolsBox</title>
+<meta name="description" content="Free WhatsApp QR code generator. Create a scannable QR that opens a pre-filled chat or group invite instantly. Custom colors, logo, PNG & SVG download. No sign-up.">
+<meta name="keywords" content="WhatsApp QR code generator, QR code for WhatsApp, scan to chat WhatsApp, WhatsApp link QR code, WhatsApp business QR code, free WhatsApp QR, generate WhatsApp QR code, WhatsApp chat QR code, WhatsApp group QR code, WhatsApp QR code for business cards, WhatsApp QR code for marketing, WhatsApp QR code for customer support, WhatsApp QR for restaurants, WhatsApp QR for events, WhatsApp QR for freelancers, WhatsApp QR for shops, WhatsApp QR for small business, WhatsApp contact QR code, WhatsApp number QR code, scan to WhatsApp, WhatsApp api link QR, wa.me QR code generator, WhatsApp pre-filled message QR, WhatsApp business card QR, WhatsApp invite link QR, WhatsApp group invite QR code, QR code for WhatsApp group, open WhatsApp with QR scan, WhatsApp QR code download, WhatsApp QR code PNG SVG, WhatsApp QR code with logo, free WhatsApp QR no signup">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mytoolsbox.org/qr-codes/qr-whatsapp.html">
+<meta property="og:title" content="WhatsApp QR Code Generator — Scan to Chat Instantly | ToolsBox">
+<meta property="og:description" content="Create a WhatsApp QR code that opens a pre-filled chat or group invite the moment it's scanned. 100% free, no sign-up required.">
+<meta property="og:url" content="https://mytoolsbox.org/qr-codes/qr-whatsapp.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mytoolsbox.org/og/qr-whatsapp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WhatsApp QR Code Generator — Free & Instant | ToolsBox">
+<meta name="twitter:description" content="Generate WhatsApp QR codes for direct chats or group invites. Pre-filled messages, custom colours, download PNG & SVG.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"WhatsApp QR Code Generator","url":"https://mytoolsbox.org/qr-codes/qr-whatsapp.html","description":"Free WhatsApp QR code generator. Create a scannable QR code that opens a WhatsApp chat or group invite instantly with a pre-filled message.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"ToolsBox","url":"https://mytoolsbox.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a WhatsApp QR code?","acceptedAnswer":{"@type":"Answer","text":"Enter your WhatsApp phone number in international format (e.g. +14155551234), optionally add a pre-filled message, then click Generate. Download as PNG or SVG. Scanning opens WhatsApp with your number pre-dialled, ready to chat."}},{"@type":"Question","name":"What format should the phone number be in?","acceptedAnswer":{"@type":"Answer","text":"Use international format with a country code, e.g. +14155551234 (US), +447911123456 (UK), or +919876543210 (India). The + and spaces are removed automatically — only digits are used in the wa.me link."}},{"@type":"Question","name":"Can I add a pre-filled message to the WhatsApp QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter your message in the Pre-filled Message field. When someone scans the QR code, WhatsApp opens with that message already typed in the chat box — they just tap Send. This is ideal for customer support scripts, order enquiries, or event RSVPs."}},{"@type":"Question","name":"Does the WhatsApp QR code expire?","acceptedAnswer":{"@type":"Answer","text":"No. This is a static QR code — the wa.me link is encoded directly into the image. It works forever with no subscription, server, or expiry date. Group invite links can expire based on WhatsApp's settings, but the QR code itself never expires."}},{"@type":"Question","name":"Can I create a QR code for a WhatsApp group?","acceptedAnswer":{"@type":"Answer","text":"Yes. Switch to Group Invite mode and paste your WhatsApp group invite link (chat.whatsapp.com/...). The QR code will take anyone who scans it directly to the group join screen."}},{"@type":"Question","name":"Is my phone number stored on your servers?","acceptedAnswer":{"@type":"Answer","text":"No. All QR code generation happens entirely in your browser using JavaScript. Your phone number and message never leave your device — never sent to any server, never stored, never tracked."}},{"@type":"Question","name":"Where should I display my WhatsApp QR code?","acceptedAnswer":{"@type":"Answer","text":"Best locations: business cards, storefronts, restaurant menus, product packaging, event banners, email signatures, receipts, and your website. Each touchpoint turns into a direct customer communication channel."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Bitter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060708;--bg2:#0d0f11;--bg3:#111418;
+  --surf:#161a1e;--surf2:#1c2127;--surf3:#232a32;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.12);
+  --acc:#25D366;--acc-dark:#128C7E;--acc-dim:rgba(37,211,102,0.12);--acc-bdr:rgba(37,211,102,0.3);
+  --gold:#fbbc04;--gold-dim:rgba(251,188,4,0.1);
+  --grn:#25D366;--grn-dim:rgba(37,211,102,0.1);--grn-bdr:rgba(37,211,102,0.3);
+  --red:#ea4335;--red-dim:rgba(234,67,53,0.1);--red-bdr:rgba(234,67,53,0.3);
+  --txt:#f0f2f5;--txt2:#b8bcc0;--txt3:#6b7280;
+  --f:'Inter',sans-serif;--fh:'Bitter',serif;--fm:'JetBrains Mono',monospace;
+  --nav:60px;--mw:1140px;--rad:14px;
+  --sh:0 4px 24px rgba(0,0,0,0.4);--sh2:0 2px 8px rgba(0,0,0,0.3)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* ── NAV ── */
+nav.topnav{position:sticky;top:0;z-index:100;height:var(--nav);background:rgba(6,7,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 20px}
+.nav-in{max-width:var(--mw);width:100%;margin:0 auto;display:flex;align-items:center;gap:6px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:16px}
+.lb{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;flex-shrink:0}
+.lt{font-size:18px;font-weight:800;color:var(--txt);letter-spacing:-.6px}
+.lt em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nl{padding:7px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;color:var(--txt2);transition:all .15s}
+.nl:hover,.nl.on{background:var(--surf2);color:var(--txt)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none;margin-left:auto;border-radius:8px}
+.ham:hover{background:var(--surf2)}
+.ham span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px;transition:all .22s}
+.mob{display:none;position:fixed;top:var(--nav);left:0;right:0;background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 16px 18px;flex-direction:column;gap:3px;z-index:99;box-shadow:var(--sh)}
+.mob.open{display:flex}.mob .nl{padding:11px 14px;font-size:14px}
+
+/* ── MAIN ── */
+main{flex:1;max-width:var(--mw);width:100%;margin:0 auto;padding:40px 20px 100px}
+.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt3);margin-bottom:32px;flex-wrap:wrap}
+.bc a{color:var(--txt3);text-decoration:none;transition:color .15s}
+.bc a:hover{color:var(--txt2)}
+.bc span.sep{opacity:.5}
+
+/* ── HERO ── */
+.hero{text-align:center;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--acc-dim);border:1px solid var(--acc-bdr);color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:18px}
+h1{font-family:var(--fh);font-size:clamp(32px,6vw,58px);font-weight:900;letter-spacing:-2px;color:var(--txt);line-height:1.0;margin-bottom:16px}
+h1 b{color:var(--acc)}
+.sub{color:var(--txt2);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto 24px}
+.star-strip{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.star-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surf2);border:1px solid var(--bdr2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--txt2)}
+
+/* ── TOOL GRID ── */
+.tool-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+
+/* ── CARD ── */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.card-hd{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.ch-title{font-size:14px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px}
+.ch-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--acc-dim);color:var(--acc);border:1px solid var(--acc-bdr);letter-spacing:.05em;text-transform:uppercase}
+.card-body{padding:22px}
+
+/* ── TABS ── */
+.mode-tabs{display:flex;gap:6px;background:var(--surf2);padding:4px;border-radius:10px;margin-bottom:20px;border:1px solid var(--bdr)}
+.mtab{flex:1;padding:10px 8px;border-radius:7px;font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--txt2);transition:all .18s;text-align:center;letter-spacing:.02em}
+.mtab:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mtab.on{background:var(--surf3);color:var(--acc);box-shadow:var(--sh2)}
+
+/* ── FORM ── */
+.fld{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+label.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)}
+.lbl-req::after{content:' *';color:var(--acc)}
+.lbl-hint{font-size:10px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--txt3);margin-left:4px;font-style:italic}
+.inp{width:100%;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--f);font-size:14px;font-weight:500;padding:11px 14px;outline:none;transition:border-color .18s,box-shadow .18s}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-dim)}
+.inp::placeholder{color:var(--txt3);font-size:13px}
+.inp.has-icon{padding-left:38px}
+textarea.inp{resize:vertical;min-height:80px;line-height:1.55}
+.inp-wrap{position:relative}
+.inp-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:.45}
+
+/* ── INFO BOX ── */
+.info-box{background:var(--acc-dim);border:1px solid var(--acc-bdr);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px}
+.info-box strong{color:var(--acc)}
+
+/* ── LINK PREVIEW ── */
+.link-preview-text{font-family:var(--fm);font-size:11px;color:var(--txt2);background:var(--surf2);border-radius:9px;padding:10px 13px;margin-top:12px;line-height:1.6;word-break:break-all;display:none;border:1px solid var(--bdr)}
+.link-preview-text strong{color:var(--acc)}
+
+/* ── GENERATE BTN ── */
+.gen-btn{width:100%;padding:15px;margin-top:18px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-dark));color:#fff;font-family:var(--f);font-size:15px;font-weight:800;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.02em;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* ── ERROR ── */
+.err-box{display:none;background:var(--red-dim);border:1px solid var(--red-bdr);color:var(--red);font-size:13px;padding:11px 14px;border-radius:10px;margin-top:12px;font-weight:500}
+.err-box.show{display:block}
+
+/* ── CUSTOMISE ── */
+.cust-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-top:1px solid var(--bdr);cursor:pointer;user-select:none;transition:background .15s}
+.cust-hd:hover{background:var(--surf2)}
+.cust-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--txt)}
+.cust-arr{font-size:12px;color:var(--txt3);transition:transform .22s}
+.cust-hd[aria-expanded="true"] .cust-arr{transform:rotate(180deg)}
+.cust-body{padding:18px 22px;border-top:1px solid var(--bdr)}
+.cust-body.hide{display:none}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input[type=color]{width:44px;height:40px;border:1.5px solid var(--bdr2);border-radius:9px;cursor:pointer;padding:3px;background:var(--surf2);-webkit-appearance:none;flex-shrink:0}
+input[type=color]::-webkit-color-swatch-wrapper{padding:2px;border-radius:5px}
+input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.color-row{display:flex;align-items:center;gap:9px}
+.hex-inp{flex:1;background:var(--surf2);border:1.5px solid var(--bdr2);border-radius:10px;color:var(--txt);font-family:var(--fm);font-size:12px;padding:9px 12px;outline:none;transition:border-color .18s}
+.hex-inp:focus{border-color:var(--acc)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:100px;background:var(--surf3);outline:none;cursor:pointer;border:none;padding:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--acc);border:2px solid var(--surf);box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+.range-row{display:flex;align-items:center;gap:12px}
+.ec-row{display:flex;gap:7px}
+.ec-p{flex:1;text-align:center;padding:9px 4px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.ec-p.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.ec-sub{font-size:9px;font-weight:500;display:block;opacity:.7;margin-top:2px}
+.preset-row{display:flex;gap:7px;flex-wrap:wrap}
+.pr-btn{display:flex;align-items:center;gap:6px;padding:6px 11px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);cursor:pointer;font-size:11px;font-weight:700;color:var(--txt2);transition:all .15s}
+.pr-btn:hover{background:var(--surf3);border-color:var(--bdr2)}
+.pr-dot{width:13px;height:13px;border-radius:3px;flex-shrink:0}
+.logo-drop{border:2px dashed var(--bdr2);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.logo-drop:hover,.logo-drop.drag-over{border-color:var(--acc);background:var(--acc-dim)}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ld-txt{font-size:12px;color:var(--txt2);font-weight:600}
+.ld-hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.logo-prev{display:none;align-items:center;gap:9px;margin-top:10px}
+.logo-prev img{width:38px;height:38px;object-fit:contain;border-radius:7px;border:1px solid var(--bdr2);background:var(--surf2);padding:3px}
+.logo-prev span{font-size:11px;color:var(--txt2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-rm{font-size:11px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px}
+.logo-rm:hover{background:var(--red-dim)}
+
+/* ── PREVIEW PANEL ── */
+.preview-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;text-align:center;position:sticky;top:calc(var(--nav) + 16px)}
+.qr-canvas-box{background:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,.5);min-width:200px;min-height:200px;position:relative;overflow:hidden;margin-bottom:16px}
+#qr-out canvas{display:block;max-width:100%;height:auto;border-radius:4px}
+.qr-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--txt3);min-width:180px;min-height:180px}
+.qr-ph-icon{font-size:56px;opacity:.2}
+.qr-ph-txt{font-size:13px;font-weight:600}
+.qr-flash{position:absolute;inset:0;background:rgba(37,211,102,.2);border-radius:14px;opacity:0;pointer-events:none;transition:opacity .35s}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:14px}
+.qm-type{font-size:13px;font-weight:700;color:var(--txt);text-align:left}
+.qm-info{font-size:10px;color:var(--txt3);font-family:var(--fm);text-align:right}
+.qm-ready{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:12px;display:block}
+.dl-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.dl-btn{padding:11px 6px;border-radius:10px;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .18s}
+.dl-png{background:var(--acc);color:#fff}
+.dl-png:hover{background:var(--acc-dark)}
+.dl-svg{background:var(--surf2);border:1.5px solid var(--bdr2);color:var(--txt)}
+.dl-svg:hover{background:var(--surf3)}
+.dl-copy{background:var(--grn-dim);border:1.5px solid var(--grn-bdr);color:var(--grn)}
+.dl-copy:hover{background:rgba(37,211,102,.18)}
+.act-row{display:flex;gap:8px;justify-content:center}
+.act-btn{padding:8px 14px;border-radius:8px;border:1.5px solid var(--bdr2);background:var(--surf2);color:var(--txt2);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.act-btn:hover{background:var(--surf3);color:var(--txt)}
+.tips-card{background:var(--surf2);border:1px solid var(--bdr);border-radius:12px;padding:16px;margin-top:14px}
+.tips-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tips-list{display:flex;flex-direction:column;gap:7px}
+.tip{display:flex;gap:7px;align-items:flex-start}
+.tip-dot{color:var(--grn);font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px}
+.tip-txt{font-size:11px;color:var(--txt2);line-height:1.55}
+
+/* ── STATS ── */
+.stats-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rad);padding:24px;margin-top:48px}
+.stats-box h3{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--txt);margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-item{text-align:center;padding:16px 10px;background:var(--surf3);border-radius:10px}
+.stat-num{font-size:28px;font-weight:900;color:var(--acc);font-family:var(--fh);margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--txt2);line-height:1.4}
+
+/* ── STEPS ── */
+.steps-section{margin-top:52px}
+.steps-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.steps-section h2 span{color:var(--acc)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:22px;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc-dark))}
+.step-num{width:36px;height:36px;background:var(--acc-dim);border:1.5px solid var(--acc-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--acc);margin-bottom:12px}
+.step-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+
+/* ── USE CASES ── */
+.uses-section{margin-top:52px}
+.uses-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.uc-icon{font-size:26px;display:block;margin-bottom:10px}
+.uc-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.uc-desc{font-size:11px;color:var(--txt2);line-height:1.55}
+
+/* ── BENEFITS ── */
+.benefits-section{margin-top:52px}
+.benefits-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benefit-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px}
+.bn-icon{font-size:24px;margin-bottom:10px;display:block}
+.bn-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.bn-desc{font-size:12px;color:var(--txt2);line-height:1.6}
+
+/* ── RELATED ── */
+.related-section{margin-top:52px}
+.related-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rel-card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px;text-decoration:none;transition:all .18s;display:flex;align-items:center;gap:10px}
+.rel-card:hover{border-color:var(--acc);background:var(--acc-dim);transform:translateY(-2px)}
+.rel-icon{font-size:22px;flex-shrink:0}
+.rel-info .rel-title{font-size:12px;font-weight:700;color:var(--txt)}
+.rel-info .rel-desc{font-size:10px;color:var(--txt3);margin-top:2px}
+
+/* ── FAQ ── */
+.faq-section{margin-top:52px;max-width:760px}
+.faq-section h2{font-family:var(--fh);font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--txt);margin-bottom:24px;letter-spacing:-.5px}
+.fi{border-bottom:1px solid var(--bdr);padding:16px 0}
+.fi:last-child{border-bottom:none}
+.fq{font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;color:var(--txt)}
+.fq-icon{font-size:18px;font-weight:300;color:var(--txt3);transition:transform .25s;flex-shrink:0;margin-top:1px}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{font-size:13px;color:var(--txt2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s,padding .35s}
+.fi.open .fa{max-height:300px;padding-top:10px}
+
+/* ── SEO ARTICLE ── */
+.seo-article{margin-top:52px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rad);padding:28px}
+.seo-article h2{font-family:var(--fh);font-size:clamp(20px,3.5vw,30px);font-weight:900;color:var(--txt);margin-bottom:14px;letter-spacing:-.5px}
+.seo-article h3{font-size:17px;font-weight:700;color:var(--txt);margin:22px 0 10px}
+.seo-article p{font-size:14px;line-height:1.8;color:var(--txt2);margin-bottom:14px}
+.seo-article ul{padding-left:22px;margin-bottom:14px}
+.seo-article li{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:5px}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:40px 20px 28px}
+.foot{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fb-logo{margin-bottom:10px}
+.fbd{font-size:13px;color:var(--txt2);line-height:1.7;max-width:220px}
+.fct{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fl a{font-size:13px;color:var(--txt2);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--acc)}
+.fbot{max-width:var(--mw);margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:12px;color:var(--txt3)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr}.preview-card{position:static}.uses-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.benefits-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nav-links{display:none}.ham{display:flex}main{padding:28px 14px 70px}.foot{grid-template-columns:1fr 1fr;gap:20px}.fb-brand{grid-column:1/-1}.uses-grid{grid-template-columns:1fr 1fr}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.foot{grid-template-columns:1fr}.uses-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}.benefits-grid{grid-template-columns:1fr}}
+</style>
 <script>
-(function(){
-  var loaded = false;
-  function loadGTM(){
-    if (loaded) return; loaded = true;
-    var s = document.createElement('script');
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';
-    s.async = true;
-    document.head.appendChild(s);
-    s.onload = function(){
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5NYSSB79NH');
-    };
-  }
-  ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
-    window.addEventListener(evt, loadGTM, {once:true, passive:true});
-  });
-})();
+window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-5NYSSB79NH';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5NYSSB79NH');};});
 </script>
 </head>
-<body><h1>Coming Soon</h1><p>This tool is currently under development.</p><a href="..">Back to Home</a></body>
+<body>
+
+<!-- NAV -->
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+      <div class="lb" aria-hidden="true">T</div>
+      <span class="lt">Tools<em>Box</em></span>
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="../index.html" class="nl">🏠 Home</a>
+      <a href="qr-code-index.html" class="nl on" aria-current="page">📱 QR Codes</a>
+      <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+      <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html" class="nl">🏠 Home</a>
+  <a href="qr-code-index.html" class="nl">📱 QR Codes</a>
+  <a href="../calculators/calculators-index.html" class="nl">🧮 Calculators</a>
+  <a href="../text-tools/text-tools-index.html" class="nl">✍️ Text Tools</a>
+</div>
+
+<main id="main-content">
+  <!-- BREADCRUMB -->
+  <nav class="bc" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="qr-code-index.html">QR Codes</a>
+    <span class="sep">›</span>
+    <span aria-current="page">WhatsApp QR Code Generator</span>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="badge" aria-label="Tool category">💬 WhatsApp QR Code Generator</div>
+    <h1>Chat on <b>WhatsApp</b><br>One Scan, Zero Friction</h1>
+    <p class="sub">Create a QR code that opens a WhatsApp chat with your number — pre-filled message included. Perfect for customer support, marketing, business cards, and storefronts. 100% free, no sign-up required.</p>
+    <div class="star-strip" role="list" aria-label="Compatible platforms">
+      <span class="star-badge" role="listitem">💬 WhatsApp</span>
+      <span class="star-badge" role="listitem">📱 iOS Camera</span>
+      <span class="star-badge" role="listitem">🤖 Android Camera</span>
+      <span class="star-badge" role="listitem">🔍 Google Lens</span>
+    </div>
+  </header>
+
+  <!-- TOOL -->
+  <section aria-label="QR Code Generator Tool">
+  <div class="tool-grid">
+    <!-- LEFT FORM -->
+    <div>
+      <div class="card">
+        <div class="card-hd">
+          <span class="ch-title">💬 WhatsApp details</span>
+          <span class="ch-badge">wa.me</span>
+        </div>
+        <div class="card-body">
+
+          <div class="mode-tabs" role="tablist" aria-label="WhatsApp QR type">
+            <button class="mtab on" id="tab-chat" onclick="setMode('chat')" role="tab" aria-selected="true" aria-controls="form-chat">💬 Chat</button>
+            <button class="mtab" id="tab-group" onclick="setMode('group')" role="tab" aria-selected="false" aria-controls="form-group">👥 Group Invite</button>
+          </div>
+
+          <!-- CHAT MODE -->
+          <div id="form-chat" role="tabpanel">
+            <div class="info-box">
+              <strong>How to format your number:</strong> Use international format — include your country code but omit the + sign and spaces. Example: <strong>14155551234</strong> (US) or <strong>917012345678</strong> (India).
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="wa-phone">WhatsApp Phone Number</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">📞</span>
+                <input type="tel" id="wa-phone" class="inp has-icon" placeholder="+14155551234 or 14155551234" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="wa-phone-hint">
+              </div>
+              <span id="wa-phone-hint" style="font-size:11px;color:var(--txt3)">Include country code — spaces and + are removed automatically</span>
+            </div>
+            <div class="fld">
+              <label class="lbl" for="wa-message">Pre-filled Message <span class="lbl-hint">optional</span></label>
+              <textarea id="wa-message" class="inp" rows="3" placeholder="Hi! I'd like to enquire about…" oninput="autoGenerate()" aria-describedby="wa-msg-hint"></textarea>
+              <span id="wa-msg-hint" style="font-size:11px;color:var(--txt3)">The message is pre-typed in WhatsApp when someone scans — they just tap Send</span>
+            </div>
+          </div>
+
+          <!-- GROUP INVITE MODE -->
+          <div id="form-group" role="tabpanel" style="display:none">
+            <div class="info-box">
+              <strong>How to get your group invite link:</strong> Open WhatsApp → Group → Group Info → Invite to Group via Link → <strong>Copy Link</strong>. Paste the full link below.
+            </div>
+            <div class="fld">
+              <label class="lbl lbl-req" for="wa-group">WhatsApp Group Invite Link</label>
+              <div class="inp-wrap">
+                <span class="inp-icon" aria-hidden="true">👥</span>
+                <input type="url" id="wa-group" class="inp has-icon" placeholder="https://chat.whatsapp.com/XXXXXXXXXXX" oninput="autoGenerate()" autocomplete="off" spellcheck="false" aria-describedby="wa-group-hint">
+              </div>
+              <span id="wa-group-hint" style="font-size:11px;color:var(--txt3)">Group invite links start with chat.whatsapp.com/ — paste the full URL</span>
+            </div>
+          </div>
+
+          <div class="link-preview-text" id="link-preview" aria-live="polite"></div>
+          <button class="gen-btn" onclick="generateQR()" aria-label="Generate WhatsApp QR Code">
+            ⚡ Generate WhatsApp QR Code
+          </button>
+          <div class="err-box" id="err-box" role="alert" aria-live="assertive"></div>
+        </div>
+
+        <!-- CUSTOMISE -->
+        <div class="cust-hd" onclick="toggleCust()" role="button" aria-expanded="false" aria-controls="cust-body" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCust()">
+          <span class="cust-title">🎨 Customise QR Code</span>
+          <span class="cust-arr" aria-hidden="true">▾</span>
+        </div>
+        <div class="cust-body hide" id="cust-body">
+          <div class="r2" style="margin-bottom:14px">
+            <div class="fld">
+              <label class="lbl">QR Color</label>
+              <div class="color-row">
+                <input type="color" id="fg-col" value="#000000" oninput="syncHex('fg-col','fg-hex');autoGenerate()" aria-label="QR code foreground color">
+                <input type="text" id="fg-hex" class="hex-inp" value="#000000" maxlength="7" oninput="syncCol('fg-hex','fg-col');autoGenerate()" aria-label="QR code hex color">
+              </div>
+            </div>
+            <div class="fld">
+              <label class="lbl">Background</label>
+              <div class="color-row">
+                <input type="color" id="bg-col" value="#ffffff" oninput="syncHex('bg-col','bg-hex');autoGenerate()" aria-label="QR code background color">
+                <input type="text" id="bg-hex" class="hex-inp" value="#ffffff" maxlength="7" oninput="syncCol('bg-hex','bg-col');autoGenerate()" aria-label="Background hex color">
+              </div>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Colour Presets</label>
+            <div class="preset-row">
+              <button class="pr-btn" onclick="preset('#000000','#ffffff');autoGenerate()" aria-label="Classic black on white"><span class="pr-dot" style="background:#000;border:1px solid rgba(255,255,255,.2)"></span>Classic</button>
+              <button class="pr-btn" onclick="preset('#25D366','#e8f9ef');autoGenerate()" aria-label="WhatsApp green"><span class="pr-dot" style="background:#25D366"></span>WA Green</button>
+              <button class="pr-btn" onclick="preset('#128C7E','#e0f2f0');autoGenerate()" aria-label="WhatsApp dark green"><span class="pr-dot" style="background:#128C7E"></span>Dark Green</button>
+              <button class="pr-btn" onclick="preset('#075E54','#e0efed');autoGenerate()" aria-label="WhatsApp deep teal"><span class="pr-dot" style="background:#075E54"></span>Teal</button>
+              <button class="pr-btn" onclick="preset('#ffffff','#075E54');autoGenerate()" aria-label="Inverted teal"><span class="pr-dot" style="background:#075E54;border:1px solid rgba(255,255,255,.3)"></span>Inverted</button>
+              <button class="pr-btn" onclick="preset('#ffffff','#1a1a2e');autoGenerate()" aria-label="Dark mode"><span class="pr-dot" style="background:#1a1a2e;border:1px solid rgba(255,255,255,.3)"></span>Dark</button>
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Size — <span id="sz-label">300×300</span></label>
+            <div class="range-row">
+              <input type="range" id="sz-range" min="128" max="1024" step="32" value="300" oninput="updSize();autoGenerate()" aria-label="QR code size" aria-valuetext="300 by 300 pixels">
+            </div>
+          </div>
+          <div class="fld" style="margin-bottom:14px">
+            <label class="lbl">Error Correction</label>
+            <div class="ec-row" role="group" aria-label="Error correction level">
+              <button class="ec-p" data-ec="L" onclick="setEC('L',this);autoGenerate()" aria-pressed="false">L<span class="ec-sub">7%</span></button>
+              <button class="ec-p" data-ec="M" onclick="setEC('M',this);autoGenerate()" aria-pressed="false">M<span class="ec-sub">15%</span></button>
+              <button class="ec-p on" data-ec="Q" onclick="setEC('Q',this);autoGenerate()" aria-pressed="true">Q<span class="ec-sub">25%</span></button>
+              <button class="ec-p" data-ec="H" onclick="setEC('H',this);autoGenerate()" aria-pressed="false">H<span class="ec-sub">30%</span></button>
+            </div>
+          </div>
+          <div class="fld">
+            <label class="lbl">Logo / Icon (optional)</label>
+            <div class="logo-drop" id="logo-drop" role="button" tabindex="0" aria-label="Upload logo for QR code center">
+              <div class="ld-txt">📁 Click or drag to upload logo</div>
+              <div class="ld-hint">PNG, JPG, SVG · max 500 KB</div>
+              <input type="file" id="logo-inp" accept="image/*" onchange="handleLogo(this)" aria-label="Upload logo file">
+            </div>
+            <div class="logo-prev" id="logo-prev">
+              <img id="logo-img" src="" alt="Logo preview">
+              <span id="logo-name"></span>
+              <button class="logo-rm" onclick="rmLogo()" aria-label="Remove logo">✕ Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PREVIEW -->
+    <div class="preview-card" role="region" aria-label="QR Code Preview">
+      <div class="qr-canvas-box">
+        <div id="qr-out">
+          <div class="qr-ph" aria-hidden="true">
+            <span class="qr-ph-icon">💬</span>
+            <span class="qr-ph-txt">QR code appears here</span>
+          </div>
+        </div>
+        <div class="qr-flash" id="qr-flash" aria-hidden="true"></div>
+      </div>
+      <div class="qr-meta">
+        <span class="qm-type" id="qm-type">WhatsApp QR Code</span>
+        <span class="qm-info" id="qm-info">—</span>
+      </div>
+      <span class="qm-ready" id="qm-ready" aria-live="polite"></span>
+      <div class="dl-row">
+        <button class="dl-btn dl-png" onclick="dlPNG()" aria-label="Download QR code as PNG">⬇ PNG</button>
+        <button class="dl-btn dl-svg" onclick="dlSVG()" aria-label="Download QR code as SVG">⬇ SVG</button>
+        <button class="dl-btn dl-copy" id="cp-btn" onclick="cpQR()" aria-label="Copy QR code to clipboard">📋 Copy</button>
+      </div>
+      <div class="act-row">
+        <button class="act-btn" onclick="printQR()" aria-label="Print QR code">🖨️ Print</button>
+        <button class="act-btn" onclick="shareQR()" aria-label="Share QR code">📤 Share</button>
+        <button class="act-btn" onclick="resetAll()" aria-label="Reset all fields">🔄 Reset</button>
+      </div>
+      <div class="tips-card">
+        <div class="tips-title">💡 Quick tips</div>
+        <div class="tips-list">
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Always include your country code in the phone number</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Pre-filled messages increase response rate significantly</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Use Level H error correction with a logo overlay</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Download SVG for print — scales to any size</span></div>
+          <div class="tip"><span class="tip-dot" aria-hidden="true">✓</span><span class="tip-txt">Test the scan on both iPhone and Android before printing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-box" aria-label="WhatsApp industry statistics">
+    <h3>📊 Why WhatsApp QR Codes Work for Business</h3>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">2B+</div><div class="stat-label">WhatsApp active users in 180+ countries worldwide</div></div>
+      <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">message open rate on WhatsApp vs 20% for email</div></div>
+      <div class="stat-item"><div class="stat-num">60%</div><div class="stat-label">higher response rate on WhatsApp vs traditional SMS</div></div>
+      <div class="stat-item"><div class="stat-num">5×</div><div class="stat-label">faster customer response with a pre-filled message QR code</div></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="steps-section" aria-label="How to create a WhatsApp QR code">
+    <h2>📖 How to Create Your WhatsApp QR Code in <span>4 Steps</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-title">Choose Your Mode</div>
+        <div class="step-desc">Select Chat mode to link directly to your WhatsApp number, or Group Invite to share a group join link. Each generates the correct URL automatically.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-title">Enter Your Details</div>
+        <div class="step-desc">In Chat mode, enter your international phone number and an optional pre-filled message. In Group mode, paste your group invite link from WhatsApp.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-title">Customise the Design</div>
+        <div class="step-desc">Apply WhatsApp green presets, add your brand logo to the centre, and choose the right size for your intended use — business card, poster, or receipt.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-title">Download and Share</div>
+        <div class="step-desc">Download as PNG for digital use or SVG for crisp print. Place on business cards, storefronts, product packaging, or your website.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">05</div>
+        <div class="step-title">Test Before Printing</div>
+        <div class="step-desc">Scan with both iPhone and Android to confirm WhatsApp opens with the correct number and pre-filled message before committing to a print run.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">06</div>
+        <div class="step-title">Watch Conversations Start</div>
+        <div class="step-desc">Every scan is a customer ready to engage. Track your WhatsApp conversations and compare before and after deploying QR codes to measure impact.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="uses-section" aria-label="Use cases for WhatsApp QR codes">
+    <h2>💼 Where to Display Your WhatsApp QR Code</h2>
+    <div class="uses-grid">
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏪</span><div class="uc-title">Shop Storefronts</div><div class="uc-desc">Display "Chat with us on WhatsApp" at your counter so walk-in customers can ask about stock, hours, or deals without calling.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🧾</span><div class="uc-title">Receipts & Invoices</div><div class="uc-desc">Add a QR to every receipt with a pre-filled "I have a question about my order" message for seamless post-purchase support.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🪪</span><div class="uc-title">Business Cards</div><div class="uc-desc">Replace the "WhatsApp me" awkwardness with a scannable QR. Every card exchange becomes an instant messaging connection.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">📦</span><div class="uc-title">Product Packaging</div><div class="uc-desc">Add a support QR inside packaging. Customers scan to WhatsApp you directly for assembly help, returns, or feedback.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🍽️</span><div class="uc-title">Restaurant Menus</div><div class="uc-desc">Place a QR on table menus linked to your number so diners can enquire about allergens or place orders over WhatsApp.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🎪</span><div class="uc-title">Event Banners</div><div class="uc-desc">Event organisers use WhatsApp group QR codes on posters so attendees can join the event community by scanning.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">🏠</span><div class="uc-title">Real Estate & Services</div><div class="uc-desc">Estate agents and service providers put QR codes on signage so leads can WhatsApp them instantly while at the location.</div></div>
+      <div class="use-card"><span class="uc-icon" aria-hidden="true">✉️</span><div class="uc-title">Email Signatures</div><div class="uc-desc">Embed a WhatsApp QR image in your email signature. Every email you send becomes a direct WhatsApp invitation.</div></div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits-section" aria-label="Benefits of using WhatsApp QR codes">
+    <h2>🚀 6 Benefits of a WhatsApp QR Code</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">⚡</span><div class="bn-title">Instant Chat — No Number Saving</div><div class="bn-desc">Customers don't need to save your number first. Scanning opens WhatsApp directly with your number pre-dialled — one tap to send.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">💬</span><div class="bn-title">Pre-Filled Messages Reduce Friction</div><div class="bn-desc">Including a pre-filled message ("Hi, I'd like to enquire about...") removes the blank-message anxiety and increases the chance someone actually sends the message.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🌍</span><div class="bn-title">Global Reach</div><div class="bn-desc">WhatsApp is the #1 messaging app in over 100 countries. A single QR code connects you to customers in India, Brazil, Europe, Africa, and beyond.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">📈</span><div class="bn-title">Higher Open & Response Rates</div><div class="bn-desc">WhatsApp messages have a 98% open rate and 60% higher response rate than email. Your QR-driven conversations are far more likely to convert.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🔒</span><div class="bn-title">End-to-End Encrypted</div><div class="bn-desc">WhatsApp chats are encrypted. Customers feel safe sharing order details, personal info, or complaints via WhatsApp over a public email.</div></div>
+      <div class="benefit-card"><span class="bn-icon" aria-hidden="true">🎨</span><div class="bn-title">Fully Branded</div><div class="bn-desc">Customise the QR with WhatsApp green colours and your business logo to make the code instantly recognisable and on-brand.</div></div>
+    </div>
+  </section>
+
+  <!-- RELATED TOOLS -->
+  <section class="related-section" aria-label="Related QR code tools">
+    <h2>🔗 Related QR Code Tools</h2>
+    <div class="related-grid">
+      <a href="qr-phone.html" class="rel-card"><span class="rel-icon">📞</span><div class="rel-info"><div class="rel-title">Phone QR</div><div class="rel-desc">Scan to call</div></div></a>
+      <a href="qr-sms.html" class="rel-card"><span class="rel-icon">💬</span><div class="rel-info"><div class="rel-title">SMS QR</div><div class="rel-desc">Scan to text</div></div></a>
+      <a href="qr-email.html" class="rel-card"><span class="rel-icon">✉️</span><div class="rel-info"><div class="rel-title">Email QR</div><div class="rel-desc">Pre-filled email</div></div></a>
+      <a href="qr-telegram.html" class="rel-card"><span class="rel-icon">✈️</span><div class="rel-info"><div class="rel-title">Telegram QR</div><div class="rel-desc">Channel & invites</div></div></a>
+      <a href="qr-vcard.html" class="rel-card"><span class="rel-icon">👤</span><div class="rel-info"><div class="rel-title">vCard QR</div><div class="rel-desc">Digital business card</div></div></a>
+      <a href="qr-instagram.html" class="rel-card"><span class="rel-icon">📸</span><div class="rel-info"><div class="rel-title">Instagram QR</div><div class="rel-desc">Grow your following</div></div></a>
+      <a href="qr-google-review.html" class="rel-card"><span class="rel-icon">⭐</span><div class="rel-info"><div class="rel-title">Google Review QR</div><div class="rel-desc">Get more reviews</div></div></a>
+      <a href="qr-url.html" class="rel-card"><span class="rel-icon">🔗</span><div class="rel-info"><div class="rel-title">URL QR</div><div class="rel-desc">Any website link</div></div></a>
+      <a href="qr-wifi.html" class="rel-card"><span class="rel-icon">📶</span><div class="rel-info"><div class="rel-title">WiFi QR</div><div class="rel-desc">Share WiFi instantly</div></div></a>
+      <a href="qr-payment.html" class="rel-card"><span class="rel-icon">💳</span><div class="rel-info"><div class="rel-title">Payment QR Hub</div><div class="rel-desc">UPI · PayPal · Venmo</div></div></a>
+      <a href="qr-booking.html" class="rel-card"><span class="rel-icon">📅</span><div class="rel-info"><div class="rel-title">Booking QR</div><div class="rel-desc">Appointment links</div></div></a>
+      <a href="qr-facebook.html" class="rel-card"><span class="rel-icon">📘</span><div class="rel-info"><div class="rel-title">Facebook QR</div><div class="rel-desc">Page & group links</div></div></a>
+    </div>
+  </section>
+
+  <!-- SEO ARTICLE -->
+  <article class="seo-article">
+    <h2>📖 Complete Guide: Using WhatsApp QR Codes to Grow Your Business</h2>
+    <p>WhatsApp has become the default communication channel for over 2 billion people worldwide. With a 98% message open rate and a global reach spanning 180+ countries, it consistently outperforms email, SMS, and even social media DMs for direct customer engagement. A WhatsApp QR code removes the biggest barrier between you and a potential customer conversation — saving your number and typing a message — and collapses it into a single scan.</p>
+
+    <h3>How the wa.me Link Works</h3>
+    <p>The QR code generated here encodes a wa.me link — WhatsApp's official click-to-chat URL format. When someone scans it, their phone opens WhatsApp with your number pre-dialled and, if you've added one, a message already typed in the chat box. The user simply taps Send. The wa.me format is officially supported by WhatsApp and works on both personal and business accounts across iOS and Android.</p>
+
+    <h3>Phone Number Formatting — The Most Common Mistake</h3>
+    <p>The most frequent issue with WhatsApp QR codes is an incorrectly formatted phone number. The wa.me format requires the number in international format without any leading + or spaces — just digits including the country code. For example: 14155551234 for a US number (+1 area code), or 917012345678 for an Indian number (+91). This tool automatically strips spaces, dashes, brackets, and the + sign, so you can paste your number in any format and it will be cleaned up correctly.</p>
+
+    <h3>Pre-Filled Messages — The Secret to Higher Conversions</h3>
+    <p>Adding a pre-filled message dramatically increases the likelihood that someone who scans your QR code actually sends a message. When a user scans without a pre-filled message, they're confronted with a blank chat window and may not know what to say. A message like "Hi! I'd like to know more about your services" or "I saw your menu and have a question" gives them a clear starting point — removing the blank-page anxiety that stops so many potential conversations.</p>
+
+    <h3>Pro Tips for WhatsApp QR Code Success</h3>
+    <ul>
+      <li><strong>Keep your pre-filled message natural:</strong> Write it in first person from the customer's perspective, not yours. "Hi, I'm interested in your services" not "Message us about our services".</li>
+      <li><strong>Use your WhatsApp Business account:</strong> Set up auto-replies and a business profile so when the chat opens, customers immediately see your business name, hours, and description.</li>
+      <li><strong>Pair with a clear CTA:</strong> Print "💬 Chat with us on WhatsApp" next to the QR so people know what scanning does before they scan.</li>
+      <li><strong>Test the link before printing:</strong> Always scan your own QR code on both iOS and Android and verify the number is correct and the message appears as expected.</li>
+      <li><strong>Use Level H error correction with your logo:</strong> Logo overlays require the highest error correction level to ensure scannability even with the centre of the QR code covered.</li>
+    </ul>
+  </article>
+
+  <!-- FAQ -->
+  <section class="faq-section" aria-label="Frequently asked questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">How do I create a WhatsApp QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Enter your WhatsApp phone number in international format (country code + number, no + or spaces), optionally add a pre-filled message, then click Generate. Download as PNG or SVG. Scanning opens WhatsApp with your number pre-dialled, ready to chat.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">What format should the phone number be in?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Use international format with country code. Examples: 14155551234 (US), 447911123456 (UK), 917012345678 (India). The + sign and spaces are removed automatically — only the digits matter.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I add a pre-filled message?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Type your message in the Pre-filled Message field. When someone scans the QR code, WhatsApp opens with that message already typed in the chat box — they just tap Send. Great for customer support scripts, order enquiries, or event RSVPs.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Does the WhatsApp QR code expire?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. This is a static QR code — the wa.me link is encoded directly into the image. It works forever with no subscription, server, or expiry date. Note: Group invite links can expire based on WhatsApp's own settings, but the QR code image itself never expires.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Can I create a QR code for a WhatsApp group?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Yes. Switch to Group Invite mode and paste your WhatsApp group invite link (chat.whatsapp.com/...). The QR code will take anyone who scans it directly to the group join screen inside WhatsApp.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Is my phone number stored on your servers?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">No. All QR code generation happens entirely in your browser using JavaScript. Your phone number and message never leave your device — never sent to any server, never stored, never tracked.</div></div>
+    <div class="fi"><div class="fq" onclick="faq(this)" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter')faq(this)">Where should I display my WhatsApp QR code?<span class="fq-icon" aria-hidden="true">+</span></div><div class="fa">Best locations: business cards, storefronts, product packaging, restaurant menus, event banners, receipts, and email signatures. Each touchpoint turns into a direct customer communication channel with zero typing required.</div></div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="fb-brand">
+      <div class="fb-logo">
+        <a href="../index.html" class="logo" aria-label="ToolsBox Home">
+          <div class="lb" aria-hidden="true">T</div>
+          <span class="lt">Tools<em>Box</em></span>
+        </a>
+      </div>
+      <p class="fbd">Free online tools — QR codes, calculators, text tools. No sign-up, no data stored.</p>
+    </div>
+    <div>
+      <div class="fct">💬 Contact QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-whatsapp.html">💬 WhatsApp QR</a></li>
+        <li><a href="qr-phone.html">📞 Phone QR</a></li>
+        <li><a href="qr-sms.html">💬 SMS QR</a></li>
+        <li><a href="qr-email.html">✉️ Email QR</a></li>
+        <li><a href="qr-telegram.html">✈️ Telegram QR</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🏢 Business QR Codes</div>
+      <ul class="fl">
+        <li><a href="qr-google-review.html">⭐ Google Review QR</a></li>
+        <li><a href="qr-booking.html">📅 Booking QR</a></li>
+        <li><a href="qr-vcard.html">👤 vCard QR</a></li>
+        <li><a href="qr-payment.html">💳 Payment Hub QR</a></li>
+        <li><a href="qr-url.html">🔗 URL QR Code</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">🧮 More Tools</div>
+      <ul class="fl">
+        <li><a href="../calculators/emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="../calculators/sip-calculator.html">SIP Calculator</a></li>
+        <li><a href="../calculators/gst-calculator.html">GST Calculator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc">© <span id="yr"></span> ToolsBox — Free forever · No data stored</span>
+    <span class="fc">Made with ❤️</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+'use strict';
+document.getElementById('yr').textContent = new Date().getFullYear();
+let EC = 'Q', currentLogoBase64 = null, genTimer = null, MODE = 'chat';
+
+/* ── MODE SWITCHING ── */
+function setMode(m) {
+  MODE = m;
+  ['chat','group'].forEach(id => {
+    const tab = document.getElementById('tab-' + id);
+    const form = document.getElementById('form-' + id);
+    const isOn = id === m;
+    tab.classList.toggle('on', isOn);
+    tab.setAttribute('aria-selected', isOn);
+    form.style.display = isOn ? '' : 'none';
+  });
+  hideErr(); livePreview(); autoGenerate();
+}
+
+/* ── BUILD URL ── */
+function buildUrl() {
+  if (MODE === 'chat') {
+    const rawPhone = document.getElementById('wa-phone').value.trim();
+    if (!rawPhone) throw new Error('Please enter your WhatsApp phone number.');
+    const digits = rawPhone.replace(/[^0-9]/g, '');
+    if (digits.length < 7 || digits.length > 15) throw new Error('Please enter a valid international phone number (7–15 digits including country code).');
+    const message = document.getElementById('wa-message').value.trim();
+    let url = 'https://wa.me/' + digits;
+    if (message) url += '?text=' + encodeURIComponent(message);
+    return url;
+  } else {
+    const link = document.getElementById('wa-group').value.trim();
+    if (!link) throw new Error('Please paste your WhatsApp group invite link.');
+    if (!/^https?:\/\/(chat\.)?whatsapp\.com\//i.test(link)) throw new Error('Please paste a valid WhatsApp group link starting with https://chat.whatsapp.com/');
+    return link;
+  }
+}
+
+/* ── LIVE PREVIEW ── */
+function livePreview() {
+  try {
+    const url = buildUrl();
+    const el = document.getElementById('link-preview');
+    el.style.display = 'block';
+    el.innerHTML = 'Will link to: <strong>' + escHtml(url) + '</strong>';
+  } catch(e) { document.getElementById('link-preview').style.display = 'none'; }
+}
+
+/* ── GENERATE ── */
+async function generateQR() {
+  hideErr();
+  let data;
+  try { data = buildUrl(); } catch(e) { showErr(e.message); return; }
+  const size = parseInt(document.getElementById('sz-range').value) || 300;
+  const fg = document.getElementById('fg-col').value;
+  const bg = document.getElementById('bg-col').value;
+  const container = document.getElementById('qr-out');
+  container.innerHTML = '';
+  try {
+    const canvas = document.createElement('canvas');
+    await QRCode.toCanvas(canvas, data, {
+      width: size, margin: 2,
+      color: { dark: fg, light: bg },
+      errorCorrectionLevel: EC
+    });
+    if (currentLogoBase64) await overlayLogo(canvas);
+    container.appendChild(canvas);
+    const labels = { chat: 'WhatsApp Chat QR', group: 'WhatsApp Group QR' };
+    document.getElementById('qm-type').textContent = labels[MODE];
+    document.getElementById('qm-info').textContent = size + '×' + size + ' · EC:' + EC;
+    document.getElementById('qm-ready').textContent = '✓ Ready — scan to open WhatsApp';
+    flashEffect();
+  } catch(e) { showErr('QR generation failed: ' + e.message); }
+}
+
+/* ── LOGO OVERLAY ── */
+function overlayLogo(canvas) {
+  return new Promise(resolve => {
+    if (!currentLogoBase64) return resolve();
+    const ctx = canvas.getContext('2d');
+    const ms = Math.floor(canvas.width * 0.22);
+    const img = new Image();
+    img.onload = () => {
+      let w = ms, h = ms;
+      const r = img.width / img.height;
+      if (r > 1) h = ms / r; else if (r < 1) w = ms * r;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2, pad = 6;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - pad, y - pad, w + pad * 2, h + pad * 2, 8);
+      else ctx.fillRect(x - pad, y - pad, w + pad * 2, h + pad * 2);
+      ctx.fill();
+      ctx.drawImage(img, x, y, w, h);
+      resolve();
+    };
+    img.onerror = () => resolve();
+    img.src = currentLogoBase64;
+  });
+}
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){if(w<2*r)r=w/2;if(h<2*r)r=h/2;this.moveTo(x+r,y);this.lineTo(x+w-r,y);this.quadraticCurveTo(x+w,y,x+w,y+r);this.lineTo(x+w,y+h-r);this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);this.lineTo(x+r,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r);this.lineTo(x,y+r);this.quadraticCurveTo(x,y,x+r,y);this.closePath();return this;};
+}
+
+/* ── AUTO GENERATE ── */
+function autoGenerate() {
+  clearTimeout(genTimer);
+  genTimer = setTimeout(() => {
+    const map = { chat: 'wa-phone', group: 'wa-group' };
+    if (document.getElementById(map[MODE]).value.trim()) generateQR();
+  }, 400);
+  livePreview();
+}
+
+/* ── UTILS ── */
+function flashEffect() { const fl = document.getElementById('qr-flash'); fl.style.opacity = '1'; setTimeout(() => fl.style.opacity = '0', 500); }
+function getCanvas() { return document.querySelector('#qr-out canvas'); }
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* ── DOWNLOAD ── */
+function dlPNG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const a = document.createElement('a'); a.download = 'whatsapp-qr-toolsbox.png'; a.href = c.toDataURL('image/png'); a.click();
+}
+function dlSVG() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const sz = parseInt(document.getElementById('sz-range').value) || 300;
+  const d = c.toDataURL('image/png');
+  const svg = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + ' ' + sz + '">\n<title>WhatsApp QR Code — ToolsBox</title>\n<image x="0" y="0" width="' + sz + '" height="' + sz + '" xlink:href="' + d + '"/>\n</svg>';
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const a = document.createElement('a'); a.download = 'whatsapp-qr-toolsbox.svg'; a.href = URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+}
+async function cpQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  try {
+    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    flashButton('cp-btn', '✓ Copied!');
+  } catch(e) { alert('Right-click the QR → Copy Image.'); }
+}
+function flashButton(id, txt) { const b = document.getElementById(id); const o = b.textContent; b.textContent = txt; setTimeout(() => b.textContent = o, 2000); }
+async function shareQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  if (navigator.share) {
+    try {
+      const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+      const file = new File([blob], 'whatsapp-qr.png', { type: 'image/png' });
+      await navigator.share({ title: 'WhatsApp QR Code', files: [file] });
+    } catch(e) { if (e.name !== 'AbortError') alert('Sharing not supported in this browser.'); }
+  } else {
+    try { await navigator.clipboard.writeText(window.location.href); alert('Link copied!'); } catch(e) {}
+  }
+}
+function printQR() {
+  const c = getCanvas(); if (!c) { showErr('Generate a QR code first.'); return; }
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>WhatsApp QR — ToolsBox<\/title><style>body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;gap:16px;background:#fff}img{max-width:360px}<\/style><\/head><body><img src="' + c.toDataURL() + '"><p style="color:#333;font-size:14px">WhatsApp QR Code · ToolsBox.org<\/p><button onclick="window.print()" style="padding:10px 20px;font-size:14px;cursor:pointer;border-radius:8px;border:1px solid #ccc">🖨️ Print<\/button><\/body><\/html>');
+  win.document.close();
+}
+function resetAll() {
+  ['wa-phone', 'wa-message', 'wa-group'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('qr-out').innerHTML = '<div class="qr-ph" aria-hidden="true"><span class="qr-ph-icon">💬</span><span class="qr-ph-txt">QR code appears here</span></div>';
+  document.getElementById('qm-info').textContent = '—';
+  document.getElementById('qm-ready').textContent = '';
+  document.getElementById('link-preview').style.display = 'none';
+  rmLogo();
+}
+function toggleCust() {
+  const b = document.getElementById('cust-body');
+  const hd = document.querySelector('.cust-hd');
+  const h = b.classList.toggle('hide');
+  hd.setAttribute('aria-expanded', !h);
+  document.querySelector('.cust-arr').textContent = h ? '▾' : '▴';
+}
+function syncHex(cid, hid) { document.getElementById(hid).value = document.getElementById(cid).value; }
+function syncCol(hid, cid) { const v = document.getElementById(hid).value; if (/^#[0-9a-fA-F]{6}$/.test(v)) document.getElementById(cid).value = v; }
+function updSize() {
+  const v = document.getElementById('sz-range').value;
+  document.getElementById('sz-label').textContent = v + '×' + v;
+  document.getElementById('sz-range').setAttribute('aria-valuetext', v + ' by ' + v + ' pixels');
+}
+function setEC(ec, btn) {
+  EC = ec;
+  document.querySelectorAll('.ec-p').forEach(p => { p.classList.remove('on'); p.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true');
+}
+function preset(fg, bg) {
+  document.getElementById('fg-col').value = fg; document.getElementById('fg-hex').value = fg;
+  document.getElementById('bg-col').value = bg; document.getElementById('bg-hex').value = bg;
+}
+function handleLogo(inp) {
+  const f = inp.files[0]; if (!f) return;
+  if (f.size > 512000) { showErr('Logo must be under 500 KB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    currentLogoBase64 = e.target.result;
+    document.getElementById('logo-img').src = currentLogoBase64;
+    document.getElementById('logo-name').textContent = f.name;
+    document.getElementById('logo-prev').style.display = 'flex';
+    setEC('H', document.querySelector('.ec-p[data-ec="H"]'));
+    autoGenerate();
+  };
+  reader.readAsDataURL(f);
+}
+function rmLogo() {
+  currentLogoBase64 = null;
+  document.getElementById('logo-inp').value = '';
+  document.getElementById('logo-prev').style.display = 'none';
+  document.getElementById('logo-img').src = '';
+  autoGenerate();
+}
+function showErr(m) { const e = document.getElementById('err-box'); e.textContent = '⚠️ ' + m; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 5000); }
+function hideErr() { document.getElementById('err-box').classList.remove('show'); }
+function faq(el) {
+  const p = el.parentElement;
+  const open = p.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded','false'); });
+  if (!open) { p.classList.add('open'); el.setAttribute('aria-expanded','true'); }
+}
+
+/* ── MOBILE NAV ── */
+(function() {
+  const h = document.getElementById('ham'), m = document.getElementById('mob-menu');
+  h.addEventListener('click', () => {
+    const o = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', o);
+    const s = h.querySelectorAll('span');
+    if (o) { s[0].style.transform='rotate(45deg) translate(4px,4px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(4px,-4px)'; }
+    else { s.forEach(x => { x.style.transform=''; x.style.opacity=''; }); }
+  });
+  document.addEventListener('click', e => {
+    if (!h.contains(e.target) && !m.contains(e.target)) {
+      m.classList.remove('open'); h.setAttribute('aria-expanded','false');
+      h.querySelectorAll('span').forEach(x => { x.style.transform=''; x.style.opacity=''; });
+    }
+  });
+})();
+
+/* ── LOGO DRAG & DROP ── */
+(function() {
+  const drop = document.getElementById('logo-drop');
+  ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag-over'); }));
+  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag-over'); }));
+  drop.addEventListener('drop', e => {
+    e.preventDefault();
+    const f = e.dataTransfer.files[0];
+    if (f && f.type.startsWith('image/')) {
+      const dt = new DataTransfer(); dt.items.add(f);
+      document.getElementById('logo-inp').files = dt.files;
+      handleLogo(document.getElementById('logo-inp'));
+    }
+  });
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.getElementById('logo-inp').click(); } });
+})();
+
+/* ── DEMO ON LOAD ── */
+window.addEventListener('load', () => {
+  document.getElementById('wa-phone').value = '+14155551234';
+  document.getElementById('wa-message').value = 'Hi! I\'d like to enquire about your services.';
+  livePreview();
+  generateQR();
+});
+</script>
+</body>
 </html>
